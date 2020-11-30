@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "pbop",
+  "version": "1.0",
+
+  "name": "ported Biomes oPlenty",
+  "description": "Just ported BOP b1.7.3 for Fabric",
+  "authors": [
+    "ChessChicken"
+  ],
+  "contact": {
+    "homepage": "https://github.com/ChessChicken-KZ/pBoP",
+    "issues": "https://github.com/ChessChicken-Ru/pBoP/issues",
+    "sources": "https://github.com/ChessChicken-Ru/pBoP"
+  },
+
+  "license": "MIT",
+
+  "entrypoints": {
+    "stationmod": [
+      "kz.chesschicken.pbop.PBOP"
+    ]
+  },
+
+  "mixins": [
+    "bpob.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "1.0.0-beta.7.3"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
