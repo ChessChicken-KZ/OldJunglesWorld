@@ -83,7 +83,7 @@ public class TreeTaiga4 extends Structure {
                     for(j4 = 0; j4 < l - k3; ++j4) {
                         l4 = world.getTileId(i, j + j4, k);
                         if (l4 == 0 || l4 == BlockBase.LEAVES.id) {
-                            world.setTileWithMetadata(i, j + j4, k, BlockBase.WOOD.id, 1);
+                            world.setTileWithMetadata(i, j + j4, k, BlockBase.LOG.id, 1);
                         }
                     }
 

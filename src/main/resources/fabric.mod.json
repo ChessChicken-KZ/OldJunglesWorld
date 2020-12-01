@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "pbop",
-  "version": "1.0",
+  "version": "1.0.1",
 
   "name": "ported Biomes oPlenty",
   "description": "Just ported BOP b1.7.3 for Fabric",
@@ -28,7 +28,8 @@
 
   "depends": {
     "fabricloader": "*",
-    "minecraft": "1.0.0-beta.7.3"
+    "minecraft": "1.0.0-beta.7.3",
+    "stationloader": "*"
   },
   "suggests": {
     "flamingo": "*"
