@@ -1,6 +1,6 @@
-package kz.chesschicken.pbop.mixin;
+package kz.chesschicken.ojw.mixin;
 
-import kz.chesschicken.pbop.PBOP;
+import kz.chesschicken.ojw.init.OldJunglesWorldListener;
 import net.minecraft.level.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +21,7 @@ public class MixinBiome {
             if (f < 0.5F) {
                 cir.setReturnValue(Biome.TUNDRA);
             } else if (f < 0.95F) {
-                cir.setReturnValue(f > 0.85F ?  PBOP.cSavanna :  PBOP.cShrubland);
+                cir.setReturnValue(f > 0.85F ?  OldJunglesWorldListener.cSavanna :  OldJunglesWorldListener.cShrubland);
             } else {
                 cir.setReturnValue(Biome.DESERT);
             }
@@ -29,22 +29,22 @@ public class MixinBiome {
             cir.setReturnValue(Biome.TAIGA);
         } else if (f < 0.7F && f > 0.5F) {
             if (f1 < 0.5F) {
-                cir.setReturnValue(PBOP.bBirchForest);
+                cir.setReturnValue(OldJunglesWorldListener.bBirchForest);
             } else {
-                cir.setReturnValue(f1 > 0.75F ? PBOP.cSwampland : PBOP.bConiferousForest);
+                cir.setReturnValue(f1 > 0.75F ? OldJunglesWorldListener.cSwampland : OldJunglesWorldListener.bConiferousForest);
             }
         } else if (f < 0.97F) {
             if (f1 < 0.35F) {
-                cir.setReturnValue(PBOP.cShrubland);
+                cir.setReturnValue(OldJunglesWorldListener.cShrubland);
             } else {
-                cir.setReturnValue(f1 < 0.7F ? Biome.FOREST : PBOP.cSwampland);
+                cir.setReturnValue(f1 < 0.7F ? Biome.FOREST : OldJunglesWorldListener.cSwampland);
             }
         } else if (f1 < 0.45F) {
             cir.setReturnValue(Biome.PLAINS);
         } else if (f1 < 0.75F) {
             cir.setReturnValue(Biome.SEASONAL_FOREST);
         } else {
-            cir.setReturnValue(f1 < 0.85F ? Biome.RAINFOREST : PBOP.bJungle);
+            cir.setReturnValue(f1 < 0.85F ? Biome.RAINFOREST : OldJunglesWorldListener.bJungle);
         }
     }
 }

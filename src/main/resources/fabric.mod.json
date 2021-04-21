@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "pbop",
-  "version": "1.0.1",
+  "id": "ojw",
+  "version": "${version}",
 
-  "name": "ported Biomes oPlenty",
-  "description": "Just ported BOP b1.7.3 for Fabric",
+  "name": "Old Jungles World",
+  "description": "BOP b1.7.3 + Lots of features!",
   "authors": [
-    "ChessChicken"
+    "ChessChicken-KZ"
   ],
   "contact": {
-    "homepage": "https://github.com/ChessChicken-KZ/pBoP",
-    "issues": "https://github.com/ChessChicken-Ru/pBoP/issues",
-    "sources": "https://github.com/ChessChicken-Ru/pBoP"
+    "homepage": "https://chesschicken-kz.github.io",
+    "issues": "https://github.com/ChessChicken-Ru/OldJunglesWorld/issues",
+    "sources": "https://github.com/ChessChicken-KZ/OldJunglesWorld"
   },
 
   "license": "MIT",
 
   "entrypoints": {
-    "stationmod": [
-      "kz.chesschicken.pbop.PBOP"
+    "stationapi:event_bus": [
+      "kz.chesschicken.ojw.init.OldJunglesWorldListener"
     ]
   },
 

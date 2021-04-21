@@ -1,6 +1,5 @@
-package kz.chesschicken.pbop.level.gen;
+package kz.chesschicken.ojw.level.gen;
 
-import jdk.nashorn.internal.ir.Block;
 import net.minecraft.block.BlockBase;
 import net.minecraft.level.Level;
 import net.minecraft.level.structure.Structure;

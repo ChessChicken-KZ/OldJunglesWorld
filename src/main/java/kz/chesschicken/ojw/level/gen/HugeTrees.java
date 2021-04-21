@@ -1,4 +1,4 @@
-package kz.chesschicken.pbop.level.gen;
+package kz.chesschicken.ojw.level.gen;
 
 
 

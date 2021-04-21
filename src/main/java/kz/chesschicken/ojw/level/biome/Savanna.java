@@ -1,7 +1,7 @@
-package kz.chesschicken.pbop.level.biome;
+package kz.chesschicken.ojw.level.biome;
 
 
-import kz.chesschicken.pbop.level.gen.StructureSavanna;
+import kz.chesschicken.ojw.level.gen.StructureSavanna;
 import net.minecraft.level.biome.Biome;
 import net.minecraft.level.structure.Structure;
 

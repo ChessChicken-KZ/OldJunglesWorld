@@ -1,7 +1,7 @@
-package kz.chesschicken.pbop.level.biome;
+package kz.chesschicken.ojw.level.biome;
 
 
-import kz.chesschicken.pbop.level.gen.StructureShrub;
+import kz.chesschicken.ojw.level.gen.StructureShrub;
 import net.minecraft.level.biome.Biome;
 import net.minecraft.level.structure.Structure;
 

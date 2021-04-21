@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "kz.chesschicken.pbop.mixin",
+  "package": "kz.chesschicken.ojw.mixin",
   "compatibilityLevel": "JAVA_8",
   "injectors": {
     "defaultRequire": 1
