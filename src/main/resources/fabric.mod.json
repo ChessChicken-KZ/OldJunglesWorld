@@ -23,15 +23,12 @@
   },
 
   "mixins": [
-    "bpob.mixins.json"
+    "ojw.mixins.json"
   ],
 
   "depends": {
     "fabricloader": "*",
     "minecraft": "1.0.0-beta.7.3",
-    "stationloader": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "stationapi": "*"
   }
 }
