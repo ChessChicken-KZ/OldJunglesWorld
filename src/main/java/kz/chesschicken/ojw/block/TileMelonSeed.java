@@ -7,12 +7,11 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.template.common.block.Crops;
-import net.modificationstation.stationapi.template.common.block.Plant;
 
 import java.util.Random;
 
 public class TileMelonSeed extends Crops {
-    private int melonID;
+    private final int melonID;
     public TileMelonSeed(Identifier identifier, int melonID) {
         super(identifier, 0);
         this.melonID = melonID;

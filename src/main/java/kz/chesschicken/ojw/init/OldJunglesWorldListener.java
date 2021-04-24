@@ -1,9 +1,11 @@
 package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
+import kz.chesschicken.ojw.block.ItemMelon;
 import kz.chesschicken.ojw.block.ItemSeedsMelon;
 import kz.chesschicken.ojw.block.TileMelonSeed;
 import kz.chesschicken.ojw.level.biome.*;
+import kz.chesschicken.ojw.structure.PlantGroup;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.biome.Biome;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegister;
@@ -14,13 +16,13 @@ import net.modificationstation.stationapi.api.common.event.ListenerPriority;
 import net.modificationstation.stationapi.api.common.event.block.BlockRegister;
 import net.modificationstation.stationapi.api.common.event.item.ItemRegister;
 import net.modificationstation.stationapi.api.common.event.level.biome.BiomeRegister;
+import net.modificationstation.stationapi.api.common.event.level.gen.ChunkDecoration;
 import net.modificationstation.stationapi.api.common.event.recipe.RecipeRegister;
 import net.modificationstation.stationapi.api.common.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.common.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.api.common.registry.ModID;
 import net.modificationstation.stationapi.api.common.util.Null;
-import net.modificationstation.stationapi.template.common.item.food.FoodBase;
 
 public class OldJunglesWorldListener {
     public static Biome bBirchForest;
@@ -68,7 +70,7 @@ public class OldJunglesWorldListener {
     @EventListener(priority = ListenerPriority.LOW)
     public void registerItems(ItemRegister event)
     {
-        itemMelon = new FoodBase(Identifier.of(modID, "itemmelon"), 2, false).setTranslationKey(modID, "itemMelon");
+        itemMelon = new ItemMelon(Identifier.of(modID, "itemmelon")).setTranslationKey(modID, "itemMelon");
         itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "itemmelonseeds")).setTranslationKey(modID, "itemmelonseeds");
     }
 
@@ -90,7 +92,6 @@ public class OldJunglesWorldListener {
         }
     }
 
-    @SuppressWarnings("unused")
     @EventListener
     public void registerTextures(TextureRegister event)
     {
@@ -107,5 +108,16 @@ public class OldJunglesWorldListener {
 
         itemMelon.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/melon.png"));
         itemMelonSeeds.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/melonSeeds.png"));
+    }
+
+    @EventListener
+    public void registerGeneration(ChunkDecoration chunkDecoration)
+    {
+        if (chunkDecoration.random.nextInt(8) == 0 && chunkDecoration.biome == OldJunglesWorldListener.cShrubland) {
+            int ix = chunkDecoration.x + chunkDecoration.random.nextInt(16) + 8;
+            int iy = chunkDecoration.random.nextInt(128);
+            int iz = chunkDecoration.z + chunkDecoration.random.nextInt(16) + 8;
+            (new PlantGroup(blockMelon.id)).generate(chunkDecoration.level, chunkDecoration.random, ix, iy, iz);
+        }
     }
 }
