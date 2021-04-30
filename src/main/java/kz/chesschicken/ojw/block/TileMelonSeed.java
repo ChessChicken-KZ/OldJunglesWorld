@@ -4,24 +4,37 @@ import kz.chesschicken.ojw.init.OldJunglesWorldListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
+import net.minecraft.entity.Item;
+import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.block.Crops;
+import net.modificationstation.stationapi.template.common.block.Plant;
 
 import java.util.Random;
 
-public class TileMelonSeed extends Crops {
+public class TileMelonSeed extends Plant {
     private final int melonID;
     public TileMelonSeed(Identifier identifier, int melonID) {
         super(identifier, 0);
         this.melonID = melonID;
+        this.setTicksRandomly(true);
+        this.setHardness(0.0F);
+        this.setSounds(GRASS_SOUNDS);
+        this.disableStat();
+        this.disableNotifyOnMetaDataChange();
+
         float var3 = 0.125F;
         this.setBoundingBox(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.25F, 0.5F + var3);
 
     }
 
+    public boolean canPlaceAt(Level level, int x, int y, int z) {
+        return super.canPlaceAt(level, x, y, z) && level.getTileId(x, y - 1, z) == BlockBase.FARMLAND.id;
+    }
+
+
     public int getDropId(int meta, Random rand) {
-        return meta == 7 ? OldJunglesWorldListener.itemMelonSeeds.id : -1;
+        return meta == 7 ? OldJunglesWorldListener.itemMelonSeeds.id : 0;
     }
 
 
@@ -46,7 +59,6 @@ public class TileMelonSeed extends Crops {
     }
 
     public void onScheduledTick(Level level, int x, int y, int z, Random rand) {
-        super.onScheduledTick(level, x, y, z, rand);
         if (level.placeTile(x, y + 1, z) >= 9) {
             int var6 = level.getTileMeta(x, y, z);
             if (var6 < 7) {
@@ -57,13 +69,19 @@ public class TileMelonSeed extends Crops {
                 }
             }else if(var6 == 7)
             {
-                if(rand.nextInt(100) == 0)
+                level.setTileMeta(x, y, z, var6);
+                if(rand.nextInt(2) == 0)
                 {
                     level.setTileMeta(x,y,z,0);
                     level.setTile(x,y,z, melonID);
                 }
             }
         }
+
+    }
+
+    public void growCropInstantly(Level arg, int x, int y, int z) {
+        arg.setTileMeta(x, y, z, 7);
 
     }
 
@@ -105,6 +123,24 @@ public class TileMelonSeed extends Crops {
         }
 
         return var5;
+    }
+
+    public void beforeDestroyedByExplosion(Level level, int x, int y, int z, int meta, float dropChance) {
+        super.beforeDestroyedByExplosion(level, x, y, z, meta, dropChance);
+        if (!level.isClient) {
+            for(int var7 = 0; var7 < 3; ++var7) {
+                if (level.rand.nextInt(15) <= meta) {
+                    float var8 = 0.7F;
+                    float var9 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
+                    float var10 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
+                    float var11 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
+                    Item var12 = new Item(level, (double)((float)x + var9), (double)((float)y + var10), (double)((float)z + var11), new ItemInstance(OldJunglesWorldListener.itemMelonSeeds));
+                    var12.pickupDelay = 10;
+                    level.spawnEntity(var12);
+                }
+            }
+
+        }
     }
 
     @Environment(EnvType.CLIENT)

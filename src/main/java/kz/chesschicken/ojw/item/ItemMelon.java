@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.block;
+package kz.chesschicken.ojw.item;
 
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.template.common.item.food.FoodBase;

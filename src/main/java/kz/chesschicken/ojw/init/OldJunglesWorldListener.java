@@ -1,10 +1,13 @@
 package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
-import kz.chesschicken.ojw.block.ItemMelon;
-import kz.chesschicken.ojw.block.ItemSeedsMelon;
 import kz.chesschicken.ojw.block.TileMelonSeed;
+import kz.chesschicken.ojw.item.ItemMelon;
+import kz.chesschicken.ojw.item.ItemSeedsMelon;
+import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import kz.chesschicken.ojw.level.biome.*;
+import kz.chesschicken.ojw.level.biome.varitations.EverTundra;
+import kz.chesschicken.ojw.level.biome.varitations.SwampTundra;
 import kz.chesschicken.ojw.structure.PlantGroup;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.biome.Biome;
@@ -23,6 +26,7 @@ import net.modificationstation.stationapi.api.common.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.api.common.registry.ModID;
 import net.modificationstation.stationapi.api.common.util.Null;
+import net.modificationstation.stationapi.template.common.block.Dirt;
 
 public class OldJunglesWorldListener {
     public static Biome bBirchForest;
@@ -32,10 +36,17 @@ public class OldJunglesWorldListener {
     public static Biome cSavanna;
     public static Biome cSwampland;
 
+    public static Biome vEverTundra;
+    public static Biome vSwampTundra;
+
     public static net.minecraft.item.ItemBase itemMelon;
     public static net.minecraft.item.ItemBase itemMelonSeeds;
     public static net.minecraft.block.BlockBase blockMelon;
     public static net.minecraft.block.BlockBase blockMelonSeedsTile;
+
+    public static net.minecraft.block.BlockBase blockFrozenDirt;
+
+    public static net.minecraft.item.ItemBase infoPaper;
 
     public static int texture_MelonSIDE;
     public static int texture_MelonTOP;
@@ -56,28 +67,36 @@ public class OldJunglesWorldListener {
         cShrubland = new Shrubland();
         cSavanna = new Savanna();
         cSwampland = new Swampland();
+
+        vEverTundra = new EverTundra();
+        vSwampTundra = new SwampTundra();
     }
 
     @SuppressWarnings("unused")
     @EventListener(priority = ListenerPriority.HIGH)
     public void registerBlocks(BlockRegister event)
     {
+        OldJunglesWorld.INSTANCE.INIT.info("Registering blocks...");
         blockMelon = new BlockMelon(Identifier.of(modID, "blockmelon")).setTranslationKey(modID, "blockMelon");
         blockMelonSeedsTile = new TileMelonSeed(Identifier.of(modID, "blockmelonseedstile"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
+        blockFrozenDirt = new Dirt(Identifier.of(modID, "blockfrozendirt"), 0).setTranslationKey(modID, "blockFrozenDirt");
     }
 
     @SuppressWarnings("unused")
     @EventListener(priority = ListenerPriority.LOW)
     public void registerItems(ItemRegister event)
     {
+        OldJunglesWorld.INSTANCE.INIT.info("Registering items...");
         itemMelon = new ItemMelon(Identifier.of(modID, "itemmelon")).setTranslationKey(modID, "itemMelon");
         itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "itemmelonseeds")).setTranslationKey(modID, "itemmelonseeds");
+        infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infoPaper");
     }
 
     @SuppressWarnings("unused")
     @EventListener
     public void registerRecipe(RecipeRegister event)
     {
+        OldJunglesWorld.INSTANCE.INIT.info("Registering recipes (" + event.recipeId.toString() + ")...");
         Identifier type = event.recipeId;
 
         if(type == RecipeRegister.Vanilla.CRAFTING_SHAPED.type())
@@ -92,9 +111,11 @@ public class OldJunglesWorldListener {
         }
     }
 
+    @SuppressWarnings("unused")
     @EventListener
     public void registerTextures(TextureRegister event)
     {
+        OldJunglesWorld.INSTANCE.INIT.info("Registering textures...");
         texture_MelonSIDE = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonSide.png");
         texture_MelonTOP = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTop.png");
 
@@ -108,12 +129,16 @@ public class OldJunglesWorldListener {
 
         itemMelon.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/melon.png"));
         itemMelonSeeds.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/melonSeeds.png"));
+
+        blockFrozenDirt.texture = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_7.png");
+
     }
 
+    @SuppressWarnings("unused")
     @EventListener
     public void registerGeneration(ChunkDecoration chunkDecoration)
     {
-        if (chunkDecoration.random.nextInt(8) == 0 && chunkDecoration.biome == OldJunglesWorldListener.cShrubland) {
+        if (chunkDecoration.random.nextInt(8) == 0 && chunkDecoration.biome == OldJunglesWorldListener.bJungle) {
             int ix = chunkDecoration.x + chunkDecoration.random.nextInt(16) + 8;
             int iy = chunkDecoration.random.nextInt(128);
             int iz = chunkDecoration.z + chunkDecoration.random.nextInt(16) + 8;

@@ -3,3 +3,10 @@ tile.blockMelonSeedsTile.name=Watermelon Seeds
 
 item.itemMelon.name=Watermelon
 item.itemmelonseeds.name=Watermelon Seeds
+
+tile.blockFrozenDirt.name=Frozen Dirt
+item.infoPaper_0.name=A Place of darkness
+item.infoPaper_1.name=Test Page
+item.infoPaper_2.name=Test Page
+item.infoPaper_3.name=Test Page
+

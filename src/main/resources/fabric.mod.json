@@ -19,7 +19,8 @@
   "entrypoints": {
     "stationapi:event_bus": [
       "kz.chesschicken.ojw.init.OldJunglesWorldListener",
-      "kz.chesschicken.ojw.init.OldJunglesWorldConfig"
+      "kz.chesschicken.ojw.init.OldJunglesWorldConfig",
+      "kz.chesschicken.ojw.item.infopaper.EventInfoPaper"
     ]
   },
 

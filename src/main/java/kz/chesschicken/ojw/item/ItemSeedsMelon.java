@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.block;
+package kz.chesschicken.ojw.item;
 
 import kz.chesschicken.ojw.init.OldJunglesWorldListener;
 import net.minecraft.block.BlockBase;
