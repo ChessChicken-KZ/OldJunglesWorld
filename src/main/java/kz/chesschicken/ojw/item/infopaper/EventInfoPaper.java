@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.item.infopaper;
 
-import kz.chesschicken.ojw.init.OldJunglesWorld;
-import kz.chesschicken.ojw.init.OldJunglesWorldListener;
+import kz.chesschicken.ojw.init.OJWListener1;
+import kz.chesschicken.ojw.init.OJWLogger;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
@@ -45,7 +45,7 @@ public class EventInfoPaper {
             in.close();
             return arl.toArray(new String[0]);
         } catch (Exception e) {
-            OldJunglesWorld.INSTANCE.RUNTIME.error("Oh noes! " + e.getMessage());
+            OJWLogger.INSTANCE.RUNTIME.error("Oh noes! " + e.getMessage());
         }
         return null;
     }
@@ -86,14 +86,14 @@ public class EventInfoPaper {
         int id = customData.ints()[0];
         if (playerBase.inventory.getHeldItem() != null)
         {
-            if (playerBase.inventory.getHeldItem().itemId == OldJunglesWorldListener.infoPaper.id)
+            if (playerBase.inventory.getHeldItem().itemId == OJWListener1.infoPaper.id)
             {
                 if(doesExist(playerBase.inventory.getHeldItem().getDamage()))
                 {
                     Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:resultoip");
                     packet.put(customData.ints());
                     PacketHelper.send(packet);
-                    OldJunglesWorld.INSTANCE.RUNTIME.info("SERVER SIDE! Sent a packet of InfoPaper with id: " + customData.ints()[0]);
+                    OJWLogger.INSTANCE.RUNTIME.info("SERVER SIDE! Sent a packet of InfoPaper with id: " + customData.ints()[0]);
                 }
             }
         }
@@ -105,7 +105,7 @@ public class EventInfoPaper {
         {
             Minecraft mc = (Minecraft) FabricLoader.getInstance().getGameInstance();
             mc.openScreen(new GuiInfoPaper(customData.ints()[0]));
-            OldJunglesWorld.INSTANCE.RUNTIME.info("CLIENT SIDE! Got a message to open InfoPaper with id: " + customData.ints()[0]);
+            OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Got a message to open InfoPaper with id: " + customData.ints()[0]);
         }
     }
 
@@ -117,7 +117,7 @@ public class EventInfoPaper {
     public void initializeDocuments(Init init)
     {
         register(0, "_0.txt", "global.png");
-        OldJunglesWorld.INSTANCE.RUNTIME.info("INITIALIZATION! Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
+        OJWLogger.INSTANCE.RUNTIME.info("INITIALIZATION! Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
     }
 
 

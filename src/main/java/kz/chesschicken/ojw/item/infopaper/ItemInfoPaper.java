@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.item.infopaper;
 
-import kz.chesschicken.ojw.init.MinecraftInstance;
-import kz.chesschicken.ojw.init.OldJunglesWorld;
+import kz.chesschicken.ojw.init.OJWLogger;
+import kz.chesschicken.ojw.utils.MinecraftInstance;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerBase;
@@ -37,7 +37,7 @@ public class ItemInfoPaper extends ItemBase {
         }else {
             MinecraftInstance.INSTANCE.openScreen(new GuiInfoPaper(item.getDamage()));
         }
-        OldJunglesWorld.INSTANCE.RUNTIME.info("CLIENT SIDE! Sent packet of InfoPaper with id: " + item.getDamage());
+        OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Sent packet of InfoPaper with id: " + item.getDamage());
         return item;
     }
 

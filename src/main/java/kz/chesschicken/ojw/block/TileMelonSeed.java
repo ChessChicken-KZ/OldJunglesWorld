@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.block;
 
-import kz.chesschicken.ojw.init.OldJunglesWorldListener;
+import kz.chesschicken.ojw.init.OJWListener1;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
@@ -34,7 +34,7 @@ public class TileMelonSeed extends Plant {
 
 
     public int getDropId(int meta, Random rand) {
-        return meta == 7 ? OldJunglesWorldListener.itemMelonSeeds.id : 0;
+        return meta == 7 ? OJWListener1.itemMelonSeeds.id : 0;
     }
 
 
@@ -42,14 +42,14 @@ public class TileMelonSeed extends Plant {
     public int getTextureForSide(int side, int meta) {
         switch (meta)
         {
-            case 2: return OldJunglesWorldListener.texture_MelonTile[1];
-            case 3: return OldJunglesWorldListener.texture_MelonTile[2];
-            case 4: return OldJunglesWorldListener.texture_MelonTile[3];
-            case 5: return OldJunglesWorldListener.texture_MelonTile[4];
-            case 6: return OldJunglesWorldListener.texture_MelonTile[5];
-            case 7: return OldJunglesWorldListener.texture_MelonTile[6];
+            case 2: return OJWListener1.texture_MelonTile[1];
+            case 3: return OJWListener1.texture_MelonTile[2];
+            case 4: return OJWListener1.texture_MelonTile[3];
+            case 5: return OJWListener1.texture_MelonTile[4];
+            case 6: return OJWListener1.texture_MelonTile[5];
+            case 7: return OJWListener1.texture_MelonTile[6];
 
-            default: return OldJunglesWorldListener.texture_MelonTile[0];
+            default: return OJWListener1.texture_MelonTile[0];
         }
     }
 
@@ -134,7 +134,7 @@ public class TileMelonSeed extends Plant {
                     float var9 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
                     float var10 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
                     float var11 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
-                    Item var12 = new Item(level, (double)((float)x + var9), (double)((float)y + var10), (double)((float)z + var11), new ItemInstance(OldJunglesWorldListener.itemMelonSeeds));
+                    Item var12 = new Item(level, (double)((float)x + var9), (double)((float)y + var10), (double)((float)z + var11), new ItemInstance(OJWListener1.itemMelonSeeds));
                     var12.pickupDelay = 10;
                     level.spawnEntity(var12);
                 }

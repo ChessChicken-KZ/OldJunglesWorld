@@ -13,11 +13,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
 
-public class OldJunglesWorldConfig {
+public class OJWConfig {
 
     private final File fileConfig = new File(FabricLoader.getInstance().getGameDirectory(), "ojw.conf");
 
     @Entrypoint.ModID public static ModID modID = Null.get();
+
     @EventListener
     public void config(PostInit event)
     {

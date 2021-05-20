@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.structure;
 
-import kz.chesschicken.ojw.init.OldJunglesWorldListener;
+import kz.chesschicken.ojw.init.OJWListener1;
 import net.minecraft.block.BlockBase;
 import net.minecraft.level.Level;
 import net.minecraft.level.structure.Structure;
@@ -21,7 +21,7 @@ public class PlantGroup extends Structure {
             int iy = y + rand.nextInt(4) - rand.nextInt(4);
             int iz = z + rand.nextInt(8) - rand.nextInt(8);
 
-            if (level.isAir(ix, iy, iz) && level.getTileId(ix, iy - 1, iz) == BlockBase.GRASS.id && OldJunglesWorldListener.blockMelon.canPlaceAt(level, ix, iy, iz))
+            if (level.isAir(ix, iy, iz) && level.getTileId(ix, iy - 1, iz) == BlockBase.GRASS.id && OJWListener1.blockMelon.canPlaceAt(level, ix, iy, iz))
                 level.setTile(ix, iy, iz, id);
 
         }
