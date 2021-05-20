@@ -1,14 +1,11 @@
 package kz.chesschicken.ojw.mixin;
 
 import kz.chesschicken.ojw.init.OldJunglesWorldListener;
-import kz.chesschicken.ojw.level.BiomeSystem;
 import net.minecraft.level.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Random;
 
 
 @Mixin(Biome.class)
@@ -19,8 +16,7 @@ public class MixinBiome {
     {
         f1 *= f;
         if (f < 0.1F) {
-
-            cir.setReturnValue(BiomeSystem.getBiomeVariations(Biome.TUNDRA, (new Random())));
+            cir.setReturnValue(Biome.TUNDRA);
         } else if (f1 < 0.2F) {
             if (f < 0.5F) {
                 cir.setReturnValue(Biome.TUNDRA);
