@@ -11,7 +11,7 @@ import java.awt.*;
 public class GuiInfoPaper extends ScreenBase {
     private final int id;
     private String textureFile;
-    private TextFormatting textFormatting;
+    private String[] textArray;
 
     @SneakyThrows
     public GuiInfoPaper(int i)
@@ -20,12 +20,13 @@ public class GuiInfoPaper extends ScreenBase {
         try
         {
             textureFile = EventInfoPaper.getTexture(i);
-            textFormatting = new TextFormatting(i);
+            textArray = EventInfoPaper.getText(i);
         }
         catch (NullPointerException e)
         {
-            minecraft.openScreen(null);
+            //MinecraftInstance.INSTANCE.openScreen(null);
             OJWLogger.INSTANCE.RUNTIME.error("InfoPaper with id " + i + " throws NullPointerException!");
+            OJWLogger.INSTANCE.RUNTIME.throwing(e);
         }
     }
 
@@ -44,10 +45,10 @@ public class GuiInfoPaper extends ScreenBase {
         GL11.glScalef(0.8f, 0.8f, 0.8f);
         GL11.glBindTexture(3553, this.minecraft.textureManager.getTextureId(textureFile));
         this.blit(guiX, guiY, 0, 0, 256, 256);
-        this.drawTextWithShadowCentred(this.textManager, textFormatting.title, guiX + 128, guiY + 24, Color.WHITE.getRGB());
-        for(int i = 0; i < textFormatting.lines.size(); i++)
+        this.drawTextWithShadowCentred(this.textManager, textArray[0], guiX + 128, guiY + 24, Color.WHITE.getRGB());
+        for(int i = 1; i < textArray.length; i++)
         {
-            this.drawTextWithShadow(this.textManager, textFormatting.lines.get(i), guiX + 24, (guiY + 34) + (i * 10), Color.WHITE.getRGB());
+            this.drawTextWithShadow(this.textManager, textArray[i], guiX + 24, (guiY + 34) + (i * 10), Color.WHITE.getRGB());
         }
         GL11.glPopMatrix();
 

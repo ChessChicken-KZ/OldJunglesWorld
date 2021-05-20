@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.level.biome;
+package kz.chesschicken.ojw.level.biome.overworld;
 
 
 

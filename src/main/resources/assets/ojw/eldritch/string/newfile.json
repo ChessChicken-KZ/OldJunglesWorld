@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "texture": "global.png",
+
+  "title": "Title page",
+  "text":
+  [
+    "Hello world!",
+    "Is something §cspecial §fcomes?"
+  ]
+}

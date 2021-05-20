@@ -1,5 +1,6 @@
 package kz.chesschicken.ojw.item.infopaper;
 
+import com.google.gson.Gson;
 import kz.chesschicken.ojw.init.OJWListener1;
 import kz.chesschicken.ojw.init.OJWLogger;
 import net.fabricmc.api.EnvType;
@@ -17,13 +18,15 @@ import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.api.common.registry.ModID;
 import net.modificationstation.stationapi.api.common.util.Null;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class EventInfoPaper {
     private static final HashMap<Integer, String[]> infopaperIDS = new HashMap<>();
@@ -33,19 +36,20 @@ public class EventInfoPaper {
     public static String[] getText(int i) {
         try
         {
-            List<String> arl = new ArrayList<>();
-            InputStream in = EventInfoPaper.class.getResourceAsStream(infopaperIDS.get(i)[0]);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
-            String s;
-            while( (s = br.readLine()) != null)
-            {
-                arl.add(s);
-            }
-            br.close();
-            in.close();
-            return arl.toArray(new String[0]);
-        } catch (Exception e) {
-            OJWLogger.INSTANCE.RUNTIME.error("Oh noes! " + e.getMessage());
+            List<String> toSend = new ArrayList<>();
+
+            Gson gson = new Gson();
+            Reader reader = Files.newBufferedReader(FabricLoader.getInstance().getModContainer("ojw").get().getPath(infopaperIDS.get(i)[0]));
+
+            Map<?, ?> map = gson.fromJson(reader, Map.class);
+
+            toSend.add((String) map.get("title"));
+            toSend.addAll(((List<String>) map.get("text")));
+            return toSend.toArray(new String[0]);
+        }catch (IOException e)
+        {
+            OJWLogger.INSTANCE.INIT.error("Could not normally parse text for InfoPaper with id: " + i);
+            e.printStackTrace();
         }
         return null;
     }
@@ -64,7 +68,7 @@ public class EventInfoPaper {
     {
         infopaperIDS.put(id, new String[]
                 {
-                        "/assets/ojw/eldritch/string/"+info[0],
+                        "assets/ojw/eldritch/string/"+info[0],
                         "/assets/ojw/eldritch/textures/"+info[1]
                 });
     }
@@ -118,9 +122,39 @@ public class EventInfoPaper {
     public void initializeDocuments(Init init)
     {
 
-        register(0, "_0.txt", "global.png");
-        OJWLogger.INSTANCE.RUNTIME.info("INITIALIZATION! Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
+        //Stream<Path> paths = Files.walk(new File("/assets/ojw/eldritch/string").toPath());
+        try
+        {
+            Stream<Path> paths = Files.walk(FabricLoader.getInstance().getModContainer("ojw").get().getPath("assets/ojw/eldritch/string"));
+            paths.filter(Files::isRegularFile).forEach(path -> {
+                try {
+                    if (path.toFile().getName().contains(".json")) {
+                        Gson gson = new Gson();
+                        Reader reader = Files.newBufferedReader(path);
+
+                        Map<?, ?> map = gson.fromJson(reader, Map.class);
+
+                        int id = Integer.parseInt((String) map.get("id"));
+                        String texture = (String) map.get("texture");
+
+                        register(id, path.toFile().getName(), texture);
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    OJWLogger.INSTANCE.INIT.error("Could not normally parse InfoPaper: " + path.toString());
+                    OJWLogger.INSTANCE.INIT.error("Error: " + e.getMessage());
+                }
+
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //register(0, "newfile.json", "global.png");
+        OJWLogger.INSTANCE.INIT.info("Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
+
     }
+
+
 
 
 }

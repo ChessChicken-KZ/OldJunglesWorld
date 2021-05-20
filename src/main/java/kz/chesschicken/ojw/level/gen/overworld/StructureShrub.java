@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.level.gen;
+package kz.chesschicken.ojw.level.gen.overworld;
 
 
 import net.minecraft.block.BlockBase;

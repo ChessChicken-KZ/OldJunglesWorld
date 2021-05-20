@@ -1,6 +1,6 @@
-package kz.chesschicken.ojw.level.biome;
+package kz.chesschicken.ojw.level.biome.overworld;
 
-import kz.chesschicken.ojw.level.gen.StructureSwamp;
+import kz.chesschicken.ojw.level.gen.overworld.StructureSwamp;
 import net.minecraft.level.biome.Biome;
 import net.minecraft.level.structure.Structure;
 

@@ -1,9 +1,9 @@
-package kz.chesschicken.ojw.level.biome;
+package kz.chesschicken.ojw.level.biome.overworld;
 
 
 
-import kz.chesschicken.ojw.level.gen.TreeTaiga3;
-import kz.chesschicken.ojw.level.gen.TreeTaiga4;
+import kz.chesschicken.ojw.level.gen.overworld.TreeTaiga3;
+import kz.chesschicken.ojw.level.gen.overworld.TreeTaiga4;
 import net.minecraft.entity.EntityEntry;
 import net.minecraft.entity.animal.Wolf;
 import net.minecraft.level.biome.Biome;
