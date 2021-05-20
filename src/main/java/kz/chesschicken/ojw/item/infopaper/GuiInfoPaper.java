@@ -1,5 +1,6 @@
 package kz.chesschicken.ojw.item.infopaper;
 
+import kz.chesschicken.ojw.init.OJWLogger;
 import lombok.SneakyThrows;
 import net.minecraft.client.gui.screen.ScreenBase;
 import net.minecraft.client.util.ScreenScaler;
@@ -16,9 +17,16 @@ public class GuiInfoPaper extends ScreenBase {
     public GuiInfoPaper(int i)
     {
         this.id = i;
-        textureFile = EventInfoPaper.getTexture(i);
-
-        textFormatting = new TextFormatting(i);
+        try
+        {
+            textureFile = EventInfoPaper.getTexture(i);
+            textFormatting = new TextFormatting(i);
+        }
+        catch (NullPointerException e)
+        {
+            minecraft.openScreen(null);
+            OJWLogger.INSTANCE.RUNTIME.error("InfoPaper with id " + i + " throws NullPointerException!");
+        }
     }
 
     @Override

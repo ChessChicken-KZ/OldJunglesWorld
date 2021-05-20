@@ -113,9 +113,11 @@ public class EventInfoPaper {
      * Event for initializing some mod things. :)
      * @param init
      */
+    @SuppressWarnings("unused")
     @EventListener
     public void initializeDocuments(Init init)
     {
+
         register(0, "_0.txt", "global.png");
         OJWLogger.INSTANCE.RUNTIME.info("INITIALIZATION! Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
     }
