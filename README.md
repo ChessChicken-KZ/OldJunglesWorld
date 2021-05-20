@@ -1,2 +1,4 @@
 # OldJunglesWorld
-A Small port of Biome o'Plenty for b1.7.3!
+A mod for StAPI!
+
+More information will outcome with first alpha release!
