@@ -28,7 +28,8 @@ public class ItemInfoPaper extends ItemBase {
     }
 
     @Override
-    public ItemInstance use(ItemInstance item, Level level, PlayerBase player) {
+    public ItemInstance use(ItemInstance item, Level level, PlayerBase player)
+    {
         if(level.isClient)
         {
             Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:openinfopaper");

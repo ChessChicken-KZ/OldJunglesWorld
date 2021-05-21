@@ -22,8 +22,6 @@ public class JarManipulation {
 
     /**
      * Provides minecraft.jar file as {@link java.io.File}
-     *
-     * @exception URISyntaxException if something went wrong, this will throw out.
      * @return minecraft.jar
      */
     public static File getJar()

@@ -3,6 +3,9 @@ package kz.chesschicken.ojw.init;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Logger
+ */
 public class OJWLogger {
     public static OJWLogger INSTANCE;
 

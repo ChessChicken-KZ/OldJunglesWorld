@@ -8,6 +8,9 @@ import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.template.common.item.Seeds;
 
+/**
+ * Melon seeds.
+ */
 public class ItemSeedsMelon extends Seeds {
     public ItemSeedsMelon(Identifier identifier) {
         super(identifier, 1);

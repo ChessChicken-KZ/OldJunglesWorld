@@ -12,6 +12,9 @@ import net.modificationstation.stationapi.template.common.block.Plant;
 
 import java.util.Random;
 
+/**
+ * Melon Plant
+ */
 public class TileMelonSeed extends Plant {
     private final int melonID;
     public TileMelonSeed(Identifier identifier, int melonID) {

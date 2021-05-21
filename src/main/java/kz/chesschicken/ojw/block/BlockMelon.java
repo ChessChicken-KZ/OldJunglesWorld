@@ -7,6 +7,9 @@ import net.modificationstation.stationapi.template.common.block.BlockBase;
 
 import java.util.Random;
 
+/**
+ * Melon block.
+ */
 public class BlockMelon extends BlockBase {
     public BlockMelon(Identifier id) {
         super(id, Material.ORGANIC);

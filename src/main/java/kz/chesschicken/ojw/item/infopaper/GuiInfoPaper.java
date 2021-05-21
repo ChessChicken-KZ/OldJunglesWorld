@@ -24,7 +24,6 @@ public class GuiInfoPaper extends ScreenBase {
         }
         catch (NullPointerException e)
         {
-            //MinecraftInstance.INSTANCE.openScreen(null);
             OJWLogger.INSTANCE.RUNTIME.error("InfoPaper with id " + i + " throws NullPointerException!");
             OJWLogger.INSTANCE.RUNTIME.throwing(e);
         }

@@ -31,8 +31,16 @@ import java.util.stream.Stream;
 public class EventInfoPaper {
     private static final HashMap<Integer, String[]> infopaperIDS = new HashMap<>();
 
+    /**
+     * @param i ID of InfoPaper.
+     * @return InfoPaper's existence.
+     */
     public static boolean doesExist(int i) { return infopaperIDS.containsKey(i); }
 
+    /**
+     * @param i ID of InfoPaper
+     * @return Text from JSON file of InfoPaper
+     */
     public static String[] getText(int i) {
         try
         {
@@ -53,23 +61,29 @@ public class EventInfoPaper {
         }
         return null;
     }
+
+    /**
+     * @param i ID of InfoPaper
+     * @return Texture File of InfoPaper
+     */
     public static String getTexture(int i) { return infopaperIDS.get(i)[1]; }
 
 
     /**
-     * id - id
-     * Strings:
-     * 0 - File text location,
-     * 1 - File texture location
-     * @param id
-     * @param info
+     * Allows you to register your InfoPaper
+     * @param id ID of InfoPaper
+     * @param info File text (example: "/assets/examplemod/something/bla/text.pnh")
+     *             File texture location (example: "/assets/examplemod/something/picture.png")
      */
     private static void register(int id, String... info)
     {
+        if(info[0].startsWith("LOCAL:")) info[0] = info[0].replace("LOCAL:","assets/ojw/eldritch/string/");
+        if(info[1].startsWith("LOCAL:")) info[1] = info[1].replace("LOCAL:","/assets/ojw/eldritch/textures/");
+
         infopaperIDS.put(id, new String[]
                 {
-                        "assets/ojw/eldritch/string/"+info[0],
-                        "/assets/ojw/eldritch/textures/"+info[1]
+                        info[0],
+                        info[1]
                 });
     }
 
@@ -77,7 +91,7 @@ public class EventInfoPaper {
 
     /**
      * Event for registering packets.
-     * @param messageListenerRegister
+     * @param messageListenerRegister Event
      */
     @EventListener
     public void registerInfoPaper_PACKET(MessageListenerRegister messageListenerRegister)
@@ -114,15 +128,13 @@ public class EventInfoPaper {
     }
 
     /**
-     * Event for initializing some mod things. :)
-     * @param init
+     * Event for parsing documents
+     * @param init Event
      */
     @SuppressWarnings("unused")
     @EventListener
     public void initializeDocuments(Init init)
     {
-
-        //Stream<Path> paths = Files.walk(new File("/assets/ojw/eldritch/string").toPath());
         try
         {
             Stream<Path> paths = Files.walk(FabricLoader.getInstance().getModContainer("ojw").get().getPath("assets/ojw/eldritch/string"));
@@ -137,7 +149,7 @@ public class EventInfoPaper {
                         int id = Integer.parseInt((String) map.get("id"));
                         String texture = (String) map.get("texture");
 
-                        register(id, path.toFile().getName(), texture);
+                        register(id, "LOCAL:"+path.toFile().getName(), "LOCAL:"+texture);
                         reader.close();
                     }
                 } catch (IOException e) {
@@ -149,7 +161,7 @@ public class EventInfoPaper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //register(0, "newfile.json", "global.png");
+
         OJWLogger.INSTANCE.INIT.info("Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
 
     }
