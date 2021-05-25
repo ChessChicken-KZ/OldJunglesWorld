@@ -21,7 +21,8 @@
       "kz.chesschicken.ojw.init.OJWListener1",
       "kz.chesschicken.ojw.init.OJWListener2",
       "kz.chesschicken.ojw.init.OJWConfig",
-      "kz.chesschicken.ojw.item.infopaper.EventInfoPaper"
+      "kz.chesschicken.ojw.item.infopaper.EventInfoPaper",
+      "kz.chesschicken.ojw.utils.dimension.StapiEvent"
     ]
   },
 

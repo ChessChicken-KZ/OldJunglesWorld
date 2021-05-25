@@ -9,6 +9,9 @@
   "mixins": [
     "MixinBiome",
     "MixinDye",
-    "MixinLevel"
+    "MixinLevel",
+    "dimapi.MixinDimension",
+    "dimapi.MixinDimensionFile",
+    "dimapi.MixinMcRegionDimensionFile"
   ]
 }
