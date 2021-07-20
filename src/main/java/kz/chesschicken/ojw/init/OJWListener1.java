@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
+import kz.chesschicken.ojw.block.SkyPortal;
 import kz.chesschicken.ojw.block.TileMelonSeed;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
@@ -33,6 +34,7 @@ public class OJWListener1 {
     public static net.minecraft.block.BlockBase blockMelonSeedsTile;
 
     public static net.minecraft.block.BlockBase blockFrozenDirt;
+    public static net.minecraft.block.BlockBase blockSkyPortal;
 
     public static net.minecraft.item.ItemBase infoPaper;
 
@@ -48,17 +50,18 @@ public class OJWListener1 {
 
 
     @SuppressWarnings("unused")
-    @EventListener(priority = ListenerPriority.HIGH)
+    @EventListener
     public void registerBlocks(BlockRegister event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering blocks...");
         blockMelon = new BlockMelon(Identifier.of(modID, "blockmelon")).setTranslationKey(modID, "blockMelon");
         blockMelonSeedsTile = new TileMelonSeed(Identifier.of(modID, "blockmelonseedstile"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
         blockFrozenDirt = new Dirt(Identifier.of(modID, "blockfrozendirt"), 0).setTranslationKey(modID, "blockFrozenDirt");
+        blockSkyPortal = new SkyPortal(Identifier.of(modID, "blockskyportal"), 0).setTranslationKey(modID, "blockSkyPortal");
     }
 
     @SuppressWarnings("unused")
-    @EventListener(priority = ListenerPriority.LOW)
+    @EventListener
     public void registerItems(ItemRegister event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering items...");

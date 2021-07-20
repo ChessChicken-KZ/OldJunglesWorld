@@ -11,8 +11,5 @@ public class StapiEvent {
     @EventListener
     public void registerBaseDimensions(Init init)
     {
-        DimensionEvent.INSTANCE.register(-1, new Nether());
-        DimensionEvent.INSTANCE.register(0, new Overworld());
-        DimensionEvent.INSTANCE.register(1, new Skylands());
     }
 }

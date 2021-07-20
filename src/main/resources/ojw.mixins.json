@@ -10,8 +10,18 @@
     "MixinBiome",
     "MixinDye",
     "MixinLevel",
+    "dimapi.Mixin_class_467",
     "dimapi.MixinDimension",
     "dimapi.MixinDimensionFile",
-    "dimapi.MixinMcRegionDimensionFile"
+    "dimapi.MixinMcRegionDimensionFile",
+    "dimapi.MixinPlayerBase"
+
+  ],
+  "client": [
+    "dimapi.client.MixinAbstractClientPlayer"
+  ],
+  "server": [
+    "dimapi.server.MixinMinecraftServer",
+    "dimapi.server.MixinServerPlayer"
   ]
 }

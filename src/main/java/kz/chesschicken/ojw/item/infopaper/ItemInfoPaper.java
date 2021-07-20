@@ -1,7 +1,6 @@
 package kz.chesschicken.ojw.item.infopaper;
 
 import kz.chesschicken.ojw.init.OJWLogger;
-import kz.chesschicken.ojw.utils.MinecraftInstance;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerBase;
@@ -35,8 +34,9 @@ public class ItemInfoPaper extends ItemBase {
             Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:openinfopaper");
             packet.put(new int[] { item.getDamage() });
             PacketHelper.send(packet);
-        }else {
-            MinecraftInstance.INSTANCE.openScreen(new GuiInfoPaper(item.getDamage()));
+        }else
+            {
+            //kz.chesschicken.ojw.utils.MinecraftInstance.INSTANCE.openScreen(new kz.chesschicken.ojw.item.infopaper.GuiInfoPaper(item.getDamage()));
         }
         OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Sent packet of InfoPaper with id: " + item.getDamage());
         return item;
