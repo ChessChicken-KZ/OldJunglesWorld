@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block;
 
 
-import kz.chesschicken.ojw.utils.portalworks.OJWPlayer;
+import kz.chesschicken.ojw.utils.portal.IPlayerDimension;
 import net.minecraft.block.BlockBase;
 import net.minecraft.entity.EntityBase;
 import net.minecraft.entity.player.PlayerBase;
@@ -9,27 +9,27 @@ import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.template.common.block.Portal;
 
-public class SkyPortal extends Portal {
-    public SkyPortal(Identifier i, int j) {
+public class BlockSkyPortal extends Portal {
+    public BlockSkyPortal(Identifier i, int j) {
         super(i, j);
     }
 
     @Override
     public void onEntityCollision(Level level, int x, int y, int z, EntityBase entityBase) {
         if(entityBase instanceof PlayerBase) {
-            if(((OJWPlayer)entityBase).getIsPortalReady())
+            if(((IPlayerDimension)entityBase).getIsPortalReady())
             {
-                ((OJWPlayer)entityBase).teleport(((PlayerBase) entityBase).dimensionId == 0 ? 1 : 0, new TeleportSKY());
-                ((OJWPlayer)entityBase).setPortalReady(false);
-                ((OJWPlayer)entityBase).setTime1(20D);
+                ((IPlayerDimension)entityBase).teleport(((PlayerBase) entityBase).dimensionId == 0 ? 1 : 0, new TeleportSky());
+                ((IPlayerDimension)entityBase).setPortalReady(false);
+                ((IPlayerDimension)entityBase).setTime1(20D);
             }else
             {
-                if(((OJWPlayer)entityBase).getTime1() > 10D)
+                if(((IPlayerDimension)entityBase).getTime1() > 10D)
                 {
-                    ((OJWPlayer)entityBase).setTime1( ((OJWPlayer)entityBase).getTime1() - 0.1D );
+                    ((IPlayerDimension)entityBase).setTime1( ((IPlayerDimension)entityBase).getTime1() - 0.1D );
                 }else
                 {
-                    ((OJWPlayer)entityBase).setPortalReady(true);
+                    ((IPlayerDimension)entityBase).setPortalReady(true);
                 }
             }
         }

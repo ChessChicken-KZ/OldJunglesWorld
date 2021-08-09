@@ -1,15 +1,14 @@
 package kz.chesschicken.ojw.mixin.dimapi;
 
-import kz.chesschicken.ojw.utils.portalworks.OJWPlayer;
+import kz.chesschicken.ojw.utils.portal.IPlayerDimension;
 import net.minecraft.entity.Living;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(PlayerBase.class)
-public abstract class MixinPlayerBase extends Living implements OJWPlayer {
+public abstract class MixinPlayerBase extends Living implements IPlayerDimension {
     @Unique private double time1 = 20;
     @Unique private boolean portalReady = false;
 

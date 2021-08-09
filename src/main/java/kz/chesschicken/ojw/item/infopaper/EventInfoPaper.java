@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.item.infopaper;
 
 import com.google.gson.Gson;
-import kz.chesschicken.ojw.init.OJWListener1;
+import kz.chesschicken.ojw.init.OJWContentListener;
 import kz.chesschicken.ojw.init.OJWLogger;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -104,7 +104,7 @@ public class EventInfoPaper {
         int id = customData.ints()[0];
         if (playerBase.inventory.getHeldItem() != null)
         {
-            if (playerBase.inventory.getHeldItem().itemId == OJWListener1.infoPaper.id)
+            if (playerBase.inventory.getHeldItem().itemId == OJWContentListener.infoPaper.id)
             {
                 if(doesExist(playerBase.inventory.getHeldItem().getDamage()))
                 {

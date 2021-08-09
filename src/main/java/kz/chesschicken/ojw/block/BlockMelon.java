@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.block;
 
-import kz.chesschicken.ojw.init.OJWListener1;
+import kz.chesschicken.ojw.init.OJWContentListener;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.template.common.block.BlockBase;
@@ -24,14 +24,14 @@ public class BlockMelon extends BlockBase {
 
     @Override
     public int getDropId(int meta, Random rand) {
-        return OJWListener1.itemMelon.id;
+        return OJWContentListener.itemMelon.id;
     }
 
     @Override
     public int getTextureForSide(int side) {
         if(side == 0 || side == 1)
         {
-            return OJWListener1.texture_MelonTOP;
-        }else return OJWListener1.texture_MelonSIDE;
+            return OJWContentListener.texture_MelonTOP;
+        }else return OJWContentListener.texture_MelonSIDE;
     }
 }

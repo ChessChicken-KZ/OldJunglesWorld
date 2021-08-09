@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.mixin.dimapi.client;
 
 import kz.chesschicken.ojw.utils.MinecraftInstance;
-import kz.chesschicken.ojw.utils.portalworks.OJWPlayer;
+import kz.chesschicken.ojw.utils.portal.IPlayerDimension;
 import net.minecraft.class_467;
 import net.minecraft.entity.player.AbstractClientPlayer;
 import net.minecraft.entity.player.PlayerBase;
@@ -10,7 +10,7 @@ import net.minecraft.level.dimension.Dimension;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(AbstractClientPlayer.class)
-public abstract class MixinAbstractClientPlayer extends PlayerBase implements OJWPlayer {
+public abstract class MixinAbstractClientPlayer extends PlayerBase implements IPlayerDimension {
     public MixinAbstractClientPlayer(Level arg) {
         super(arg);
     }

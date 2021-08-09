@@ -1,9 +1,9 @@
-package kz.chesschicken.ojw.utils.portalworks;
+package kz.chesschicken.ojw.utils.portal;
 
 /**
  * Basically this is must-have interface if you want to work with OldJungleWorld's features, like teleport() or etc.
  */
-public interface OJWPlayer {
+public interface IPlayerDimension {
 
 
     public void teleport(int id, net.minecraft.class_467 t);

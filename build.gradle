@@ -1,24 +1,24 @@
 buildscript {
 	repositories {
-		mavenCentral()
-		jcenter()
 		maven {
 			name = "Fabric"
 			url = "https://maven.fabricmc.net/"
 		}
+		gradlePluginPortal()
+		mavenCentral()
+		jcenter()
 		maven {
 			name = "Jitpack"
 			url 'https://jitpack.io/'
 		}
 	}
 	dependencies {
-		classpath 'com.github.Chocohead:Fabric-Loom:e3d1762'
+		classpath 'com.github.Chocohead:Fabric-Loom:66ed9fe'
 	}
 }
 
 plugins {
 	id 'checkstyle'
-	id 'maven-publish'
 }
 
 apply plugin: "fabric-loom"
@@ -38,15 +38,37 @@ group = project.maven_group
 
 repositories {
 	maven {
+		name = "Fabric"
+		url = "https://maven.fabricmc.net/"
+	}
+	mavenLocal()
+	gradlePluginPortal()
+	mavenCentral()
+	jcenter()
+	maven {
 		name = "Jitpack"
-		url "https://jitpack.io/"
+		url 'https://jitpack.io/'
 	}
 	maven {
-		url "https://maven.glass-launcher.net/repo"
+		name = "Glass"
+		url "https://maven.glass-launcher.net/repo/"
 	}
 }
 
 minecraft {
+}
+
+def urlFile = { url, name ->
+	File file = new File("$buildDir/download/${name}.jar")
+	file.parentFile.mkdirs()
+	if (!file.exists()) {
+		new URL(url).withInputStream { downloadStream ->
+			file.withOutputStream { fileOut ->
+				fileOut << downloadStream
+			}
+		}
+	}
+	files(file.absolutePath)
 }
 
 dependencies {
@@ -82,11 +104,13 @@ dependencies {
 
 	implementation "com.github.jhalterman:typetools:87240d6"
 	implementation "com.github.benjiman:expressions:7ed6748"
+	implementation "com.github.mineLdiver:UnsafeEvents:7efec57"
 
 	modImplementation "com.github.minecraft-cursed-legacy:cursed-fabric-loader:${project.loader_version}"
 
-	modImplementation "com.github.ModificationStation:StationAPI:${project.stapi_version}"
-
+	//compile(modImplementation(urlFile("http://glass-launcher.net:8080/job/StationAPI/lastSuccessfulBuild/artifact/build/libs/StationAPI-2.0-PRE1.jar", "StationAPI-2.0-PRE1")))
+	//modImplementation "net.modificationstation:StationAPI:2.0-PRE1"
+	compile(modImplementation(fileTree(dir: 'D:\\Games\\GithubDesktop\\OldJunglesWorld\\jarfiles', include: ['*.jar'])))
 
 }
 

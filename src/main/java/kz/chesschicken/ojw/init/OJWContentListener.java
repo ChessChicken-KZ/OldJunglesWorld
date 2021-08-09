@@ -1,8 +1,8 @@
 package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
-import kz.chesschicken.ojw.block.SkyPortal;
-import kz.chesschicken.ojw.block.TileMelonSeed;
+import kz.chesschicken.ojw.block.BlockMelonSeed;
+import kz.chesschicken.ojw.block.BlockSkyPortal;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
@@ -11,7 +11,6 @@ import net.modificationstation.stationapi.api.client.event.texture.TextureRegist
 import net.modificationstation.stationapi.api.client.texture.TextureFactory;
 import net.modificationstation.stationapi.api.client.texture.TextureRegistry;
 import net.modificationstation.stationapi.api.common.event.EventListener;
-import net.modificationstation.stationapi.api.common.event.ListenerPriority;
 import net.modificationstation.stationapi.api.common.event.block.BlockRegister;
 import net.modificationstation.stationapi.api.common.event.item.ItemRegister;
 import net.modificationstation.stationapi.api.common.event.recipe.RecipeRegister;
@@ -25,7 +24,7 @@ import net.modificationstation.stationapi.template.common.block.Dirt;
 /**
  * Blocks, Items, Textures, Recipe
  */
-public class OJWListener1 {
+public class OJWContentListener {
 
 
     public static net.minecraft.item.ItemBase itemMelon;
@@ -55,9 +54,9 @@ public class OJWListener1 {
     {
         OJWLogger.INSTANCE.INIT.info("Registering blocks...");
         blockMelon = new BlockMelon(Identifier.of(modID, "blockmelon")).setTranslationKey(modID, "blockMelon");
-        blockMelonSeedsTile = new TileMelonSeed(Identifier.of(modID, "blockmelonseedstile"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
+        blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "blockmelonseedstile"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
         blockFrozenDirt = new Dirt(Identifier.of(modID, "blockfrozendirt"), 0).setTranslationKey(modID, "blockFrozenDirt");
-        blockSkyPortal = new SkyPortal(Identifier.of(modID, "blockskyportal"), 0).setTranslationKey(modID, "blockSkyPortal");
+        blockSkyPortal = new BlockSkyPortal(Identifier.of(modID, "blockskyportal"), 0).setTranslationKey(modID, "blockSkyPortal");
     }
 
     @SuppressWarnings("unused")

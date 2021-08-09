@@ -11,9 +11,10 @@ import org.apache.logging.log4j.Logger;
 import java.rmi.UnexpectedException;
 import java.util.HashMap;
 
-/*
- * Daiver, smotri kakoi primitive code lvl 80.
+/**
+ * @deprecated All this shit is deprecated, as new version of StAPI will include DimensionAPI.
  */
+@Deprecated
 public class DimensionEvent {
     private final Logger DIMAPI_LOGGER = LogManager.getLogger("OldJunglesWorld|DIMENSION-API");
     private final HashMap<Integer, Dimension> dimensionMap = new HashMap<>();

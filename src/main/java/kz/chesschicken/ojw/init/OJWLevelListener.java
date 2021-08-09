@@ -10,7 +10,7 @@ import net.modificationstation.stationapi.api.common.event.level.gen.ChunkDecora
 /**
  * Biomes, Generation, Dimensions
  */
-public class OJWListener2 {
+public class OJWLevelListener {
     public static Biome bBirchForest;
     public static Biome bConiferousForest;
     public static Biome bJungle;
@@ -35,11 +35,11 @@ public class OJWListener2 {
     @EventListener
     public void registerGeneration(ChunkDecoration chunkDecoration)
     {
-        if (chunkDecoration.random.nextInt(8) == 0 && chunkDecoration.biome == OJWListener2.bJungle) {
+        if (chunkDecoration.random.nextInt(8) == 0 && chunkDecoration.biome == OJWLevelListener.bJungle) {
             int ix = chunkDecoration.x + chunkDecoration.random.nextInt(16) + 8;
             int iy = chunkDecoration.random.nextInt(128);
             int iz = chunkDecoration.z + chunkDecoration.random.nextInt(16) + 8;
-            (new PlantGroup(OJWListener1.blockMelon.id)).generate(chunkDecoration.level, chunkDecoration.random, ix, iy, iz);
+            (new PlantGroup(OJWContentListener.blockMelon.id, 0)).generate(chunkDecoration.level, chunkDecoration.random, ix, iy, iz);
         }
     }
 }

@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin.dimapi.server;
 
-import kz.chesschicken.ojw.utils.portalworks.OJWPlayer;
+import kz.chesschicken.ojw.utils.portal.IPlayerDimension;
 import net.minecraft.class_467;
 import net.minecraft.class_70;
 import net.minecraft.entity.player.PlayerBase;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ServerPlayer.class)
-public abstract class MixinServerPlayer extends PlayerBase implements OJWPlayer {
+public abstract class MixinServerPlayer extends PlayerBase implements IPlayerDimension {
     @Shadow public ServerPlayerPacketHandler packetHandler;
 
     @Shadow public MinecraftServer server;

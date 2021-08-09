@@ -14,11 +14,12 @@
     "dimapi.MixinDimension",
     "dimapi.MixinDimensionFile",
     "dimapi.MixinMcRegionDimensionFile",
-    "dimapi.MixinPlayerBase"
-
+    "dimapi.MixinPlayerBase",
+    "hunger.MixinPlayer"
   ],
   "client": [
-    "dimapi.client.MixinAbstractClientPlayer"
+    "dimapi.client.MixinAbstractClientPlayer",
+    "hunger.client.MixinOverlay"
   ],
   "server": [
     "dimapi.server.MixinMinecraftServer",

@@ -18,8 +18,8 @@
 
   "entrypoints": {
     "stationapi:event_bus": [
-      "kz.chesschicken.ojw.init.OJWListener1",
-      "kz.chesschicken.ojw.init.OJWListener2",
+      "kz.chesschicken.ojw.init.OJWContentListener",
+      "kz.chesschicken.ojw.init.OJWLevelListener",
       "kz.chesschicken.ojw.init.OJWConfig",
       "kz.chesschicken.ojw.utils.dimension.StapiEvent"
     ],

@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin;
 
-import kz.chesschicken.ojw.init.OJWListener2;
+import kz.chesschicken.ojw.init.OJWLevelListener;
 import net.minecraft.level.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +21,7 @@ public class MixinBiome {
             if (f < 0.5F) {
                 cir.setReturnValue(Biome.TUNDRA);
             } else if (f < 0.95F) {
-                cir.setReturnValue(f > 0.85F ?  OJWListener2.cSavanna :  OJWListener2.cShrubland);
+                cir.setReturnValue(f > 0.85F ?  OJWLevelListener.cSavanna :  OJWLevelListener.cShrubland);
             } else {
                 cir.setReturnValue(Biome.DESERT);
             }
@@ -29,22 +29,22 @@ public class MixinBiome {
             cir.setReturnValue(Biome.TAIGA);
         } else if (f < 0.7F && f > 0.5F) {
             if (f1 < 0.5F) {
-                cir.setReturnValue(OJWListener2.bBirchForest);
+                cir.setReturnValue(OJWLevelListener.bBirchForest);
             } else {
-                cir.setReturnValue(f1 > 0.75F ? OJWListener2.cSwampland : OJWListener2.bConiferousForest);
+                cir.setReturnValue(f1 > 0.75F ? OJWLevelListener.cSwampland : OJWLevelListener.bConiferousForest);
             }
         } else if (f < 0.97F) {
             if (f1 < 0.35F) {
-                cir.setReturnValue(OJWListener2.cShrubland);
+                cir.setReturnValue(OJWLevelListener.cShrubland);
             } else {
-                cir.setReturnValue(f1 < 0.7F ? Biome.FOREST : OJWListener2.cSwampland);
+                cir.setReturnValue(f1 < 0.7F ? Biome.FOREST : OJWLevelListener.cSwampland);
             }
         } else if (f1 < 0.45F) {
             cir.setReturnValue(Biome.PLAINS);
         } else if (f1 < 0.75F) {
             cir.setReturnValue(Biome.SEASONAL_FOREST);
         } else {
-            cir.setReturnValue(f1 < 0.85F ? Biome.RAINFOREST : OJWListener2.bJungle);
+            cir.setReturnValue(f1 < 0.85F ? Biome.RAINFOREST : OJWLevelListener.bJungle);
         }
     }
 }

@@ -1,8 +1,7 @@
 package kz.chesschicken.ojw.utils.dimension;
 
-import net.minecraft.level.dimension.Nether;
-import net.minecraft.level.dimension.Overworld;
-import net.minecraft.level.dimension.Skylands;
+//wtf????
+
 import net.modificationstation.stationapi.api.common.event.EventListener;
 import net.modificationstation.stationapi.api.common.event.mod.Init;
 

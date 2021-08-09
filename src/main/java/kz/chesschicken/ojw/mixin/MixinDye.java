@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.mixin;
 
-import kz.chesschicken.ojw.block.TileMelonSeed;
-import kz.chesschicken.ojw.init.OJWListener1;
+import kz.chesschicken.ojw.block.BlockMelonSeed;
+import kz.chesschicken.ojw.init.OJWContentListener;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.Dye;
 import net.minecraft.item.ItemInstance;
@@ -18,9 +18,9 @@ public class MixinDye {
     {
         if (item.getDamage() == 15) {
             int currentID = level.getTileId(x, y, z);
-            if (currentID == OJWListener1.blockMelonSeedsTile.id) {
+            if (currentID == OJWContentListener.blockMelonSeedsTile.id) {
                 if (!level.isClient) {
-                    ((TileMelonSeed) OJWListener1.blockMelonSeedsTile).growCropInstantly(level, x, y, z);
+                    ((BlockMelonSeed) OJWContentListener.blockMelonSeedsTile).growCropInstantly(level, x, y, z);
                     --item.count;
                 }
 
