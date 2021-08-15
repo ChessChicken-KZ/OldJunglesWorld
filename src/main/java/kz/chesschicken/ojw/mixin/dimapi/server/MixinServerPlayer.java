@@ -43,21 +43,20 @@ public abstract class MixinServerPlayer extends PlayerBase implements IPlayerDim
         this.removed = false;
         double var5 = this.x;
         double var7 = this.z;
+
+        /*
         double var9 = 8.0D;
         if (this.dimensionId == -1) {
             var5 /= var9;
             var7 /= var9;
-            this.setPositionAndAngles(var5, this.y, var7, this.yaw, this.pitch);
-            if (this.isAlive()) {
-                var2.method_193(this, false);
-            }
         } else {
             var5 *= var9;
             var7 *= var9;
-            this.setPositionAndAngles(var5, this.y, var7, this.yaw, this.pitch);
-            if (this.isAlive()) {
-                var2.method_193(this, false);
-            }
+        } */
+
+        this.setPositionAndAngles(var5, this.y, var7, this.yaw, this.pitch);
+        if (this.isAlive()) {
+            var2.method_193(this, false);
         }
 
         if (this.isAlive()) {

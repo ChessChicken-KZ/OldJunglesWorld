@@ -29,19 +29,19 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class EventInfoPaper {
-    private static final HashMap<Integer, String[]> infopaperIDS = new HashMap<>();
+    private final HashMap<Integer, String[]> infopaperIDS = new HashMap<>();
 
     /**
      * @param i ID of InfoPaper.
      * @return InfoPaper's existence.
      */
-    public static boolean doesExist(int i) { return infopaperIDS.containsKey(i); }
+    public boolean doesExist(int i) { return infopaperIDS.containsKey(i); }
 
     /**
      * @param i ID of InfoPaper
      * @return Text from JSON file of InfoPaper
      */
-    public static String[] getText(int i) {
+    public String[] getText(int i) {
         try
         {
             List<String> toSend = new ArrayList<>();
@@ -66,7 +66,7 @@ public class EventInfoPaper {
      * @param i ID of InfoPaper
      * @return Texture File of InfoPaper
      */
-    public static String getTexture(int i) { return infopaperIDS.get(i)[1]; }
+    public String getTexture(int i) { return infopaperIDS.get(i)[1]; }
 
 
     /**
@@ -75,7 +75,7 @@ public class EventInfoPaper {
      * @param info File text (example: "/assets/examplemod/something/bla/text.pnh")
      *             File texture location (example: "/assets/examplemod/something/picture.png")
      */
-    private static void register(int id, String... info)
+    private void register(int id, String... info)
     {
         if(info[0].startsWith("LOCAL:")) info[0] = info[0].replace("LOCAL:","assets/ojw/eldritch/string/");
         if(info[1].startsWith("LOCAL:")) info[1] = info[1].replace("LOCAL:","/assets/ojw/eldritch/textures/");
@@ -87,7 +87,7 @@ public class EventInfoPaper {
                 });
     }
 
-    @Entrypoint.ModID public static final ModID modid = Null.get();
+    @Entrypoint.ModID public final ModID modid = Null.get();
 
     /**
      * Event for registering packets.
@@ -166,7 +166,8 @@ public class EventInfoPaper {
 
     }
 
-
-
-
+    private static final EventInfoPaper instance = new EventInfoPaper();
+    public static EventInfoPaper getInstance() {
+        return instance;
+    }
 }

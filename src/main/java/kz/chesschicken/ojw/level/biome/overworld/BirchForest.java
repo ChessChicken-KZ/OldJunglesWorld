@@ -12,8 +12,7 @@ import java.util.Random;
 
 public class BirchForest extends Biome {
 
-    public BirchForest()
-    {
+    public BirchForest() {
         this.creatures.add(new EntityEntry(Wolf.class, 2));
         this.setGrassColour(9022836);
         this.setName("Birch Forest");

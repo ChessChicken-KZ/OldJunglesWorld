@@ -21,7 +21,7 @@ public abstract class MixinOverlay extends DrawableHelper {
     {
         ScreenScaler ss = new ScreenScaler(this.minecraft.options, this.minecraft.actualWidth, this.minecraft.actualHeight);
 
-        GL11.glBindTexture(3553, this.minecraft.textureManager.getTextureId("/assets/ojw/textures/playericon.png"));
+        GL11.glBindTexture(3553, this.minecraft.textureManager.getTextureId("/assets/ojw/textures/gui/playericon.png"));
 
         int a = ((IPlayerHunger)minecraft.player).getHunger();
         byte q = (byte) ((a % 2 != 0) ? 1 : 0);

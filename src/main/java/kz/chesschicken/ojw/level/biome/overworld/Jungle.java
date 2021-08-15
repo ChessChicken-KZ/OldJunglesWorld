@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Jungle extends Biome {
 
-    public Jungle(){
+    public Jungle() {
         this.setGrassColour(588342);
         this.setName("Jungle");
         this.setFoliageColour(2094168);

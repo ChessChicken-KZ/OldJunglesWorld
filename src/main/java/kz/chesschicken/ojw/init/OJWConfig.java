@@ -14,6 +14,12 @@ import net.modificationstation.stationapi.api.common.util.Null;
  */
 public class OJWConfig {
 
+    public static boolean customMainMenu;
+
+    public static int imageWidth;
+    public static int imageHeight;
+    public static boolean isBlurred;
+
     @Entrypoint.ModID
     public static ModID modID = Null.get();
 
@@ -26,8 +32,15 @@ public class OJWConfig {
     {
         modCONFIG.load();
         Category commonCategory = modCONFIG.getCategory("common");
-        Property property = commonCategory.getProperty("");
-        property.setComment("");
+
+        Property a = commonCategory.getProperty("customMainMenu", false);
+        a.setComment("Enables custom Main Menu, with some cool stuff.");
+        customMainMenu = a.getBooleanValue();
+
+        Category mainMenuCategory = modCONFIG.getCategory("mainmenu");
+        imageWidth = mainMenuCategory.getProperty("imageWidth", 256).getIntValue();
+        imageHeight = mainMenuCategory.getProperty("imageHeight", 256).getIntValue();
+        isBlurred = mainMenuCategory.getProperty("isBlurred", true).getBooleanValue();
 
         modCONFIG.save();
     }

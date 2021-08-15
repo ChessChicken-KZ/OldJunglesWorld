@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Shrubland extends Biome {
 
-    public Shrubland(){
+    public Shrubland() {
         this.setGrassColour(10595616);
         this.setName("Shrubland");
     }

@@ -29,15 +29,15 @@ public class ItemInfoPaper extends ItemBase {
     @Override
     public ItemInstance use(ItemInstance item, Level level, PlayerBase player)
     {
-        if(level.isClient)
-        {
+        //if(level.isClient)
+        //{
             Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:openinfopaper");
             packet.put(new int[] { item.getDamage() });
             PacketHelper.send(packet);
-        }else
-            {
+        //}else
+        //    {
             //kz.chesschicken.ojw.utils.MinecraftInstance.INSTANCE.openScreen(new kz.chesschicken.ojw.item.infopaper.GuiInfoPaper(item.getDamage()));
-        }
+        //}
         OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Sent packet of InfoPaper with id: " + item.getDamage());
         return item;
     }

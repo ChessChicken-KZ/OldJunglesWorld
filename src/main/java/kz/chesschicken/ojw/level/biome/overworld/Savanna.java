@@ -8,10 +8,11 @@ import net.minecraft.level.structure.Structure;
 import java.util.Random;
 
 public class Savanna extends Biome {
-    public Savanna(){
+    public Savanna() {
         this.setGrassColour(14278691);
         this.setName("Savanna");
     }
+
     public Structure getTree(Random random) {
         return new StructureSavanna();
     }

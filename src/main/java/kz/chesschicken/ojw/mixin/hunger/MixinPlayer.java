@@ -30,7 +30,7 @@ public abstract class MixinPlayer extends Living implements IPlayerHunger {
 
     /*
      * Used only for a initializing.
-     * Anyway, NBT things do their things.
+     * Anyway, NBT things will do their stuff.
      */
     @Inject(method = "<init>", at = @At("TAIL"))
     private void setupPlayerData(Level arg, CallbackInfo ci)
@@ -58,8 +58,7 @@ public abstract class MixinPlayer extends Living implements IPlayerHunger {
     {
 
         if(tickPoisoned_revert > 0) {
-            if(tickPoisoned_revert % 20 == 0)
-            {
+            if(tickPoisoned_revert % 20 == 0) {
                 applyDamage(1);
             }
             tickPoisoned_revert--;

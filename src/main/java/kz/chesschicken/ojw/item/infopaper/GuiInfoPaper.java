@@ -19,8 +19,8 @@ public class GuiInfoPaper extends ScreenBase {
         this.id = i;
         try
         {
-            textureFile = EventInfoPaper.getTexture(i);
-            textArray = EventInfoPaper.getText(i);
+            textureFile = EventInfoPaper.getInstance().getTexture(i);
+            textArray = EventInfoPaper.getInstance().getText(i);
         }
         catch (NullPointerException e)
         {

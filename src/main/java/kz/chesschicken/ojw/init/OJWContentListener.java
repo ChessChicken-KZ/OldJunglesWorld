@@ -3,8 +3,10 @@ package kz.chesschicken.ojw.init;
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
 import kz.chesschicken.ojw.block.BlockSkyPortal;
+import kz.chesschicken.ojw.item.ItemDebugEquipo;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
+import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import net.minecraft.item.ItemInstance;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegister;
@@ -19,7 +21,9 @@ import net.modificationstation.stationapi.api.common.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.api.common.registry.ModID;
 import net.modificationstation.stationapi.api.common.util.Null;
+import net.modificationstation.stationapi.template.common.block.BlockBase;
 import net.modificationstation.stationapi.template.common.block.Dirt;
+import net.modificationstation.stationapi.template.common.item.ItemBase;
 
 /**
  * Blocks, Items, Textures, Recipe
@@ -36,6 +40,11 @@ public class OJWContentListener {
     public static net.minecraft.block.BlockBase blockSkyPortal;
 
     public static net.minecraft.item.ItemBase infoPaper;
+
+    public static net.minecraft.item.ItemBase goldenEgg;
+    public static net.minecraft.item.ItemBase nuggetGold;
+
+    public static net.minecraft.item.ItemBase debugItem;
 
     public static int texture_MelonSIDE;
     public static int texture_MelonTOP;
@@ -67,6 +76,9 @@ public class OJWContentListener {
         itemMelon = new ItemMelon(Identifier.of(modID, "itemmelon")).setTranslationKey(modID, "itemMelon");
         itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "itemmelonseeds")).setTranslationKey(modID, "itemmelonseeds");
         infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infoPaper");
+        goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "goldenegg")).setTranslationKey(modID, "goldenEgg");
+        nuggetGold = new ItemBase(Identifier.of(modID, "nuggetgold")).setTranslationKey(modID, "nuggetGold");
+        debugItem = new ItemDebugEquipo(Identifier.of(modID, "debugitem")).setTranslationKey(modID, "debugitem");
     }
 
     @SuppressWarnings("unused")
@@ -80,11 +92,25 @@ public class OJWContentListener {
         {
             CraftingRegistry.addShapedRecipe(new ItemInstance(blockMelon),
                     "XXX", "XXX", "XXX", Character.valueOf('X'), itemMelon);
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.goldIngot),
+                    "XXX", "XXX", "XXX", Character.valueOf('X'), nuggetGold);
+
+
+            //FIXME: Delete after releasing
+            CraftingRegistry.addShapedRecipe(new ItemInstance(debugItem),
+                    "XX", Character.valueOf('X'), BlockBase.SAND);
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.leatherChestplate),
+                    "X", "X", Character.valueOf('X'), BlockBase.SAND);
+
+
         }
         if(type == RecipeRegister.Vanilla.CRAFTING_SHAPELESS.type())
         {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(itemMelonSeeds),
                     itemMelon);
+            CraftingRegistry.addShapelessRecipe(new ItemInstance(nuggetGold, 9),
+                    ItemBase.goldIngot);
         }
     }
 
@@ -109,6 +135,8 @@ public class OJWContentListener {
 
         blockFrozenDirt.texture = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_7.png");
 
+        goldenEgg.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/goldenEgg.png"));
+        nuggetGold.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/nuggetGold.png"));
     }
 
 }
