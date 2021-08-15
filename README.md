@@ -3,7 +3,7 @@
 OldJunglesWorld - is a project, that aimed to add nice and comfortable features to the game.
 
 ## Setup
-For setup instructions, please refer to [fabric-example-mod page](https://github.com/calmilamsy/stationapi-example-mod).
+For setup instructions, please refer to [stationapi-example-mod page](https://github.com/calmilamsy/stationapi-example-mod).
 
 There is no Fabric-API for beta 1.7.3, so this mod uses [StationAPI](https://github.com/ModificationStation/StationAPI).
 
