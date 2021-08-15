@@ -1,12 +1,23 @@
+#Tiles
 tile.blockMelon.name=Watermelon
 tile.blockMelonSeedsTile.name=Watermelon Seeds
+tile.blockFrozenDirt.name=Frozen Dirt
 
+#Items
 item.itemMelon.name=Watermelon
 item.itemmelonseeds.name=Watermelon Seeds
 
-tile.blockFrozenDirt.name=Frozen Dirt
 item.infoPaper_0.name=A Place of darkness
 item.infoPaper_1.name=Test Page
 item.infoPaper_2.name=Test Page
 item.infoPaper_3.name=Test Page
 
+item.debugitem.name=Leather Helmet as an accessory. (when will custom item rendering be implemented, so I could put it on player model?)
+
+#For future use
+jewelry.hat.name=Hat
+jewelry.necklace.name=Necklace
+jewelry.backpack.name=Back
+jewelry.ring.name=Ring
+jewelry.belt.name=Belt
+jewelry.boots.name=Boots

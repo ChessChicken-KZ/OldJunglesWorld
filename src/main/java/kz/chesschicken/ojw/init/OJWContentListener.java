@@ -6,14 +6,19 @@ import kz.chesschicken.ojw.block.BlockSkyPortal;
 import kz.chesschicken.ojw.item.ItemDebugEquipo;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
+import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
+import net.minecraft.client.render.entity.ChickenRenderer;
+import net.minecraft.client.render.entity.model.Chicken;
 import net.minecraft.item.ItemInstance;
+import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegister;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegister;
 import net.modificationstation.stationapi.api.client.texture.TextureFactory;
 import net.modificationstation.stationapi.api.client.texture.TextureRegistry;
 import net.modificationstation.stationapi.api.common.event.EventListener;
 import net.modificationstation.stationapi.api.common.event.block.BlockRegister;
+import net.modificationstation.stationapi.api.common.event.entity.EntityRegister;
 import net.modificationstation.stationapi.api.common.event.item.ItemRegister;
 import net.modificationstation.stationapi.api.common.event.recipe.RecipeRegister;
 import net.modificationstation.stationapi.api.common.mod.entrypoint.Entrypoint;
@@ -112,6 +117,21 @@ public class OJWContentListener {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(nuggetGold, 9),
                     ItemBase.goldIngot);
         }
+    }
+
+    @SuppressWarnings("unused")
+    @EventListener
+    public void registerEntity(EntityRegister event)
+    {
+        event.register.accept(EntityGoldenChicken.class, "ojw:goldenchicken", 20);
+        event.register.accept(EntityGoldenChicken.class, "ojw:goldenegg", 21);
+    }
+
+    @SuppressWarnings("unused")
+    @EventListener
+    public void registerEntityRenderers(EntityRendererRegister event)
+    {
+        event.renderers.put(EntityGoldenChicken.class, new ChickenRenderer(new Chicken(), 1.0f));
     }
 
     @SuppressWarnings("unused")

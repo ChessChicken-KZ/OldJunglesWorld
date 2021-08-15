@@ -6,7 +6,6 @@ import net.modificationstation.stationapi.api.common.config.Property;
 import net.modificationstation.stationapi.api.common.event.EventListener;
 import net.modificationstation.stationapi.api.common.event.mod.Init;
 import net.modificationstation.stationapi.api.common.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.common.registry.ModID;
 import net.modificationstation.stationapi.api.common.util.Null;
 
 /**
@@ -14,14 +13,11 @@ import net.modificationstation.stationapi.api.common.util.Null;
  */
 public class OJWConfig {
 
-    public static boolean customMainMenu;
+    public boolean customMainMenu;
 
-    public static int imageWidth;
-    public static int imageHeight;
-    public static boolean isBlurred;
-
-    @Entrypoint.ModID
-    public static ModID modID = Null.get();
+    public int imageWidth;
+    public int imageHeight;
+    public boolean isBlurred;
 
     @Entrypoint.Config
     public static Configuration modCONFIG = Null.get();
@@ -43,5 +39,12 @@ public class OJWConfig {
         isBlurred = mainMenuCategory.getProperty("isBlurred", true).getBooleanValue();
 
         modCONFIG.save();
+        INSTANCE = this;
+    }
+
+    private static OJWConfig INSTANCE;
+    public static OJWConfig getInstance()
+    {
+        return INSTANCE;
     }
 }

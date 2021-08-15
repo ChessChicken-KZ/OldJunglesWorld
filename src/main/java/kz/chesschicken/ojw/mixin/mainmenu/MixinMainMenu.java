@@ -33,7 +33,7 @@ public class MixinMainMenu extends ScreenBase
     @Inject(method = "init", at = @At("HEAD"))
     private void declareNew(CallbackInfo ci)
     {
-        this.viewportTexture = this.mc.textureManager.method_1088(new BufferedImage(OJWConfig.imageWidth, OJWConfig.imageHeight, 2));
+        this.viewportTexture = this.mc.textureManager.method_1088(new BufferedImage(OJWConfig.getInstance().imageWidth, OJWConfig.getInstance().imageHeight, 2));
     }
 
     public void renderBackground()
@@ -140,7 +140,7 @@ public class MixinMainMenu extends ScreenBase
     {
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.viewportTexture);
         GL11.glCopyTexSubImage2D(GL11.GL_TEXTURE_2D, 0, 0, 0, 0, 0, 256, 256);
-        if(OJWConfig.isBlurred)
+        if(OJWConfig.getInstance().isBlurred)
         {
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
@@ -150,7 +150,7 @@ public class MixinMainMenu extends ScreenBase
         var2.start();
         byte var3;
 
-        if(OJWConfig.isBlurred)
+        if(OJWConfig.getInstance().isBlurred)
             var3 = 3;
         else
             var3 = 1;
