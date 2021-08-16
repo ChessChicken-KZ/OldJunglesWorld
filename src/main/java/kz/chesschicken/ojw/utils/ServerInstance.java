@@ -8,7 +8,7 @@ import net.minecraft.server.MinecraftServer;
 
 /**
  * Returns Minecraft Server's instance.
- * Use this if you're working with server.
+ * Use this if you're working with server side.
  */
 @Environment(EnvType.SERVER)
 public class ServerInstance {

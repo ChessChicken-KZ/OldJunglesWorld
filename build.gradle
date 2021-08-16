@@ -18,7 +18,6 @@ buildscript {
 }
 
 plugins {
-	id 'checkstyle'
 }
 
 apply plugin: "fabric-loom"
@@ -61,19 +60,6 @@ repositories {
 }
 
 minecraft {
-}
-
-def urlFile = { url, name ->
-	File file = new File("$buildDir/download/${name}.jar")
-	file.parentFile.mkdirs()
-	if (!file.exists()) {
-		new URL(url).withInputStream { downloadStream ->
-			file.withOutputStream { fileOut ->
-				fileOut << downloadStream
-			}
-		}
-	}
-	files(file.absolutePath)
 }
 
 dependencies {

@@ -2,12 +2,13 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
-import kz.chesschicken.ojw.item.ItemDebugEquipo;
+import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
+import kz.chesschicken.ojw.item.pokeball.ItemPokeball;
 import net.minecraft.client.render.entity.ChickenRenderer;
 import net.minecraft.client.render.entity.model.Chicken;
 import net.minecraft.item.ItemInstance;
@@ -47,7 +48,9 @@ public class OJWContentListener {
     public static net.minecraft.item.ItemBase goldenEgg;
     public static net.minecraft.item.ItemBase nuggetGold;
 
-    public static net.minecraft.item.ItemBase debugItem;
+    public static net.minecraft.item.ItemBase goldenNecklace;
+
+    public static net.minecraft.item.ItemBase pokeball;
 
     public static int texture_MelonSIDE;
     public static int texture_MelonTOP;
@@ -80,7 +83,8 @@ public class OJWContentListener {
         infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infoPaper");
         goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "goldenegg")).setTranslationKey(modID, "goldenEgg");
         nuggetGold = new ItemBase(Identifier.of(modID, "nuggetgold")).setTranslationKey(modID, "nuggetGold");
-        debugItem = new ItemDebugEquipo(Identifier.of(modID, "debugitem")).setTranslationKey(modID, "debugitem");
+        goldenNecklace = new ItemNecklace(Identifier.of(modID, "goldennecklace")).setTranslationKey(modID, "goldenNecklace");
+        pokeball = new ItemPokeball(Identifier.of(modID, "pokeball")).setTranslationKey(modID, "pokeball");
     }
 
     @SuppressWarnings("unused")
@@ -100,7 +104,7 @@ public class OJWContentListener {
 
 
             //FIXME: Delete after releasing
-            CraftingRegistry.addShapedRecipe(new ItemInstance(debugItem),
+            CraftingRegistry.addShapedRecipe(new ItemInstance(goldenNecklace),
                     "XX", Character.valueOf('X'), BlockBase.SAND);
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.leatherChestplate),
                     "X", "X", Character.valueOf('X'), BlockBase.SAND);
@@ -154,6 +158,8 @@ public class OJWContentListener {
 
         goldenEgg.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/goldenEgg.png"));
         nuggetGold.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/nuggetGold.png"));
+
+        goldenNecklace.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/goldenNecklace.png"));
     }
 
 }

@@ -46,5 +46,6 @@ public class MixinBiome {
         } else {
             cir.setReturnValue(f1 < 0.85F ? Biome.RAINFOREST : OJWLevelListener.bJungle);
         }
+        cir.cancel();
     }
 }

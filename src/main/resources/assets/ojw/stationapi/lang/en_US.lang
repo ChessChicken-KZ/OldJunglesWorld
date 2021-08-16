@@ -12,6 +12,10 @@ item.infoPaper_1.name=Test Page
 item.infoPaper_2.name=Test Page
 item.infoPaper_3.name=Test Page
 
+item.goldenNecklace.name=Golden Necklace
+
+item.pokeball.name=PokeBall
+
 item.debugitem.name=Leather Helmet as an accessory. (when will custom item rendering be implemented, so I could put it on player model?)
 
 #For future use

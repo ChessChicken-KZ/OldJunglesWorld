@@ -7,7 +7,7 @@ import net.minecraft.client.Minecraft;
 
 /**
  * Returns Minecraft Client's instance.
- * Use this if you're working with client.
+ * Use this if you're working with client side.
  */
 @Environment(EnvType.CLIENT)
 public class MinecraftInstance {
