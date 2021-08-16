@@ -2,7 +2,6 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
-import kz.chesschicken.ojw.block.BlockSkyPortal;
 import kz.chesschicken.ojw.item.ItemDebugEquipo;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
@@ -42,7 +41,6 @@ public class OJWContentListener {
     public static net.minecraft.block.BlockBase blockMelonSeedsTile;
 
     public static net.minecraft.block.BlockBase blockFrozenDirt;
-    public static net.minecraft.block.BlockBase blockSkyPortal;
 
     public static net.minecraft.item.ItemBase infoPaper;
 
@@ -70,7 +68,6 @@ public class OJWContentListener {
         blockMelon = new BlockMelon(Identifier.of(modID, "blockmelon")).setTranslationKey(modID, "blockMelon");
         blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "blockmelonseedstile"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
         blockFrozenDirt = new Dirt(Identifier.of(modID, "blockfrozendirt"), 0).setTranslationKey(modID, "blockFrozenDirt");
-        blockSkyPortal = new BlockSkyPortal(Identifier.of(modID, "blockskyportal"), 0).setTranslationKey(modID, "blockSkyPortal");
     }
 
     @SuppressWarnings("unused")

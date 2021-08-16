@@ -30,8 +30,8 @@ public class BlockMelon extends BlockBase {
     @Override
     public int getTextureForSide(int side) {
         if(side == 0 || side == 1)
-        {
             return OJWContentListener.texture_MelonTOP;
-        }else return OJWContentListener.texture_MelonSIDE;
+        else
+            return OJWContentListener.texture_MelonSIDE;
     }
 }
