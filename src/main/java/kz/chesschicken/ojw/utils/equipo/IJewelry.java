@@ -56,7 +56,8 @@ public interface IJewelry {
      * @param player Player.
      * @param jewelry ItemInstance of jewelry.
      */
-    public default void tickJewelry(Level world, PlayerBase player, ItemInstance jewelry) { }
+    public default void tickJewelry(Level world, PlayerBase player, ItemInstance jewelry, int slot) { }
 
+    public default void renderJewelry(PlayerBase playerBase, double d, double d1, double d2, float f, float f1) {}
 
 }

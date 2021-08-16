@@ -16,10 +16,11 @@
     "hunger.MixinPlayer"
   ],
   "client": [
-    "equipo.client.MixinPlayerRenderer",
     "equipo.client.MixinGuiPlayerInventory",
-    "hunger.client.MixinOverlay",
-    "mainmenu.MixinMainMenu"
+    "equipo.client.MixinPlayerRenderer",
+    "gui.MixinMainMenu",
+    "gui.MixinScreenBase",
+    "hunger.client.MixinOverlay"
   ],
   "server": [
   ]

@@ -1,7 +1,10 @@
 package kz.chesschicken.ojw.mixin.equipo.client;
 
+import kz.chesschicken.ojw.utils.equipo.IJewelry;
+import kz.chesschicken.ojw.utils.equipo.IJewelryInventory;
 import net.minecraft.client.render.entity.PlayerRenderer;
 import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.item.ItemInstance;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -16,7 +19,14 @@ public class MixinPlayerRenderer {
     ))
     private void renderJewelry(PlayerBase arg, double d, double d1, double d2, float f, float f1, CallbackInfo ci)
     {
-        //TODO: Wait till StAPI releases custom item model rendering.
+        ItemInstance[] jewelry = ((IJewelryInventory)arg.inventory).getJewelryInventory();
+        for(ItemInstance item : jewelry)
+        {
+            if(item != null && item.getType() != null && item.getType() instanceof IJewelry)
+            {
+                ((IJewelry)item.getType()).renderJewelry(arg, d, d1, d2, f, f1);
+            }
+        }
     }
 
 }

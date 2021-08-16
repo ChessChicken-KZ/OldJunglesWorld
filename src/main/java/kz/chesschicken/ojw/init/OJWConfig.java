@@ -15,10 +15,6 @@ public class OJWConfig {
 
     public boolean customMainMenu;
 
-    public int imageWidth;
-    public int imageHeight;
-    public boolean isBlurred;
-
     @Entrypoint.Config
     public static Configuration modCONFIG = Null.get();
 
@@ -32,11 +28,6 @@ public class OJWConfig {
         Property a = commonCategory.getProperty("customMainMenu", false);
         a.setComment("Enables custom Main Menu, with some cool stuff.");
         customMainMenu = a.getBooleanValue();
-
-        Category mainMenuCategory = modCONFIG.getCategory("mainmenu");
-        imageWidth = mainMenuCategory.getProperty("imageWidth", 256).getIntValue();
-        imageHeight = mainMenuCategory.getProperty("imageHeight", 256).getIntValue();
-        isBlurred = mainMenuCategory.getProperty("isBlurred", true).getBooleanValue();
 
         modCONFIG.save();
         INSTANCE = this;

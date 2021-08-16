@@ -1,5 +1,8 @@
 package kz.chesschicken.ojw.mixin.equipo;
 
+import kz.chesschicken.ojw.utils.equipo.IJewelry;
+import kz.chesschicken.ojw.utils.equipo.IJewelryInventory;
+import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.InventoryBase;
 import net.minecraft.item.ItemInstance;
@@ -14,10 +17,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerInventory.class)
-public abstract class MixinPlayerInventory implements InventoryBase {
+public abstract class MixinPlayerInventory implements InventoryBase, IJewelryInventory {
     @Shadow public ItemInstance[] main;
     @Shadow public ItemInstance[] armour;
+    @Shadow public PlayerBase player;
+    @Shadow public int selectedHotbarSlot;
     @Unique private ItemInstance[] jewelry = new ItemInstance[8];
+
+    @Override
+    public ItemInstance[] getJewelryInventory() {
+        return jewelry;
+    }
 
     @Inject(method = "takeInventoryItem", at = @At("HEAD"), cancellable = true)
     private void changeTakeItem(int index, int j, CallbackInfoReturnable<ItemInstance> cir)
@@ -62,7 +72,7 @@ public abstract class MixinPlayerInventory implements InventoryBase {
         {
             if(this.jewelry[i] != null) {
                 CompoundTag send = new CompoundTag();
-                send.put("SlotJewelry", (byte) i);
+                send.put("Slot", (byte) (i + 200));
                 this.jewelry[i].toTag(send);
                 arg.add(send);
             }
@@ -76,12 +86,13 @@ public abstract class MixinPlayerInventory implements InventoryBase {
         for(int i = 0; i < arg.size(); i++)
         {
             CompoundTag compoundTag = (CompoundTag) arg.get(i);
-            if(compoundTag.containsKey("SlotJewelry"))
+            if(compoundTag.containsKey("Slot"))
             {
+                int q = compoundTag.getByte("Slot") & 255;
                 ItemInstance item = new ItemInstance(compoundTag);
-                if(item.getType() != null)
+                if(item.getType() != null && q > 200 && q < 200 + this.jewelry.length)
                 {
-                    this.jewelry[compoundTag.getByte("SlotJewelry") & 255] = item;
+                    this.jewelry[q - 200] = item;
                 }
             }
         }
@@ -102,6 +113,16 @@ public abstract class MixinPlayerInventory implements InventoryBase {
     private void changeReturnSize(CallbackInfoReturnable<Integer> cir)
     {
         cir.setReturnValue(this.main.length + 12);
+    }
+
+    @Inject(method = "tickInventory", at = @At("TAIL"))
+    private void injectTickJewelry(CallbackInfo ci)
+    {
+        for(int i = 0; i < this.jewelry.length; ++i) {
+            if (this.jewelry[i] != null && this.jewelry[i].getType() instanceof IJewelry) {
+                ((IJewelry)this.jewelry[i].getType()).tickJewelry(this.player.level, this.player, this.jewelry[i], i);
+            }
+        }
     }
 
 }

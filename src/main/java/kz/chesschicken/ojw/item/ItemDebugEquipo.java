@@ -21,7 +21,7 @@ public class ItemDebugEquipo extends ItemBase implements IJewelry {
     }
 
     @Override
-    public void tickJewelry(Level world, PlayerBase player, ItemInstance jewelry) {
+    public void tickJewelry(Level world, PlayerBase player, ItemInstance jewelry, int slot) {
         if(player.isTouchingWater() && world.rand.nextInt(3) + 1 == 1)
             jewelry.applyDamage(1, player);
     }
@@ -30,7 +30,7 @@ public class ItemDebugEquipo extends ItemBase implements IJewelry {
     public ItemInstance use(ItemInstance item, Level level, PlayerBase player) {
 
         if(!level.isClient) {
-            MinecraftInstance.INSTANCE.overlay.addChatMessage("Current Durability: " + item.getDurability());
+            MinecraftInstance.INSTANCE.overlay.addChatMessage("Current Durability: " + (item.getDurability() - item.getDamage()) + "/" + item.getDurability());
         }
 
         return item;
