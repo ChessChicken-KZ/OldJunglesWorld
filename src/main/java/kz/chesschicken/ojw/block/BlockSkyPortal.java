@@ -1,10 +1,7 @@
 package kz.chesschicken.ojw.block;
 
 
-import kz.chesschicken.ojw.utils.portal.IPlayerDimension;
 import net.minecraft.block.BlockBase;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.template.common.block.Portal;
@@ -12,27 +9,6 @@ import net.modificationstation.stationapi.template.common.block.Portal;
 public class BlockSkyPortal extends Portal {
     public BlockSkyPortal(Identifier i, int j) {
         super(i, j);
-    }
-
-    @Override
-    public void onEntityCollision(Level level, int x, int y, int z, EntityBase entityBase) {
-        if(entityBase instanceof PlayerBase) {
-            if(((IPlayerDimension)entityBase).getIsPortalReady())
-            {
-                ((IPlayerDimension)entityBase).teleport(((PlayerBase) entityBase).dimensionId == 0 ? 1 : 0, new TeleportSky());
-                ((IPlayerDimension)entityBase).setPortalReady(false);
-                ((IPlayerDimension)entityBase).setTime1(20D);
-            }else
-            {
-                if(((IPlayerDimension)entityBase).getTime1() > 10D)
-                {
-                    ((IPlayerDimension)entityBase).setTime1( ((IPlayerDimension)entityBase).getTime1() - 0.1D );
-                }else
-                {
-                    ((IPlayerDimension)entityBase).setPortalReady(true);
-                }
-            }
-        }
     }
 
     public boolean method_736(Level arg, int x, int y, int z) {

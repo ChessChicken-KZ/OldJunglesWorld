@@ -9,11 +9,6 @@
   "mixins": [
     "MixinBiome",
     "MixinDye",
-    "dimapi.Mixin_class_467",
-    "dimapi.MixinDimension",
-    "dimapi.MixinDimensionFile",
-    "dimapi.MixinMcRegionDimensionFile",
-    "dimapi.MixinPlayerBase",
     "equipo.AccessorSlot",
     "equipo.MixinPlayerContainer",
     "equipo.MixinPlayerInventory",
@@ -21,14 +16,11 @@
     "hunger.MixinPlayer"
   ],
   "client": [
-    "dimapi.client.MixinAbstractClientPlayer",
     "equipo.client.MixinPlayerRenderer",
     "equipo.client.MixinGuiPlayerInventory",
     "hunger.client.MixinOverlay",
     "mainmenu.MixinMainMenu"
   ],
   "server": [
-    "dimapi.server.MixinMinecraftServer",
-    "dimapi.server.MixinServerPlayer"
   ]
 }

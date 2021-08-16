@@ -19,7 +19,7 @@ import net.minecraft.level.Level;
 public interface IJewelry {
 
     @SuppressWarnings("unused")
-    public static enum JewelryType
+    enum JewelryType
     {
         HAT("jewelry.hat"),
         NECKLACE("jewelry.necklace"),
@@ -37,6 +37,11 @@ public interface IJewelry {
         public String getTranslation()
         {
             return this.translation;
+        }
+
+        public static JewelryType getByID(byte b)
+        {
+            return JewelryType.values()[b];
         }
     }
 
