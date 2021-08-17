@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.block.dirt;
+package kz.chesschicken.ojw.block.grass;
 
 import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
 import net.minecraft.block.material.Material;
@@ -18,5 +18,13 @@ public class BlockDirtComplex extends SimpleBlockWithMeta {
         this.setSounds(GRAVEL_SOUNDS);
     }
 
+    @Override
+    public float getHardness(int i) {
+        return ((MetaGrass)metadataCollection[i]).getHardnessAsDirt();
+    }
 
+    @Override
+    public int getTextureForSide(int side, int i) {
+        return ((MetaGrass)metadataCollection[i]).getDirtTexture();
+    }
 }

@@ -5,7 +5,7 @@ import kz.chesschicken.ojw.init.OJWContentListener;
 
 public class FrozenGrass extends MetaGrass {
     public FrozenGrass(int i) {
-        super(i);
+        super(i, "frozen");
     }
 
     @Override
@@ -14,17 +14,12 @@ public class FrozenGrass extends MetaGrass {
     }
 
     @Override
-    public int getBottomTexture() {
+    public int getDirtTexture() {
         return OJWContentListener.textureDirtFrozen;
     }
 
     @Override
     public int getSideTexture() {
         return OJWContentListener.textureGrassFrozenSide;
-    }
-
-    @Override
-    public String getName() {
-        return "tile.grassFrozen.name";
     }
 }

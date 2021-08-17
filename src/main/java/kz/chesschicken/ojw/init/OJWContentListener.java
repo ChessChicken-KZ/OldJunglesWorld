@@ -2,10 +2,9 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
-import kz.chesschicken.ojw.block.dirt.BlockDirtComplex;
-import kz.chesschicken.ojw.block.dirt.instances.FrozenDirt;
-import kz.chesschicken.ojw.block.dirt.instances.GlitchDirt;
+import kz.chesschicken.ojw.block.grass.BlockDirtComplex;
 import kz.chesschicken.ojw.block.grass.BlockGrassComplex;
+import kz.chesschicken.ojw.block.grass.MetaGrass;
 import kz.chesschicken.ojw.block.grass.instances.FrozenGrass;
 import kz.chesschicken.ojw.block.grass.instances.GlitchGrass;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
@@ -22,8 +21,6 @@ import net.minecraft.client.render.entity.model.Chicken;
 import net.minecraft.item.ItemInstance;
 import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegister;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegister;
-import net.modificationstation.stationapi.api.client.texture.TextureFactory;
-import net.modificationstation.stationapi.api.client.texture.TextureRegistry;
 import net.modificationstation.stationapi.api.common.event.EventListener;
 import net.modificationstation.stationapi.api.common.event.block.BlockRegister;
 import net.modificationstation.stationapi.api.common.event.entity.EntityRegister;
@@ -90,12 +87,10 @@ public class OJWContentListener {
         blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
 
         blockDirtComplex = (SimpleBlockWithMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "blockDirtComplex");
-        blockDirtComplex.addMetaBlock(new FrozenDirt(0));
-        blockDirtComplex.addMetaBlock(new GlitchDirt(1));
-
         blockGrassComplex = (SimpleBlockWithMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "blockGrassComplex");
-        blockGrassComplex.addMetaBlock(new FrozenGrass(0));
-        blockGrassComplex.addMetaBlock(new GlitchGrass(1));
+
+        MetaGrass.registerMeta(new FrozenGrass(0));
+        MetaGrass.registerMeta(new GlitchGrass(1));
     }
 
     @SuppressWarnings("unused")

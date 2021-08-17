@@ -5,7 +5,7 @@ import kz.chesschicken.ojw.init.OJWContentListener;
 
 public class GlitchGrass extends MetaGrass {
     public GlitchGrass(int i) {
-        super(i);
+        super(i, "glitch");
     }
 
     @Override
@@ -14,17 +14,12 @@ public class GlitchGrass extends MetaGrass {
     }
 
     @Override
-    public int getBottomTexture() {
+    public int getDirtTexture() {
         return OJWContentListener.textureDirtGlitch;
     }
 
     @Override
     public int getSideTexture() {
         return OJWContentListener.textureGrassGlitchSide;
-    }
-
-    @Override
-    public String getName() {
-        return "tile.grassGlitch.name";
     }
 }
