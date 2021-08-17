@@ -8,10 +8,7 @@ import net.modificationstation.stationapi.api.common.registry.Identifier;
 @HasMetaNamedBlockItem
 public class BlockGrassComplex extends SimpleBlockWithMeta {
     public BlockGrassComplex(Identifier identifier) {
-        super(identifier, Material.ORGANIC, 2);
+        super(identifier, Material.ORGANIC, 9);
         this.setSounds(GRASS_SOUNDS);
     }
-
-
-
 }

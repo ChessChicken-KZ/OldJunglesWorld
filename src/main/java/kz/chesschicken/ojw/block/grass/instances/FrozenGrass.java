@@ -9,7 +9,7 @@ public class FrozenGrass extends MetaGrass {
     }
 
     @Override
-    public int getTopTexture() {
+    public int getGrassTopTexture() {
         return OJWContentListener.textureSnowFrozen;
     }
 
@@ -19,7 +19,7 @@ public class FrozenGrass extends MetaGrass {
     }
 
     @Override
-    public int getSideTexture() {
+    public int getGrassSideTexture() {
         return OJWContentListener.textureGrassFrozenSide;
     }
 }

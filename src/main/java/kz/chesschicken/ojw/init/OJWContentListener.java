@@ -5,8 +5,14 @@ import kz.chesschicken.ojw.block.BlockMelonSeed;
 import kz.chesschicken.ojw.block.grass.BlockDirtComplex;
 import kz.chesschicken.ojw.block.grass.BlockGrassComplex;
 import kz.chesschicken.ojw.block.grass.MetaGrass;
+import kz.chesschicken.ojw.block.grass.instances.DarkGrass;
 import kz.chesschicken.ojw.block.grass.instances.FrozenGrass;
 import kz.chesschicken.ojw.block.grass.instances.GlitchGrass;
+import kz.chesschicken.ojw.block.hardmaterial.BlockCobblestoneComplex;
+import kz.chesschicken.ojw.block.hardmaterial.BlockGravelComplex;
+import kz.chesschicken.ojw.block.hardmaterial.BlockStoneComplex;
+import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
+import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
@@ -39,7 +45,6 @@ import net.modificationstation.stationapi.template.common.item.ItemBase;
  */
 public class OJWContentListener {
 
-
     public static net.minecraft.item.ItemBase itemMelon;
     public static net.minecraft.item.ItemBase itemMelonSeeds;
     public static net.minecraft.block.BlockBase blockMelon;
@@ -58,14 +63,27 @@ public class OJWContentListener {
     public static SimpleBlockWithMeta blockDirtComplex;
     public static SimpleBlockWithMeta blockGrassComplex;
 
-    public static int textureDirtFrozen;
-    public static int textureDirtGlitch;
+    public static SimpleBlockWithMeta blockStoneComplex;
+    public static SimpleBlockWithMeta blockCobblestoneComplex;
+    public static SimpleBlockWithMeta blockGravelComplex;
 
+    //TODO: may-be add HashMap?
+    public static int textureDirtFrozen;
     public static int textureSnowFrozen;
     public static int textureGrassFrozenSide;
 
+    public static int textureDirtGlitch;
     public static int textureGrassGlitchTop;
     public static int textureGrassGlitchSide;
+
+    public static int textureDirtDark;
+    public static int textureGrassDarkTop;
+    public static int textureGrassDarkSide;
+
+    public static int textureStoneFrozen;
+    public static int textureCobblestoneFrozen;
+    public static int textureGravelFrozen;
+
 
     public static int texture_MelonSIDE;
     public static int texture_MelonTOP;
@@ -73,10 +91,8 @@ public class OJWContentListener {
     public static int[] texture_MelonTile = new int[7];
 
 
+
     @Entrypoint.ModID public static ModID modID = Null.get();
-
-
-
 
     @SuppressWarnings("unused")
     @EventListener
@@ -91,6 +107,13 @@ public class OJWContentListener {
 
         MetaGrass.registerMeta(new FrozenGrass(0));
         MetaGrass.registerMeta(new GlitchGrass(1));
+        MetaGrass.registerMeta(new DarkGrass(2));
+
+        blockStoneComplex = (SimpleBlockWithMeta) new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "blockStoneComplex");
+        blockCobblestoneComplex = (SimpleBlockWithMeta) new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "blockCobblestoneComplex");
+        blockGravelComplex = (SimpleBlockWithMeta) new BlockGravelComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "blockGravelComplex");
+
+        MetaRock.registerRock(new FrozenRock(0));
     }
 
     @SuppressWarnings("unused")
@@ -107,7 +130,7 @@ public class OJWContentListener {
         pokeBall = new ItemPokeball(Identifier.of(modID, "pokeball")).setTranslationKey(modID, "pokeball");
     }
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings({"unused", "UnnecessaryBoxing"})
     @EventListener
     public void registerRecipe(RecipeRegister event)
     {
@@ -124,6 +147,7 @@ public class OJWContentListener {
 
 
             //FIXME: Delete after releasing
+
             CraftingRegistry.addShapedRecipe(new ItemInstance(goldenNecklace),
                     "XX", Character.valueOf('X'), BlockBase.SAND);
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.leatherChestplate),
@@ -183,6 +207,13 @@ public class OJWContentListener {
         textureGrassGlitchTop = TextureHelper.getInstance().registerBlockTexture("grassGlitchTop");
         textureGrassGlitchSide = TextureHelper.getInstance().registerBlockTexture("grassGlitch");
 
+        textureDirtDark = TextureHelper.getInstance().registerBlockTexture("dirtDark");
+        textureGrassDarkTop = TextureHelper.getInstance().registerBlockTexture("grassDarkTop");
+        textureGrassDarkSide = TextureHelper.getInstance().registerBlockTexture("grassDark");
+
+        textureStoneFrozen = TextureHelper.getInstance().registerBlockTexture("stoneFrozen");
+        textureCobblestoneFrozen = TextureHelper.getInstance().registerBlockTexture("cobblestoneFrozen");
+        textureGravelFrozen = TextureHelper.getInstance().registerBlockTexture("gravelFrozen");
     }
 
 }
