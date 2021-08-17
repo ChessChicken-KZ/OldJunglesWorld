@@ -18,33 +18,6 @@ import net.minecraft.level.Level;
  */
 public interface IJewelry {
 
-    @SuppressWarnings("unused")
-    enum JewelryType
-    {
-        HAT("jewelry.hat"),
-        NECKLACE("jewelry.necklace"),
-        BACKPACK("jewelry.backpack"), //backpack?
-        RING("jewelry.ring"),
-        BELT("jewelry.belt"),
-        BOOTS("jewelry.boots");
-
-        private final String translation;
-        JewelryType(String t)
-        {
-            this.translation = t;
-        }
-
-        public String getTranslation()
-        {
-            return this.translation;
-        }
-
-        public static JewelryType getByID(byte b)
-        {
-            return JewelryType.values()[b];
-        }
-    }
-
     /**
      * Use this method to identify the type of your jewelry item, so game could understand is it for necklace, or for legs.
      * @return the jewelry type for item.

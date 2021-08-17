@@ -11,8 +11,8 @@ public class SlotEquipo extends Slot {
                     3, 3, 4, 4
             };
 
-    private final IJewelry.JewelryType jewelryType;
-    public SlotEquipo(InventoryBase inventory, int index, int x, int y, IJewelry.JewelryType type) {
+    private final JewelryType jewelryType;
+    public SlotEquipo(InventoryBase inventory, int index, int x, int y, JewelryType type) {
         super(inventory, index, x, y);
         this.jewelryType = type;
     }

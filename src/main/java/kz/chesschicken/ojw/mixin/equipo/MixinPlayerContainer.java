@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin.equipo;
 
-import kz.chesschicken.ojw.utils.equipo.IJewelry;
+import kz.chesschicken.ojw.utils.equipo.JewelryType;
 import kz.chesschicken.ojw.utils.equipo.SlotEquipo;
 import net.minecraft.container.ContainerBase;
 import net.minecraft.container.slot.CraftingResult;
@@ -25,7 +25,7 @@ public abstract class MixinPlayerContainer extends ContainerBase {
     private void injectAdditionalInventory(PlayerInventory arg, boolean local, CallbackInfo ci)
     {
         for(int q = 0; q < 8; q++) {
-            this.addSlot(new SlotEquipo(arg, /* 48 */ arg.getInventorySize() - 1 - q, 80 + (q > 3 ? 18 : 0), 8 + q * 18 - (q > 3 ? 72 : 0), IJewelry.JewelryType.getByID(SlotEquipo.arraySlots[q])));
+            this.addSlot(new SlotEquipo(arg, /* 48 */ arg.getInventorySize() - 1 - q, 80 + (q > 3 ? 18 : 0), 8 + q * 18 - (q > 3 ? 72 : 0), JewelryType.getByID(SlotEquipo.arraySlots[q])));
         }
 
         this.onContentsChanged(this.craftingInv);
