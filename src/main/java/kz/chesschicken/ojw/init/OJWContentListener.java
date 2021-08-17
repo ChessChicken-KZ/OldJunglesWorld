@@ -2,6 +2,12 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
+import kz.chesschicken.ojw.block.dirt.BlockDirtComplex;
+import kz.chesschicken.ojw.block.dirt.instances.FrozenDirt;
+import kz.chesschicken.ojw.block.dirt.instances.GlitchDirt;
+import kz.chesschicken.ojw.block.grass.BlockGrassComplex;
+import kz.chesschicken.ojw.block.grass.instances.FrozenGrass;
+import kz.chesschicken.ojw.block.grass.instances.GlitchGrass;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
@@ -9,6 +15,8 @@ import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import kz.chesschicken.ojw.item.pokeball.ItemPokeball;
+import kz.chesschicken.ojw.utils.TextureHelper;
+import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
 import net.minecraft.client.render.entity.ChickenRenderer;
 import net.minecraft.client.render.entity.model.Chicken;
 import net.minecraft.item.ItemInstance;
@@ -27,7 +35,6 @@ import net.modificationstation.stationapi.api.common.registry.Identifier;
 import net.modificationstation.stationapi.api.common.registry.ModID;
 import net.modificationstation.stationapi.api.common.util.Null;
 import net.modificationstation.stationapi.template.common.block.BlockBase;
-import net.modificationstation.stationapi.template.common.block.Dirt;
 import net.modificationstation.stationapi.template.common.item.ItemBase;
 
 /**
@@ -41,8 +48,6 @@ public class OJWContentListener {
     public static net.minecraft.block.BlockBase blockMelon;
     public static net.minecraft.block.BlockBase blockMelonSeedsTile;
 
-    public static net.minecraft.block.BlockBase blockFrozenDirt;
-
     public static net.minecraft.item.ItemBase infoPaper;
 
     public static net.minecraft.item.ItemBase goldenEgg;
@@ -50,7 +55,20 @@ public class OJWContentListener {
 
     public static net.minecraft.item.ItemBase goldenNecklace;
 
-    public static net.minecraft.item.ItemBase pokeball;
+    public static net.minecraft.item.ItemBase pokeBall;
+
+    //Usually for blocks with same params, but different textures.
+    public static SimpleBlockWithMeta blockDirtComplex;
+    public static SimpleBlockWithMeta blockGrassComplex;
+
+    public static int textureDirtFrozen;
+    public static int textureDirtGlitch;
+
+    public static int textureSnowFrozen;
+    public static int textureGrassFrozenSide;
+
+    public static int textureGrassGlitchTop;
+    public static int textureGrassGlitchSide;
 
     public static int texture_MelonSIDE;
     public static int texture_MelonTOP;
@@ -68,9 +86,16 @@ public class OJWContentListener {
     public void registerBlocks(BlockRegister event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering blocks...");
-        blockMelon = new BlockMelon(Identifier.of(modID, "blockmelon")).setTranslationKey(modID, "blockMelon");
-        blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "blockmelonseedstile"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
-        blockFrozenDirt = new Dirt(Identifier.of(modID, "blockfrozendirt"), 0).setTranslationKey(modID, "blockFrozenDirt");
+        blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "blockMelon");
+        blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
+
+        blockDirtComplex = (SimpleBlockWithMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "blockDirtComplex");
+        blockDirtComplex.addMetaBlock(new FrozenDirt(0));
+        blockDirtComplex.addMetaBlock(new GlitchDirt(1));
+
+        blockGrassComplex = (SimpleBlockWithMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "blockGrassComplex");
+        blockGrassComplex.addMetaBlock(new FrozenGrass(0));
+        blockGrassComplex.addMetaBlock(new GlitchGrass(1));
     }
 
     @SuppressWarnings("unused")
@@ -78,13 +103,13 @@ public class OJWContentListener {
     public void registerItems(ItemRegister event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering items...");
-        itemMelon = new ItemMelon(Identifier.of(modID, "itemmelon")).setTranslationKey(modID, "itemMelon");
-        itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "itemmelonseeds")).setTranslationKey(modID, "itemmelonseeds");
+        itemMelon = new ItemMelon(Identifier.of(modID, "melon_item")).setTranslationKey(modID, "itemMelon");
+        itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "melon_seeds_item")).setTranslationKey(modID, "itemmelonseeds");
         infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infoPaper");
-        goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "goldenegg")).setTranslationKey(modID, "goldenEgg");
-        nuggetGold = new ItemBase(Identifier.of(modID, "nuggetgold")).setTranslationKey(modID, "nuggetGold");
-        goldenNecklace = new ItemNecklace(Identifier.of(modID, "goldennecklace")).setTranslationKey(modID, "goldenNecklace");
-        pokeball = new ItemPokeball(Identifier.of(modID, "pokeball")).setTranslationKey(modID, "pokeball");
+        goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "gold_egg")).setTranslationKey(modID, "goldenEgg");
+        nuggetGold = new ItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nuggetGold");
+        goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "goldenNecklace");
+        pokeBall = new ItemPokeball(Identifier.of(modID, "pokeball")).setTranslationKey(modID, "pokeball");
     }
 
     @SuppressWarnings("unused")
@@ -140,26 +165,29 @@ public class OJWContentListener {
     public void registerTextures(TextureRegister event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering textures...");
-        texture_MelonSIDE = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonSide.png");
-        texture_MelonTOP = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTop.png");
+        texture_MelonSIDE = TextureHelper.getInstance().registerBlockTexture("melonSide");
+        texture_MelonTOP = TextureHelper.getInstance().registerBlockTexture("melonTop");
 
-        texture_MelonTile[0] = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_1.png");
-        texture_MelonTile[1] = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_2.png");
-        texture_MelonTile[2] = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_3.png");
-        texture_MelonTile[3] = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_4.png");
-        texture_MelonTile[4] = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_5.png");
-        texture_MelonTile[5] = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_6.png");
-        texture_MelonTile[6] = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_7.png");
+        for(int i = 0; i < texture_MelonTile.length; i++)
+        {
+            texture_MelonTile[i] = TextureHelper.getInstance().registerBlockTexture("melonTile_" + (i + 1));
+        }
 
-        itemMelon.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/melon.png"));
-        itemMelonSeeds.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/melonSeeds.png"));
+        itemMelon.setTexturePosition(TextureHelper.getInstance().registerItemTexture("melon"));
+        itemMelonSeeds.setTexturePosition(TextureHelper.getInstance().registerItemTexture("melonSeeds"));
 
-        blockFrozenDirt.texture = TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/melonTile_7.png");
+        goldenEgg.setTexturePosition(TextureHelper.getInstance().registerItemTexture("goldenEgg"));
+        nuggetGold.setTexturePosition(TextureHelper.getInstance().registerItemTexture("nuggetGold"));
+        goldenNecklace.setTexturePosition(TextureHelper.getInstance().registerItemTexture("goldenNecklace"));
 
-        goldenEgg.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/goldenEgg.png"));
-        nuggetGold.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/nuggetGold.png"));
+        textureDirtFrozen = TextureHelper.getInstance().registerBlockTexture("dirtFrozen");
+        textureSnowFrozen = TextureHelper.getInstance().registerBlockTexture("snowFrozen");
+        textureGrassFrozenSide = TextureHelper.getInstance().registerBlockTexture("grassFrozen");
 
-        goldenNecklace.setTexturePosition(TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/goldenNecklace.png"));
+        textureDirtGlitch = TextureHelper.getInstance().registerBlockTexture("dirtGlitch");
+        textureGrassGlitchTop = TextureHelper.getInstance().registerBlockTexture("grassGlitchTop");
+        textureGrassGlitchSide = TextureHelper.getInstance().registerBlockTexture("grassGlitch");
+
     }
 
 }

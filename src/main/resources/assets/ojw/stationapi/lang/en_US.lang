@@ -16,9 +16,11 @@ item.goldenNecklace.name=Golden Necklace
 
 item.pokeball.name=PokeBall
 
-item.debugitem.name=Leather Helmet as an accessory. (when will custom item rendering be implemented, so I could put it on player model?)
+item.debugitem.name=When will custom item rendering be implemented, so I could put many things on player model?
 
 #For future use
+jewelry.accessory.name=Accessory:
+
 jewelry.hat.name=Hat
 jewelry.necklace.name=Necklace
 jewelry.backpack.name=Back

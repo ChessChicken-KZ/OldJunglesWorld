@@ -153,7 +153,7 @@ public class EventInfoPaper {
                         reader.close();
                     }
                 } catch (IOException e) {
-                    OJWLogger.INSTANCE.INIT.error("Could not normally parse InfoPaper: " + path.toString());
+                    OJWLogger.INSTANCE.INIT.error("Could not normally parse InfoPaper: " + path);
                     OJWLogger.INSTANCE.INIT.error("Error: " + e.getMessage());
                 }
 

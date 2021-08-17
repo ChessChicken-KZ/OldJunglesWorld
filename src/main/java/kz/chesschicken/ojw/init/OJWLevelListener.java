@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.level.biome.overworld.*;
-import kz.chesschicken.ojw.structure.PlantGroup;
+import kz.chesschicken.ojw.level.structure.PlantGroup;
 import net.minecraft.level.biome.Biome;
 import net.modificationstation.stationapi.api.common.event.EventListener;
 import net.modificationstation.stationapi.api.common.event.level.biome.BiomeRegister;

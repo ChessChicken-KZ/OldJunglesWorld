@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.structure;
+package kz.chesschicken.ojw.level.structure;
 
 import net.minecraft.block.BlockBase;
 import net.minecraft.level.Level;
