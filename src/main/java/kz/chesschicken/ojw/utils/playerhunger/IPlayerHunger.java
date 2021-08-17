@@ -10,60 +10,60 @@ public interface IPlayerHunger {
      * Returns max possible value of hunger/absorption.
      * @return value.
      */
-    public int maxHunger();
+    int maxHunger();
 
     /**
      * Gets player's current hunger count.
      * @return value.
      */
-    public int getHunger();
+    int getHunger();
 
     /**
      * Sets player's hunger to specific value.
      * @param i value.
      */
-    public void setHunger(int i);
+    void setHunger(int i);
 
     /**
      * Adds hunger points to player.
      * @param i value.
      */
-    public void addHunger(int i);
+    void addHunger(int i);
 
     /**
      * Gets player's current absorption count.
      * @return value.
      */
-    public int getAbsorption();
+    int getAbsorption();
 
     /**
      * Sets player's absorption to specific value.
      * @param i value.
      */
-    public void setAbsorption(int i);
+    void setAbsorption(int i);
 
     /**
      * Adds absorption points to player.
      * @param i value.
      */
-    public void addAbsorption(int i);
+    void addAbsorption(int i);
 
     /**
      * Set poison effect (hunger) in ticks.
      * @param i Time.
      */
-    public void setPoison(int i);
+    void setPoison(int i);
 
     /**
      * Get remained time of poison effect (hunger) int ticks.
      * @return Time.
      */
-    public int getPoison();
+    int getPoison();
 
     /**
      * Return true if the tick time of posion effect (hunger) > 0
      * @return State.
      */
-    public boolean isPoisoned();
+    boolean isPoisoned();
 
 }

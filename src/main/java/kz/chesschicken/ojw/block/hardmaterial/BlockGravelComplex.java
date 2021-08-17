@@ -10,6 +10,7 @@ import net.modificationstation.stationapi.api.common.registry.Identifier;
 public class BlockGravelComplex extends SimpleBlockWithMeta {
     public BlockGravelComplex(Identifier identifier) {
         super(identifier, Material.SAND, 9);
+        this.setSounds(GRAVEL_SOUNDS);
     }
 
     @Override

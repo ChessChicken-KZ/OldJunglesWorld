@@ -1,6 +1,5 @@
 package kz.chesschicken.ojw.item.pokeball;
 
-import net.minecraft.entity.EntityBase;
 import net.minecraft.entity.EntityRegistry;
 import net.minecraft.entity.Living;
 import net.minecraft.entity.player.PlayerBase;

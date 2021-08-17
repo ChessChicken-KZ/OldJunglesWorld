@@ -8,5 +8,5 @@ public interface IJewelryInventory {
      * Access to the array, where jewelry usually is.
      * @return Array of {@link net.minecraft.item.ItemInstance}
      */
-    public ItemInstance[] getJewelryInventory();
+    ItemInstance[] getJewelryInventory();
 }

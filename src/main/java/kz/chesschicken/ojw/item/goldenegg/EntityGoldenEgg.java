@@ -16,10 +16,6 @@ import java.util.List;
 import java.util.Random;
 
 public class EntityGoldenEgg extends Egg {
-    private int xTile = -1;
-    private int yTile = -1;
-    private int zTile = -1;
-    private int inTile = 0;
     private boolean inGround = false;
     public int shake = 0;
     private Living field_2044;
@@ -41,20 +37,11 @@ public class EntityGoldenEgg extends Egg {
         }
 
         if (this.onGround) {
-            int var1 = this.level.getTileId(this.xTile, this.yTile, this.zTile);
-            if (var1 == this.inTile) {
-                ++this.field_2045;
-                if (this.field_2045 == 1200) {
-                    this.remove();
-                }
-
-                return;
-            }
 
             this.inGround = false;
-            this.velocityX *= (double)(this.rand.nextFloat() * 0.2F);
-            this.velocityY *= (double)(this.rand.nextFloat() * 0.2F);
-            this.velocityZ *= (double)(this.rand.nextFloat() * 0.2F);
+            this.velocityX *= this.rand.nextFloat() * 0.2F;
+            this.velocityY *= this.rand.nextFloat() * 0.2F;
+            this.velocityZ *= this.rand.nextFloat() * 0.2F;
             this.field_2045 = 0;
             this.field_2046 = 0;
         } else {

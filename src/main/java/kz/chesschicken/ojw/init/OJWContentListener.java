@@ -13,20 +13,18 @@ import kz.chesschicken.ojw.block.hardmaterial.BlockGravelComplex;
 import kz.chesschicken.ojw.block.hardmaterial.BlockStoneComplex;
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
-import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
+import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.pokeball.ItemPokeball;
-import kz.chesschicken.ojw.utils.TextureHelper;
 import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
 import net.minecraft.client.render.entity.ChickenRenderer;
 import net.minecraft.client.render.entity.model.Chicken;
 import net.minecraft.item.ItemInstance;
 import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegister;
-import net.modificationstation.stationapi.api.client.event.texture.TextureRegister;
 import net.modificationstation.stationapi.api.common.event.EventListener;
 import net.modificationstation.stationapi.api.common.event.block.BlockRegister;
 import net.modificationstation.stationapi.api.common.event.entity.EntityRegister;
@@ -66,31 +64,6 @@ public class OJWContentListener {
     public static SimpleBlockWithMeta blockStoneComplex;
     public static SimpleBlockWithMeta blockCobblestoneComplex;
     public static SimpleBlockWithMeta blockGravelComplex;
-
-    //TODO: may-be add HashMap?
-    public static int textureDirtFrozen;
-    public static int textureSnowFrozen;
-    public static int textureGrassFrozenSide;
-
-    public static int textureDirtGlitch;
-    public static int textureGrassGlitchTop;
-    public static int textureGrassGlitchSide;
-
-    public static int textureDirtDark;
-    public static int textureGrassDarkTop;
-    public static int textureGrassDarkSide;
-
-    public static int textureStoneFrozen;
-    public static int textureCobblestoneFrozen;
-    public static int textureGravelFrozen;
-
-
-    public static int texture_MelonSIDE;
-    public static int texture_MelonTOP;
-
-    public static int[] texture_MelonTile = new int[7];
-
-
 
     @Entrypoint.ModID public static ModID modID = Null.get();
 
@@ -177,43 +150,6 @@ public class OJWContentListener {
     public void registerEntityRenderers(EntityRendererRegister event)
     {
         event.renderers.put(EntityGoldenChicken.class, new ChickenRenderer(new Chicken(), 1.0f));
-    }
-
-    @SuppressWarnings("unused")
-    @EventListener
-    public void registerTextures(TextureRegister event)
-    {
-        OJWLogger.INSTANCE.INIT.info("Registering textures...");
-        texture_MelonSIDE = TextureHelper.getInstance().registerBlockTexture("melonSide");
-        texture_MelonTOP = TextureHelper.getInstance().registerBlockTexture("melonTop");
-
-        for(int i = 0; i < texture_MelonTile.length; i++)
-        {
-            texture_MelonTile[i] = TextureHelper.getInstance().registerBlockTexture("melonTile_" + (i + 1));
-        }
-
-        itemMelon.setTexturePosition(TextureHelper.getInstance().registerItemTexture("melon"));
-        itemMelonSeeds.setTexturePosition(TextureHelper.getInstance().registerItemTexture("melonSeeds"));
-
-        goldenEgg.setTexturePosition(TextureHelper.getInstance().registerItemTexture("goldenEgg"));
-        nuggetGold.setTexturePosition(TextureHelper.getInstance().registerItemTexture("nuggetGold"));
-        goldenNecklace.setTexturePosition(TextureHelper.getInstance().registerItemTexture("goldenNecklace"));
-
-        textureDirtFrozen = TextureHelper.getInstance().registerBlockTexture("dirtFrozen");
-        textureSnowFrozen = TextureHelper.getInstance().registerBlockTexture("snowFrozen");
-        textureGrassFrozenSide = TextureHelper.getInstance().registerBlockTexture("grassFrozen");
-
-        textureDirtGlitch = TextureHelper.getInstance().registerBlockTexture("dirtGlitch");
-        textureGrassGlitchTop = TextureHelper.getInstance().registerBlockTexture("grassGlitchTop");
-        textureGrassGlitchSide = TextureHelper.getInstance().registerBlockTexture("grassGlitch");
-
-        textureDirtDark = TextureHelper.getInstance().registerBlockTexture("dirtDark");
-        textureGrassDarkTop = TextureHelper.getInstance().registerBlockTexture("grassDarkTop");
-        textureGrassDarkSide = TextureHelper.getInstance().registerBlockTexture("grassDark");
-
-        textureStoneFrozen = TextureHelper.getInstance().registerBlockTexture("stoneFrozen");
-        textureCobblestoneFrozen = TextureHelper.getInstance().registerBlockTexture("cobblestoneFrozen");
-        textureGravelFrozen = TextureHelper.getInstance().registerBlockTexture("gravelFrozen");
     }
 
 }

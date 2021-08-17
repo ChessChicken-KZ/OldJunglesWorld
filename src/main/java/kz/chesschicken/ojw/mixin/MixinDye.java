@@ -20,7 +20,7 @@ public class MixinDye {
             int currentID = level.getTileId(x, y, z);
             if (currentID == OJWContentListener.blockMelonSeedsTile.id) {
                 if (!level.isClient) {
-                    ((BlockMelonSeed) OJWContentListener.blockMelonSeedsTile).growCropInstantly(level, x, y, z);
+                    ((BlockMelonSeed) OJWContentListener.blockMelonSeedsTile).growIt(level, x, y, z);
                     --item.count;
                 }
 

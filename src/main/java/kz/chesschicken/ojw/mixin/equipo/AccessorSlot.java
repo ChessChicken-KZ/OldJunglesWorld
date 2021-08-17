@@ -11,7 +11,7 @@ public interface AccessorSlot {
     int getIndex();
 
     @Accessor("invSlot")
-    public void setIndex(int i);
+    void setIndex(int i);
 
     @Accessor("inventory")
     InventoryBase getInventoryBase();

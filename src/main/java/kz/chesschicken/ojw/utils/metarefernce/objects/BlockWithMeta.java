@@ -5,7 +5,7 @@ import net.minecraft.entity.EntityBase;
 import net.minecraft.level.Level;
 import net.minecraft.level.TileView;
 import net.minecraft.util.maths.Vec3f;
-import net.modificationstation.stationapi.api.common.block.*;
+import net.modificationstation.stationapi.api.common.block.HasMetaNamedBlockItem;
 import net.modificationstation.stationapi.api.common.registry.Identifier;
 
 @HasMetaNamedBlockItem

@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.item;
 
 import kz.chesschicken.ojw.init.OJWContentListener;
+import kz.chesschicken.ojw.init.OJWTextureListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
@@ -14,7 +15,7 @@ import net.modificationstation.stationapi.template.common.item.Seeds;
 public class ItemSeedsMelon extends Seeds {
     public ItemSeedsMelon(Identifier identifier) {
         super(identifier, 1);
-        setTexturePosition(OJWContentListener.texture_MelonTile[6]);
+        setTexturePosition(OJWTextureListener.textureMelonCrop[6]);
     }
 
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {

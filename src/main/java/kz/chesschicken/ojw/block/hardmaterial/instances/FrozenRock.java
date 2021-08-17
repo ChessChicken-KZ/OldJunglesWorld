@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.block.hardmaterial.instances;
 
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
+import kz.chesschicken.ojw.init.OJWTextureListener;
 
 public class FrozenRock extends MetaRock {
     public FrozenRock(int i) {
@@ -9,16 +10,16 @@ public class FrozenRock extends MetaRock {
 
     @Override
     public int getStoneTexture() {
-        return 0;
+        return OJWTextureListener.textureStoneFrozen;
     }
 
     @Override
     public int getCobblestoneTexture() {
-        return 0;
+        return OJWTextureListener.textureCobblestoneFrozen;
     }
 
     @Override
     public int getGravelTexture() {
-        return 0;
+        return OJWTextureListener.textureGravelFrozen;
     }
 }

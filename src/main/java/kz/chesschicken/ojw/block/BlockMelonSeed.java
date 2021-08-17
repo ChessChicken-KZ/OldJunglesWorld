@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.block;
 
 import kz.chesschicken.ojw.init.OJWContentListener;
+import kz.chesschicken.ojw.init.OJWTextureListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
@@ -26,34 +27,28 @@ public class BlockMelonSeed extends Plant {
         this.disableStat();
         this.disableNotifyOnMetaDataChange();
 
-        float var3 = 0.125F;
-        this.setBoundingBox(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.25F, 0.5F + var3);
-
+        this.setBoundingBox(0.375F, 0.0F, 0.375F, 0.625F, 0.25F, 0.625F);
     }
 
     public boolean canPlaceAt(Level level, int x, int y, int z) {
         return super.canPlaceAt(level, x, y, z) && level.getTileId(x, y - 1, z) == BlockBase.FARMLAND.id;
     }
 
-
     public int getDropId(int meta, Random rand) {
         return meta == 7 ? OJWContentListener.itemMelonSeeds.id : 0;
     }
 
-
     @Override
     public int getTextureForSide(int side, int meta) {
-        switch (meta)
-        {
-            case 2: return OJWContentListener.texture_MelonTile[1];
-            case 3: return OJWContentListener.texture_MelonTile[2];
-            case 4: return OJWContentListener.texture_MelonTile[3];
-            case 5: return OJWContentListener.texture_MelonTile[4];
-            case 6: return OJWContentListener.texture_MelonTile[5];
-            case 7: return OJWContentListener.texture_MelonTile[6];
+        if(meta > 1 && meta < 8)
+            return OJWTextureListener.textureMelonCrop[meta - 1];
+        else
+            return OJWTextureListener.textureMelonCrop[0];
+    }
 
-            default: return OJWContentListener.texture_MelonTile[0];
-        }
+    @Environment(EnvType.CLIENT)
+    public int getRenderType() {
+        return 1;
     }
 
     @Override
@@ -65,7 +60,7 @@ public class BlockMelonSeed extends Plant {
         if (level.placeTile(x, y + 1, z) >= 9) {
             int var6 = level.getTileMeta(x, y, z);
             if (var6 < 7) {
-                float var7 = this.growCropStage(level, x, y, z);
+                float var7 = this.growingStage(level, x, y, z);
                 if (rand.nextInt((int)(100.0F / var7)) == 0) {
                     ++var6;
                     level.setTileMeta(x, y, z, var6);
@@ -83,71 +78,64 @@ public class BlockMelonSeed extends Plant {
 
     }
 
-    public void growCropInstantly(Level arg, int x, int y, int z) {
+    public void growIt(Level arg, int x, int y, int z) {
         arg.setTileMeta(x, y, z, 7);
-
     }
 
-    private float growCropStage(Level arg, int x, int y, int z) {
-        float var5 = 1.0F;
-        int var6 = arg.getTileId(x, y, z - 1);
-        int var7 = arg.getTileId(x, y, z + 1);
-        int var8 = arg.getTileId(x - 1, y, z);
-        int var9 = arg.getTileId(x + 1, y, z);
-        int var10 = arg.getTileId(x - 1, y, z - 1);
-        int var11 = arg.getTileId(x + 1, y, z - 1);
-        int var12 = arg.getTileId(x + 1, y, z + 1);
-        int var13 = arg.getTileId(x - 1, y, z + 1);
-        boolean var14 = var8 == this.id || var9 == this.id;
-        boolean var15 = var6 == this.id || var7 == this.id;
-        boolean var16 = var10 == this.id || var11 == this.id || var12 == this.id || var13 == this.id;
+    public float growingStage(Level arg, int x, int y, int z) {
+        float sending = 1.0F;
+        int mZ = arg.getTileId(x, y, z - 1);
+        int pZ = arg.getTileId(x, y, z + 1);
+        int mX = arg.getTileId(x - 1, y, z);
+        int pX = arg.getTileId(x + 1, y, z);
+        int mXZ = arg.getTileId(x - 1, y, z - 1);
+        int pXmZ = arg.getTileId(x + 1, y, z - 1);
+        int pXZ = arg.getTileId(x + 1, y, z + 1);
+        int mXpZ = arg.getTileId(x - 1, y, z + 1);
+        boolean eqX = mX == this.id || pX == this.id;
+        boolean eqZ = mZ == this.id || pZ == this.id;
+        boolean eqAny = mXZ == this.id || pXmZ == this.id || pXZ == this.id || mXpZ == this.id;
 
-        for(int var17 = x - 1; var17 <= x + 1; ++var17) {
-            for(int var18 = z - 1; var18 <= z + 1; ++var18) {
-                int var19 = arg.getTileId(var17, y - 1, var18);
-                float var20 = 0.0F;
-                if (var19 == BlockBase.FARMLAND.id) {
-                    var20 = 1.0F;
-                    if (arg.getTileMeta(var17, y - 1, var18) > 0) {
-                        var20 = 3.0F;
+        for(int varX = x - 1; varX <= x + 1; ++varX) {
+            for(int varZ = z - 1; varZ <= z + 1; ++varZ) {
+                int farmBlock = arg.getTileId(varX, y - 1, varZ);
+                float var1 = 0.0F;
+                if (farmBlock == BlockBase.FARMLAND.id) {
+                    var1 = 1.0F;
+                    if (arg.getTileMeta(varX, y - 1, varZ) > 0) {
+                        var1 = 3.0F;
                     }
                 }
 
-                if (var17 != x || var18 != z) {
-                    var20 /= 4.0F;
+                if (varX != x || varZ != z) {
+                    var1 /= 4.0F;
                 }
 
-                var5 += var20;
+                sending += var1;
             }
         }
 
-        if (var16 || var14 && var15) {
-            var5 /= 2.0F;
+        if (eqAny || eqX && eqZ) {
+            sending /= 2.0F;
         }
 
-        return var5;
+        return sending;
     }
 
     public void beforeDestroyedByExplosion(Level level, int x, int y, int z, int meta, float dropChance) {
         super.beforeDestroyedByExplosion(level, x, y, z, meta, dropChance);
         if (!level.isClient) {
-            for(int var7 = 0; var7 < 3; ++var7) {
+            for(int i = 0; i < 3; ++i) {
                 if (level.rand.nextInt(15) <= meta) {
-                    float var8 = 0.7F;
-                    float var9 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
-                    float var10 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
-                    float var11 = level.rand.nextFloat() * var8 + (1.0F - var8) * 0.5F;
-                    Item var12 = new Item(level, (double)((float)x + var9), (double)((float)y + var10), (double)((float)z + var11), new ItemInstance(OJWContentListener.itemMelonSeeds));
-                    var12.pickupDelay = 10;
-                    level.spawnEntity(var12);
+                    float posX = level.rand.nextFloat() * 0.7F + 0.3F * 0.5F;
+                    float posY = level.rand.nextFloat() * 0.7F + 0.3F * 0.5F;
+                    float posZ = level.rand.nextFloat() * 0.7F + 0.3F * 0.5F;
+                    Item entityItem = new Item(level, (float)x + posX, (float)y + posY, (float)z + posZ, new ItemInstance(OJWContentListener.itemMelonSeeds));
+                    entityItem.pickupDelay = 10;
+                    level.spawnEntity(entityItem);
                 }
             }
 
         }
-    }
-
-    @Environment(EnvType.CLIENT)
-    public int getRenderType() {
-        return 1;
     }
 }

@@ -49,15 +49,15 @@ public interface IJewelry {
      * Use this method to identify the type of your jewelry item, so game could understand is it for necklace, or for legs.
      * @return the jewelry type for item.
      */
-    public JewelryType getJewelryType();
+    JewelryType getJewelryType();
 
     /**
      * Use this method to make some tick events, create some effects for your jewelry when it's worm.
      * @param player Player.
      * @param jewelry ItemInstance of jewelry.
      */
-    public default void tickJewelry(Level world, PlayerBase player, ItemInstance jewelry, int slot) { }
+    default void tickJewelry(Level world, PlayerBase player, ItemInstance jewelry, int slot) { }
 
-    public default void renderJewelry(PlayerBase playerBase, double d, double d1, double d2, float f, float f1) {}
+    default void renderJewelry(PlayerBase playerBase, double d, double d1, double d2, float f, float f1) {}
 
 }

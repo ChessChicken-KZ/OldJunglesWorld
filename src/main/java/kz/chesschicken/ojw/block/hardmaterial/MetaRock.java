@@ -42,6 +42,5 @@ public abstract class MetaRock extends MetaBlock {
         OJWContentListener.blockStoneComplex.addMetaBlock(object);
         OJWContentListener.blockCobblestoneComplex.addMetaBlock(object);
         OJWContentListener.blockGravelComplex.addMetaBlock(object);
-
     }
 }
