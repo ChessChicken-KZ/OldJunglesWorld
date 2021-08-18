@@ -5,14 +5,8 @@ import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
 import net.minecraft.entity.EntityBase;
 
 public abstract class MetaRock extends MetaBlock {
-    private final String prefix;
-    public MetaRock(int i, String s) {
+    public MetaRock(int i) {
         super(i);
-        this.prefix = s;
-    }
-
-    public String getName(String s) {
-        return "tile." + s + "_" + prefix + ".name";
     }
 
     @Override

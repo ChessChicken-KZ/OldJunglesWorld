@@ -6,17 +6,17 @@ import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.util.io.CompoundTag;
-import net.modificationstation.stationapi.api.common.item.HasItemEntity;
-import net.modificationstation.stationapi.api.common.item.ItemEntity;
-import net.modificationstation.stationapi.api.common.item.ItemWithEntity;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.api.common.registry.ModID;
-import net.modificationstation.stationapi.template.common.item.ItemBase;
+import net.modificationstation.stationapi.api.item.nbt.HasItemEntity;
+import net.modificationstation.stationapi.api.item.nbt.ItemEntity;
+import net.modificationstation.stationapi.api.item.nbt.ItemWithEntity;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class ItemPokeball extends ItemBase implements ItemWithEntity {
+public class ItemPokeball extends TemplateItemBase implements ItemWithEntity {
     public ItemPokeball(Identifier identifier) {
         super(identifier);
         this.setMaxStackSize(1);
@@ -33,7 +33,7 @@ public class ItemPokeball extends ItemBase implements ItemWithEntity {
     }
 
     @Override
-    public ItemBase setTranslationKey(ModID modID, String translationKey) {
+    public TemplateItemBase setTranslationKey(ModID modID, String translationKey) {
         return super.setTranslationKey(modID, translationKey);
     }
 

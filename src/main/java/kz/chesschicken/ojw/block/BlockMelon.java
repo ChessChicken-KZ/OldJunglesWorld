@@ -3,15 +3,15 @@ package kz.chesschicken.ojw.block;
 import kz.chesschicken.ojw.init.OJWContentListener;
 import kz.chesschicken.ojw.init.OJWTextureListener;
 import net.minecraft.block.material.Material;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.block.BlockBase;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 import java.util.Random;
 
 /**
  * Melon block.
  */
-public class BlockMelon extends BlockBase {
+public class BlockMelon extends TemplateBlockBase {
     public BlockMelon(Identifier id) {
         super(id, Material.ORGANIC);
         this.setHardness(0.8F);

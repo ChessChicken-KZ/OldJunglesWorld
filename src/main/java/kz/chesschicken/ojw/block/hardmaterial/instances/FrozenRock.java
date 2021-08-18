@@ -5,7 +5,7 @@ import kz.chesschicken.ojw.init.OJWTextureListener;
 
 public class FrozenRock extends MetaRock {
     public FrozenRock(int i) {
-        super(i, "frozen");
+        super(i);
     }
 
     @Override

@@ -4,11 +4,9 @@ import kz.chesschicken.ojw.init.OJWContentListener;
 import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
 
 public abstract class MetaGrass extends MetaBlock {
-    private final String prefix;
 
-    public MetaGrass(int i, String s) {
+    public MetaGrass(int i) {
         super(i);
-        this.prefix = s;
     }
 
     @Override
@@ -33,10 +31,6 @@ public abstract class MetaGrass extends MetaBlock {
 
     public float getHardnessAsDirt() {
         return 0.5f;
-    }
-
-    public String getName(String s) {
-        return "tile." + s + "_" + prefix + ".name";
     }
 
     public static void registerMeta(MetaGrass object)

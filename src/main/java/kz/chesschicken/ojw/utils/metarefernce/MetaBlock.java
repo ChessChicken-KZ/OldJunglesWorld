@@ -6,7 +6,7 @@ import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.level.TileView;
 import net.minecraft.util.maths.Vec3f;
-import net.modificationstation.stationapi.api.common.item.tool.ToolLevel;
+import net.modificationstation.stationapi.api.item.tool.ToolLevel;
 
 import java.util.List;
 import java.util.Random;
@@ -20,11 +20,6 @@ public class MetaBlock extends MetaObject<BlockBase> {
 
     public MetaBlock(int i) {
         super(i);
-    }
-
-    @Override
-    public String getName() {
-        return BlockBase.BY_ID[objectID].getTranslatedName();
     }
 
     @Override

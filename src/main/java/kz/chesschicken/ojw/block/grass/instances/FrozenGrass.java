@@ -5,7 +5,7 @@ import kz.chesschicken.ojw.init.OJWTextureListener;
 
 public class FrozenGrass extends MetaGrass {
     public FrozenGrass(int i) {
-        super(i, "frozen");
+        super(i);
     }
 
     @Override

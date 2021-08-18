@@ -3,10 +3,10 @@ package kz.chesschicken.ojw.item.goldenegg;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.item.ItemBase;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 
-public class ItemGoldenEgg extends ItemBase {
+public class ItemGoldenEgg extends TemplateItemBase {
     public ItemGoldenEgg(Identifier i) {
         super(i);
         this.maxStackSize = 16;

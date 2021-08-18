@@ -5,18 +5,18 @@ import kz.chesschicken.ojw.init.OJWContentListener;
 import kz.chesschicken.ojw.init.OJWLogger;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerBase;
-import net.modificationstation.stationapi.api.common.event.EventListener;
-import net.modificationstation.stationapi.api.common.event.mod.Init;
-import net.modificationstation.stationapi.api.common.event.packet.MessageListenerRegister;
-import net.modificationstation.stationapi.api.common.factory.GeneralFactory;
-import net.modificationstation.stationapi.api.common.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.common.packet.Message;
-import net.modificationstation.stationapi.api.common.packet.PacketHelper;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.api.common.registry.ModID;
-import net.modificationstation.stationapi.api.common.util.Null;
+import net.modificationstation.stationapi.api.event.mod.InitEvent;
+import net.modificationstation.stationapi.api.event.registry.MessageListenerRegistryEvent;
+import net.modificationstation.stationapi.api.factory.GeneralFactory;
+import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
+import net.modificationstation.stationapi.api.packet.Message;
+import net.modificationstation.stationapi.api.packet.PacketHelper;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.util.Null;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -94,14 +94,14 @@ public class EventInfoPaper {
      * @param messageListenerRegister Event
      */
     @EventListener
-    public void registerInfoPaper_PACKET(MessageListenerRegister messageListenerRegister)
+    public void registerInfoPaper_PACKET(MessageListenerRegistryEvent messageListenerRegister)
     {
-        messageListenerRegister.registry.registerValue(Identifier.of(modid, "openinfopaper"), this::handlePaper);
-        messageListenerRegister.registry.registerValue(Identifier.of(modid, "resultoip"), this::handleClientPaper);
+        messageListenerRegister.registry.register(Identifier.of(modid, "openinfopaper"), this::handlePaper);
+        messageListenerRegister.registry.register(Identifier.of(modid, "resultoip"), this::handleClientPaper);
     }
 
     public void handlePaper(PlayerBase playerBase, Message customData) {
-        int id = customData.ints()[0];
+        int id = customData.ints[0];
         if (playerBase.inventory.getHeldItem() != null)
         {
             if (playerBase.inventory.getHeldItem().itemId == OJWContentListener.infoPaper.id)
@@ -109,9 +109,9 @@ public class EventInfoPaper {
                 if(doesExist(playerBase.inventory.getHeldItem().getDamage()))
                 {
                     Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:resultoip");
-                    packet.put(customData.ints());
+                    packet.ints = customData.ints;
                     PacketHelper.send(packet);
-                    OJWLogger.INSTANCE.RUNTIME.info("SERVER SIDE! Sent a packet of InfoPaper with id: " + customData.ints()[0]);
+                    OJWLogger.INSTANCE.RUNTIME.info("SERVER SIDE! Sent a packet of InfoPaper with id: " + customData.ints[0]);
                 }
             }
         }
@@ -122,8 +122,8 @@ public class EventInfoPaper {
         if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
         {
             Minecraft mc = (Minecraft) FabricLoader.getInstance().getGameInstance();
-            mc.openScreen(new GuiInfoPaper(customData.ints()[0]));
-            OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Got a message to open InfoPaper with id: " + customData.ints()[0]);
+            mc.openScreen(new GuiInfoPaper(customData.ints[0]));
+            OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Got a message to open InfoPaper with id: " + customData.ints[0]);
         }
     }
 
@@ -133,7 +133,7 @@ public class EventInfoPaper {
      */
     @SuppressWarnings("unused")
     @EventListener
-    public void initializeDocuments(Init init)
+    public void initializeDocuments(InitEvent init)
     {
         try
         {

@@ -6,13 +6,13 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.item.Seeds;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.item.TemplateSeeds;
 
 /**
  * Melon seeds.
  */
-public class ItemSeedsMelon extends Seeds {
+public class ItemSeedsMelon extends TemplateSeeds {
     public ItemSeedsMelon(Identifier identifier) {
         super(identifier, 1);
         setTexturePosition(OJWTextureListener.textureMelonCrop[6]);

@@ -5,7 +5,7 @@ import kz.chesschicken.ojw.init.OJWTextureListener;
 
 public class DarkGrass extends MetaGrass {
     public DarkGrass(int i) {
-        super(i, "dark");
+        super(i);
     }
 
     @Override

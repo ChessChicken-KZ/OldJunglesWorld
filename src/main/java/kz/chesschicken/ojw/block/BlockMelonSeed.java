@@ -8,15 +8,15 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.entity.Item;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.block.Plant;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.block.TemplatePlant;
 
 import java.util.Random;
 
 /**
  * Melon Plant
  */
-public class BlockMelonSeed extends Plant {
+public class BlockMelonSeed extends TemplatePlant {
     private final int melonID;
     public BlockMelonSeed(Identifier identifier, int melonID) {
         super(identifier, 0);
@@ -40,10 +40,7 @@ public class BlockMelonSeed extends Plant {
 
     @Override
     public int getTextureForSide(int side, int meta) {
-        if(meta > 1 && meta < 8)
-            return OJWTextureListener.textureMelonCrop[meta - 1];
-        else
-            return OJWTextureListener.textureMelonCrop[0];
+        return OJWTextureListener.textureMelonCrop[(meta > 1 && meta < 8) ? meta - 1 : 0];
     }
 
     @Environment(EnvType.CLIENT)
@@ -96,28 +93,27 @@ public class BlockMelonSeed extends Plant {
         boolean eqZ = mZ == this.id || pZ == this.id;
         boolean eqAny = mXZ == this.id || pXmZ == this.id || pXZ == this.id || mXpZ == this.id;
 
-        for(int varX = x - 1; varX <= x + 1; ++varX) {
-            for(int varZ = z - 1; varZ <= z + 1; ++varZ) {
-                int farmBlock = arg.getTileId(varX, y - 1, varZ);
+        for(int varX = x - 1; varX <= x + 1; ++varX)
+        {
+            for(int varZ = z - 1; varZ <= z + 1; ++varZ)
+            {
                 float var1 = 0.0F;
-                if (farmBlock == BlockBase.FARMLAND.id) {
+                if (arg.getTileId(varX, y - 1, varZ) == BlockBase.FARMLAND.id)
+                {
                     var1 = 1.0F;
-                    if (arg.getTileMeta(varX, y - 1, varZ) > 0) {
+                    if (arg.getTileMeta(varX, y - 1, varZ) > 0)
                         var1 = 3.0F;
-                    }
                 }
 
-                if (varX != x || varZ != z) {
+                if (varX != x || varZ != z)
                     var1 /= 4.0F;
-                }
 
                 sending += var1;
             }
         }
 
-        if (eqAny || eqX && eqZ) {
+        if (eqAny || eqX && eqZ)
             sending /= 2.0F;
-        }
 
         return sending;
     }
@@ -125,11 +121,13 @@ public class BlockMelonSeed extends Plant {
     public void beforeDestroyedByExplosion(Level level, int x, int y, int z, int meta, float dropChance) {
         super.beforeDestroyedByExplosion(level, x, y, z, meta, dropChance);
         if (!level.isClient) {
-            for(int i = 0; i < 3; ++i) {
-                if (level.rand.nextInt(15) <= meta) {
-                    float posX = level.rand.nextFloat() * 0.7F + 0.3F * 0.5F;
-                    float posY = level.rand.nextFloat() * 0.7F + 0.3F * 0.5F;
-                    float posZ = level.rand.nextFloat() * 0.7F + 0.3F * 0.5F;
+            for(int i = 0; i < 3; ++i)
+            {
+                if (level.rand.nextInt(15) <= meta)
+                {
+                    float posX = level.rand.nextFloat() * 0.7F + 0.15F;
+                    float posY = level.rand.nextFloat() * 0.7F + 0.15F;
+                    float posZ = level.rand.nextFloat() * 0.7F + 0.15F;
                     Item entityItem = new Item(level, (float)x + posX, (float)y + posY, (float)z + posZ, new ItemInstance(OJWContentListener.itemMelonSeeds));
                     entityItem.pickupDelay = 10;
                     level.spawnEntity(entityItem);

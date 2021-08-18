@@ -2,10 +2,10 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.level.biome.overworld.*;
 import kz.chesschicken.ojw.level.structure.PlantGroup;
+import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.level.biome.Biome;
-import net.modificationstation.stationapi.api.common.event.EventListener;
-import net.modificationstation.stationapi.api.common.event.level.biome.BiomeRegister;
-import net.modificationstation.stationapi.api.common.event.level.gen.ChunkDecoration;
+import net.modificationstation.stationapi.api.event.level.biome.BiomeRegisterEvent;
+import net.modificationstation.stationapi.api.event.level.gen.LevelGenEvent;
 
 /**
  * Biomes, Generation, Dimensions
@@ -20,7 +20,7 @@ public class OJWLevelListener {
 
     @SuppressWarnings("unused")
     @EventListener
-    public void registerBiome(BiomeRegister event)
+    public void registerBiome(BiomeRegisterEvent event)
     {
         bBirchForest = new BirchForest();
         bConiferousForest = new ConiferousForest();
@@ -33,7 +33,7 @@ public class OJWLevelListener {
 
     @SuppressWarnings("unused")
     @EventListener
-    public void registerGeneration(ChunkDecoration chunkDecoration)
+    public void registerGeneration(LevelGenEvent.ChunkDecoration chunkDecoration)
     {
         if (chunkDecoration.random.nextInt(8) == 0 && chunkDecoration.biome == OJWLevelListener.bJungle) {
             int ix = chunkDecoration.x + chunkDecoration.random.nextInt(16) + 8;

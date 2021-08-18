@@ -2,13 +2,13 @@ package kz.chesschicken.ojw.block.grass;
 
 import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
 import net.minecraft.block.material.Material;
-import net.modificationstation.stationapi.api.common.block.HasMetaNamedBlockItem;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
+import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
+import net.modificationstation.stationapi.api.registry.Identifier;
 
 @HasMetaNamedBlockItem
 public class BlockDirtComplex extends SimpleBlockWithMeta {
     public BlockDirtComplex(Identifier identifier) {
-        super(identifier, Material.DIRT, 9);
+        super(identifier, Material.DIRT, 3);
         this.setSounds(GRAVEL_SOUNDS);
     }
 

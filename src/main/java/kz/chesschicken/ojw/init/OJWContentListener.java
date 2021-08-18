@@ -21,22 +21,23 @@ import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.pokeball.ItemPokeball;
 import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
+import net.mine_diver.unsafeevents.listener.EventListener;
+import net.minecraft.block.BlockBase;
 import net.minecraft.client.render.entity.ChickenRenderer;
 import net.minecraft.client.render.entity.model.Chicken;
+import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegister;
-import net.modificationstation.stationapi.api.common.event.EventListener;
-import net.modificationstation.stationapi.api.common.event.block.BlockRegister;
-import net.modificationstation.stationapi.api.common.event.entity.EntityRegister;
-import net.modificationstation.stationapi.api.common.event.item.ItemRegister;
-import net.modificationstation.stationapi.api.common.event.recipe.RecipeRegister;
-import net.modificationstation.stationapi.api.common.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.common.recipe.CraftingRegistry;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.api.common.registry.ModID;
-import net.modificationstation.stationapi.api.common.util.Null;
-import net.modificationstation.stationapi.template.common.block.BlockBase;
-import net.modificationstation.stationapi.template.common.item.ItemBase;
+import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
+import net.modificationstation.stationapi.api.event.entity.EntityRegister;
+import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
+import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
+import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
+import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
+import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
+import net.modificationstation.stationapi.api.util.Null;
 
 /**
  * Blocks, Items, Textures, Recipe
@@ -69,48 +70,48 @@ public class OJWContentListener {
 
     @SuppressWarnings("unused")
     @EventListener
-    public void registerBlocks(BlockRegister event)
+    public void registerBlocks(BlockRegistryEvent event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering blocks...");
         blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "blockMelon");
         blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
 
-        blockDirtComplex = (SimpleBlockWithMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "blockDirtComplex");
-        blockGrassComplex = (SimpleBlockWithMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "blockGrassComplex");
+        blockDirtComplex = (SimpleBlockWithMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
+        blockGrassComplex = (SimpleBlockWithMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "grass_complex");
 
         MetaGrass.registerMeta(new FrozenGrass(0));
         MetaGrass.registerMeta(new GlitchGrass(1));
         MetaGrass.registerMeta(new DarkGrass(2));
 
-        blockStoneComplex = (SimpleBlockWithMeta) new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "blockStoneComplex");
-        blockCobblestoneComplex = (SimpleBlockWithMeta) new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "blockCobblestoneComplex");
-        blockGravelComplex = (SimpleBlockWithMeta) new BlockGravelComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "blockGravelComplex");
+        blockStoneComplex = (SimpleBlockWithMeta) new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "stone_complex");
+        blockCobblestoneComplex = (SimpleBlockWithMeta) new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "cobblestone_complex");
+        blockGravelComplex = (SimpleBlockWithMeta) new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
 
         MetaRock.registerRock(new FrozenRock(0));
     }
 
     @SuppressWarnings("unused")
     @EventListener
-    public void registerItems(ItemRegister event)
+    public void registerItems(ItemRegistryEvent event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering items...");
         itemMelon = new ItemMelon(Identifier.of(modID, "melon_item")).setTranslationKey(modID, "itemMelon");
         itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "melon_seeds_item")).setTranslationKey(modID, "itemmelonseeds");
         infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infoPaper");
         goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "gold_egg")).setTranslationKey(modID, "goldenEgg");
-        nuggetGold = new ItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nuggetGold");
+        nuggetGold = new TemplateItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nuggetGold");
         goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "goldenNecklace");
         pokeBall = new ItemPokeball(Identifier.of(modID, "pokeball")).setTranslationKey(modID, "pokeball");
     }
 
     @SuppressWarnings({"unused", "UnnecessaryBoxing"})
     @EventListener
-    public void registerRecipe(RecipeRegister event)
+    public void registerRecipe(RecipeRegisterEvent event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering recipes (" + event.recipeId.toString() + ")...");
         Identifier type = event.recipeId;
 
-        if(type == RecipeRegister.Vanilla.CRAFTING_SHAPED.type())
+        if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type())
         {
             CraftingRegistry.addShapedRecipe(new ItemInstance(blockMelon),
                     "XXX", "XXX", "XXX", Character.valueOf('X'), itemMelon);
@@ -128,7 +129,7 @@ public class OJWContentListener {
 
 
         }
-        if(type == RecipeRegister.Vanilla.CRAFTING_SHAPELESS.type())
+        if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type())
         {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(itemMelonSeeds),
                     itemMelon);
@@ -141,13 +142,13 @@ public class OJWContentListener {
     @EventListener
     public void registerEntity(EntityRegister event)
     {
-        event.register.accept(EntityGoldenChicken.class, "ojw:goldenchicken", 20);
-        event.register.accept(EntityGoldenChicken.class, "ojw:goldenegg", 21);
+        event.register(EntityGoldenChicken.class, "ojw:goldenchicken", 20);
+        event.register(EntityGoldenChicken.class, "ojw:goldenegg", 21);
     }
 
     @SuppressWarnings("unused")
     @EventListener
-    public void registerEntityRenderers(EntityRendererRegister event)
+    public void registerEntityRenderers(EntityRendererRegisterEvent event)
     {
         event.renderers.put(EntityGoldenChicken.class, new ChickenRenderer(new Chicken(), 1.0f));
     }

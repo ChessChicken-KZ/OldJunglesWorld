@@ -1,7 +1,19 @@
 #Tiles
 tile.blockMelon.name=Watermelon
 tile.blockMelonSeedsTile.name=Watermelon Seeds
-tile.blockFrozenDirt.name=Frozen Dirt
+
+tile.dirt_complex0.name=Frozen Dirt
+tile.grass_complex0.name=Frozen Grass Block
+
+tile.dirt_complex1.name=Glitch Dirt
+tile.grass_complex1.name=Glitch Grass Block
+
+tile.dirt_complex2.name=Dark Dirt
+tile.grass_complex2.name=Void Grass Block
+
+tile.stone_complex0.name=Frozen Stone
+tile.cobblestone_complex0.name=Frozen Cobblestone
+tile.gravel_complex0.name=Frozen Gravel
 
 #Items
 item.itemMelon.name=Watermelon

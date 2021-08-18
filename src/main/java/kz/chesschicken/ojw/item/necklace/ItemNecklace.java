@@ -8,10 +8,10 @@ import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.item.ItemBase;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 
-public class ItemNecklace extends ItemBase implements IJewelry {
+public class ItemNecklace extends TemplateItemBase implements IJewelry {
     public ItemNecklace(Identifier identifier) {
         super(identifier);
         this.setMaxStackSize(1);

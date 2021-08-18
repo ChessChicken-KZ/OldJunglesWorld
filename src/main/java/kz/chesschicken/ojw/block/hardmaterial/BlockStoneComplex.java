@@ -2,13 +2,13 @@ package kz.chesschicken.ojw.block.hardmaterial;
 
 import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
 import net.minecraft.block.material.Material;
-import net.modificationstation.stationapi.api.common.block.HasMetaNamedBlockItem;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
+import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
+import net.modificationstation.stationapi.api.registry.Identifier;
 
 @HasMetaNamedBlockItem
 public class BlockStoneComplex extends SimpleBlockWithMeta {
     public BlockStoneComplex(Identifier identifier) {
-        super(identifier, Material.STONE, 9);
+        super(identifier, Material.STONE, 1);
         this.setSounds(PISTON_SOUNDS);
     }
 

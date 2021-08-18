@@ -8,7 +8,5 @@ public abstract class MetaObject<K> {
         this.metadata = i;
     }
 
-    public abstract String getName();
-
     public abstract Class<? extends K> getObjectClass();
 }

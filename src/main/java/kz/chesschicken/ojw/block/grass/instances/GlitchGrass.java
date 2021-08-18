@@ -5,7 +5,7 @@ import kz.chesschicken.ojw.init.OJWTextureListener;
 
 public class GlitchGrass extends MetaGrass {
     public GlitchGrass(int i) {
-        super(i, "glitch");
+        super(i);
     }
 
     @Override

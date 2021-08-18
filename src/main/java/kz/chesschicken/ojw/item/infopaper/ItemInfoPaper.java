@@ -6,13 +6,13 @@ import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.common.factory.GeneralFactory;
-import net.modificationstation.stationapi.api.common.packet.Message;
-import net.modificationstation.stationapi.api.common.packet.PacketHelper;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.item.ItemBase;
+import net.modificationstation.stationapi.api.factory.GeneralFactory;
+import net.modificationstation.stationapi.api.packet.Message;
+import net.modificationstation.stationapi.api.packet.PacketHelper;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 
-public class ItemInfoPaper extends ItemBase {
+public class ItemInfoPaper extends TemplateItemBase {
 
     public ItemInfoPaper(Identifier identifier) {
         super(identifier);
@@ -32,7 +32,7 @@ public class ItemInfoPaper extends ItemBase {
         //if(level.isClient)
         //{
             Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:openinfopaper");
-            packet.put(new int[] { item.getDamage() });
+            packet.ints = new int[] { item.getDamage() };
             PacketHelper.send(packet);
         //}else
         //    {

@@ -1,7 +1,6 @@
 package kz.chesschicken.ojw.utils;
 
-import net.modificationstation.stationapi.api.client.texture.TextureFactory;
-import net.modificationstation.stationapi.api.client.texture.TextureRegistry;
+import net.modificationstation.stationapi.api.client.texture.atlas.ExpandableAtlas;
 
 public class TextureHelper {
 
@@ -9,12 +8,12 @@ public class TextureHelper {
 
     public int registerBlockTexture(String name)
     {
-        return TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("TERRAIN"), "/assets/ojw/textures/block/" + name + ".png");
+        return ExpandableAtlas.STATION_TERRAIN.addTexture("/assets/ojw/textures/block/" + name + ".png").index;
     }
 
     public int registerItemTexture(String name)
     {
-        return TextureFactory.INSTANCE.addTexture(TextureRegistry.getRegistry("GUI_ITEMS"), "/assets/ojw/textures/item/" + name + ".png");
+        return ExpandableAtlas.STATION_GUI_ITEMS.addTexture("/assets/ojw/textures/item/" + name + ".png").index;
     }
 
 

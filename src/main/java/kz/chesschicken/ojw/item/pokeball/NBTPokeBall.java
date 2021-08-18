@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.item.pokeball;
 
 import net.minecraft.util.io.CompoundTag;
-import net.modificationstation.stationapi.api.common.item.ItemEntity;
+import net.modificationstation.stationapi.api.item.nbt.ItemEntity;
 
 //TODO: Implement other stuff.
 public class NBTPokeBall implements ItemEntity {

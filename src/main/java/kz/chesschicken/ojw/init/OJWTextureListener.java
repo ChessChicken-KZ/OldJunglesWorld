@@ -1,8 +1,8 @@
 package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.utils.TextureHelper;
-import net.modificationstation.stationapi.api.client.event.texture.TextureRegister;
-import net.modificationstation.stationapi.api.common.event.EventListener;
+import net.mine_diver.unsafeevents.listener.EventListener;
+import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 
 import static kz.chesschicken.ojw.init.OJWContentListener.*;
 
@@ -31,7 +31,7 @@ public class OJWTextureListener {
 
     @SuppressWarnings("unused")
     @EventListener
-    public void registerTextures(TextureRegister event)
+    public void registerTextures(TextureRegisterEvent event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering textures...");
         textureMelonSide = TextureHelper.getInstance().registerBlockTexture("melonSide");

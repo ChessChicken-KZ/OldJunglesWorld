@@ -4,16 +4,16 @@ import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.common.block.*;
-import net.modificationstation.stationapi.api.common.item.tool.ToolLevel;
-import net.modificationstation.stationapi.api.common.registry.Identifier;
-import net.modificationstation.stationapi.template.common.block.BlockBase;
+import net.modificationstation.stationapi.api.block.*;
+import net.modificationstation.stationapi.api.item.tool.ToolLevel;
+import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 import java.util.List;
 import java.util.Random;
 
 @HasMetaNamedBlockItem
-public class SimpleBlockWithMeta extends BlockBase implements BlockHardnessPerMeta, BlockEffectiveOnMeta, BlockStrengthPerMeta, BlockMiningLevel {
+public class SimpleBlockWithMeta extends TemplateBlockBase implements BlockHardnessPerMeta, BlockEffectiveOnMeta, PlayerBlockHardnessPerMeta, BlockMiningLevel {
 
     public final MetaBlock[] metadataCollection;
 
@@ -35,11 +35,6 @@ public class SimpleBlockWithMeta extends BlockBase implements BlockHardnessPerMe
     @Override
     public float getHardness(int i) {
         return metadataCollection[i].getHardness();
-    }
-
-    @Override
-    public float getBlockStrength(PlayerBase playerBase, int i) {
-        return metadataCollection[i].getResistance(playerBase);
     }
 
     @Override
@@ -65,5 +60,10 @@ public class SimpleBlockWithMeta extends BlockBase implements BlockHardnessPerMe
     @Override
     public int getDropId(int i, Random rand) {
         return metadataCollection[i].getDropID(rand);
+    }
+
+    @Override
+    public float getHardness(PlayerBase player, int i) {
+        return metadataCollection[i].getResistance(player);
     }
 }
