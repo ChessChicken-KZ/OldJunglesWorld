@@ -1,14 +1,11 @@
 package kz.chesschicken.ojw.utils.metarefernce;
 
+import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
+import net.minecraft.level.Level;
 
 public class MetaItem extends MetaObject<ItemBase> {
-    protected int objectID;
-
-    public void setObjectID(int i) {
-        this.objectID = i;
-    }
 
     public MetaItem(int i) {
         super(i);
@@ -22,6 +19,13 @@ public class MetaItem extends MetaObject<ItemBase> {
         return ItemBase.byId[this.objectID].getTranslatedName();
     }
 
+    public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
+        return false;
+    }
+
+    public ItemInstance use(ItemInstance item, Level level, PlayerBase player) {
+        return item;
+    }
 
     @Override
     public Class<? extends ItemBase> getObjectClass() {

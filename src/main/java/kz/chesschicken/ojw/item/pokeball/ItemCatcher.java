@@ -16,20 +16,20 @@ import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class ItemPokeball extends TemplateItemBase implements ItemWithEntity {
-    public ItemPokeball(Identifier identifier) {
+public class ItemCatcher extends TemplateItemBase implements ItemWithEntity {
+    public ItemCatcher(Identifier identifier) {
         super(identifier);
         this.setMaxStackSize(1);
     }
 
     @Override
     public Supplier<ItemEntity> getItemEntityFactory() {
-        return NBTPokeBall::new;
+        return NBTCatcher::new;
     }
 
     @Override
     public Function<CompoundTag, ItemEntity> getItemEntityNBTFactory() {
-        return NBTPokeBall::new;
+        return NBTCatcher::new;
     }
 
     @Override
@@ -39,14 +39,14 @@ public class ItemPokeball extends TemplateItemBase implements ItemWithEntity {
 
     @Override
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
-        if(!((NBTPokeBall) HasItemEntity.cast(item).getItemEntity()).getCatchedMob().equals(""))
+        if(!((NBTCatcher) HasItemEntity.cast(item).getItemEntity()).getCatchedMob().equals(""))
         {
-            NBTPokeBall nbt = ((NBTPokeBall) HasItemEntity.cast(item).getItemEntity());
+            NBTCatcher nbt = ((NBTCatcher) HasItemEntity.cast(item).getItemEntity());
             Living base = (Living) EntityRegistry.create(nbt.getCatchedMob(), level);
             base.health = nbt.getHealth();
             base.setPosition(x, y + 1, z);
 
-            HasItemEntity.cast(item).setItemEntity(new NBTPokeBall());
+            HasItemEntity.cast(item).setItemEntity(new NBTCatcher());
             level.spawnEntity(base);
             return true;
         }
@@ -55,9 +55,9 @@ public class ItemPokeball extends TemplateItemBase implements ItemWithEntity {
 
     @Override
     public void interactWithEntity(ItemInstance arg, Living arg1) {
-        if(((NBTPokeBall) HasItemEntity.cast(arg).getItemEntity()).getCatchedMob().equals(""))
+        if(((NBTCatcher) HasItemEntity.cast(arg).getItemEntity()).getCatchedMob().equals(""))
         {
-            HasItemEntity.cast(arg).setItemEntity(new NBTPokeBall(
+            HasItemEntity.cast(arg).setItemEntity(new NBTCatcher(
                     EntityRegistry.getStringId(arg1), arg1.health
             ));
             arg1.remove();

@@ -28,7 +28,7 @@ item.infopaper_3.name=Test Page
 
 item.golden_necklace.name=Golden Necklace
 
-item.pokeball.name=PokeBall
+item.catcher.name=Catcher
 
 item.debugitem.name=When will custom item rendering be implemented, so I could put many things on player model?
 

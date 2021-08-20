@@ -14,6 +14,11 @@ public class ItemSimpleMeta extends TemplateItemBase {
         this.setHasSubItems(true);
     }
 
+    public void addMetaItem(MetaItem metaBlock) {
+        metaBlock.setObjectID(this.id);
+        metadataCollection[metaBlock.metadata] = metaBlock;
+    }
+
     @Override
     public int getMetaData(int i) {
         return i;

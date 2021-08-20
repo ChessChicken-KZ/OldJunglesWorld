@@ -20,7 +20,7 @@ import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
-import kz.chesschicken.ojw.item.pokeball.ItemPokeball;
+import kz.chesschicken.ojw.item.pokeball.ItemCatcher;
 import kz.chesschicken.ojw.utils.metarefernce.objects.BlockSimpleMeta;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
@@ -58,7 +58,7 @@ public class OJWContentListener {
 
     public static net.minecraft.item.ItemBase goldenNecklace;
 
-    public static net.minecraft.item.ItemBase pokeBall;
+    public static net.minecraft.item.ItemBase catcher;
 
     //Usually for blocks with same params, but different textures.
     public static BlockSimpleMeta blockDirtComplex;
@@ -107,7 +107,7 @@ public class OJWContentListener {
         goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "gold_egg")).setTranslationKey(modID, "gold_egg");
         nuggetGold = new TemplateItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nugget_gold");
         goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "golden_necklace");
-        pokeBall = new ItemPokeball(Identifier.of(modID, "pokeball")).setTranslationKey(modID, "pokeball");
+        catcher = new ItemCatcher(Identifier.of(modID, "catcher")).setTranslationKey(modID, "catcher");
     }
 
     @SuppressWarnings({"unused", "UnnecessaryBoxing"})

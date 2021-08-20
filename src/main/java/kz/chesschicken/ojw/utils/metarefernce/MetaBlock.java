@@ -12,11 +12,6 @@ import java.util.List;
 import java.util.Random;
 
 public class MetaBlock extends MetaObject<BlockBase> {
-    protected int objectID;
-
-    public void setObjectID(int i) {
-        this.objectID = i;
-    }
 
     public MetaBlock(int i) {
         super(i);
