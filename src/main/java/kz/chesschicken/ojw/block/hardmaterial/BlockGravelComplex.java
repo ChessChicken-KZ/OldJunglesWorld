@@ -1,13 +1,13 @@
 package kz.chesschicken.ojw.block.hardmaterial;
 
-import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
+import kz.chesschicken.ojw.utils.metarefernce.objects.BlockSimpleMeta;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityBase;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
 import net.modificationstation.stationapi.api.registry.Identifier;
 
 @HasMetaNamedBlockItem
-public class BlockGravelComplex extends SimpleBlockWithMeta {
+public class BlockGravelComplex extends BlockSimpleMeta {
     public BlockGravelComplex(Identifier identifier) {
         super(identifier, Material.SAND, 1);
         this.setSounds(GRAVEL_SOUNDS);

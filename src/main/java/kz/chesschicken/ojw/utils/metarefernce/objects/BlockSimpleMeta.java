@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Random;
 
 @HasMetaNamedBlockItem
-public class SimpleBlockWithMeta extends TemplateBlockBase implements BlockHardnessPerMeta, BlockEffectiveOnMeta, PlayerBlockHardnessPerMeta, BlockMiningLevel {
+public class BlockSimpleMeta extends TemplateBlockBase implements BlockHardnessPerMeta, BlockEffectiveOnMeta, PlayerBlockHardnessPerMeta, BlockMiningLevel {
 
     public final MetaBlock[] metadataCollection;
 
-    public SimpleBlockWithMeta(Identifier identifier, Material material, int capacity) {
+    public BlockSimpleMeta(Identifier identifier, Material material, int capacity) {
         super(identifier, material);
         metadataCollection = new MetaBlock[capacity];
     }

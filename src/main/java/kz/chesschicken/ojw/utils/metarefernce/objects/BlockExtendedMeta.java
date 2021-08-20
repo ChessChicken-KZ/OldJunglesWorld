@@ -9,11 +9,10 @@ import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
 import net.modificationstation.stationapi.api.registry.Identifier;
 
 @HasMetaNamedBlockItem
-public class BlockWithMeta extends SimpleBlockWithMeta
+public class BlockExtendedMeta extends BlockSimpleMeta
 {
-
     @SuppressWarnings("unused")
-    public BlockWithMeta(Identifier identifier, Material material, int capacity) {
+    public BlockExtendedMeta(Identifier identifier, Material material, int capacity) {
         super(identifier, material, capacity);
     }
 

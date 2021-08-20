@@ -21,7 +21,7 @@ import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.pokeball.ItemPokeball;
-import kz.chesschicken.ojw.utils.metarefernce.objects.SimpleBlockWithMeta;
+import kz.chesschicken.ojw.utils.metarefernce.objects.BlockSimpleMeta;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.render.entity.ChickenRenderer;
@@ -61,12 +61,12 @@ public class OJWContentListener {
     public static net.minecraft.item.ItemBase pokeBall;
 
     //Usually for blocks with same params, but different textures.
-    public static SimpleBlockWithMeta blockDirtComplex;
-    public static SimpleBlockWithMeta blockGrassComplex;
+    public static BlockSimpleMeta blockDirtComplex;
+    public static BlockSimpleMeta blockGrassComplex;
 
-    public static SimpleBlockWithMeta blockStoneComplex;
-    public static SimpleBlockWithMeta blockCobblestoneComplex;
-    public static SimpleBlockWithMeta blockGravelComplex;
+    public static BlockSimpleMeta blockStoneComplex;
+    public static BlockSimpleMeta blockCobblestoneComplex;
+    public static BlockSimpleMeta blockGravelComplex;
 
     public static net.minecraft.block.BlockBase spawnerExtended;
 
@@ -80,16 +80,16 @@ public class OJWContentListener {
         blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "melon");
         blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "melon_seeds");
 
-        blockDirtComplex = (SimpleBlockWithMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
-        blockGrassComplex = (SimpleBlockWithMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "grass_complex");
+        blockDirtComplex = (BlockSimpleMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
+        blockGrassComplex = (BlockSimpleMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "grass_complex");
 
         MetaGrass.registerMeta(new FrozenGrass(0));
         MetaGrass.registerMeta(new GlitchGrass(1));
         MetaGrass.registerMeta(new DarkGrass(2));
 
-        blockStoneComplex = (SimpleBlockWithMeta) new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "stone_complex");
-        blockCobblestoneComplex = (SimpleBlockWithMeta) new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "cobblestone_complex");
-        blockGravelComplex = (SimpleBlockWithMeta) new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
+        blockStoneComplex = (BlockSimpleMeta) new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "stone_complex");
+        blockCobblestoneComplex = (BlockSimpleMeta) new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "cobblestone_complex");
+        blockGravelComplex = (BlockSimpleMeta) new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
 
         MetaRock.registerRock(new FrozenRock(0));
 
