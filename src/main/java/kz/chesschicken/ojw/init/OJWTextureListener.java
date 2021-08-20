@@ -2,7 +2,11 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.utils.TextureHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
+import net.modificationstation.stationapi.api.client.event.model.ModelRegisterEvent;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
+import net.modificationstation.stationapi.api.factory.GeneralFactory;
+import net.modificationstation.stationapi.impl.client.model.CustomModel;
+import net.modificationstation.stationapi.impl.client.model.CustomModelRenderer;
 
 import static kz.chesschicken.ojw.init.OJWContentListener.*;
 
@@ -28,6 +32,8 @@ public class OJWTextureListener {
     public static int textureMelonSide;
     public static int textureMelonTop;
     public static int[] textureMelonCrop = new int[7];
+
+    public static CustomModel spawnerExtended;
 
     @SuppressWarnings("unused")
     @EventListener
@@ -64,5 +70,16 @@ public class OJWTextureListener {
         textureStoneFrozen = TextureHelper.getInstance().registerBlockTexture("stoneFrozen");
         textureCobblestoneFrozen = TextureHelper.getInstance().registerBlockTexture("cobblestoneFrozen");
         textureGravelFrozen = TextureHelper.getInstance().registerBlockTexture("gravelFrozen");
+    }
+
+    @SuppressWarnings("unused")
+    @EventListener
+    public void registerModels(ModelRegisterEvent event)
+    {
+        //if(event.type == ModelRegisterEvent.Type.BLOCKS)
+        //{
+        //    spawnerExtended = GeneralFactory.INSTANCE.newInst(CustomModelRenderer.class, "/assets/ojw/stationapi/models/spawnerExtended.json", "ojw").getEntityModelBase();
+        //}
+
     }
 }

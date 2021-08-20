@@ -1,5 +1,6 @@
 package kz.chesschicken.ojw.init;
 
+import kz.chesschicken.ojw.block.BlockSpawnerExtended;
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
 import kz.chesschicken.ojw.block.grass.BlockDirtComplex;
@@ -31,6 +32,7 @@ import net.modificationstation.stationapi.api.client.event.render.entity.EntityR
 import net.modificationstation.stationapi.api.event.entity.EntityRegister;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
+import net.modificationstation.stationapi.api.event.registry.EntityHandlerRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
@@ -40,7 +42,7 @@ import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 import net.modificationstation.stationapi.api.util.Null;
 
 /**
- * Blocks, Items, Textures, Recipe
+ * Blocks, Items, Recipe
  */
 public class OJWContentListener {
 
@@ -66,6 +68,8 @@ public class OJWContentListener {
     public static SimpleBlockWithMeta blockCobblestoneComplex;
     public static SimpleBlockWithMeta blockGravelComplex;
 
+    public static net.minecraft.block.BlockBase spawnerExtended;
+
     @Entrypoint.ModID public static ModID modID = Null.get();
 
     @SuppressWarnings("unused")
@@ -73,8 +77,8 @@ public class OJWContentListener {
     public void registerBlocks(BlockRegistryEvent event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering blocks...");
-        blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "blockMelon");
-        blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "blockMelonSeedsTile");
+        blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "melon");
+        blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "melon_seeds");
 
         blockDirtComplex = (SimpleBlockWithMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
         blockGrassComplex = (SimpleBlockWithMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "grass_complex");
@@ -88,6 +92,8 @@ public class OJWContentListener {
         blockGravelComplex = (SimpleBlockWithMeta) new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
 
         MetaRock.registerRock(new FrozenRock(0));
+
+        spawnerExtended = new BlockSpawnerExtended(Identifier.of(modID, "spawner")).setTranslationKey(modID, "spawner_extended");
     }
 
     @SuppressWarnings("unused")
@@ -95,12 +101,12 @@ public class OJWContentListener {
     public void registerItems(ItemRegistryEvent event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering items...");
-        itemMelon = new ItemMelon(Identifier.of(modID, "melon_item")).setTranslationKey(modID, "itemMelon");
-        itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "melon_seeds_item")).setTranslationKey(modID, "itemmelonseeds");
-        infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infoPaper");
-        goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "gold_egg")).setTranslationKey(modID, "goldenEgg");
-        nuggetGold = new TemplateItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nuggetGold");
-        goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "goldenNecklace");
+        itemMelon = new ItemMelon(Identifier.of(modID, "melon_item")).setTranslationKey(modID, "melon_item");
+        itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "melon_seeds_item")).setTranslationKey(modID, "melon_seeds_item");
+        infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infopaper");
+        goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "gold_egg")).setTranslationKey(modID, "gold_egg");
+        nuggetGold = new TemplateItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nugget_gold");
+        goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "golden_necklace");
         pokeBall = new ItemPokeball(Identifier.of(modID, "pokeball")).setTranslationKey(modID, "pokeball");
     }
 
@@ -116,9 +122,6 @@ public class OJWContentListener {
             CraftingRegistry.addShapedRecipe(new ItemInstance(blockMelon),
                     "XXX", "XXX", "XXX", Character.valueOf('X'), itemMelon);
 
-            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.goldIngot),
-                    "XXX", "XXX", "XXX", Character.valueOf('X'), nuggetGold);
-
 
             //FIXME: Delete after releasing
 
@@ -133,8 +136,6 @@ public class OJWContentListener {
         {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(itemMelonSeeds),
                     itemMelon);
-            CraftingRegistry.addShapelessRecipe(new ItemInstance(nuggetGold, 9),
-                    ItemBase.goldIngot);
         }
     }
 
@@ -142,8 +143,8 @@ public class OJWContentListener {
     @EventListener
     public void registerEntity(EntityRegister event)
     {
-        event.register(EntityGoldenChicken.class, "ojw:goldenchicken", 20);
-        event.register(EntityGoldenChicken.class, "ojw:goldenegg", 21);
+        event.register(EntityGoldenChicken.class, "ojw:golden_chicken", 20);
+        event.register(EntityGoldenChicken.class, "ojw:golden_egg", 21);
     }
 
     @SuppressWarnings("unused")
@@ -151,6 +152,13 @@ public class OJWContentListener {
     public void registerEntityRenderers(EntityRendererRegisterEvent event)
     {
         event.renderers.put(EntityGoldenChicken.class, new ChickenRenderer(new Chicken(), 1.0f));
+    }
+
+    @SuppressWarnings("unused")
+    @EventListener
+    public void registerEntityHandlers(EntityHandlerRegistryEvent event)
+    {
+
     }
 
 }

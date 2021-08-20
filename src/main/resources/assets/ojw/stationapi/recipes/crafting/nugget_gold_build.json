@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key":
+  {
+    "X":
+    {
+      "item": "ojw:nugget_gold"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:dirt",
+    "count": 1
+  }
+}

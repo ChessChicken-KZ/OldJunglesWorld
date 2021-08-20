@@ -9,11 +9,12 @@ public class EntityGoldenChicken extends Chicken {
 
     public EntityGoldenChicken(Level arg) {
         super(arg);
-        this.texture = "/assets/chickenextensions/textures/entity/animal/chickenGold.png";
+        this.texture = "/assets/ojw/textures/entity/golden_chicken.png";
         this.setSize(0.3F, 0.4F);
         this.health = 8;
         this.field_2165 = this.rand.nextInt(12000) + 6000;
     }
+
     @Override
     public void updateDespawnCounter() {
         super.updateDespawnCounter();

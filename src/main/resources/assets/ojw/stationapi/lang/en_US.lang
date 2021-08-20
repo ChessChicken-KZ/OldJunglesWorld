@@ -1,6 +1,8 @@
 #Tiles
-tile.blockMelon.name=Watermelon
-tile.blockMelonSeedsTile.name=Watermelon Seeds
+tile.melon.name=Watermelon
+tile.melon_seeds.name=Watermelon Seeds
+
+tile.spawner_extended.name=Extended Spawner
 
 tile.dirt_complex0.name=Frozen Dirt
 tile.grass_complex0.name=Frozen Grass Block
@@ -16,15 +18,15 @@ tile.cobblestone_complex0.name=Frozen Cobblestone
 tile.gravel_complex0.name=Frozen Gravel
 
 #Items
-item.itemMelon.name=Watermelon
-item.itemmelonseeds.name=Watermelon Seeds
+item.melon_item.name=Watermelon
+item.melon_seeds_item.name=Watermelon Seeds
 
-item.infoPaper_0.name=A Place of darkness
-item.infoPaper_1.name=Test Page
-item.infoPaper_2.name=Test Page
-item.infoPaper_3.name=Test Page
+item.infopaper_0.name=A Place of darkness
+item.infopaper_1.name=Test Page
+item.infopaper_2.name=Test Page
+item.infopaper_3.name=Test Page
 
-item.goldenNecklace.name=Golden Necklace
+item.golden_necklace.name=Golden Necklace
 
 item.pokeball.name=PokeBall
 

@@ -16,10 +16,8 @@ import java.util.List;
 import java.util.Random;
 
 public class EntityGoldenEgg extends Egg {
-    private boolean inGround = false;
     public int shake = 0;
     private Living field_2044;
-    private int field_2045;
     private int field_2046 = 0;
 
     public EntityGoldenEgg(Level arg, Living arg1) {
@@ -37,12 +35,9 @@ public class EntityGoldenEgg extends Egg {
         }
 
         if (this.onGround) {
-
-            this.inGround = false;
             this.velocityX *= this.rand.nextFloat() * 0.2F;
             this.velocityY *= this.rand.nextFloat() * 0.2F;
             this.velocityZ *= this.rand.nextFloat() * 0.2F;
-            this.field_2045 = 0;
             this.field_2046 = 0;
         } else {
             ++this.field_2046;
@@ -140,10 +135,10 @@ public class EntityGoldenEgg extends Egg {
             var19 = 0.8F;
         }
 
-        this.velocityX *= (double)var19;
-        this.velocityY *= (double)var19;
-        this.velocityZ *= (double)var19;
-        this.velocityY -= (double)var22;
+        this.velocityX *= var19;
+        this.velocityY *= var19;
+        this.velocityZ *= var19;
+        this.velocityY -= var22;
         this.setPosition(this.x, this.y, this.z);
     }
 

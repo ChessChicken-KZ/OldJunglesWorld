@@ -4,7 +4,7 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.entity.EntityBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.minecraft.level.TileView;
+import net.minecraft.level.BlockView;
 import net.minecraft.util.maths.Vec3f;
 import net.modificationstation.stationapi.api.item.tool.ToolLevel;
 
@@ -32,7 +32,7 @@ public class MetaBlock extends MetaObject<BlockBase> {
     }
 
     public int getDropID(Random random) {
-        return BlockBase.BY_ID[objectID].getDropId(this.metadata, random);
+        return this.objectID;
     }
 
     public int getDropCount(Random random) {
@@ -51,34 +51,32 @@ public class MetaBlock extends MetaObject<BlockBase> {
         return BlockBase.BY_ID[objectID].getTextureForSide(side);
     }
 
-    public float getToolEffectivness(ItemInstance itemInstance)
-    {
+    public float getToolEffectiveness(ItemInstance itemInstance) {
         return 0;
     }
 
-    public int getBlockMiningLevel(ItemInstance itemInstance)
-    {
+    public int getBlockMiningLevel(ItemInstance itemInstance) {
         return 0;
     }
 
-    public List<Class<? extends ToolLevel>> getToolTypes(ItemInstance itemInstance)
-    {
+    public List<Class<? extends ToolLevel>> getToolTypes(ItemInstance itemInstance) {
         return null;
     }
 
-    public int getColorMultiplier(TileView tileView, int x, int y, int z) {
-        return BlockBase.BY_ID[objectID].getColourMultiplier(tileView, x, y, z);
+    public int getColorMultiplier(BlockView tileView, int x, int y, int z) {
+        return 16777215;
     }
 
-    public float getBrightness(TileView tileView, int x, int y, int z) {
-        return BlockBase.BY_ID[objectID].getBrightness(tileView, x, y, z);
+    public float getBrightness(BlockView tileView, int x, int y, int z) {
+        return tileView.method_1784(x, y, z, BlockBase.EMITTANCE[this.objectID]);
     }
 
     public void onCollideWithEntity(Level level, int x, int y, int z, EntityBase entityBase, Vec3f vec3f) {
-        BlockBase.BY_ID[objectID].onCollideWithEntity(level, x, y, z, entityBase, vec3f);
     }
 
     public void onEntityCollision(Level level, int x, int y, int z, EntityBase entityBase) {
-        BlockBase.BY_ID[objectID].onEntityCollision(level, x, y, z, entityBase);
+    }
+
+    public void onBlockPlaced(Level level, int x, int y, int z, int facing) {
     }
 }

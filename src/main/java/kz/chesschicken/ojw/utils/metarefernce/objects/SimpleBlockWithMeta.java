@@ -29,7 +29,7 @@ public class SimpleBlockWithMeta extends TemplateBlockBase implements BlockHardn
 
     @Override
     public float isToolEffectiveOn(int i, ItemInstance itemInstance) {
-        return metadataCollection[i].getToolEffectivness(itemInstance);
+        return metadataCollection[i].getToolEffectiveness(itemInstance);
     }
 
     @Override
@@ -66,4 +66,5 @@ public class SimpleBlockWithMeta extends TemplateBlockBase implements BlockHardn
     public float getHardness(PlayerBase player, int i) {
         return metadataCollection[i].getResistance(player);
     }
+
 }
