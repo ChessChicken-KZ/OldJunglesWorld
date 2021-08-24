@@ -1,11 +1,12 @@
 package kz.chesschicken.ojw.init;
 
-import kz.chesschicken.ojw.block.BlockSpawnerExtended;
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
+import kz.chesschicken.ojw.block.BlockSpawnerExtended;
 import kz.chesschicken.ojw.block.grass.BlockDirtComplex;
 import kz.chesschicken.ojw.block.grass.BlockGrassComplex;
 import kz.chesschicken.ojw.block.grass.MetaGrass;
+import kz.chesschicken.ojw.block.grass.instances.CrystalGrass;
 import kz.chesschicken.ojw.block.grass.instances.DarkGrass;
 import kz.chesschicken.ojw.block.grass.instances.FrozenGrass;
 import kz.chesschicken.ojw.block.grass.instances.GlitchGrass;
@@ -14,6 +15,7 @@ import kz.chesschicken.ojw.block.hardmaterial.BlockGravelComplex;
 import kz.chesschicken.ojw.block.hardmaterial.BlockStoneComplex;
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
+import kz.chesschicken.ojw.block.hardmaterial.instances.PurpleRock;
 import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
@@ -38,7 +40,11 @@ import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplatePlant;
 import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
+import net.modificationstation.stationapi.api.template.item.TemplateSeeds;
+import net.modificationstation.stationapi.api.template.item.food.TemplateFoodBase;
 import net.modificationstation.stationapi.api.util.Null;
 
 /**
@@ -46,19 +52,19 @@ import net.modificationstation.stationapi.api.util.Null;
  */
 public class OJWContentListener {
 
-    public static net.minecraft.item.ItemBase itemMelon;
-    public static net.minecraft.item.ItemBase itemMelonSeeds;
-    public static net.minecraft.block.BlockBase blockMelon;
-    public static net.minecraft.block.BlockBase blockMelonSeedsTile;
+    public static TemplateFoodBase itemMelon;
+    public static TemplateSeeds itemMelonSeeds;
+    public static TemplateBlockBase blockMelon;
+    public static TemplatePlant blockMelonSeedsTile;
 
-    public static net.minecraft.item.ItemBase infoPaper;
+    public static TemplateItemBase infoPaper;
 
-    public static net.minecraft.item.ItemBase goldenEgg;
-    public static net.minecraft.item.ItemBase nuggetGold;
+    public static TemplateItemBase goldenEgg;
+    public static TemplateItemBase nuggetGold;
 
-    public static net.minecraft.item.ItemBase goldenNecklace;
+    public static TemplateItemBase goldenNecklace;
 
-    public static net.minecraft.item.ItemBase catcher;
+    public static TemplateItemBase catcher;
 
     //Usually for blocks with same params, but different textures.
     public static BlockSimpleMeta blockDirtComplex;
@@ -68,7 +74,7 @@ public class OJWContentListener {
     public static BlockSimpleMeta blockCobblestoneComplex;
     public static BlockSimpleMeta blockGravelComplex;
 
-    public static net.minecraft.block.BlockBase spawnerExtended;
+    public static TemplateBlockBase spawnerExtended;
 
     @Entrypoint.ModID public static ModID modID = Null.get();
 
@@ -86,12 +92,14 @@ public class OJWContentListener {
         MetaGrass.registerMeta(new FrozenGrass(0));
         MetaGrass.registerMeta(new GlitchGrass(1));
         MetaGrass.registerMeta(new DarkGrass(2));
+        MetaGrass.registerMeta(new CrystalGrass(3));
 
         blockStoneComplex = (BlockSimpleMeta) new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "stone_complex");
         blockCobblestoneComplex = (BlockSimpleMeta) new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "cobblestone_complex");
         blockGravelComplex = (BlockSimpleMeta) new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
 
         MetaRock.registerRock(new FrozenRock(0));
+        MetaRock.registerRock(new PurpleRock(1));
 
         spawnerExtended = new BlockSpawnerExtended(Identifier.of(modID, "spawner")).setTranslationKey(modID, "spawner_extended");
     }

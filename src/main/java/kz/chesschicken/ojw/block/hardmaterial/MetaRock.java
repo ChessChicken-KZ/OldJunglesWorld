@@ -9,14 +9,17 @@ public abstract class MetaRock extends MetaBlock {
         super(i);
     }
 
-    @Override
-    public float getHardness() {
-        return 1.5F;
+    public float getResistanceAsStone(EntityBase entityBase) {
+        return 10.0F;
     }
 
-    @Override
-    public float getResistance(EntityBase entityBase) {
+    public float getResistanceAsCobblestone(EntityBase entityBase) {
         return 10.0F;
+    }
+
+
+    public float getHardnessAsStone() {
+        return 1.5F;
     }
 
     public float getHardnessAsGravel() {

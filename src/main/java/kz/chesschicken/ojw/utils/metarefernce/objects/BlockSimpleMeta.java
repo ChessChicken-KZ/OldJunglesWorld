@@ -2,9 +2,11 @@ package kz.chesschicken.ojw.utils.metarefernce.objects;
 
 import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.block.*;
+import net.modificationstation.stationapi.api.block.BlockEffectiveOnMeta;
+import net.modificationstation.stationapi.api.block.BlockHardnessPerMeta;
+import net.modificationstation.stationapi.api.block.BlockMiningLevel;
+import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
 import net.modificationstation.stationapi.api.item.tool.ToolLevel;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
@@ -13,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 @HasMetaNamedBlockItem
-public class BlockSimpleMeta extends TemplateBlockBase implements BlockHardnessPerMeta, BlockEffectiveOnMeta, PlayerBlockHardnessPerMeta, BlockMiningLevel {
+public class BlockSimpleMeta extends TemplateBlockBase implements BlockHardnessPerMeta, BlockEffectiveOnMeta, BlockMiningLevel {
 
     public final MetaBlock[] metadataCollection;
 
@@ -60,11 +62,6 @@ public class BlockSimpleMeta extends TemplateBlockBase implements BlockHardnessP
     @Override
     public int getDropId(int i, Random rand) {
         return metadataCollection[i].getDropID(rand);
-    }
-
-    @Override
-    public float getHardness(PlayerBase player, int i) {
-        return metadataCollection[i].getResistance(player);
     }
 
 }

@@ -2,6 +2,7 @@ package kz.chesschicken.ojw.mixin.equipo;
 
 import kz.chesschicken.ojw.utils.equipo.JewelryType;
 import kz.chesschicken.ojw.utils.equipo.SlotEquipo;
+import lombok.SneakyThrows;
 import net.minecraft.container.ContainerBase;
 import net.minecraft.container.slot.CraftingResult;
 import net.minecraft.container.slot.Slot;
@@ -31,6 +32,7 @@ public abstract class MixinPlayerContainer extends ContainerBase {
         this.onContentsChanged(this.craftingInv);
     }
 
+    @SneakyThrows
     @Override
     protected void addSlot(Slot arg)
     {

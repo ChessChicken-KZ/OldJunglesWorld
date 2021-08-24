@@ -6,7 +6,6 @@ buildscript {
 		}
 		gradlePluginPortal()
 		mavenCentral()
-		jcenter()
 		maven {
 			name = "Jitpack"
 			url 'https://jitpack.io/'
@@ -48,7 +47,6 @@ repositories {
 	mavenLocal()
 	gradlePluginPortal()
 	mavenCentral()
-	jcenter()
 	maven {
 		name = "Jitpack"
 		url 'https://jitpack.io/'
@@ -101,7 +99,7 @@ dependencies {
 
 	modImplementation "com.github.minecraft-cursed-legacy:cursed-fabric-loader:${project.loader_version}"
 
-	modImplementation 'com.github.ModificationStation:StationAPI:8ff5fd3fd2'
+	modImplementation 'com.github.ModificationStation:StationAPI:777f95fe9d'
 
 }
 

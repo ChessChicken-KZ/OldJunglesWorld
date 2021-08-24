@@ -13,9 +13,16 @@ tile.grass_complex1.name=Glitch Grass Block
 tile.dirt_complex2.name=Dark Dirt
 tile.grass_complex2.name=Void Grass Block
 
+tile.dirt_complex3.name=Crystal Dirt
+tile.grass_complex3.name=Crystal Grass Block
+
 tile.stone_complex0.name=Frozen Stone
 tile.cobblestone_complex0.name=Frozen Cobblestone
 tile.gravel_complex0.name=Frozen Gravel
+
+tile.stone_complex1.name=Magic Stone
+tile.cobblestone_complex1.name=Magic Cobblestone
+tile.gravel_complex1.name=Magic Gravel
 
 #Items
 item.melon_item.name=Watermelon

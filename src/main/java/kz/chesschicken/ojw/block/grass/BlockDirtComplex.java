@@ -8,7 +8,7 @@ import net.modificationstation.stationapi.api.registry.Identifier;
 @HasMetaNamedBlockItem
 public class BlockDirtComplex extends BlockSimpleMeta {
     public BlockDirtComplex(Identifier identifier) {
-        super(identifier, Material.DIRT, 3);
+        super(identifier, Material.DIRT, 4);
         this.setSounds(GRAVEL_SOUNDS);
     }
 
