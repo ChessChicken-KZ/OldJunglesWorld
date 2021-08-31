@@ -2,7 +2,6 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.utils.TextureHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
-import net.modificationstation.stationapi.api.client.event.model.ModelRegisterEvent;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.model.JsonModel;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -38,6 +37,9 @@ public class OJWTextureListener {
 
     public static int textureMelonSide;
     public static int textureMelonTop;
+
+    public static int textureDebug;
+
     public static int[] textureMelonCrop = new int[7];
 
     public static JsonModel spawnerExtended;
@@ -88,6 +90,8 @@ public class OJWTextureListener {
         /* int */ textureStonePurple = TextureHelper.getInstance().registerBlockTexture("stonePurple");
         /* int */ textureCobblestonePurple = TextureHelper.getInstance().registerBlockTexture("cobblestonePurple");
         /* int */ textureGravelPurple = TextureHelper.getInstance().registerBlockTexture("gravelPurple");
+
+        textureDebug = TextureHelper.getInstance().registerBlockTexture("debug");
 
         spawnerExtended = new JsonModel(Identifier.of(modID, "spawnerExtended"));
     }

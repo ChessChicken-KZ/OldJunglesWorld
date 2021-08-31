@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.block.hardmaterial;
 
 import kz.chesschicken.ojw.init.OJWContentListener;
+import kz.chesschicken.ojw.init.OJWTextureListener;
 import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
 import net.minecraft.entity.EntityBase;
 

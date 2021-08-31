@@ -3,7 +3,6 @@ package kz.chesschicken.ojw.block;
 import kz.chesschicken.ojw.init.OJWTextureListener;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.BlockView;
-import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.client.model.BlockInventoryModelProvider;
 import net.modificationstation.stationapi.api.client.model.BlockWorldModelProvider;
 import net.modificationstation.stationapi.api.client.model.JsonModel;

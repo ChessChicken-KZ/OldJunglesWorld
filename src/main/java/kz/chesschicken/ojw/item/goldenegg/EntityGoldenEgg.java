@@ -17,11 +17,12 @@ import java.util.Random;
 
 public class EntityGoldenEgg extends Egg {
     public int shake = 0;
-    private Living field_2044;
+    private final Living field_2044;
     private int field_2046 = 0;
 
     public EntityGoldenEgg(Level arg, Living arg1) {
         super(arg, arg1);
+        this.field_2044 = arg1;
     }
 
     @Override

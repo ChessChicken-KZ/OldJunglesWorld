@@ -14,6 +14,7 @@ import kz.chesschicken.ojw.block.hardmaterial.BlockCobblestoneComplex;
 import kz.chesschicken.ojw.block.hardmaterial.BlockGravelComplex;
 import kz.chesschicken.ojw.block.hardmaterial.BlockStoneComplex;
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
+import kz.chesschicken.ojw.block.hardmaterial.instances.Empty;
 import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.PurpleRock;
 import kz.chesschicken.ojw.item.ItemMelon;
@@ -100,6 +101,9 @@ public class OJWContentListener {
 
         MetaRock.registerRock(new FrozenRock(0));
         MetaRock.registerRock(new PurpleRock(1));
+
+        MetaRock.registerRock(new Empty(2));
+        MetaRock.registerRock(new Empty(3));
 
         spawnerExtended = new BlockSpawnerExtended(Identifier.of(modID, "spawner")).setTranslationKey(modID, "spawner_extended");
     }

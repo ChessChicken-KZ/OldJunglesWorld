@@ -7,7 +7,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
 import net.minecraft.entity.Item;
 import net.minecraft.item.ItemInstance;
-import net.minecraft.item.SecondaryBlock;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplatePlant;

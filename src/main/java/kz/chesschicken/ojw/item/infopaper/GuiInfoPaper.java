@@ -9,14 +9,12 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 
 public class GuiInfoPaper extends ScreenBase {
-    private final int id;
     private String textureFile;
     private String[] textArray;
 
     @SneakyThrows
     public GuiInfoPaper(int i)
     {
-        this.id = i;
         try
         {
             textureFile = EventInfoPaper.getInstance().getTexture(i);

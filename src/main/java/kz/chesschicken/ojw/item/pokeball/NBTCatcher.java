@@ -5,18 +5,18 @@ import net.modificationstation.stationapi.api.item.nbt.ItemEntity;
 
 //TODO: Implement other stuff.
 public class NBTCatcher implements ItemEntity {
-    private final String catchedMob;
+    private final String caughtMob;
     private final int health;
 
     public NBTCatcher(String s, int i)
     {
-        this.catchedMob = s;
+        this.caughtMob = s;
         this.health = i;
     }
 
     public NBTCatcher()
     {
-        this.catchedMob = "";
+        this.caughtMob = "";
         this.health = 0;
     }
 
@@ -27,17 +27,17 @@ public class NBTCatcher implements ItemEntity {
 
     @Override
     public ItemEntity copy() {
-        return new NBTCatcher(this.catchedMob, this.health);
+        return new NBTCatcher(this.caughtMob, this.health);
     }
 
     @Override
     public void writeToNBT(CompoundTag compoundTag) {
-        compoundTag.put("ojw.catchedmob", this.catchedMob);
-        compoundTag.put("ojw.catchedmob", this.health);
+        compoundTag.put("ojw.caughtmob", this.caughtMob);
+        compoundTag.put("ojw.healthmob", this.health);
     }
 
-    public String getCatchedMob() {
-        return this.catchedMob;
+    public String getCaughtMob() {
+        return this.caughtMob;
     }
 
     public int getHealth() {

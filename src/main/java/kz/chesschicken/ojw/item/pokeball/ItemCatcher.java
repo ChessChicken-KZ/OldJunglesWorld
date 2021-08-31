@@ -39,10 +39,10 @@ public class ItemCatcher extends TemplateItemBase implements ItemWithEntity {
 
     @Override
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
-        if(!((NBTCatcher) HasItemEntity.cast(item).getItemEntity()).getCatchedMob().equals(""))
+        if(!((NBTCatcher) HasItemEntity.cast(item).getItemEntity()).getCaughtMob().equals(""))
         {
             NBTCatcher nbt = ((NBTCatcher) HasItemEntity.cast(item).getItemEntity());
-            Living base = (Living) EntityRegistry.create(nbt.getCatchedMob(), level);
+            Living base = (Living) EntityRegistry.create(nbt.getCaughtMob(), level);
             base.health = nbt.getHealth();
             base.setPosition(x, y + 1, z);
 
@@ -55,7 +55,7 @@ public class ItemCatcher extends TemplateItemBase implements ItemWithEntity {
 
     @Override
     public void interactWithEntity(ItemInstance arg, Living arg1) {
-        if(((NBTCatcher) HasItemEntity.cast(arg).getItemEntity()).getCatchedMob().equals(""))
+        if(((NBTCatcher) HasItemEntity.cast(arg).getItemEntity()).getCaughtMob().equals(""))
         {
             HasItemEntity.cast(arg).setItemEntity(new NBTCatcher(
                     EntityRegistry.getStringId(arg1), arg1.health
