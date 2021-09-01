@@ -17,7 +17,6 @@ import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.Empty;
 import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.PurpleRock;
-import kz.chesschicken.ojw.item.ItemMelon;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
@@ -113,7 +112,7 @@ public class OJWContentListener {
     public void registerItems(ItemRegistryEvent event)
     {
         OJWLogger.INSTANCE.INIT.info("Registering items...");
-        itemMelon = new ItemMelon(Identifier.of(modID, "melon_item")).setTranslationKey(modID, "melon_item");
+        itemMelon = new TemplateFoodBase(Identifier.of(modID, "melon_item"), 2, false).setMaxStackSize(8).setTranslationKey(modID, "melon_item");
         itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "melon_seeds_item")).setTranslationKey(modID, "melon_seeds_item");
         infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infopaper");
         goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "gold_egg")).setTranslationKey(modID, "gold_egg");

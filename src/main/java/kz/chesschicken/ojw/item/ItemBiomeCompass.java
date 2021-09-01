@@ -17,11 +17,9 @@ public class ItemBiomeCompass extends TemplateItemBase {
 
     @Override
     public ItemInstance use(ItemInstance item, Level level, PlayerBase player) {
-        Biome b = level.getBiomeSource().getBiome(player.chunkX, player.chunkZ);
-
         if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
         {
-            MinecraftInstance.INSTANCE.overlay.addChatMessage("Biome type: " + b.biomeName);
+            MinecraftInstance.INSTANCE.overlay.addChatMessage("Biome type: " + level.getBiomeSource().getBiome(player.chunkX, player.chunkZ).biomeName);
         }
 
         return item;

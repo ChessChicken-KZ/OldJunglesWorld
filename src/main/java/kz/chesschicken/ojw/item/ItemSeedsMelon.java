@@ -19,17 +19,15 @@ public class ItemSeedsMelon extends TemplateSeeds {
     }
 
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
-        if (facing != 1) {
-            return false;
-        } else {
+        if (facing == 1) {
             int var8 = level.getTileId(x, y, z);
             if (var8 == BlockBase.FARMLAND.id && level.isAir(x, y + 1, z)) {
                 level.setTile(x, y + 1, z, OJWContentListener.blockMelonSeedsTile.id);
                 --item.count;
                 return true;
-            } else {
-                return false;
             }
         }
+
+        return false;
     }
 }
