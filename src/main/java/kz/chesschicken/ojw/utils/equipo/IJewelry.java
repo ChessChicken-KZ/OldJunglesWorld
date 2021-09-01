@@ -26,8 +26,10 @@ public interface IJewelry {
 
     /**
      * Use this method to make some tick events, create some effects for your jewelry when it's worm.
-     * @param player Player.
+     * @param world Level instance.
+     * @param player Player instance.
      * @param jewelry ItemInstance of jewelry.
+     * @param slot Slot value.
      */
     default void tickJewelry(Level world, PlayerBase player, ItemInstance jewelry, int slot) { }
 

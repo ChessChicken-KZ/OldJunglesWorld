@@ -7,7 +7,6 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "MixinBiome",
     "MixinDye",
     "equipo.AccessorSlot",
     "equipo.MixinPlayerContainer",
