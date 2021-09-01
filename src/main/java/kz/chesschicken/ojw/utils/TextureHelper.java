@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.utils;
 
-import net.modificationstation.stationapi.api.client.texture.atlas.ExpandableAtlas;
+import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
 
 public class TextureHelper {
 
@@ -8,7 +8,7 @@ public class TextureHelper {
 
     public int registerBlockTexture(String name)
     {
-        return ExpandableAtlas.STATION_TERRAIN.addTexture("/assets/ojw/textures/block/" + name + ".png").index;
+        return Atlases.getStationTerrain().addTexture("/assets/ojw/textures/block/" + name + ".png").index;
     }
 
 

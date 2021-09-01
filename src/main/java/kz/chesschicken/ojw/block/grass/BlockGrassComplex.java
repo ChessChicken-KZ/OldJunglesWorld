@@ -16,4 +16,14 @@ public class BlockGrassComplex extends BlockSimpleMeta {
     public float getHardness(int i) {
         return ((MetaGrass)metadataCollection[i]).getHardnessAsGrass();
     }
+
+    @Override
+    public int getTextureForSide(int side, int i) {
+        if(side == 1)
+            return ((MetaGrass)metadataCollection[i]).getGrassTopTexture();
+        if(side == 0)
+            return ((MetaGrass)metadataCollection[i]).getDirtTexture();
+
+        return ((MetaGrass)metadataCollection[i]).getGrassSideTexture();
+    }
 }

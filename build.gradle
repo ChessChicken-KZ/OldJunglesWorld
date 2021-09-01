@@ -48,8 +48,7 @@ repositories {
 	gradlePluginPortal()
 	mavenCentral()
 	maven {
-		name = "Jitpack"
-		url 'https://jitpack.io/'
+		url 'https://jitpack.io'
 	}
 	maven {
 		name = "Glass"
@@ -99,7 +98,11 @@ dependencies {
 
 	modImplementation "com.github.minecraft-cursed-legacy:cursed-fabric-loader:${project.loader_version}"
 
-	modImplementation 'com.github.ModificationStation:StationAPI:777f95fe9d'
+	modImplementation 'com.github.ModificationStation:StationAPI:d6f9496e93'
+
+	modImplementation('com.github.ChessChicken-KZ:SimpleBiomeSystem:5dc5d0f360') {
+		exclude group: 'com.github.ModificationStation', module: 'StationAPI'
+	}
 
 }
 

@@ -13,8 +13,7 @@
     "equipo.MixinPlayerContainer",
     "equipo.MixinPlayerInventory",
     "hunger.MixinFoodBase",
-    "hunger.MixinPlayer",
-    "releasenoise.MixinOverworldSource"
+    "hunger.MixinPlayer"
   ],
   "client": [
     "equipo.client.MixinGuiPlayerInventory",
