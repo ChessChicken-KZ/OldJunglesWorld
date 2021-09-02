@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin.equipo.client;
+package kz.chesschicken.ojw.mixin.jewelryapi.client;
 
 import net.minecraft.client.gui.screen.container.ContainerBase;
 import net.minecraft.client.gui.screen.container.PlayerInventory;

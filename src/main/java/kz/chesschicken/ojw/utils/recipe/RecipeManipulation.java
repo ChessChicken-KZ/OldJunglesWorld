@@ -17,7 +17,6 @@ import java.util.List;
  * A small class created for Recipes manipulation.
  * @author ChessChicken-KZ
  */
-@SuppressWarnings("unused")
 public class RecipeManipulation {
 
     /**

@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils.equipo;
+package kz.chesschicken.ojw.utils.jewelryapi;
 
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;

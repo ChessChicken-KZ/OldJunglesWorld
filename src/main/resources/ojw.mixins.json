@@ -8,18 +8,18 @@
   },
   "mixins": [
     "MixinDye",
-    "equipo.AccessorSlot",
-    "equipo.MixinPlayerContainer",
-    "equipo.MixinPlayerInventory",
     "hunger.MixinFoodBase",
-    "hunger.MixinPlayer"
+    "hunger.MixinPlayer",
+    "jewelryapi.AccessorSlot",
+    "jewelryapi.MixinPlayerContainer",
+    "jewelryapi.MixinPlayerInventory"
   ],
   "client": [
-    "equipo.client.MixinGuiPlayerInventory",
-    "equipo.client.MixinPlayerRenderer",
     "gui.MixinMainMenu",
     "gui.MixinScreenBase",
-    "hunger.client.MixinOverlay"
+    "hunger.client.MixinOverlay",
+    "jewelryapi.client.MixinGuiPlayerInventory",
+    "jewelryapi.client.MixinPlayerRenderer"
   ],
   "server": [
   ]

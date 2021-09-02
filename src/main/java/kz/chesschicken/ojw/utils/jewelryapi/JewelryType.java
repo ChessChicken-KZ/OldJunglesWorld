@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils.equipo;
+package kz.chesschicken.ojw.utils.jewelryapi;
 
 @SuppressWarnings("unused")
 public enum JewelryType {

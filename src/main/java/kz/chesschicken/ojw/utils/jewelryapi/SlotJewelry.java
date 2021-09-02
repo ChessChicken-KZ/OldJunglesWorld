@@ -1,10 +1,10 @@
-package kz.chesschicken.ojw.utils.equipo;
+package kz.chesschicken.ojw.utils.jewelryapi;
 
 import net.minecraft.container.slot.Slot;
 import net.minecraft.inventory.InventoryBase;
 import net.minecraft.item.ItemInstance;
 
-public class SlotEquipo extends Slot {
+public class SlotJewelry extends Slot {
     public static final byte[] arraySlots = new byte[]
             {
                     0, 1, 2, 5,
@@ -12,7 +12,7 @@ public class SlotEquipo extends Slot {
             };
 
     private final JewelryType jewelryType;
-    public SlotEquipo(InventoryBase inventory, int index, int x, int y, JewelryType type) {
+    public SlotJewelry(InventoryBase inventory, int index, int x, int y, JewelryType type) {
         super(inventory, index, x, y);
         this.jewelryType = type;
     }
@@ -24,9 +24,6 @@ public class SlotEquipo extends Slot {
 
     @Override
     public boolean canInsert(ItemInstance arg) {
-        if(arg.getType() instanceof IJewelry) {
-            return ((IJewelry)arg.getType()).getJewelryType() == jewelryType;
-        }
-        return false;
+        return arg.getType() instanceof IJewelry && ((IJewelry)arg.getType()).getJewelryType() == jewelryType;
     }
 }

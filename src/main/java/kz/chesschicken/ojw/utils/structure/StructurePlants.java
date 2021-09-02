@@ -6,7 +6,7 @@ import net.minecraft.level.structure.Structure;
 
 import java.util.Random;
 
-public class PlantGroup extends Structure {
+public class StructurePlants extends Structure {
     private final int id;
     private final int meta;
 
@@ -15,16 +15,16 @@ public class PlantGroup extends Structure {
      * @param a Block ID.
      * @param b Metadata.
      */
-    public PlantGroup(int a, int b) {
+    public StructurePlants(int a, int b) {
         this.id = a;
         this.meta = b;
     }
 
     /**
-     * The flower generator. For per meta generation use construction {@link PlantGroup#PlantGroup(int, int)}
+     * The flower generator. For per meta generation use construction {@link StructurePlants#StructurePlants(int, int)}
      * @param i Block ID.
      */
-    public PlantGroup(int i) {
+    public StructurePlants(int i) {
         this(i, 0);
     }
 

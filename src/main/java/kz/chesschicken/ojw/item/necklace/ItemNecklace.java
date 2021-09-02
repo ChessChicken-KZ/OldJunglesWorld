@@ -1,8 +1,8 @@
 package kz.chesschicken.ojw.item.necklace;
 
 import kz.chesschicken.ojw.utils.MinecraftInstance;
-import kz.chesschicken.ojw.utils.equipo.IJewelry;
-import kz.chesschicken.ojw.utils.equipo.JewelryType;
+import kz.chesschicken.ojw.utils.jewelryapi.IJewelry;
+import kz.chesschicken.ojw.utils.jewelryapi.JewelryType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerBase;

@@ -6,7 +6,7 @@ public interface ISpecificGenRequest {
 
     /**
      * Interface method, allowing you to specify the generation condition.
-     * @see PlantGroup
+     * @see StructurePlants
      *
      * @param level Level Instance.
      * @param x x coordinate of the block.

@@ -1,7 +1,7 @@
-package kz.chesschicken.ojw.mixin.equipo.client;
+package kz.chesschicken.ojw.mixin.jewelryapi.client;
 
-import kz.chesschicken.ojw.utils.equipo.IJewelry;
-import kz.chesschicken.ojw.utils.equipo.IJewelryInventory;
+import kz.chesschicken.ojw.utils.jewelryapi.IJewelry;
+import kz.chesschicken.ojw.utils.jewelryapi.IJewelryInventory;
 import net.minecraft.client.render.entity.PlayerRenderer;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;

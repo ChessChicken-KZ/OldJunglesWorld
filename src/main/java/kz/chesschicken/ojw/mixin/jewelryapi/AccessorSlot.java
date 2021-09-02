@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin.equipo;
+package kz.chesschicken.ojw.mixin.jewelryapi;
 
 import net.minecraft.container.slot.Slot;
 import net.minecraft.inventory.InventoryBase;
