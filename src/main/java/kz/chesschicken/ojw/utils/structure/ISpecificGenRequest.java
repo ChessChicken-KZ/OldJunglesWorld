@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.level.structure;
+package kz.chesschicken.ojw.utils.structure;
 
 import net.minecraft.level.Level;
 

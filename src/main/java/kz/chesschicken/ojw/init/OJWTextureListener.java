@@ -87,9 +87,9 @@ public class OJWTextureListener {
         textureCobblestoneFrozen = TextureHelper.getInstance().registerBlockTexture("cobblestoneFrozen");
         textureGravelFrozen = TextureHelper.getInstance().registerBlockTexture("gravelFrozen");
 
-        /* int */ textureStonePurple = TextureHelper.getInstance().registerBlockTexture("stonePurple");
-        /* int */ textureCobblestonePurple = TextureHelper.getInstance().registerBlockTexture("cobblestonePurple");
-        /* int */ textureGravelPurple = TextureHelper.getInstance().registerBlockTexture("gravelPurple");
+        textureStonePurple = TextureHelper.getInstance().registerBlockTexture("stonePurple");
+        textureCobblestonePurple = TextureHelper.getInstance().registerBlockTexture("cobblestonePurple");
+        textureGravelPurple = TextureHelper.getInstance().registerBlockTexture("gravelPurple");
 
         textureDebug = TextureHelper.getInstance().registerBlockTexture("debug");
 

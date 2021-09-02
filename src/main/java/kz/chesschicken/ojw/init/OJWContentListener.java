@@ -24,6 +24,7 @@ import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.pokeball.ItemCatcher;
 import kz.chesschicken.ojw.utils.metarefernce.objects.BlockSimpleMeta;
+import net.fabricmc.loader.api.FabricLoader;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.render.entity.ChickenRenderer;
@@ -73,6 +74,7 @@ public class OJWContentListener {
     public static BlockSimpleMeta blockStoneComplex;
     public static BlockSimpleMeta blockCobblestoneComplex;
     public static BlockSimpleMeta blockGravelComplex;
+    //end line
 
     public static TemplateBlockBase spawnerExtended;
 
@@ -135,12 +137,13 @@ public class OJWContentListener {
 
 
             //FIXME: Delete after releasing
-
-            CraftingRegistry.addShapedRecipe(new ItemInstance(goldenNecklace),
-                    "XX", Character.valueOf('X'), BlockBase.SAND);
-            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.leatherChestplate),
-                    "X", "X", Character.valueOf('X'), BlockBase.SAND);
-
+            if(FabricLoader.getInstance().isDevelopmentEnvironment())
+            {
+                CraftingRegistry.addShapedRecipe(new ItemInstance(goldenNecklace),
+                        "XX", Character.valueOf('X'), BlockBase.SAND);
+                CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.leatherChestplate),
+                        "X", "X", Character.valueOf('X'), BlockBase.SAND);
+            }
 
         }
         if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type())

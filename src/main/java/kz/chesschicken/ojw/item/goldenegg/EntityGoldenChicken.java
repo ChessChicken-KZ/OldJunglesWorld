@@ -5,7 +5,6 @@ import net.minecraft.entity.animal.Chicken;
 import net.minecraft.level.Level;
 
 public class EntityGoldenChicken extends Chicken {
-    //field_2165 - eggDrop
 
     public EntityGoldenChicken(Level arg) {
         super(arg);

@@ -11,7 +11,7 @@ import net.minecraft.server.MinecraftServer;
  * Use this if you're working with server side.
  */
 @Environment(EnvType.SERVER)
-public class ServerInstance {
+public class MinecraftServerInstance {
     public static MinecraftServer INSTANCE;
 
     static {

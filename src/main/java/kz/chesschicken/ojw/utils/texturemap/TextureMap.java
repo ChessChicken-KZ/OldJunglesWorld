@@ -1,5 +1,6 @@
 package kz.chesschicken.ojw.utils.texturemap;
 
+import kz.chesschicken.ojw.init.OJWLogger;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlas;
 import net.modificationstation.stationapi.api.client.texture.atlas.ExpandableAtlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -15,6 +16,8 @@ public class TextureMap {
     {
         this.currentAtlas = a;
         this.textureMap = new HashMap<>();
+
+        this.add(Identifier.of("ojw:debug"), "/assets/ojw/textures/block/debug.png");
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
@@ -29,7 +32,7 @@ public class TextureMap {
             this.textureMap.put(id, this.currentAtlas.addTexture(texture).index);
             return;
         }
-        throw new IllegalArgumentException("stupid");
+        OJWLogger.INSTANCE.INIT.error("Texture with same identifier is already present in the map list.");
     }
 
     public int get(Identifier id)
@@ -37,7 +40,12 @@ public class TextureMap {
         if(!doesExist(id)) {
             return this.textureMap.get(id);
         }
-        throw new IllegalArgumentException("bald");
+        OJWLogger.INSTANCE.INIT.error("Texture with identifier " + id.toString() + " was not found!");
+        return this.getDebugTexture();
+    }
+
+    public int getDebugTexture() {
+        return this.textureMap.get(Identifier.of("ojw:debug"));
     }
 
     public Atlas getAtlas()
