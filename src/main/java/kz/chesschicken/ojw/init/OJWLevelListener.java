@@ -5,8 +5,7 @@ import kz.chesschicken.biomesystem.common.event.ExtendedBiomeRegisterEvent;
 import kz.chesschicken.ojw.level.biome.overworld.*;
 import kz.chesschicken.ojw.level.structure.PlantGroup;
 import net.mine_diver.unsafeevents.listener.EventListener;
-import net.minecraft.level.biome.Biome;
-import net.modificationstation.stationapi.api.event.level.biome.BiomeRegisterEvent;
+import net.mine_diver.unsafeevents.listener.ListenerPriority;
 import net.modificationstation.stationapi.api.event.level.gen.LevelGenEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -28,15 +27,16 @@ public class OJWLevelListener {
     public static ModID modID = Null.get();
 
     @SuppressWarnings("unused")
-    @EventListener
+    @EventListener(priority = ListenerPriority.LOW)
     public void registerBiome(ExtendedBiomeRegisterEvent event)
     {
+
         event.register(Identifier.of(modID, "birch_forest"), bBirchForest = new BirchForest());
         event.register(Identifier.of(modID, "coniferous_forest"), bConiferousForest = new ConiferousForest());
         event.register(Identifier.of(modID, "jungle"), bJungle = new Jungle());
-        event.register(Identifier.of(modID, "shrubland"), cShrubland = new Shrubland());
-        event.register(Identifier.of(modID, "savanna"), cSavanna = new Savanna());
-        event.register(Identifier.of(modID, "swampland"), cSwampland = new Swampland());
+        event.replace(modID, Identifier.of("shrubland"), cShrubland = new Shrubland());
+        event.replace(modID, Identifier.of("savanna"), cSavanna = new Savanna());
+        event.replace(modID, Identifier.of("swampland"), cSwampland = new Swampland());
 
     }
 

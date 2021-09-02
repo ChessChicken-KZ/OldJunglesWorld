@@ -100,7 +100,7 @@ dependencies {
 
 	modImplementation 'com.github.ModificationStation:StationAPI:d6f9496e93'
 
-	modImplementation('com.github.ChessChicken-KZ:SimpleBiomeSystem:5dc5d0f360') {
+	modImplementation('com.github.ChessChicken-KZ:SimpleBiomeSystem:c01d139039') {
 		exclude group: 'com.github.ModificationStation', module: 'StationAPI'
 	}
 

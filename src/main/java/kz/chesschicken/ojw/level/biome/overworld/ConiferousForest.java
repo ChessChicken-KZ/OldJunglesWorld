@@ -19,8 +19,8 @@ public class ConiferousForest extends ExtendedBiome {
         this.creatures.add(new EntityEntry(Wolf.class, 2));
         this.setFoliageColour(7647092);
 
-        this.setTemperature(0.0F);
-        this.setHumidity(0.5F);
+        this.setTemperature(0.15F);
+        this.setHumidity(0.8F);
     }
 
     public Structure getTree(Random random) {
