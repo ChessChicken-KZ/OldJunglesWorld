@@ -17,8 +17,14 @@ import java.util.List;
  * A small class created for Recipes manipulation.
  * @author ChessChicken-KZ
  */
+@SuppressWarnings("unused")
 public class RecipeManipulation {
 
+    /**
+     * Get list of recipes, which has the result equivalent to given ItemInstance
+     * @param item ItemInstance, craft result.
+     * @return List of available crafts.
+     */
     public List<Recipe> getAvailableRecipes(ItemInstance item)
     {
         List<Recipe> output = new ArrayList<>();
@@ -31,6 +37,10 @@ public class RecipeManipulation {
         return output;
     }
 
+    /**
+     * Remove all recipes with specific ItemInstance craft result.
+     * @param item ItemInstance, craft result.
+     */
     public void removeAllRecipes(ItemInstance item)
     {
         for(Object object : RecipeRegistry.getInstance().getRecipes()) {
@@ -39,6 +49,12 @@ public class RecipeManipulation {
         }
     }
 
+    /**
+     * Delete all recipes then add only one specific with ItemInstance craft result.
+     * @param currentItem ItemInstance, craft result.
+     * @param shaped Shaped or shapeless.
+     * @param objects Craft arguments.
+     */
     public void overwriteAllRecipes(ItemInstance currentItem, boolean shaped, Object... objects)
     {
         removeAllRecipes(currentItem);
@@ -48,12 +64,21 @@ public class RecipeManipulation {
             CraftingRegistry.addShapelessRecipe(currentItem, objects);
     }
 
-
+    /**
+     * Remove specific recipe from the Minecraft's recipe list.
+     * @param recipe Recipe instance.
+     */
     public void removeSpecificRecipe(Recipe recipe)
     {
         RecipeRegistry.getInstance().getRecipes().remove(recipe);
     }
 
+    /**
+     * Returns generated shaped recipe, although it does not automatically add this recipe to the list.
+     * @param output Recipe result, ItemInstance.
+     * @param objects Craft arguments.
+     * @return Shaped recipe instance.
+     */
     public ShapedRecipe generateShapedRecipe(ItemInstance output, Object... objects) {
         StringBuilder stringBuilder = new StringBuilder();
         int a = 0;
@@ -105,6 +130,12 @@ public class RecipeManipulation {
         return new ShapedRecipe(b, c, var14, output);
     }
 
+    /**
+     * Returns generated shapeless recipe, although it does not automatically add this recipe to the list.
+     * @param output Recipe result, ItemInstance.
+     * @param objects Craft arguments.
+     * @return Shapeless recipe instance.
+     */
     public ShapelessRecipe generateShapelessRecipe(ItemInstance output, Object... objects) {
         ArrayList<ItemInstance> var3 = new ArrayList<>();
         for (Object obj : objects) {
@@ -124,8 +155,8 @@ public class RecipeManipulation {
     private static RecipeManipulation INSTANCE;
 
     /**
-     * Instance of the class. Use this one.
-     * @return INSTANCE
+     * Instance of this class.
+     * @return Instance of {@link RecipeManipulation}
      */
     public static RecipeManipulation getInstance()
     {
