@@ -11,7 +11,7 @@ public class PlantGroup extends Structure {
     private final int meta;
 
     /**
-     * The flower generator. Also supports metadatas.
+     * The flower generator. Supports block metadata.
      * @param a Block ID.
      * @param b Metadata.
      */
@@ -21,7 +21,7 @@ public class PlantGroup extends Structure {
     }
 
     /**
-     * The flower generator. For per meta generation use method {@link PlantGroup#PlantGroup(int, int)}
+     * The flower generator. For per meta generation use construction {@link PlantGroup#PlantGroup(int, int)}
      * @param i Block ID.
      */
     public PlantGroup(int i) {
@@ -35,11 +35,14 @@ public class PlantGroup extends Structure {
             int iy = y + rand.nextInt(4) - rand.nextInt(4);
             int iz = z + rand.nextInt(8) - rand.nextInt(8);
 
-            if (level.isAir(ix, iy, iz) && level.getTileId(ix, iy - 1, iz) == BlockBase.GRASS.id && BlockBase.BY_ID[this.id].canPlaceAt(level, ix, iy, iz))
+            if(BlockBase.BY_ID[this.id] instanceof ISpecificGenRequest && ((ISpecificGenRequest)BlockBase.BY_ID[this.id]).canBePlantedHere(level, x, y, z))
+                level.setTileWithMetadata(ix, iy, iz, id, meta);
+            else if (level.isAir(ix, iy, iz) && level.getTileId(ix, iy - 1, iz) == BlockBase.GRASS.id && BlockBase.BY_ID[this.id].canPlaceAt(level, ix, iy, iz))
                 level.setTileWithMetadata(ix, iy, iz, id, meta);
 
         }
 
         return true;
     }
+
 }
