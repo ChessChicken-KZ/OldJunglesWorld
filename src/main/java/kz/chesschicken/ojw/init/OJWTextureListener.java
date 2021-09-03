@@ -94,5 +94,7 @@ public class OJWTextureListener {
         textureDebug = TextureHelper.getInstance().registerBlockTexture("debug");
 
         spawnerExtended = new JsonModel(Identifier.of(modID, "spawnerExtended"));
+
+        shard_glass.setTexture("/assets/ojw/textures/item/shard_glass.png");
     }
 }

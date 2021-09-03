@@ -53,7 +53,7 @@ public abstract class MixinPlayer extends Living implements IPlayerHunger {
         this.absorption = tag.getByte("Absorption");
     }
 
-    @Inject(method = "tick", at = @At("TAIL"))
+    @Inject(method = "updateDespawnCounter", at = @At("TAIL"))
     private void updateHunger(CallbackInfo ci)
     {
 

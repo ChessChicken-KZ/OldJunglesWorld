@@ -78,6 +78,8 @@ public class OJWContentListener {
 
     public static TemplateBlockBase spawnerExtended;
 
+    public static TemplateItemBase shard_glass;
+
     @Entrypoint.ModID public static ModID modID = Null.get();
 
     @SuppressWarnings("unused")
@@ -121,6 +123,8 @@ public class OJWContentListener {
         nuggetGold = new TemplateItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nugget_gold");
         goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "golden_necklace");
         catcher = new ItemCatcher(Identifier.of(modID, "catcher")).setTranslationKey(modID, "catcher");
+
+        shard_glass = new TemplateItemBase(Identifier.of(modID, "shard_glass")).setTranslationKey(modID, "shard_glass");
     }
 
     @SuppressWarnings({"unused", "UnnecessaryBoxing"})

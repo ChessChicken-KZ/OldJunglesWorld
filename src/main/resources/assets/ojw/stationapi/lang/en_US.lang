@@ -1,9 +1,4 @@
-#Tiles
-tile.melon.name=Watermelon
-tile.melon_seeds.name=Watermelon Seeds
-
-tile.spawner_extended.name=Extended Spawner
-
+#Complex blocks.
 tile.dirt_complex0.name=Frozen Dirt
 tile.grass_complex0.name=Frozen Grass Block
 
@@ -24,6 +19,14 @@ tile.stone_complex1.name=Magic Stone
 tile.cobblestone_complex1.name=Magic Cobblestone
 tile.gravel_complex1.name=Magic Gravel
 
+
+
+#Tiles
+tile.melon.name=Watermelon
+tile.melon_seeds.name=Watermelon Seeds
+
+tile.spawner_extended.name=Extended Spawner
+
 #Items
 item.melon_item.name=Watermelon
 item.melon_seeds_item.name=Watermelon Seeds
@@ -38,6 +41,8 @@ item.golden_necklace.name=Golden Necklace
 item.catcher.name=Catcher
 
 item.debugitem.name=When will custom item rendering be implemented, so I could put many things on player model?
+
+item.shard_glass.name=Glass Shard
 
 #For future use
 jewelry.accessory.name=Accessory:
