@@ -1,11 +1,9 @@
 package kz.chesschicken.ojw.block.wood;
 
-import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
-
-public abstract class MetaWood extends MetaBlock {
+public abstract class MetaWood {
+    public int metadata;
     public MetaWood(int i) {
-        super(i);
+        this.metadata = i;
     }
 
     public float getHardnessAsLog() {
@@ -19,10 +17,11 @@ public abstract class MetaWood extends MetaBlock {
     public abstract int getPlanksTexture();
     public abstract int getLogTopTexture();
     public abstract int getLogSideTexture();
+    public abstract int getLeavesTexture();
 
+    public static MetaWood[] metadataCollection = new MetaWood[4];
     public static void registerWood(MetaWood metaWood)
     {
-        OJWContentListener.blockLogComplex.addMetaBlock(metaWood);
-        OJWContentListener.blockPlanksComplex.addMetaBlock(metaWood);
+        metadataCollection[metaWood.metadata] = metaWood;
     }
 }

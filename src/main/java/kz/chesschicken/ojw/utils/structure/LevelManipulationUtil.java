@@ -3,20 +3,19 @@ package kz.chesschicken.ojw.utils.structure;
 import net.minecraft.block.BlockBase;
 import net.minecraft.level.Level;
 import net.minecraft.level.chunk.Chunk;
-import net.minecraft.level.structure.Structure;
 
 /**
- * Some great and fast alternatives to old methods, use with caution. Especially when your block needs {@link BlockBase#onBlockPlaced(Level, int, int, int)} method.
+ * Some great and fast alternatives to old methods, use with caution, some methods won't be called.
  */
-public abstract class ExtendedStructure extends Structure {
+public class LevelManipulationUtil {
 
-    public void placeBlockIfEmpty(Level level, int x, int y, int z, int id)
+    public static void placeBlockIfEmpty(Level level, int x, int y, int z, int id)
     {
         if(fastGetID(level, x, y, z) == 0)
             fastPlaceID(level, x, y, z, id);
     }
 
-    public int fastGetMeta(Level level, int x, int y, int z)
+    public static int fastGetMeta(Level level, int x, int y, int z)
     {
         Chunk chunk = level.getChunkFromCache(x >> 4, z >> 4);
         x &= 15;
@@ -26,14 +25,14 @@ public abstract class ExtendedStructure extends Structure {
         return (coordinate & 1) == 0 ? chunk.field_957.field_2103[coordinate >> 1] & 15 : chunk.field_957.field_2103[coordinate >> 1] >> 4 & 15;
     }
 
-    public int fastGetID(Level level, int x, int y, int z)
+    public static int fastGetID(Level level, int x, int y, int z)
     {
         if(y > 0 && y < 128)
             return level.getChunkFromCache(x >> 4, z >> 4).tiles[x << 11 | z << 7 | y] & 255;
         return 0;
     }
 
-    public void fastPlaceMeta(Level level, int x, int y, int z, int meta)
+    public static void fastPlaceMeta(Level level, int x, int y, int z, int meta)
     {
         Chunk chunk = level.getChunkFromCache(x >> 4, z >> 4);
         x &= 15;
@@ -49,11 +48,11 @@ public abstract class ExtendedStructure extends Structure {
                 (byte)(chunk.field_957.field_2103[lookup] & 15 | (meta & 15) << 4);
     }
 
-    public void fastPlaceID(Level level, int x, int y, int z, int id) {
+    public static void fastPlaceID(Level level, int x, int y, int z, int id) {
         fastPlaceID(level, level.getChunkFromCache(x >> 4, z >> 4), false, x & 15, y, z & 15, id);
     }
 
-    public void fastPlaceID(Level level, Chunk chunk, boolean any, int i, int j, int k, int id)
+    public static void fastPlaceID(Level level, Chunk chunk, boolean any, int i, int j, int k, int id)
     {
         int prevID = chunk.tiles[i << 11 | k << 7 | j] & 255;
         if (prevID == id)
@@ -75,11 +74,10 @@ public abstract class ExtendedStructure extends Structure {
         chunk.field_967 = true;
     }
 
-    public void fastPlaceIDuMeta(Level level, int x, int y, int z, int id, int meta)
+    public static void fastPlaceIDuMeta(Level level, int x, int y, int z, int id, int meta)
     {
         fastPlaceID(level, x, y, z, id);
         fastPlaceMeta(level, x, y, z, meta);
     }
-
 
 }

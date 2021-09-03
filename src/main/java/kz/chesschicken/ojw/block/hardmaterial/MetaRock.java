@@ -1,12 +1,11 @@
 package kz.chesschicken.ojw.block.hardmaterial;
 
-import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
 import net.minecraft.entity.EntityBase;
 
-public abstract class MetaRock extends MetaBlock {
+public abstract class MetaRock {
+    public int metadata;
     public MetaRock(int i) {
-        super(i);
+        this.metadata = i;
     }
 
     public float getResistanceAsStone(EntityBase entityBase) {
@@ -34,10 +33,9 @@ public abstract class MetaRock extends MetaBlock {
     public abstract int getCobblestoneTexture();
     public abstract int getGravelTexture();
 
+    public static MetaRock[] metadataCollection = new MetaRock[4];
     public static void registerRock(MetaRock object)
     {
-        OJWContentListener.blockStoneComplex.addMetaBlock(object);
-        OJWContentListener.blockCobblestoneComplex.addMetaBlock(object);
-        OJWContentListener.blockGravelComplex.addMetaBlock(object);
+        metadataCollection[object.metadata] = object;
     }
 }

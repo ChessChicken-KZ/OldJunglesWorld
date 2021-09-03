@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.block.wood.instances;
 
 import kz.chesschicken.ojw.block.wood.MetaWood;
+import kz.chesschicken.ojw.init.OJWTextureListener;
 
 public class GlitchWood extends MetaWood {
     public GlitchWood(int i) {
@@ -9,16 +10,21 @@ public class GlitchWood extends MetaWood {
 
     @Override
     public int getPlanksTexture() {
-        return 0;
+        return OJWTextureListener.texturePlanksGlitch;
     }
 
     @Override
     public int getLogTopTexture() {
-        return 0;
+        return OJWTextureListener.textureLogGlitchTop;
     }
 
     @Override
     public int getLogSideTexture() {
+        return OJWTextureListener.textureLogGlitchSide;
+    }
+
+    @Override
+    public int getLeavesTexture() {
         return 0;
     }
 }

@@ -16,16 +16,17 @@ import kz.chesschicken.ojw.block.hardmaterial.BlockStoneComplex;
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.PurpleRock;
+import kz.chesschicken.ojw.block.wood.BlockLeavesComplex;
 import kz.chesschicken.ojw.block.wood.BlockLogComplex;
 import kz.chesschicken.ojw.block.wood.BlockPlanksComplex;
 import kz.chesschicken.ojw.block.wood.MetaWood;
 import kz.chesschicken.ojw.block.wood.instances.GlitchWood;
+import kz.chesschicken.ojw.block.wood.instances.SoulWood;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
 import kz.chesschicken.ojw.item.necklace.ItemNecklace;
 import kz.chesschicken.ojw.item.pokeball.ItemCatcher;
-import kz.chesschicken.ojw.utils.metarefernce.objects.BlockSimpleMeta;
 import net.fabricmc.loader.api.FabricLoader;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
@@ -70,15 +71,16 @@ public class OJWContentListener {
     public static TemplateItemBase catcher;
 
     //Usually for blocks with same params, but different textures.
-    public static BlockSimpleMeta blockDirtComplex;
-    public static BlockSimpleMeta blockGrassComplex;
+    public static TemplateBlockBase blockDirtComplex;
+    public static TemplateBlockBase blockGrassComplex;
 
-    public static BlockSimpleMeta blockStoneComplex;
-    public static BlockSimpleMeta blockCobblestoneComplex;
-    public static BlockSimpleMeta blockGravelComplex;
+    public static TemplateBlockBase blockStoneComplex;
+    public static TemplateBlockBase blockCobblestoneComplex;
+    public static TemplateBlockBase blockGravelComplex;
 
-    public static BlockSimpleMeta blockLogComplex;
-    public static BlockSimpleMeta blockPlanksComplex;
+    public static TemplateBlockBase blockLogComplex;
+    public static TemplateBlockBase blockPlanksComplex;
+    public static TemplateBlockBase blockLeavesComplex;
     //end line
 
     public static TemplateBlockBase spawnerExtended;
@@ -95,17 +97,17 @@ public class OJWContentListener {
         blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "melon");
         blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "melon_seeds");
 
-        blockDirtComplex = (BlockSimpleMeta) new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
-        blockGrassComplex = (BlockSimpleMeta) new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "grass_complex");
+        blockDirtComplex = new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
+        blockGrassComplex = new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "grass_complex");
 
         MetaGrass.registerMeta(new FrozenGrass(0));
         MetaGrass.registerMeta(new GlitchGrass(1));
         MetaGrass.registerMeta(new DarkGrass(2));
         MetaGrass.registerMeta(new CrystalGrass(3));
 
-        blockStoneComplex = (BlockSimpleMeta) new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "stone_complex");
-        blockCobblestoneComplex = (BlockSimpleMeta) new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "cobblestone_complex");
-        blockGravelComplex = (BlockSimpleMeta) new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
+        blockStoneComplex = new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "stone_complex");
+        blockCobblestoneComplex = new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "cobblestone_complex");
+        blockGravelComplex = new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
 
         MetaRock.registerRock(new FrozenRock(0));
         MetaRock.registerRock(new PurpleRock(1));
@@ -113,11 +115,12 @@ public class OJWContentListener {
         MetaRock.registerRock(new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(2));
         MetaRock.registerRock(new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(3));
 
-        blockLogComplex = (BlockSimpleMeta) new BlockLogComplex(Identifier.of(modID, "log_complex")).setTranslationKey(modID, "log_complex");
-        blockPlanksComplex = (BlockSimpleMeta) new BlockPlanksComplex(Identifier.of(modID, "planks_complex")).setTranslationKey(modID, "planks_complex");
+        blockLogComplex = new BlockLogComplex(Identifier.of(modID, "log_complex")).setTranslationKey(modID, "log_complex");
+        blockPlanksComplex = new BlockPlanksComplex(Identifier.of(modID, "planks_complex")).setTranslationKey(modID, "planks_complex");
+        blockLeavesComplex = new BlockLeavesComplex(Identifier.of(modID, "leaves_complex")).setTranslationKey(modID, "leaves_complex");
 
         MetaWood.registerWood(new GlitchWood(0));
-        MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(1));
+        MetaWood.registerWood(new SoulWood(1));
         MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(2));
         MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(3));
 
@@ -167,6 +170,12 @@ public class OJWContentListener {
         {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(itemMelonSeeds),
                     itemMelon);
+
+            for(int i = 0; i < MetaWood.metadataCollection.length; i++)
+            {
+                CraftingRegistry.addShapelessRecipe(new ItemInstance(blockPlanksComplex, 4, i),
+                        new ItemInstance(blockLogComplex, 1, i));
+            }
         }
     }
 

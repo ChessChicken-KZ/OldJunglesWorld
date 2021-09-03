@@ -1,24 +1,25 @@
 package kz.chesschicken.ojw.block.grass;
 
-import kz.chesschicken.ojw.utils.metarefernce.objects.BlockSimpleMeta;
 import net.minecraft.block.material.Material;
+import net.modificationstation.stationapi.api.block.BlockHardnessPerMeta;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
 import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 @HasMetaNamedBlockItem
-public class BlockDirtComplex extends BlockSimpleMeta {
+public class BlockDirtComplex extends TemplateBlockBase implements BlockHardnessPerMeta {
     public BlockDirtComplex(Identifier identifier) {
-        super(identifier, Material.DIRT, 4);
+        super(identifier, Material.DIRT);
         this.setSounds(GRAVEL_SOUNDS);
     }
 
     @Override
     public float getHardness(int i) {
-        return ((MetaGrass)metadataCollection[i]).getHardnessAsDirt();
+        return MetaGrass.metadataCollection[i].getHardnessAsDirt();
     }
 
     @Override
     public int getTextureForSide(int side, int i) {
-        return ((MetaGrass)metadataCollection[i]).getDirtTexture();
+        return MetaGrass.metadataCollection[i].getDirtTexture();
     }
 }

@@ -35,6 +35,14 @@ public class OJWTextureListener {
     public static int textureCobblestonePurple;
     public static int textureGravelPurple;
 
+    public static int textureLogGlitchTop;
+    public static int textureLogGlitchSide;
+    public static int texturePlanksGlitch;
+
+    public static int textureLogSoulTop;
+    public static int textureLogSoulSide;
+    public static int texturePlanksSoul;
+
     public static int textureMelonSide;
     public static int textureMelonTop;
 
@@ -90,6 +98,14 @@ public class OJWTextureListener {
         textureStonePurple = TextureHelper.getInstance().registerBlockTexture("stonePurple");
         textureCobblestonePurple = TextureHelper.getInstance().registerBlockTexture("cobblestonePurple");
         textureGravelPurple = TextureHelper.getInstance().registerBlockTexture("gravelPurple");
+
+        textureLogGlitchTop = TextureHelper.getInstance().registerBlockTexture("logGlitchTop");
+        textureLogGlitchSide = TextureHelper.getInstance().registerBlockTexture("logGlitch");
+        texturePlanksGlitch = TextureHelper.getInstance().registerBlockTexture("planksGlitch");
+
+        textureLogSoulTop = TextureHelper.getInstance().registerBlockTexture("logSoulTop");
+        textureLogSoulSide = TextureHelper.getInstance().registerBlockTexture("logSoul");
+        texturePlanksSoul = TextureHelper.getInstance().registerBlockTexture("planksSoul");
 
         textureDebug = TextureHelper.getInstance().registerBlockTexture("debug");
 

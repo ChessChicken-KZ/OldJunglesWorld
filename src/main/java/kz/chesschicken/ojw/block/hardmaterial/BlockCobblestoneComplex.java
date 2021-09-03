@@ -1,22 +1,23 @@
 package kz.chesschicken.ojw.block.hardmaterial;
 
-import kz.chesschicken.ojw.utils.metarefernce.objects.BlockSimpleMeta;
 import net.minecraft.block.material.Material;
+import net.modificationstation.stationapi.api.block.BlockHardnessPerMeta;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
 import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 import java.util.Random;
 
 @HasMetaNamedBlockItem
-public class BlockCobblestoneComplex extends BlockSimpleMeta {
+public class BlockCobblestoneComplex extends TemplateBlockBase implements BlockHardnessPerMeta {
     public BlockCobblestoneComplex(Identifier identifier) {
-        super(identifier, Material.STONE, 4);
+        super(identifier, Material.STONE);
         this.setSounds(PISTON_SOUNDS);
     }
 
     @Override
     public int getTextureForSide(int side, int i) {
-        return ((MetaRock)this.metadataCollection[i]).getCobblestoneTexture();
+        return MetaRock.metadataCollection[i].getCobblestoneTexture();
     }
 
     @Override
@@ -26,6 +27,6 @@ public class BlockCobblestoneComplex extends BlockSimpleMeta {
 
     @Override
     public float getHardness(int i) {
-        return ((MetaRock)this.metadataCollection[i]).getHardnessAsCobblestone();
+        return MetaRock.metadataCollection[i].getHardnessAsCobblestone();
     }
 }

@@ -1,13 +1,10 @@
 package kz.chesschicken.ojw.block.grass;
 
-import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.utils.metarefernce.MetaBlock;
-import net.minecraft.item.ItemInstance;
 
-public abstract class MetaGrass extends MetaBlock {
-
+public abstract class MetaGrass {
+    public int metadata;
     public MetaGrass(int i) {
-        super(i);
+        this.metadata = i;
     }
 
     public abstract int getGrassTopTexture();
@@ -21,14 +18,9 @@ public abstract class MetaGrass extends MetaBlock {
         return 0.6F;
     }
 
+    public static MetaGrass[] metadataCollection = new MetaGrass[4];
     public static void registerMeta(MetaGrass object)
     {
-        OJWContentListener.blockGrassComplex.addMetaBlock(object);
-        OJWContentListener.blockDirtComplex.addMetaBlock(object);
-    }
-
-    @Override
-    public int getBlockMiningLevel(ItemInstance itemInstance) {
-        return 0;
+        metadataCollection[object.metadata] = object;
     }
 }

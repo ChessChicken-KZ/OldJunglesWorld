@@ -19,6 +19,12 @@ tile.stone_complex1.name=Magic Stone
 tile.cobblestone_complex1.name=Magic Cobblestone
 tile.gravel_complex1.name=Magic Gravel
 
+tile.log_complex0.name=Glitch Log
+tile.planks_complex0.name=Glitch Planks
+
+tile.log_complex1.name=Soul Log
+tile.planks_complex1.name=Soul Planks
+
 
 
 #Tiles
