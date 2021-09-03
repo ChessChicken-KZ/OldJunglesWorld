@@ -14,6 +14,10 @@ public abstract class MetaWood {
         return 2.0F;
     }
 
+    public float getHardnessAsLeaves() {
+        return 0.2F;
+    }
+
     public abstract int getPlanksTexture();
     public abstract int getLogTopTexture();
     public abstract int getLogSideTexture();

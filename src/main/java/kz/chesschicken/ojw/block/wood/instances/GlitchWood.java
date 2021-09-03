@@ -25,6 +25,6 @@ public class GlitchWood extends MetaWood {
 
     @Override
     public int getLeavesTexture() {
-        return 0;
+        return OJWTextureListener.textureLeavesGlitch;
     }
 }

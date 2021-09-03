@@ -28,7 +28,7 @@ public class LevelManipulationUtil {
     public static int fastGetID(Level level, int x, int y, int z)
     {
         if(y > 0 && y < 128)
-            return level.getChunkFromCache(x >> 4, z >> 4).tiles[x << 11 | z << 7 | y] & 255;
+            return level.getChunkFromCache(x >> 4, z >> 4).tiles[(x & 15) << 11 | (z & 15) << 7 | y] & 255;
         return 0;
     }
 
