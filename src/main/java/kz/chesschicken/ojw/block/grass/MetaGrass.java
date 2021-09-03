@@ -12,7 +12,7 @@ public abstract class MetaGrass {
     public abstract int getGrassSideTexture();
 
     public float getHardnessAsDirt() {
-        return 0.5f;
+        return 0.5F;
     }
     public float getHardnessAsGrass() {
         return 0.6F;

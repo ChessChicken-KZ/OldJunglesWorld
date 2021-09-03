@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.level.gen.glitch;
 
 import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.utils.structure.LevelManipulationUtil;
+import kz.chesschicken.ojw.utils.structure.WorldUtils;
 import net.minecraft.level.Level;
 import net.minecraft.level.structure.Structure;
 
@@ -16,7 +16,7 @@ public class GlitchTree extends Structure {
 
             for(int i = 0; i < s; i++)
             {
-                LevelManipulationUtil.fastPlaceIDuMeta(level, x, y - 1 + i, z, OJWContentListener.blockLogComplex.id, 1);
+                WorldUtils.setIDandMeta(level, x, y - 1 + i, z, OJWContentListener.blockLogComplex.id, 1);
                 if(i > 6)
                     genLeaves(level, rand, x, y - 1 + i, z);
             }
@@ -32,6 +32,6 @@ public class GlitchTree extends Structure {
         int size = random.nextBoolean() ? 5 : random.nextBoolean() ? 3 : 0;
         for(int ix = 0; ix < size; ix++)
             for(int iz = 0; iz < size; iz++)
-                LevelManipulationUtil.placeBlockIfEmpty(level, x - (size / 2) + ix, y, z - (size / 2) + iz, OJWContentListener.blockLeavesComplex.id);
+                WorldUtils.setBlockIfEmpty(level, x - (size / 2) + ix, y, z - (size / 2) + iz, OJWContentListener.blockLeavesComplex.id);
     }
 }

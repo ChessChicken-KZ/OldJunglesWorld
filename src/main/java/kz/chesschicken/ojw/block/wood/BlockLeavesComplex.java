@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block.wood;
 
 import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.utils.structure.LevelManipulationUtil;
+import kz.chesschicken.ojw.utils.structure.WorldUtils;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.block.BlockHardnessPerMeta;
@@ -58,7 +58,7 @@ public class BlockLeavesComplex extends TemplateBlockBase implements BlockHardne
     @Override
     public void onScheduledTick(Level level, int x, int y, int z, Random rand) {
         if (!level.isClient) {
-            int meta = LevelManipulationUtil.fastGetMeta(level, x, y, z);
+            int meta = WorldUtils.getMeta(level, x, y, z);
             if ((meta & 8) != 0) {
                 if (this.arrayLeaves == null) {
                     this.arrayLeaves = new int[32 * 32 * 32];

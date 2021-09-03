@@ -1,18 +1,16 @@
 package kz.chesschicken.ojw.block.hardmaterial;
 
-import net.minecraft.entity.EntityBase;
-
 public abstract class MetaRock {
     public int metadata;
     public MetaRock(int i) {
         this.metadata = i;
     }
 
-    public float getResistanceAsStone(EntityBase entityBase) {
+    public float getResistanceAsStone() {
         return 10.0F;
     }
 
-    public float getResistanceAsCobblestone(EntityBase entityBase) {
+    public float getResistanceAsCobblestone() {
         return 10.0F;
     }
 
