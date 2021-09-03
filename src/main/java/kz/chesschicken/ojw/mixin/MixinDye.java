@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.mixin;
 
-import kz.chesschicken.ojw.block.BlockMelonSeed;
-import kz.chesschicken.ojw.init.OJWContentListener;
+import kz.chesschicken.ojw.utils.IBlockBoneMeal;
+import net.minecraft.block.BlockBase;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.Dye;
 import net.minecraft.item.ItemInstance;
@@ -18,14 +18,16 @@ public class MixinDye {
     {
         if (item.getDamage() == 15) {
             int currentID = level.getTileId(x, y, z);
-            if (currentID == OJWContentListener.blockMelonSeedsTile.id) {
-                if (!level.isClient) {
-                    ((BlockMelonSeed) OJWContentListener.blockMelonSeedsTile).growIt(level, x, y, z);
+            if(BlockBase.BY_ID[currentID] instanceof IBlockBoneMeal)
+            {
+                if(((IBlockBoneMeal)BlockBase.BY_ID[currentID]).canBoneMealBlock(level, player, item, x, y, z))
+                {
+                    ((IBlockBoneMeal)BlockBase.BY_ID[currentID]).doGrowing(level, x, y, z);
                     --item.count;
-                }
 
-                cir.setReturnValue(true);
-                cir.cancel();
+                    cir.setReturnValue(true);
+                    cir.cancel();
+                }
             }
         }
     }

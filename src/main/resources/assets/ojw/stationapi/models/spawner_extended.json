@@ -1,9 +1,9 @@
 {
 	"credit": "ChessChicken-KZ, made with Blockbench",
 	"textures": {
-		"0": "ojw:spawnerSide",
-		"1": "ojw:spawnerCrystal",
-		"particle": "ojw:spawnerSide"
+		"0": "ojw:spawner_side",
+		"1": "ojw:spawner_crystal",
+		"particle": "ojw:spawner_side"
 	},
 	"elements": [
 		{

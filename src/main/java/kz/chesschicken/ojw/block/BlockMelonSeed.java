@@ -2,10 +2,12 @@ package kz.chesschicken.ojw.block;
 
 import kz.chesschicken.ojw.init.OJWContentListener;
 import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.utils.IBlockBoneMeal;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
 import net.minecraft.entity.Item;
+import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -16,7 +18,7 @@ import java.util.Random;
 /**
  * Melon Plant
  */
-public class BlockMelonSeed extends TemplatePlant {
+public class BlockMelonSeed extends TemplatePlant implements IBlockBoneMeal {
     private final int melonID;
     public BlockMelonSeed(Identifier identifier, int melonID) {
         super(identifier, 0);
@@ -75,10 +77,6 @@ public class BlockMelonSeed extends TemplatePlant {
 
     }
 
-    public void growIt(Level arg, int x, int y, int z) {
-        arg.setTileMeta(x, y, z, 7);
-    }
-
     public float growingStage(Level arg, int x, int y, int z) {
         float sending = 1.0F;
         int mZ = arg.getTileId(x, y, z - 1);
@@ -135,5 +133,15 @@ public class BlockMelonSeed extends TemplatePlant {
             }
 
         }
+    }
+
+    @Override
+    public boolean canBoneMealBlock(Level level, PlayerBase playerBase, ItemInstance itemInstance, int x, int y, int z) {
+        return level.getTileId(x, y, z) == this.id;
+    }
+
+    @Override
+    public void doGrowing(Level arg, int x, int y, int z) {
+        arg.setTileMeta(x, y, z, 7);
     }
 }

@@ -12,9 +12,10 @@ public class TextureHelper {
     }
 
 
-    private final static TextureHelper INSTANCE = new TextureHelper();
-    public static TextureHelper getInstance()
-    {
+    private static TextureHelper INSTANCE;
+    public static TextureHelper getInstance() {
+        if(INSTANCE == null)
+            INSTANCE = new TextureHelper();
         return INSTANCE;
     }
 }
