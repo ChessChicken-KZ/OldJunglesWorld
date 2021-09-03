@@ -17,6 +17,10 @@ import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.Empty;
 import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.PurpleRock;
+import kz.chesschicken.ojw.block.wood.BlockLogComplex;
+import kz.chesschicken.ojw.block.wood.BlockPlanksComplex;
+import kz.chesschicken.ojw.block.wood.MetaWood;
+import kz.chesschicken.ojw.block.wood.instances.GlitchWood;
 import kz.chesschicken.ojw.item.ItemSeedsMelon;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
@@ -74,6 +78,9 @@ public class OJWContentListener {
     public static BlockSimpleMeta blockStoneComplex;
     public static BlockSimpleMeta blockCobblestoneComplex;
     public static BlockSimpleMeta blockGravelComplex;
+
+    public static BlockSimpleMeta blockLogComplex;
+    public static BlockSimpleMeta blockPlanksComplex;
     //end line
 
     public static TemplateBlockBase spawnerExtended;
@@ -107,6 +114,11 @@ public class OJWContentListener {
 
         MetaRock.registerRock(new Empty(2));
         MetaRock.registerRock(new Empty(3));
+
+        blockLogComplex = (BlockSimpleMeta) new BlockLogComplex(Identifier.of(modID, "log_complex")).setTranslationKey(modID, "log_complex");
+        blockPlanksComplex = (BlockSimpleMeta) new BlockPlanksComplex(Identifier.of(modID, "planks_complex")).setTranslationKey(modID, "planks_complex");
+
+        MetaWood.registerWood(new GlitchWood(0));
 
         spawnerExtended = new BlockSpawnerExtended(Identifier.of(modID, "spawner")).setTranslationKey(modID, "spawner_extended");
     }
