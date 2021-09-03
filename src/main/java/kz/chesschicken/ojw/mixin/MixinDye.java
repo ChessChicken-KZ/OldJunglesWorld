@@ -22,8 +22,8 @@ public class MixinDye {
             {
                 if(((IBlockBoneMeal)BlockBase.BY_ID[currentID]).canBoneMealBlock(level, player, item, x, y, z))
                 {
-                    ((IBlockBoneMeal)BlockBase.BY_ID[currentID]).doGrowing(level, x, y, z);
                     --item.count;
+                    ((IBlockBoneMeal)BlockBase.BY_ID[currentID]).doGrowing(level, player, item, x, y, z);
 
                     cir.setReturnValue(true);
                     cir.cancel();

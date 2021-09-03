@@ -14,14 +14,12 @@ import kz.chesschicken.ojw.block.hardmaterial.BlockCobblestoneComplex;
 import kz.chesschicken.ojw.block.hardmaterial.BlockGravelComplex;
 import kz.chesschicken.ojw.block.hardmaterial.BlockStoneComplex;
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
-import kz.chesschicken.ojw.block.hardmaterial.instances.Empty;
 import kz.chesschicken.ojw.block.hardmaterial.instances.FrozenRock;
 import kz.chesschicken.ojw.block.hardmaterial.instances.PurpleRock;
 import kz.chesschicken.ojw.block.wood.BlockLogComplex;
 import kz.chesschicken.ojw.block.wood.BlockPlanksComplex;
 import kz.chesschicken.ojw.block.wood.MetaWood;
 import kz.chesschicken.ojw.block.wood.instances.GlitchWood;
-import kz.chesschicken.ojw.item.ItemSeedsMelon;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
@@ -112,13 +110,16 @@ public class OJWContentListener {
         MetaRock.registerRock(new FrozenRock(0));
         MetaRock.registerRock(new PurpleRock(1));
 
-        MetaRock.registerRock(new Empty(2));
-        MetaRock.registerRock(new Empty(3));
+        MetaRock.registerRock(new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(2));
+        MetaRock.registerRock(new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(3));
 
         blockLogComplex = (BlockSimpleMeta) new BlockLogComplex(Identifier.of(modID, "log_complex")).setTranslationKey(modID, "log_complex");
         blockPlanksComplex = (BlockSimpleMeta) new BlockPlanksComplex(Identifier.of(modID, "planks_complex")).setTranslationKey(modID, "planks_complex");
 
         MetaWood.registerWood(new GlitchWood(0));
+        MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(1));
+        MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(2));
+        MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(3));
 
         spawnerExtended = new BlockSpawnerExtended(Identifier.of(modID, "spawner")).setTranslationKey(modID, "spawner_extended");
     }
@@ -129,7 +130,7 @@ public class OJWContentListener {
     {
         OJWLogger.INSTANCE.INIT.info("Registering items...");
         itemMelon = new TemplateFoodBase(Identifier.of(modID, "melon_item"), 2, false).setMaxStackSize(8).setTranslationKey(modID, "melon_item");
-        itemMelonSeeds = new ItemSeedsMelon(Identifier.of(modID, "melon_seeds_item")).setTranslationKey(modID, "melon_seeds_item");
+        itemMelonSeeds = new TemplateSeeds(Identifier.of(modID, "melon_seeds_item"), OJWContentListener.blockMelonSeedsTile.id).setTranslationKey(modID, "melon_seeds_item");
         infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infopaper");
         goldenEgg = new ItemGoldenEgg(Identifier.of(modID, "gold_egg")).setTranslationKey(modID, "gold_egg");
         nuggetGold = new TemplateItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nugget_gold");

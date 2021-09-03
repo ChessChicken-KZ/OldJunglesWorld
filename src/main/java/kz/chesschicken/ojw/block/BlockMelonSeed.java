@@ -141,7 +141,12 @@ public class BlockMelonSeed extends TemplatePlant implements IBlockBoneMeal {
     }
 
     @Override
-    public void doGrowing(Level arg, int x, int y, int z) {
-        arg.setTileMeta(x, y, z, 7);
+    public void doGrowing(Level arg, PlayerBase player, ItemInstance item, int x, int y, int z) {
+        if(arg.getTileMeta(x, y, z) < 7)
+            arg.setTileMeta(x, y, z, 7);
+        else {
+            arg.setTileWithMetadata(x, y, z, OJWContentListener.blockMelon.id, 0);
+            arg.method_243(x, y, z);
+        }
     }
 }
