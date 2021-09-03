@@ -10,18 +10,6 @@ public abstract class MetaGrass extends MetaBlock {
         super(i);
     }
 
-
-    @Override
-    public int getTextureSide(int side) {
-        switch (side)
-        {
-            case 1: return getGrassTopTexture();
-            case 2: return getDirtTexture();
-
-            default: return getGrassSideTexture();
-        }
-    }
-
     public abstract int getGrassTopTexture();
     public abstract int getDirtTexture();
     public abstract int getGrassSideTexture();
