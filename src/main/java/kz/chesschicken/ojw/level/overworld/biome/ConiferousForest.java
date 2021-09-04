@@ -1,9 +1,10 @@
-package kz.chesschicken.ojw.level.biome.overworld;
+package kz.chesschicken.ojw.level.overworld.biome;
 
 
 import kz.chesschicken.biomesystem.common.biomes.ExtendedBiome;
-import kz.chesschicken.ojw.level.gen.overworld.TreeTaiga3;
-import kz.chesschicken.ojw.level.gen.overworld.TreeTaiga4;
+import kz.chesschicken.biomesystem.common.utils.BiomeTemperature;
+import kz.chesschicken.ojw.level.overworld.structures.TreeTaiga3;
+import kz.chesschicken.ojw.level.overworld.structures.TreeTaiga4;
 import net.minecraft.entity.EntityEntry;
 import net.minecraft.entity.animal.Wolf;
 import net.minecraft.level.structure.SpruceTree;
@@ -14,13 +15,11 @@ import java.util.Random;
 public class ConiferousForest extends ExtendedBiome {
 
     public ConiferousForest() {
+        super(BiomeTemperature.COLD, -15D);
         this.setGrassColour(7647092);
         this.setName("Coniferous Forest");
         this.creatures.add(new EntityEntry(Wolf.class, 2));
         this.setFoliageColour(7647092);
-
-        this.setTemperature(0.15F);
-        this.setHumidity(0.8F);
     }
 
     public Structure getTree(Random random) {

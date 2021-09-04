@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.level.gen.overworld;
+package kz.chesschicken.ojw.level.overworld.structures;
 
 
 

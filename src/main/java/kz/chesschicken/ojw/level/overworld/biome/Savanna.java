@@ -1,19 +1,19 @@
-package kz.chesschicken.ojw.level.biome.overworld;
+package kz.chesschicken.ojw.level.overworld.biome;
 
 
 import kz.chesschicken.biomesystem.common.biomes.ExtendedBiome;
-import kz.chesschicken.ojw.level.gen.overworld.StructureSavanna;
+import kz.chesschicken.biomesystem.common.utils.BiomeTemperature;
+import kz.chesschicken.ojw.level.overworld.structures.StructureSavanna;
 import net.minecraft.level.structure.Structure;
 
 import java.util.Random;
 
 public class Savanna extends ExtendedBiome {
     public Savanna() {
+        super(BiomeTemperature.EXTREME_WARM, +42D);
         this.setGrassColour(14278691);
         this.setName("Savanna");
 
-        this.setTemperature(1.7F);
-        this.setHumidity(0.1F);
     }
 
     public Structure getTree(Random random) {

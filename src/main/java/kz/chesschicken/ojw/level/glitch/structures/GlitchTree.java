@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.level.gen.glitch;
+package kz.chesschicken.ojw.level.glitch.structures;
 
 import kz.chesschicken.ojw.init.OJWContentListener;
 import kz.chesschicken.ojw.utils.structure.WorldUtils;

@@ -1,7 +1,8 @@
-package kz.chesschicken.ojw.level.biome.overworld;
+package kz.chesschicken.ojw.level.overworld.biome;
 
 import kz.chesschicken.biomesystem.common.biomes.ExtendedBiome;
-import kz.chesschicken.ojw.level.gen.overworld.StructureSwamp;
+import kz.chesschicken.biomesystem.common.utils.BiomeTemperature;
+import kz.chesschicken.ojw.level.overworld.structures.StructureSwamp;
 import net.minecraft.level.structure.Structure;
 
 import java.util.Random;
@@ -9,12 +10,10 @@ import java.util.Random;
 public class Swampland extends ExtendedBiome {
 
     public Swampland() {
+        super(BiomeTemperature.WARM, +27D);
         this.setGrassColour(522674);
         this.setName("Swampland");
         this.setFoliageColour(9154376);
-
-        this.setTemperature(0.82F);
-        this.setHumidity(0.92F);
     }
 
     public Structure getTree(Random random) {

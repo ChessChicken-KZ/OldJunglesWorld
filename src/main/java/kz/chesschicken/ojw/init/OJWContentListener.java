@@ -52,7 +52,7 @@ import net.modificationstation.stationapi.api.template.item.food.TemplateFoodBas
 import net.modificationstation.stationapi.api.util.Null;
 
 /**
- * Blocks, Items, Recipe
+ * Blocks, Items, Recipe, Entity
  */
 public class OJWContentListener {
 
@@ -139,7 +139,6 @@ public class OJWContentListener {
         nuggetGold = new TemplateItemBase(Identifier.of(modID, "nugget_gold")).setTranslationKey(modID, "nugget_gold");
         goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "golden_necklace");
         catcher = new ItemCatcher(Identifier.of(modID, "catcher")).setTranslationKey(modID, "catcher");
-
         shard_glass = new TemplateItemBase(Identifier.of(modID, "shard_glass")).setTranslationKey(modID, "shard_glass");
     }
 

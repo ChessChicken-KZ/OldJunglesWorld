@@ -2,7 +2,7 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.biomesystem.common.biomes.ExtendedBiome;
 import kz.chesschicken.biomesystem.common.event.ExtendedBiomeRegisterEvent;
-import kz.chesschicken.ojw.level.biome.overworld.*;
+import kz.chesschicken.ojw.level.overworld.biome.*;
 import kz.chesschicken.ojw.utils.structure.StructurePlants;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.mine_diver.unsafeevents.listener.ListenerPriority;
@@ -30,14 +30,12 @@ public class OJWLevelListener {
     @EventListener(priority = ListenerPriority.LOW)
     public void registerBiome(ExtendedBiomeRegisterEvent event)
     {
-
         event.register(Identifier.of(modID, "birch_forest"), birch_forest = new BirchForest());
         event.register(Identifier.of(modID, "coniferous_forest"), coniferous_forest = new ConiferousForest());
         event.register(Identifier.of(modID, "jungle"), jungle = new Jungle());
         event.replace(modID, Identifier.of("shrubland"), shrubland = new Shrubland());
         event.replace(modID, Identifier.of("savanna"), savanna = new Savanna());
         event.replace(modID, Identifier.of("swampland"), swampland = new Swampland());
-
     }
 
     @SuppressWarnings("unused")
