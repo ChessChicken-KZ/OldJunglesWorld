@@ -59,3 +59,8 @@ jewelry.backpack.name=Back
 jewelry.ring.name=Ring
 jewelry.belt.name=Belt
 jewelry.boots.name=Boots
+
+tile.hangman0.name=Hangman Stick
+tile.hangman1.name=Hangman Stick
+tile.hangman2.name=Hangman Stick
+tile.hangman3.name=...

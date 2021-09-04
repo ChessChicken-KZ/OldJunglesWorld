@@ -1,0 +1,130 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "ojw:char_texture",
+		"particle": "ojw:char_texture"
+	},
+	"elements": [
+		{
+			"name": "string_part",
+			"from": [7, 9, 7],
+			"to": [9, 16, 9],
+			"faces": {
+				"north": {"uv": [1.5, 8, 2, 9.75], "texture": "#0"},
+				"east": {"uv": [1, 8, 1.5, 9.75], "texture": "#0"},
+				"south": {"uv": [0.5, 8, 1, 9.75], "texture": "#0"},
+				"west": {"uv": [0, 8, 0.5, 9.75], "texture": "#0"},
+				"up": {"uv": [0, 11.5, 0.5, 12], "texture": "#0"},
+				"down": {"uv": [2, 14, 4, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "string_header",
+			"from": [6, 8, 8],
+			"to": [10, 9, 10],
+			"faces": {
+				"north": {"uv": [0, 8, 1, 8.25], "texture": "#0"},
+				"east": {"uv": [3.5, 11.75, 4, 12], "texture": "#0"},
+				"south": {"uv": [0, 11.75, 1, 12], "texture": "#0"},
+				"west": {"uv": [3.5, 11.75, 4, 12], "texture": "#0"},
+				"up": {"uv": [1, 11, 4, 12], "texture": "#0"},
+				"down": {"uv": [0, 8, 1, 8.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "player_head",
+			"from": [4, 0, 5],
+			"to": [12, 8, 13],
+			"rotation": {"angle": -45, "axis": "x", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [2, 2, 4, 4], "texture": "#0"},
+				"east": {"uv": [0, 2, 2, 4], "texture": "#0"},
+				"south": {"uv": [6, 2, 8, 4], "texture": "#0"},
+				"west": {"uv": [4, 2, 6, 4], "texture": "#0"},
+				"up": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"down": {"uv": [4, 0, 6, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "player_body",
+			"from": [4, -4, 6],
+			"to": [12, 8, 10],
+			"faces": {
+				"north": {"uv": [5, 5, 7, 8], "texture": "#0"},
+				"east": {"uv": [4, 5, 5, 8], "texture": "#0"},
+				"south": {"uv": [8, 5, 10, 8], "texture": "#0"},
+				"west": {"uv": [7, 5, 8, 8], "texture": "#0"},
+				"up": {"uv": [5, 4, 7, 5], "texture": "#0"},
+				"down": {"uv": [7, 4, 9, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "right_leg",
+			"from": [5, -13, 6],
+			"to": [9, -1, 10],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [1, 5, 2, 8], "texture": "#0"},
+				"east": {"uv": [0, 5, 1, 8], "texture": "#0"},
+				"south": {"uv": [3, 5, 4, 8], "texture": "#0"},
+				"west": {"uv": [2, 5, 3, 8], "texture": "#0"},
+				"up": {"uv": [1, 4, 2, 5], "texture": "#0"},
+				"down": {"uv": [2, 4, 3, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "right_leg",
+			"from": [8, -16, 6],
+			"to": [12, -4, 10],
+			"faces": {
+				"north": {"uv": [1, 5, 2, 8], "texture": "#0"},
+				"east": {"uv": [3, 5, 2, 8], "texture": "#0"},
+				"south": {"uv": [3, 5, 4, 8], "texture": "#0"},
+				"west": {"uv": [1, 5, 0, 8], "texture": "#0"},
+				"up": {"uv": [1, 4, 2, 5], "texture": "#0"},
+				"down": {"uv": [2, 4, 3, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "right_arm",
+			"from": [0, -4, 6],
+			"to": [4, 8, 10],
+			"faces": {
+				"north": {"uv": [11, 5, 12, 8], "texture": "#0"},
+				"east": {"uv": [12, 5, 13, 8], "texture": "#0"},
+				"south": {"uv": [13, 5, 14, 8], "texture": "#0"},
+				"west": {"uv": [11, 5, 12, 8], "texture": "#0"},
+				"up": {"uv": [11, 4, 12, 5], "texture": "#0"},
+				"down": {"uv": [12, 4, 13, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "left_arm",
+			"from": [12, -4, 6],
+			"to": [16, 8, 10],
+			"faces": {
+				"north": {"uv": [11, 5, 12, 8], "texture": "#0"},
+				"east": {"uv": [11, 5, 12, 8], "texture": "#0"},
+				"south": {"uv": [13, 5, 14, 8], "texture": "#0"},
+				"west": {"uv": [12, 5, 13, 8], "texture": "#0"},
+				"up": {"uv": [11, 4, 12, 5], "texture": "#0"},
+				"down": {"uv": [12, 4, 13, 5], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "string",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1]
+		},
+		{
+			"name": "player",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [2, 3, 4, 5, 6, 7]
+		}
+	]
+}

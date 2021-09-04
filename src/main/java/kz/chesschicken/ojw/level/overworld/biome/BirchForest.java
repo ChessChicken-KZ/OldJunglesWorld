@@ -18,7 +18,7 @@ public class BirchForest extends ExtendedBiome {
         this.setGrassColour(9022836);
         this.setName("Birch Forest");
         this.setFoliageColour(9022836);
-
+        this.setTreeDensity(5);
     }
 
 

@@ -14,7 +14,7 @@ public class Shrubland extends ExtendedBiome {
         super(BiomeTemperature.WARM, +30D);
         this.setGrassColour(10595616);
         this.setName("Shrubland");
-
+        this.setTreeDensity(1);
     }
 
     public Structure getTree(Random random) {

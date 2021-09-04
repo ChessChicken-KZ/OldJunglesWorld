@@ -14,6 +14,7 @@ public class Swampland extends ExtendedBiome {
         this.setGrassColour(522674);
         this.setName("Swampland");
         this.setFoliageColour(9154376);
+        this.setTreeDensity(3);
     }
 
     public Structure getTree(Random random) {

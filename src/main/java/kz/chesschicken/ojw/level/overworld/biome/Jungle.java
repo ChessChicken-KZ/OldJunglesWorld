@@ -16,7 +16,7 @@ public class Jungle extends ExtendedBiome {
         this.setGrassColour(588342);
         this.setName("Jungle");
         this.setFoliageColour(2094168);
-
+        this.setTreeDensity(7);
     }
 
     public Structure getTree(Random random) {

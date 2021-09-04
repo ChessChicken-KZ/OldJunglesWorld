@@ -13,7 +13,7 @@ public class Savanna extends ExtendedBiome {
         super(BiomeTemperature.EXTREME_WARM, +42D);
         this.setGrassColour(14278691);
         this.setName("Savanna");
-
+        this.setTreeDensity(1);
     }
 
     public Structure getTree(Random random) {

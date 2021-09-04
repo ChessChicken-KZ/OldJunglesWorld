@@ -54,6 +54,11 @@ public class OJWTextureListener {
 
     public static JsonModel spawnerExtended;
 
+    public static JsonModel hangmanFirst;
+    public static JsonModel hangmanCenter;
+    public static JsonModel hangmanTop;
+    public static JsonModel hangmanEYE;
+
     @SuppressWarnings("unused")
     @EventListener
     public void registerTextures(TextureRegisterEvent event)
@@ -76,6 +81,7 @@ public class OJWTextureListener {
         goldenEgg.setTexture("/assets/ojw/textures/item/goldenEgg.png");
         nuggetGold.setTexture("/assets/ojw/textures/item/nuggetGold.png");
         goldenNecklace.setTexture("/assets/ojw/textures/item/goldenNecklace.png");
+        shard_glass.setTexture("/assets/ojw/textures/item/shard_glass.png");
 
         textureDirtFrozen = TextureHelper.getInstance().registerBlockTexture("dirtFrozen");
         textureSnowFrozen = TextureHelper.getInstance().registerBlockTexture("snowFrozen");
@@ -115,6 +121,10 @@ public class OJWTextureListener {
 
         spawnerExtended = new JsonModel(Identifier.of(modID, "spawner_extended"));
 
-        shard_glass.setTexture("/assets/ojw/textures/item/shard_glass.png");
+        hangmanFirst = new JsonModel(Identifier.of(modID, "hangman_first"));
+        hangmanCenter = new JsonModel(Identifier.of(modID, "hangman_center"));
+        hangmanTop = new JsonModel(Identifier.of(modID, "hangman_top"));
+        hangmanEYE = new JsonModel(Identifier.of(modID, "hangman_eye"));
+
     }
 }

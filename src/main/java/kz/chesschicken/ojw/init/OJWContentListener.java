@@ -1,5 +1,6 @@
 package kz.chesschicken.ojw.init;
 
+import kz.chesschicken.ojw.block.BlockHangman;
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
 import kz.chesschicken.ojw.block.BlockSpawnerExtended;
@@ -22,6 +23,7 @@ import kz.chesschicken.ojw.block.wood.BlockPlanksComplex;
 import kz.chesschicken.ojw.block.wood.MetaWood;
 import kz.chesschicken.ojw.block.wood.instances.GlitchWood;
 import kz.chesschicken.ojw.block.wood.instances.SoulWood;
+import kz.chesschicken.ojw.item.ItemBiomeCompass;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
@@ -69,6 +71,7 @@ public class OJWContentListener {
     public static TemplateItemBase goldenNecklace;
 
     public static TemplateItemBase catcher;
+    public static TemplateItemBase biome_compass;
 
     //Usually for blocks with same params, but different textures.
     public static TemplateBlockBase blockDirtComplex;
@@ -84,6 +87,7 @@ public class OJWContentListener {
     //end line
 
     public static TemplateBlockBase spawnerExtended;
+    public static TemplateBlockBase hangmanBlock;
 
     public static TemplateItemBase shard_glass;
 
@@ -125,6 +129,7 @@ public class OJWContentListener {
         MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(3));
 
         spawnerExtended = new BlockSpawnerExtended(Identifier.of(modID, "spawner")).setTranslationKey(modID, "spawner_extended");
+        hangmanBlock = new BlockHangman(Identifier.of(modID, "hangman")).setTranslationKey(modID, "hangman");
     }
 
     @SuppressWarnings("unused")
@@ -140,6 +145,7 @@ public class OJWContentListener {
         goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "golden_necklace");
         catcher = new ItemCatcher(Identifier.of(modID, "catcher")).setTranslationKey(modID, "catcher");
         shard_glass = new TemplateItemBase(Identifier.of(modID, "shard_glass")).setTranslationKey(modID, "shard_glass");
+        biome_compass = new ItemBiomeCompass(Identifier.of(modID, "biome_compass")).setTranslationKey(modID, "biome_compass");
     }
 
     @SuppressWarnings({"unused", "UnnecessaryBoxing"})
