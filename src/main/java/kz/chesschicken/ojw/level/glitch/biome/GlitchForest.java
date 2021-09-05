@@ -15,6 +15,7 @@ public class GlitchForest extends BiomeTemplate {
         super(BiomeTemperature.COLD, 0D);
         this.topTileId = (byte) OJWContentListener.blockGrassComplex.id;
         this.underTileId = (byte) OJWContentListener.blockDirtComplex.id;
+        this.setTreeDensity(4);
     }
 
     @Override

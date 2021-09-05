@@ -98,7 +98,7 @@ dependencies {
 
 	modImplementation "com.github.minecraft-cursed-legacy:cursed-fabric-loader:${project.loader_version}"
 
-	modImplementation 'com.github.ModificationStation:StationAPI:d6f9496e93'
+	modImplementation 'com.github.ModificationStation:StationAPI:8fd8534962'
 
 	modImplementation('com.github.ChessChicken-KZ:SimpleBiomeSystem:602a68a388') {
 		exclude group: 'com.github.ModificationStation', module: 'StationAPI'

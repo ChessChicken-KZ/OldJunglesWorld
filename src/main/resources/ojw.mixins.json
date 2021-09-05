@@ -17,6 +17,9 @@
     "jewelryapi.MixinPlayerInventory"
   ],
   "client": [
+    "customtextures.MixinGameRenderer",
+    "customtextures.MixinOverworld",
+    "customtextures.MixinWorldRenderer",
     "gui.MixinMainMenu",
     "gui.MixinScreenBase",
     "hunger.client.MixinOverlay",
