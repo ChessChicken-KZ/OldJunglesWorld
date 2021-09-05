@@ -10,7 +10,7 @@ import java.util.Random;
 public class Swampland extends ExtendedBiome {
 
     public Swampland() {
-        super(BiomeTemperature.WARM, +27D);
+        super(BiomeTemperature.WARM, 27D);
         this.setGrassColour(522674);
         this.setName("Swampland");
         this.setFoliageColour(9154376);

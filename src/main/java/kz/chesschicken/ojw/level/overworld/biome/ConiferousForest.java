@@ -15,7 +15,7 @@ import java.util.Random;
 public class ConiferousForest extends ExtendedBiome {
 
     public ConiferousForest() {
-        super(BiomeTemperature.COLD, -35D);
+        super(BiomeTemperature.COLD, 35D);
         this.setGrassColour(7647092);
         this.setName("Coniferous Forest");
         this.creatures.add(new EntityEntry(Wolf.class, 2));

@@ -11,7 +11,7 @@ import java.util.Random;
 public class Shrubland extends ExtendedBiome {
 
     public Shrubland() {
-        super(BiomeTemperature.WARM, +30D);
+        super(BiomeTemperature.WARM, 30D);
         this.setGrassColour(10595616);
         this.setName("Shrubland");
         this.setTreeDensity(1);

@@ -12,7 +12,7 @@ import java.util.Random;
 public class Jungle extends ExtendedBiome {
 
     public Jungle() {
-        super(BiomeTemperature.WARM, +35D);
+        super(BiomeTemperature.WARM, 35D);
         this.setGrassColour(588342);
         this.setName("Jungle");
         this.setFoliageColour(2094168);

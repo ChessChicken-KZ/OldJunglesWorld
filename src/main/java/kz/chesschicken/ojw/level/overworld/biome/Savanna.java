@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Savanna extends ExtendedBiome {
     public Savanna() {
-        super(BiomeTemperature.EXTREME_WARM, +42D);
+        super(BiomeTemperature.EXTREME_WARM, 42D);
         this.setGrassColour(14278691);
         this.setName("Savanna");
         this.setTreeDensity(1);
