@@ -39,13 +39,13 @@ public class WorldUtils {
         z &= 15;
 
         chunk.field_967 = true;
-        int coordinate = x << 11 | y << 7 | z;
-        int lookup = coordinate >> 1;
-
-        //omg, someone pls pull request to BIN-Mappings with normal array names.
-        chunk.field_957.field_2103[lookup] = (coordinate & 1) == 0 ?
-                (byte)(chunk.field_957.field_2103[lookup] & 240 | meta & 15) :
-                (byte)(chunk.field_957.field_2103[lookup] & 15 | (meta & 15) << 4);
+        int coordinate = x << 11 | z << 7 | y;
+        int q = coordinate >> 1;
+        if ((coordinate & 1) == 0) {
+            chunk.field_957.field_2103[q] = (byte)(chunk.field_957.field_2103[q] & 240 | meta & 15);
+        } else {
+            chunk.field_957.field_2103[q] = (byte)(chunk.field_957.field_2103[q] & 15 | (meta & 15) << 4);
+        }
     }
 
     public static void setID(Level level, int x, int y, int z, int id) {
