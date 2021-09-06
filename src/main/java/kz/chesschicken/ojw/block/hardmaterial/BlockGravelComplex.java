@@ -17,6 +17,11 @@ public class BlockGravelComplex extends TemplateBlockBase implements BlockHardne
     }
 
     @Override
+    protected int droppedMeta(int meta) {
+        return meta;
+    }
+
+    @Override
     public int getTextureForSide(int side, int i) {
         return MetaRock.metadataCollection[i].getGravelTexture();
     }

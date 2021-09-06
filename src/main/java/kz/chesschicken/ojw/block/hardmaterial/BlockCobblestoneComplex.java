@@ -16,6 +16,11 @@ public class BlockCobblestoneComplex extends TemplateBlockBase implements BlockH
     }
 
     @Override
+    protected int droppedMeta(int meta) {
+        return meta;
+    }
+
+    @Override
     public int getTextureForSide(int side, int i) {
         return MetaRock.metadataCollection[i].getCobblestoneTexture();
     }

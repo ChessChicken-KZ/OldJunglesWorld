@@ -3,7 +3,7 @@ package kz.chesschicken.ojw.init;
 import kz.chesschicken.ojw.block.BlockHangman;
 import kz.chesschicken.ojw.block.BlockMelon;
 import kz.chesschicken.ojw.block.BlockMelonSeed;
-import kz.chesschicken.ojw.block.BlockSpawnerExtended;
+import kz.chesschicken.ojw.block.StairsWool;
 import kz.chesschicken.ojw.block.grass.BlockDirtComplex;
 import kz.chesschicken.ojw.block.grass.BlockGrassComplex;
 import kz.chesschicken.ojw.block.grass.MetaGrass;
@@ -86,7 +86,7 @@ public class OJWContentListener {
     public static TemplateBlockBase blockLeavesComplex;
     //end line
 
-    public static TemplateBlockBase spawnerExtended;
+    public static TemplateBlockBase stairs_wool;
     public static TemplateBlockBase hangmanBlock;
 
     public static TemplateItemBase shard_glass;
@@ -128,7 +128,7 @@ public class OJWContentListener {
         MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(2));
         MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(3));
 
-        spawnerExtended = new BlockSpawnerExtended(Identifier.of(modID, "spawner")).setTranslationKey(modID, "spawner_extended");
+        stairs_wool = new StairsWool(Identifier.of(modID, "stairs_wool")).setTranslationKey(modID, "stairs_wool");
         hangmanBlock = new BlockHangman(Identifier.of(modID, "hangman")).setTranslationKey(modID, "hangman");
     }
 

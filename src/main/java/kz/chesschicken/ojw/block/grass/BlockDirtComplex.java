@@ -14,6 +14,11 @@ public class BlockDirtComplex extends TemplateBlockBase implements BlockHardness
     }
 
     @Override
+    protected int droppedMeta(int meta) {
+        return meta;
+    }
+
+    @Override
     public float getHardness(int i) {
         return MetaGrass.metadataCollection[i].getHardnessAsDirt();
     }

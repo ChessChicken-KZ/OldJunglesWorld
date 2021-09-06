@@ -26,29 +26,31 @@ tile.log_complex1.name=Soul Log
 tile.planks_complex1.name=Soul Planks
 
 
-
 #Tiles
 tile.melon.name=Watermelon
 tile.melon_seeds.name=Watermelon Seeds
 
-tile.spawner_extended.name=Extended Spawner
+tile.hangman0.name=Hangman Stick
+tile.hangman1.name=Hangman Stick
+tile.hangman2.name=Hangman Stick
+tile.hangman3.name=...
+
 
 #Items
-item.melon_item.name=Watermelon
-item.melon_seeds_item.name=Watermelon Seeds
-
 item.infopaper_0.name=A Place of darkness
 item.infopaper_1.name=Test Page
 item.infopaper_2.name=Test Page
 item.infopaper_3.name=Test Page
 
+item.melon_item.name=Watermelon
+item.melon_seeds_item.name=Watermelon Seeds
 item.golden_necklace.name=Golden Necklace
-
 item.catcher.name=Catcher
-
 item.debugitem.name=When will custom item rendering be implemented, so I could put many things on player model?
-
+item.biome_compass0.name=Real One
+item.biome_compass1.name=Fake One
 item.shard_glass.name=Glass Shard
+
 
 #For future use
 jewelry.accessory.name=Accessory:
@@ -59,8 +61,3 @@ jewelry.backpack.name=Back
 jewelry.ring.name=Ring
 jewelry.belt.name=Belt
 jewelry.boots.name=Boots
-
-tile.hangman0.name=Hangman Stick
-tile.hangman1.name=Hangman Stick
-tile.hangman2.name=Hangman Stick
-tile.hangman3.name=...

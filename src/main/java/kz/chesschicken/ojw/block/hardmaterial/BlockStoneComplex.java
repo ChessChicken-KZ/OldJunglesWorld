@@ -17,6 +17,11 @@ public class BlockStoneComplex extends TemplateBlockBase implements BlockHardnes
     }
 
     @Override
+    protected int droppedMeta(int meta) {
+        return meta;
+    }
+
+    @Override
     public int getDropId(int i, Random rand) {
         return OJWContentListener.blockCobblestoneComplex.id;
     }

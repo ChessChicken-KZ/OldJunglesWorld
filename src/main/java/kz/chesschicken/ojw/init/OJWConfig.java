@@ -16,6 +16,7 @@ import net.modificationstation.stationapi.api.util.Null;
 public class OJWConfig {
 
     public boolean customMainMenu;
+    public boolean extendF3;
 
     @Entrypoint.Config
     public static Configuration modCONFIG = Null.get();
@@ -34,6 +35,12 @@ public class OJWConfig {
         Property a = commonCategory.getProperty("customMainMenu", false);
         a.setComment("Enables custom Main Menu, with some cool stuff.");
         customMainMenu = a.getBooleanValue();
+
+        Category debugCategory = modCONFIG.getCategory("debug");
+
+        Property b = debugCategory.getProperty("extendF3", false);
+        b.setComment("Show some debug info while pressing F3.");
+        extendF3 = b.getBooleanValue();
 
         modCONFIG.save();
         INSTANCE = this;

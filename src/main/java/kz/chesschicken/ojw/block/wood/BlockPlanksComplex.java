@@ -15,6 +15,11 @@ public class BlockPlanksComplex extends TemplateBlockBase implements BlockHardne
     }
 
     @Override
+    protected int droppedMeta(int meta) {
+        return meta;
+    }
+
+    @Override
     public float getHardness(int i) {
         return MetaWood.metadataCollection[i].getHardnessAsPlanks();
     }

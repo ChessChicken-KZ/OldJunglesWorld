@@ -126,5 +126,7 @@ public class OJWTextureListener {
         hangmanTop = new JsonModel(Identifier.of(modID, "hangman_top"));
         hangmanEYE = new JsonModel(Identifier.of(modID, "hangman_eye"));
 
+        OJWContentListener.stairs_wool.texture = 1;
+
     }
 }
