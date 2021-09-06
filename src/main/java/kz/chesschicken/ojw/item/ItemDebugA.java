@@ -13,8 +13,8 @@ import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 
 @ProvideCustomMetaNames
-public class ItemBiomeCompass extends TemplateItemBase {
-    public ItemBiomeCompass(Identifier identifier) {
+public class ItemDebugA extends TemplateItemBase {
+    public ItemDebugA(Identifier identifier) {
         super(identifier);
         setHasSubItems(true);
     }

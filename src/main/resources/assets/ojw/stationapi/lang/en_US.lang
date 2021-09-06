@@ -47,8 +47,8 @@ item.melon_seeds_item.name=Watermelon Seeds
 item.golden_necklace.name=Golden Necklace
 item.catcher.name=Catcher
 item.debugitem.name=When will custom item rendering be implemented, so I could put many things on player model?
-item.biome_compass0.name=Real One
-item.biome_compass1.name=Fake One
+item.debug_a0.name=Real One
+item.debug_a1.name=Fake One
 item.shard_glass.name=Glass Shard
 
 

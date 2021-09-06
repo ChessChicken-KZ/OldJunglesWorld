@@ -23,7 +23,7 @@ import kz.chesschicken.ojw.block.wood.BlockPlanksComplex;
 import kz.chesschicken.ojw.block.wood.MetaWood;
 import kz.chesschicken.ojw.block.wood.instances.GlitchWood;
 import kz.chesschicken.ojw.block.wood.instances.SoulWood;
-import kz.chesschicken.ojw.item.ItemBiomeCompass;
+import kz.chesschicken.ojw.item.ItemDebugA;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
@@ -71,7 +71,7 @@ public class OJWContentListener {
     public static TemplateItemBase goldenNecklace;
 
     public static TemplateItemBase catcher;
-    public static TemplateItemBase biome_compass;
+    public static TemplateItemBase debug_1;
 
     //Usually for blocks with same params, but different textures.
     public static TemplateBlockBase blockDirtComplex;
@@ -145,7 +145,9 @@ public class OJWContentListener {
         goldenNecklace = new ItemNecklace(Identifier.of(modID, "golden_necklace")).setTranslationKey(modID, "golden_necklace");
         catcher = new ItemCatcher(Identifier.of(modID, "catcher")).setTranslationKey(modID, "catcher");
         shard_glass = new TemplateItemBase(Identifier.of(modID, "shard_glass")).setTranslationKey(modID, "shard_glass");
-        biome_compass = new ItemBiomeCompass(Identifier.of(modID, "biome_compass")).setTranslationKey(modID, "biome_compass");
+
+        //Debug
+        debug_1 = new ItemDebugA(Identifier.of(modID, "debug_a")).setTranslationKey(modID, "debug_a");
     }
 
     @SuppressWarnings({"unused", "UnnecessaryBoxing"})
