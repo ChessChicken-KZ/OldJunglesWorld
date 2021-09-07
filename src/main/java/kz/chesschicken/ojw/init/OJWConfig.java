@@ -17,6 +17,7 @@ public class OJWConfig {
 
     public boolean customMainMenu;
     public boolean extendF3;
+    public boolean debugItems;
 
     @Entrypoint.Config
     public static Configuration modCONFIG = Null.get();
@@ -41,6 +42,10 @@ public class OJWConfig {
         Property b = debugCategory.getProperty("extendF3", false);
         b.setComment("Show some debug info while pressing F3.");
         extendF3 = b.getBooleanValue();
+
+        b = debugCategory.getProperty("debugItems", false);
+        b.setComment("Load up debug blocks/items.");
+        debugItems = b.getBooleanValue();
 
         modCONFIG.save();
         INSTANCE = this;

@@ -17,7 +17,6 @@
     "jewelryapi.MixinPlayerInventory"
   ],
   "client": [
-    "MixinItemBase",
     "customtextures.MixinGameRenderer",
     "customtextures.MixinOverworld",
     "customtextures.MixinWorldRenderer",
@@ -25,6 +24,7 @@
     "gui.MixinMainMenu",
     "gui.MixinScreenBase",
     "hunger.client.MixinOverlay",
+    "itemhelper.MixinItemBase",
     "jewelryapi.client.MixinGuiPlayerInventory",
     "jewelryapi.client.MixinPlayerRenderer"
   ],

@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin;
+package kz.chesschicken.ojw.mixin.itemhelper;
 
 import kz.chesschicken.ojw.utils.itemhelper.ProvideCustomMetaNames;
 import net.minecraft.item.ItemBase;
