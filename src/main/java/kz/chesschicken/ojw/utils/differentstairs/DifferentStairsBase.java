@@ -101,6 +101,7 @@ public class DifferentStairsBase extends TemplateBlockBase implements BlockWithW
 
     @Override
     public void renderInventory(BlockRenderer tileRenderer, int meta) {
+        meta %= 4;
         Tessellator var4 = Tessellator.INSTANCE;
         for(int q = 0; q < 2; ++q) {
             if (q == 0) {

@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin.customtextures;
 
-import kz.chesschicken.ojw.utils.customtextures.ICustomWeatherTexture;
+import kz.chesschicken.ojw.utils.customtextures.ICustomWeatherRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sortme.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,10 +18,10 @@ public class MixinGameRenderer {
     ), index = 0)
     private String getNewTextures(String s)
     {
-        if(s.endsWith("rain.png") && this.minecraft.level.dimension instanceof ICustomWeatherTexture)
-            return ((ICustomWeatherTexture)this.minecraft.level.dimension).getRainTexture();
-        if(s.endsWith("snow.png") && this.minecraft.level.dimension instanceof ICustomWeatherTexture)
-            return ((ICustomWeatherTexture)this.minecraft.level.dimension).getSnowTexture();
+        if(s.endsWith("rain.png") && this.minecraft.level.dimension instanceof ICustomWeatherRender)
+            return ((ICustomWeatherRender)this.minecraft.level.dimension).getRainTexture();
+        if(s.endsWith("snow.png") && this.minecraft.level.dimension instanceof ICustomWeatherRender)
+            return ((ICustomWeatherRender)this.minecraft.level.dimension).getSnowTexture();
         return s;
     }
 }

@@ -1,12 +1,12 @@
 package kz.chesschicken.ojw.mixin.customtextures;
 
-import kz.chesschicken.ojw.utils.customtextures.ICustomSkyTexture;
-import kz.chesschicken.ojw.utils.customtextures.ICustomWeatherTexture;
+import kz.chesschicken.ojw.utils.customtextures.ICustomSkyRender;
+import kz.chesschicken.ojw.utils.customtextures.ICustomWeatherRender;
 import net.minecraft.level.dimension.Overworld;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(Overworld.class)
-public class MixinOverworld implements ICustomSkyTexture, ICustomWeatherTexture {
+public class MixinOverworld implements ICustomSkyRender, ICustomWeatherRender {
     @Override
     public String getMoonTexture() {
         return "/terrain/moon.png";

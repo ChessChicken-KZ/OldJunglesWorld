@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.mixin.customtextures;
 
-import kz.chesschicken.ojw.utils.customtextures.ICustomSkyTexture;
+import kz.chesschicken.ojw.utils.customtextures.ICustomSkyRender;
+import kz.chesschicken.ojw.utils.customtextures.ICustomWeatherRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.WorldRenderer;
@@ -29,10 +30,10 @@ public class MixinWorldRenderer {
     ), index = 0)
     private String getNewTextures(String s)
     {
-        if(s.endsWith("sun.png") && this.client.level.dimension instanceof ICustomSkyTexture)
-            return ((ICustomSkyTexture)this.client.level.dimension).getSunTexture();
-        if(s.endsWith("moon.png") && this.client.level.dimension instanceof ICustomSkyTexture)
-            return ((ICustomSkyTexture)this.client.level.dimension).getMoonTexture();
+        if(s.endsWith("sun.png") && this.client.level.dimension instanceof ICustomSkyRender)
+            return ((ICustomSkyRender)this.client.level.dimension).getSunTexture();
+        if(s.endsWith("moon.png") && this.client.level.dimension instanceof ICustomSkyRender)
+            return ((ICustomSkyRender)this.client.level.dimension).getMoonTexture();
         return s;
     }
 
@@ -41,13 +42,17 @@ public class MixinWorldRenderer {
     @Inject(method = "renderClouds", at = @At("HEAD"), cancellable = true)
     private void cancelCloudsRendering(float f, CallbackInfo ci)
     {
-        ci.cancel();
+        if(this.client.level.dimension instanceof ICustomWeatherRender)
+            if(!((ICustomWeatherRender)this.client.level.dimension).renderDefaultClouds())
+                ci.cancel();
     }
 
     @Inject(method = "renderStars", at = @At("HEAD"), cancellable = true)
     private void cancelStarsRendering(CallbackInfo ci)
     {
-        ci.cancel();
+        if(this.client.level.dimension instanceof ICustomSkyRender)
+            if(!((ICustomSkyRender)this.client.level.dimension).renderDefaultStars())
+                ci.cancel();
     }
 
     @Inject(method = "renderSky", at = @At(
