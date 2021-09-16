@@ -18,8 +18,7 @@ public class MixinDye {
     {
         if (item.getDamage() == 15) {
             int currentID = level.getTileId(x, y, z);
-            if(BlockBase.BY_ID[currentID] instanceof IBlockBoneMeal)
-            {
+            if(BlockBase.BY_ID[currentID] instanceof IBlockBoneMeal) {
                 if(((IBlockBoneMeal)BlockBase.BY_ID[currentID]).canBoneMealBlock(level, player, item, x, y, z))
                 {
                     --item.count;

@@ -21,7 +21,8 @@
       "kz.chesschicken.ojw.init.OJWContentListener",
       "kz.chesschicken.ojw.init.OJWLevelListener",
       "kz.chesschicken.ojw.init.OJWConfig",
-      "kz.chesschicken.ojw.init.OJWTextureListener"
+      "kz.chesschicken.ojw.init.OJWTextureListener",
+      "kz.chesschicken.ojw.utils.dimensionapi.event.VanillaDimensions"
     ],
     "stationapi:event_bus_client":
     [

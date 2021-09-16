@@ -42,7 +42,7 @@ public class MixinWorldRenderer {
     @Inject(method = "renderClouds", at = @At("HEAD"), cancellable = true)
     private void cancelCloudsRendering(float f, CallbackInfo ci)
     {
-        if(this.client.level.dimension instanceof ICustomWeatherRender)
+        if(this.client.level != null && this.client.level.dimension instanceof ICustomWeatherRender)
             if(!((ICustomWeatherRender)this.client.level.dimension).renderDefaultClouds())
                 ci.cancel();
     }
@@ -50,7 +50,7 @@ public class MixinWorldRenderer {
     @Inject(method = "renderStars", at = @At("HEAD"), cancellable = true)
     private void cancelStarsRendering(CallbackInfo ci)
     {
-        if(this.client.level.dimension instanceof ICustomSkyRender)
+        if(this.client.level != null && this.client.level.dimension instanceof ICustomSkyRender)
             if(!((ICustomSkyRender)this.client.level.dimension).renderDefaultStars())
                 ci.cancel();
     }
