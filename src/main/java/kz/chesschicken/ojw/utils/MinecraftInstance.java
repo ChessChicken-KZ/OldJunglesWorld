@@ -11,9 +11,7 @@ import net.minecraft.client.Minecraft;
  */
 @Environment(EnvType.CLIENT)
 public class MinecraftInstance {
-    public static Minecraft INSTANCE;
-
-    static {
-        INSTANCE = (Minecraft) FabricLoader.getInstance().getGameInstance();
+    public static Minecraft get() {
+        return (Minecraft) FabricLoader.getInstance().getGameInstance();
     }
 }

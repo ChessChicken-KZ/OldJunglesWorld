@@ -21,7 +21,6 @@ public abstract class MixinPlayerInventory implements InventoryBase, IJewelryInv
     @Shadow public ItemInstance[] main;
     @Shadow public ItemInstance[] armour;
     @Shadow public PlayerBase player;
-    @Shadow public int selectedHotbarSlot;
     @Unique private ItemInstance[] jewelry = new ItemInstance[8];
 
     @Override

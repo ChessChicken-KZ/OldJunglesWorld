@@ -35,7 +35,7 @@ public class ItemNecklace extends TemplateItemBase implements IJewelry {
     public ItemInstance use(ItemInstance item, Level level, PlayerBase player) {
 
         if(!level.isClient) {
-            MinecraftInstance.INSTANCE.overlay.addChatMessage("Current Durability: " + (item.getDurability() - item.getDamage()) + "/" + item.getDurability());
+            MinecraftInstance.get().overlay.addChatMessage("Current Durability: " + (item.getDurability() - item.getDamage()) + "/" + item.getDurability());
         }
 
         return item;

@@ -11,7 +11,6 @@ public class TextureHelper {
         return Atlases.getStationTerrain().addTexture("/assets/ojw/textures/block/" + name + ".png").index;
     }
 
-
     private static TextureHelper INSTANCE;
     public static TextureHelper getInstance() {
         if(INSTANCE == null)

@@ -12,9 +12,7 @@ import net.minecraft.server.MinecraftServer;
  */
 @Environment(EnvType.SERVER)
 public class MinecraftServerInstance {
-    public static MinecraftServer INSTANCE;
-
-    static {
-        INSTANCE = (MinecraftServer) FabricLoader.getInstance().getGameInstance();
+    public static MinecraftServer get() {
+        return (MinecraftServer) FabricLoader.getInstance().getGameInstance();
     }
 }

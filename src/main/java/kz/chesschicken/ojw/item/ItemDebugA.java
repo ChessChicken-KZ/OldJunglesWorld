@@ -26,7 +26,7 @@ public class ItemDebugA extends TemplateItemBase {
         {
             if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
             {
-                MinecraftInstance.INSTANCE.overlay.addChatMessage("Biome type: " + level.getBiomeSource().getBiome(player.chunkX, player.chunkZ).biomeName);
+                MinecraftInstance.get().overlay.addChatMessage("Biome type: " + level.getBiomeSource().getBiome(player.chunkX, player.chunkZ).biomeName);
             }
 
             player.inventory.addStack(new ItemInstance(OJWContentListener.hangmanBlock, 1, 0));
@@ -35,7 +35,7 @@ public class ItemDebugA extends TemplateItemBase {
             player.inventory.addStack(new ItemInstance(OJWContentListener.hangmanBlock, 1, 3));
         }else if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
         {
-            MinecraftInstance.INSTANCE.overlay.addChatMessage("This is not meta == 0");
+            MinecraftInstance.get().overlay.addChatMessage("This is not meta == 0");
         }
 
 
