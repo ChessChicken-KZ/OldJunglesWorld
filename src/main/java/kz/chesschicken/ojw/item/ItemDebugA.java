@@ -16,7 +16,7 @@ import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 public class ItemDebugA extends TemplateItemBase {
     public ItemDebugA(Identifier identifier) {
         super(identifier);
-        setHasSubItems(true);
+        this.setHasSubItems(true);
     }
 
     @Override

@@ -26,4 +26,9 @@ public class MixinOverworld implements ICustomSkyRender, ICustomWeatherRender {
     public String getSnowTexture() {
         return "/environment/snow.png";
     }
+
+    @Override
+    public boolean renderDefaultStars() {
+        return false;
+    }
 }

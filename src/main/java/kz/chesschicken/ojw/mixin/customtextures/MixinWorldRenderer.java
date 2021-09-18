@@ -29,8 +29,7 @@ public class MixinWorldRenderer {
             value = "INVOKE",
             target = "Lnet/minecraft/client/texture/TextureManager;getTextureId(Ljava/lang/String;)I"
     ), index = 0)
-    private String getNewTextures(String s)
-    {
+    private String getNewTextures(String s) {
         if(s.endsWith("sun.png") && this.client.level.dimension instanceof ICustomSkyRender)
             return ((ICustomSkyRender)this.client.level.dimension).getSunTexture();
         if(s.endsWith("moon.png") && this.client.level.dimension instanceof ICustomSkyRender)
@@ -39,16 +38,14 @@ public class MixinWorldRenderer {
     }
 
     @Inject(method = "renderClouds", at = @At("HEAD"), cancellable = true)
-    private void cancelCloudsRendering(float f, CallbackInfo ci)
-    {
+    private void cancelCloudsRendering(float f, CallbackInfo ci) {
         if(this.client.level != null && this.client.level.dimension instanceof ICustomWeatherRender)
             if(!((ICustomWeatherRender)this.client.level.dimension).renderDefaultClouds())
                 ci.cancel();
     }
 
     @Inject(method = "renderStars", at = @At("HEAD"), cancellable = true)
-    private void cancelStarsRendering(CallbackInfo ci)
-    {
+    private void cancelStarsRendering(CallbackInfo ci) {
         if(this.client.level != null && this.client.level.dimension instanceof ICustomSkyRender)
             if(!((ICustomSkyRender)this.client.level.dimension).renderDefaultStars())
                 ci.cancel();
