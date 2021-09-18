@@ -17,9 +17,9 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 
-public class DifferentStairsBase extends TemplateBlockBase implements BlockWithWorldRenderer, BlockWithInventoryRenderer {
+public class SimpleStairs extends TemplateBlockBase implements BlockWithWorldRenderer, BlockWithInventoryRenderer {
 
-    public DifferentStairsBase(Identifier identifier, Material material) {
+    public SimpleStairs(Identifier identifier, Material material) {
         super(identifier, material);
         this.setLightOpacity(255);
     }

@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.block;
 
-import kz.chesschicken.ojw.utils.extendedblocks.DifferentStairsBase;
+import kz.chesschicken.ojw.utils.extendedblocks.SimpleStairs;
 import kz.chesschicken.ojw.utils.itemhelper.ProvideCustomMetaNames;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
@@ -8,7 +8,7 @@ import net.modificationstation.stationapi.api.registry.Identifier;
 
 @HasMetaNamedBlockItem
 @ProvideCustomMetaNames
-public class StairsWool extends DifferentStairsBase {
+public class StairsWool extends SimpleStairs {
 
     public StairsWool(Identifier identifier) {
         super(identifier, Material.WOOL);

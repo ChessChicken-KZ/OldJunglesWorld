@@ -75,55 +75,42 @@ public abstract class MixinBlockBase {
     }
 
     @Unique private boolean isInsideYZ(Vec3f vec3f, int meta) {
-        if (vec3f == null)
-            return false;
-        else {
-            float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
-            return vec3f.y >= floats[1] && vec3f.y <= floats[4] && vec3f.z >= floats[2] && vec3f.z <= floats[5];
-        }
+        if (vec3f == null) return false;
+        float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
+        return vec3f.y >= floats[1] && vec3f.y <= floats[4] && vec3f.z >= floats[2] && vec3f.z <= floats[5];
     }
 
     @Unique private boolean isInsideXZ(Vec3f vec3f, int meta) {
-        if (vec3f == null)
-            return false;
-        else {
-            float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
-            return vec3f.x >= floats[0] && vec3f.x <= floats[3] && vec3f.z >= floats[2] && vec3f.z <= floats[5];
-        }
+        if (vec3f == null) return false;
+        float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
+        return vec3f.x >= floats[0] && vec3f.x <= floats[3] && vec3f.z >= floats[2] && vec3f.z <= floats[5];
     }
 
     @Unique private boolean isInsideXY(Vec3f vec3f, int meta) {
-        if (vec3f == null)
-            return false;
-        else {
-            float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
-            return vec3f.x >= floats[0] && vec3f.x <= floats[3] && vec3f.y >= floats[1] && vec3f.y <= floats[4];
-        }
+        if (vec3f == null) return false;
+        float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
+        return vec3f.x >= floats[0] && vec3f.x <= floats[3] && vec3f.y >= floats[1] && vec3f.y <= floats[4];
     }
 
     @Inject(method = "method_1564", at = @At("HEAD"), cancellable = true)
     private void injectNewMetaHitResult(Level arg, int x, int y, int z, Vec3f first, Vec3f second, CallbackInfoReturnable<HitResult> cir) {
         if(this instanceof CustomBoundingBoxPerMeta) {
-            int m = arg.getTileMeta(x, y, z);
-
             this.updateBoundingBox(arg, x, y, z);
             first = first.method_1301(-x, -y, -z);
             second = second.method_1301(-x, -y, -z);
 
+            int m = arg.getTileMeta(x, y, z);
             float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(arg.getTileMeta(x, y, z));
-            BiValue<Vec3f, Byte> what = new BiValue<>(null, (byte) -1);
-            what = replaceIfRequires(what, resulting(this::isInsideYZ, first::method_1295, second, floats[0], m), first::method_1294, (byte) 4);
-            what = replaceIfRequires(what, resulting(this::isInsideYZ, first::method_1295, second, floats[3], m), first::method_1294, (byte) 5);
-            what = replaceIfRequires(what, resulting(this::isInsideXZ, first::method_1299, second, floats[1], m), first::method_1294, (byte) 0);
-            what = replaceIfRequires(what, resulting(this::isInsideXZ, first::method_1299, second, floats[4], m), first::method_1294, (byte) 1);
-            what = replaceIfRequires(what, resulting(this::isInsideXY, first::method_1302, second, floats[2], m), first::method_1294, (byte) 2);
-            what = replaceIfRequires(what, resulting(this::isInsideXY, first::method_1302, second, floats[5], m), first::method_1294, (byte) 3);
 
-            if (what.get_first() == null)
-                cir.setReturnValue(null);
-            else
-                cir.setReturnValue(new HitResult(x, y, z, what.get_second(), what.get_first().method_1301(x, y, z)));
+            BiValue<Vec3f, Byte> resulting = new BiValue<>(null, (byte) -1);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats[0], m), first::method_1294, (byte) 4);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats[3], m), first::method_1294, (byte) 5);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXZ, first::method_1299, second, floats[1], m), first::method_1294, (byte) 0);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXZ, first::method_1299, second, floats[4], m), first::method_1294, (byte) 1);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXY, first::method_1302, second, floats[2], m), first::method_1294, (byte) 2);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXY, first::method_1302, second, floats[5], m), first::method_1294, (byte) 3);
 
+            cir.setReturnValue(resulting.get_first() == null ? null : new HitResult(x, y, z, resulting.get_second(), resulting.get_first().method_1301(x, y, z)));
             cir.cancel();
         }
     }
