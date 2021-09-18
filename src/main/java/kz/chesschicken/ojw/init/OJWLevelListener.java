@@ -2,7 +2,9 @@ package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.biomesystem.common.biomes.ExtendedBiome;
 import kz.chesschicken.biomesystem.common.event.ExtendedBiomeRegisterEvent;
+import kz.chesschicken.ojw.level.glitch.GlitchDimension;
 import kz.chesschicken.ojw.level.overworld.biome.*;
+import kz.chesschicken.ojw.utils.dimensionapi.event.EventRegisterExtendedDimension;
 import kz.chesschicken.ojw.utils.structure.StructurePlants;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.mine_diver.unsafeevents.listener.ListenerPriority;
@@ -36,6 +38,12 @@ public class OJWLevelListener {
         event.replace(modID, Identifier.of("shrubland"), shrubland = new Shrubland());
         event.replace(modID, Identifier.of("savanna"), savanna = new Savanna());
         event.replace(modID, Identifier.of("swampland"), swampland = new Swampland());
+    }
+
+    @SuppressWarnings("unused")
+    @EventListener
+    public void registerDimensions(EventRegisterExtendedDimension event) {
+        event.register(Identifier.of(modID, "glitch_world"), new GlitchDimension());
     }
 
     @SuppressWarnings("unused")

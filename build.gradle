@@ -50,10 +50,6 @@ repositories {
 	maven {
 		url 'https://jitpack.io'
 	}
-	maven {
-		name = "Glass"
-		url "https://maven.glass-launcher.net/repo/"
-	}
 }
 
 minecraft {

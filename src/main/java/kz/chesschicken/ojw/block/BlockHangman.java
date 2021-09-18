@@ -14,6 +14,7 @@ import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 public class BlockHangman extends TemplateBlockBase implements BlockInventoryModelProvider, BlockWorldModelProvider {
     public BlockHangman(Identifier identifier) {
         super(identifier, Material.WOOD);
+
     }
 
     @Override

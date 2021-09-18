@@ -4,7 +4,6 @@ import kz.chesschicken.ojw.block.wood.MetaWood;
 import kz.chesschicken.ojw.init.OJWTextureListener;
 
 public class SoulWood extends MetaWood {
-
     public SoulWood(int i) {
         super(i);
     }

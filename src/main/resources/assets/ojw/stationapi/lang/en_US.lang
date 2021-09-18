@@ -25,6 +25,8 @@ tile.planks_complex0.name=Glitch Planks
 tile.log_complex1.name=Soul Log
 tile.planks_complex1.name=Soul Planks
 
+tile.stairs_wool0.name=White Wool Stairs
+tile.stairs_wool4.name=Orange Wool Stairs
 
 #Tiles
 tile.melon.name=Watermelon

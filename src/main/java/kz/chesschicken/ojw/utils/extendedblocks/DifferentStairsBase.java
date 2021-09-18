@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils.differentstairs;
+package kz.chesschicken.ojw.utils.extendedblocks;
 
 import kz.chesschicken.ojw.utils.structure.WorldUtils;
 import net.minecraft.block.material.Material;
@@ -56,8 +56,6 @@ public class DifferentStairsBase extends TemplateBlockBase implements BlockWithW
             this.setBoundingBox(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             super.doesBoxCollide(level, x, y, z, box, blocksThatCollide);
         }
-
-        //this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
     @Override
@@ -95,8 +93,6 @@ public class DifferentStairsBase extends TemplateBlockBase implements BlockWithW
             this.setBoundingBox(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             tileRenderer.renderStandardBlock(this, x, y, z);
         }
-
-        //this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
     @Override
@@ -104,13 +100,11 @@ public class DifferentStairsBase extends TemplateBlockBase implements BlockWithW
         meta %= 4;
         Tessellator var4 = Tessellator.INSTANCE;
         for(int q = 0; q < 2; ++q) {
-            if (q == 0) {
+            if (q == 0)
                 this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
-            }
 
-            if (q == 1) {
+            if (q == 1)
                 this.setBoundingBox(0.0F, 0.0F, 0.5F, 1.0F, 0.5F, 1.0F);
-            }
 
             GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
             var4.start();
