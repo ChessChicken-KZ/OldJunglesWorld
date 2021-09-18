@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block.hardmaterial.instances;
 
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 
 public class Empty extends MetaRock {
     public Empty(int i) {
@@ -9,13 +9,13 @@ public class Empty extends MetaRock {
     }
 
     public int getStoneTexture() {
-        return OJWTextureListener.textureDebug;
+        return OJWContainer.textureDebug;
     }
     public int getCobblestoneTexture() {
-        return OJWTextureListener.textureDebug;
+        return OJWContainer.textureDebug;
     }
     public int getGravelTexture() {
-        return OJWTextureListener.textureDebug;
+        return OJWContainer.textureDebug;
     }
 
 }

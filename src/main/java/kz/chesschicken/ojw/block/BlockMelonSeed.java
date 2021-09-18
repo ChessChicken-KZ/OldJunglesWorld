@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block;
 
+import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.init.OJWTextureListener;
 import kz.chesschicken.ojw.utils.IBlockBoneMeal;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -42,7 +42,7 @@ public class BlockMelonSeed extends TemplatePlant implements IBlockBoneMeal {
 
     @Override
     public int getTextureForSide(int side, int meta) {
-        return OJWTextureListener.textureMelonCrop[(meta > 1 && meta < 8) ? meta - 1 : 0];
+        return OJWContainer.textureMelonCrop[(meta > 1 && meta < 8) ? meta - 1 : 0];
     }
 
     @Environment(EnvType.CLIENT)

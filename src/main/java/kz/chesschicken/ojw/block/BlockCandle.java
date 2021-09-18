@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.block;
 
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.item.ItemCandle;
 import kz.chesschicken.ojw.utils.extendedblocks.CustomBoundingBoxPerMeta;
 import net.fabricmc.api.EnvType;
@@ -37,7 +37,7 @@ public class BlockCandle extends TemplateBlockBase implements BlockWorldModelPro
     public JsonModel getCustomWorldModel(BlockView blockView, int x, int y, int z) {
         switch (blockView.getTileMeta(x, y, z)) {
             case 0:
-                return OJWTextureListener.candleSINGLE;
+                return OJWContainer.candleSINGLE;
 
             default:
                 return null;

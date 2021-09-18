@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block.grass.instances;
 
 import kz.chesschicken.ojw.block.grass.MetaGrass;
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 
 public class DarkGrass extends MetaGrass {
     public DarkGrass(int i) {
@@ -10,16 +10,16 @@ public class DarkGrass extends MetaGrass {
 
     @Override
     public int getGrassTopTexture() {
-        return OJWTextureListener.textureGrassDarkTop;
+        return OJWContainer.textureGrassDarkTop;
     }
 
     @Override
     public int getDirtTexture() {
-        return OJWTextureListener.textureDirtDark;
+        return OJWContainer.textureDirtDark;
     }
 
     @Override
     public int getGrassSideTexture() {
-        return OJWTextureListener.textureGrassDarkSide;
+        return OJWContainer.textureGrassDarkSide;
     }
 }

@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block;
 
+import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.init.OJWTextureListener;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
@@ -31,8 +31,8 @@ public class BlockMelon extends TemplateBlockBase {
     @Override
     public int getTextureForSide(int side) {
         if(side == 0 || side == 1)
-            return OJWTextureListener.textureMelonTop;
+            return OJWContainer.textureMelonTop;
         else
-            return OJWTextureListener.textureMelonSide;
+            return OJWContainer.textureMelonSide;
     }
 }

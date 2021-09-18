@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.item;
 
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 import net.minecraft.item.Block;
 
 public class ItemCandle extends Block {
@@ -11,6 +11,6 @@ public class ItemCandle extends Block {
 
     @Override
     public int getTexturePosition(int damage) {
-        return OJWTextureListener.textureCandleItem;
+        return OJWContainer.textureCandleItem;
     }
 }

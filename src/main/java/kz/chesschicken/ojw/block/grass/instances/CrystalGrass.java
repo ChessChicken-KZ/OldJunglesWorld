@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block.grass.instances;
 
 import kz.chesschicken.ojw.block.grass.MetaGrass;
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 
 public class CrystalGrass extends MetaGrass {
     public CrystalGrass(int i) {
@@ -10,16 +10,16 @@ public class CrystalGrass extends MetaGrass {
 
     @Override
     public int getGrassTopTexture() {
-        return OJWTextureListener.textureGrassCrystalTop;
+        return OJWContainer.textureGrassCrystalTop;
     }
 
     @Override
     public int getDirtTexture() {
-        return OJWTextureListener.textureDirtCrystal;
+        return OJWContainer.textureDirtCrystal;
     }
 
     @Override
     public int getGrassSideTexture() {
-        return OJWTextureListener.textureGrassCrystalSide;
+        return OJWContainer.textureGrassCrystalSide;
     }
 }

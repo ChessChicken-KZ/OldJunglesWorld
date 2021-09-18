@@ -29,11 +29,8 @@ import kz.chesschicken.ojw.item.pokeball.ItemCatcher;
 import net.fabricmc.loader.api.FabricLoader;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
-import net.minecraft.client.render.entity.ChickenRenderer;
-import net.minecraft.client.render.entity.model.Chicken;
 import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
 import net.modificationstation.stationapi.api.event.entity.EntityRegister;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
@@ -191,13 +188,6 @@ public class OJWContentListener {
     {
         event.register(EntityGoldenChicken.class, "ojw:golden_chicken", 20);
         event.register(EntityGoldenChicken.class, "ojw:golden_egg", 21);
-    }
-
-    @SuppressWarnings("unused")
-    @EventListener
-    public void registerEntityRenderers(EntityRendererRegisterEvent event)
-    {
-        event.renderers.put(EntityGoldenChicken.class, new ChickenRenderer(new Chicken(), 1.0f));
     }
 
     @SuppressWarnings("unused")

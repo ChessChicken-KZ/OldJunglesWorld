@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block.wood.instances;
 
 import kz.chesschicken.ojw.block.wood.MetaWood;
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 
 public class SoulWood extends MetaWood {
     public SoulWood(int i) {
@@ -10,21 +10,21 @@ public class SoulWood extends MetaWood {
 
     @Override
     public int getPlanksTexture() {
-        return OJWTextureListener.texturePlanksSoul;
+        return OJWContainer.texturePlanksSoul;
     }
 
     @Override
     public int getLogTopTexture() {
-        return OJWTextureListener.textureLogSoulTop;
+        return OJWContainer.textureLogSoulTop;
     }
 
     @Override
     public int getLogSideTexture() {
-        return OJWTextureListener.textureLogSoulSide;
+        return OJWContainer.textureLogSoulSide;
     }
 
     @Override
     public int getLeavesTexture() {
-        return OJWTextureListener.textureLeavesSoul;
+        return OJWContainer.textureLeavesSoul;
     }
 }

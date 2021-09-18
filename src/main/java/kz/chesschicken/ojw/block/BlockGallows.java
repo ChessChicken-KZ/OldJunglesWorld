@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.block;
 
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.utils.extendedblocks.CustomBoundingBoxPerMeta;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.BlockView;
@@ -38,13 +38,13 @@ public class BlockGallows extends TemplateBlockBase implements BlockInventoryMod
         switch (i)
         {
             case 0:
-                return OJWTextureListener.gallowsFirst;
+                return OJWContainer.gallowsFirst;
             case 1:
-                return OJWTextureListener.gallowsCenter;
+                return OJWContainer.gallowsCenter;
             case 2:
-                return OJWTextureListener.gallowsTop;
+                return OJWContainer.gallowsTop;
             case 3:
-                return OJWTextureListener.gallowsEYE;
+                return OJWContainer.gallowsEYE;
 
             default:
                 return null;

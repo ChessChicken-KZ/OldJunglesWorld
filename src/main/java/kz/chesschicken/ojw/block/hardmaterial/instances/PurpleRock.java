@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.block.hardmaterial.instances;
 
 import kz.chesschicken.ojw.block.hardmaterial.MetaRock;
-import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.init.OJWContainer;
 
 public class PurpleRock extends MetaRock {
     public PurpleRock(int i) {
@@ -10,16 +10,16 @@ public class PurpleRock extends MetaRock {
 
     @Override
     public int getStoneTexture() {
-        return OJWTextureListener.textureStonePurple;
+        return OJWContainer.textureStonePurple;
     }
 
     @Override
     public int getCobblestoneTexture() {
-        return OJWTextureListener.textureCobblestonePurple;
+        return OJWContainer.textureCobblestonePurple;
     }
 
     @Override
     public int getGravelTexture() {
-        return OJWTextureListener.textureGravelPurple;
+        return OJWContainer.textureGravelPurple;
     }
 }
