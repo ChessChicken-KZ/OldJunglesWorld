@@ -49,15 +49,18 @@ public class OJWTextureListener {
     public static int textureMelonTop;
 
     public static int textureDebug;
+    public static int textureCandleItem;
 
     public static int[] textureMelonCrop = new int[7];
 
     public static JsonModel spawnerExtended;
 
-    public static JsonModel hangmanFirst;
-    public static JsonModel hangmanCenter;
-    public static JsonModel hangmanTop;
-    public static JsonModel hangmanEYE;
+    public static JsonModel gallowsFirst;
+    public static JsonModel gallowsCenter;
+    public static JsonModel gallowsTop;
+    public static JsonModel gallowsEYE;
+
+    public static JsonModel candleSINGLE;
 
     @SuppressWarnings("unused")
     @EventListener
@@ -118,15 +121,15 @@ public class OJWTextureListener {
         textureLeavesSoul = TextureHelper.getInstance().registerBlockTexture("leavesSoul");
 
         textureDebug = TextureHelper.getInstance().registerBlockTexture("debug");
+        textureCandleItem = TextureHelper.getInstance().registerItemTexture("candle");
 
         spawnerExtended = new JsonModel(Identifier.of(modID, "spawner_extended"));
 
-        hangmanFirst = new JsonModel(Identifier.of(modID, "hangman_first"));
-        hangmanCenter = new JsonModel(Identifier.of(modID, "hangman_center"));
-        hangmanTop = new JsonModel(Identifier.of(modID, "hangman_top"));
-        hangmanEYE = new JsonModel(Identifier.of(modID, "hangman_eye"));
+        gallowsFirst = new JsonModel(Identifier.of(modID, "gallows_first"));
+        gallowsCenter = new JsonModel(Identifier.of(modID, "gallows_center"));
+        gallowsTop = new JsonModel(Identifier.of(modID, "gallows_top"));
+        gallowsEYE = new JsonModel(Identifier.of(modID, "gallows_eye"));
 
-        OJWContentListener.stairs_wool.texture = 1;
-
+        candleSINGLE = new JsonModel(Identifier.of(modID, "candle_single"));
     }
 }

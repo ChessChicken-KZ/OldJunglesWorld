@@ -8,9 +8,9 @@ import net.modificationstation.stationapi.api.registry.Identifier;
 
 @HasMetaNamedBlockItem
 @ProvideCustomMetaNames
-public class StairsWool extends SimpleStairs {
+public class BlockStairsWool extends SimpleStairs {
 
-    public StairsWool(Identifier identifier) {
+    public BlockStairsWool(Identifier identifier) {
         super(identifier, Material.WOOL);
     }
 

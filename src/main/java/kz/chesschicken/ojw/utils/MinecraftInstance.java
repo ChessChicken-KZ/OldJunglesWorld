@@ -11,6 +11,7 @@ import net.minecraft.client.Minecraft;
  */
 @Environment(EnvType.CLIENT)
 public class MinecraftInstance {
+    @SuppressWarnings("deprecation")
     public static Minecraft get() {
         return (Minecraft) FabricLoader.getInstance().getGameInstance();
     }

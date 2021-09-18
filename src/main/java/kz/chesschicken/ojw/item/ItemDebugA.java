@@ -29,10 +29,10 @@ public class ItemDebugA extends TemplateItemBase {
                 MinecraftInstance.get().overlay.addChatMessage("Biome type: " + level.getBiomeSource().getBiome(player.chunkX, player.chunkZ).biomeName);
             }
 
-            player.inventory.addStack(new ItemInstance(OJWContentListener.hangmanBlock, 1, 0));
-            player.inventory.addStack(new ItemInstance(OJWContentListener.hangmanBlock, 1, 1));
-            player.inventory.addStack(new ItemInstance(OJWContentListener.hangmanBlock, 1, 2));
-            player.inventory.addStack(new ItemInstance(OJWContentListener.hangmanBlock, 1, 3));
+            player.inventory.addStack(new ItemInstance(OJWContentListener.gallowsBlock, 1, 0));
+            player.inventory.addStack(new ItemInstance(OJWContentListener.gallowsBlock, 1, 1));
+            player.inventory.addStack(new ItemInstance(OJWContentListener.gallowsBlock, 1, 2));
+            player.inventory.addStack(new ItemInstance(OJWContentListener.gallowsBlock, 1, 3));
         }else if(FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
         {
             MinecraftInstance.get().overlay.addChatMessage("This is not meta == 0");

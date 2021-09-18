@@ -19,7 +19,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 @Mixin(BlockBase.class)
-public abstract class MixinBlockBase {
+public abstract class MixinBlockBaseMetaBB {
     @Shadow public abstract void updateBoundingBox(BlockView tileView, int x, int y, int z);
 
     @Inject(method = "isSideRendered", at = @At("HEAD"), cancellable = true)
@@ -69,8 +69,10 @@ public abstract class MixinBlockBase {
 
     @Unique
     private BiValue<Vec3f, Byte> replaceIfRequires(BiValue<Vec3f, Byte> resulting, Vec3f current, Function<Vec3f, Double> func, byte state) {
-        if(current != null && (resulting.get_first() == null || func.apply(current) < func.apply(resulting.get_first())))
-            return new BiValue<>(current, state);
+        if(current != null && (resulting.get_first() == null || func.apply(current) < func.apply(resulting.get_first()))) {
+            resulting.set_first(current);
+            resulting.set_second(state);
+        }
         return resulting;
     }
 
@@ -96,7 +98,6 @@ public abstract class MixinBlockBase {
             first = first.method_1301(-x, -y, -z);
             second = second.method_1301(-x, -y, -z);
 
-            int m = arg.getTileMeta(x, y, z);
             float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(arg.getTileMeta(x, y, z));
 
             BiValue<Vec3f, Byte> resulting = new BiValue<>(null, (byte) -1);

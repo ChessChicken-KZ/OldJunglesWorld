@@ -1,9 +1,6 @@
 package kz.chesschicken.ojw.init;
 
-import kz.chesschicken.ojw.block.BlockHangman;
-import kz.chesschicken.ojw.block.BlockMelon;
-import kz.chesschicken.ojw.block.BlockMelonSeed;
-import kz.chesschicken.ojw.block.StairsWool;
+import kz.chesschicken.ojw.block.*;
 import kz.chesschicken.ojw.block.grass.BlockDirtComplex;
 import kz.chesschicken.ojw.block.grass.BlockGrassComplex;
 import kz.chesschicken.ojw.block.grass.MetaGrass;
@@ -87,7 +84,8 @@ public class OJWContentListener {
     //end line
 
     public static TemplateBlockBase stairs_wool;
-    public static TemplateBlockBase hangmanBlock;
+    public static TemplateBlockBase gallowsBlock;
+    public static TemplateBlockBase candleBlock;
 
     public static TemplateItemBase shard_glass;
 
@@ -128,8 +126,9 @@ public class OJWContentListener {
         MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(2));
         MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(3));
 
-        stairs_wool = new StairsWool(Identifier.of(modID, "stairs_wool")).setTranslationKey(modID, "stairs_wool");
-        hangmanBlock = new BlockHangman(Identifier.of(modID, "hangman")).setTranslationKey(modID, "hangman");
+        stairs_wool = new BlockStairsWool(Identifier.of(modID, "stairs_wool")).setTranslationKey(modID, "stairs_wool");
+        gallowsBlock = new BlockGallows(Identifier.of(modID, "gallows")).setTranslationKey(modID, "gallows");
+        candleBlock = new BlockCandle(Identifier.of(modID, "candle")).setTranslationKey(modID, "candle");
     }
 
     @SuppressWarnings("unused")

@@ -1,6 +1,7 @@
 package kz.chesschicken.ojw.block;
 
 import kz.chesschicken.ojw.init.OJWTextureListener;
+import kz.chesschicken.ojw.utils.extendedblocks.CustomBoundingBoxPerMeta;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.BlockView;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
@@ -11,10 +12,10 @@ import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 @HasMetaNamedBlockItem
-public class BlockHangman extends TemplateBlockBase implements BlockInventoryModelProvider, BlockWorldModelProvider {
-    public BlockHangman(Identifier identifier) {
+public class BlockGallows extends TemplateBlockBase implements BlockInventoryModelProvider, BlockWorldModelProvider, CustomBoundingBoxPerMeta {
+    public BlockGallows(Identifier identifier) {
         super(identifier, Material.WOOD);
-
+        this.disableNotifyOnMetaDataChange();
     }
 
     @Override
@@ -37,13 +38,13 @@ public class BlockHangman extends TemplateBlockBase implements BlockInventoryMod
         switch (i)
         {
             case 0:
-                return OJWTextureListener.hangmanFirst;
+                return OJWTextureListener.gallowsFirst;
             case 1:
-                return OJWTextureListener.hangmanCenter;
+                return OJWTextureListener.gallowsCenter;
             case 2:
-                return OJWTextureListener.hangmanTop;
+                return OJWTextureListener.gallowsTop;
             case 3:
-                return OJWTextureListener.hangmanEYE;
+                return OJWTextureListener.gallowsEYE;
 
             default:
                 return null;
@@ -53,5 +54,31 @@ public class BlockHangman extends TemplateBlockBase implements BlockInventoryMod
     @Override
     public boolean isFullOpaque() {
         return false;
+    }
+
+    @Override
+    public boolean isFullCube() {
+        return false;
+    }
+
+    @Override
+    public float[] getBoundingBoxes(int meta) {
+        switch (meta) {
+
+            case 3:
+                return new float[] {
+                        0.0F, -1.0F, 0.0F, 1.0F, 1.0F, 1.0F
+                };
+
+            case 2:
+                return new float[] {
+                        -1.0F, 0.0F, 0.0F, 2.0F, 1.0F, 1.0F
+                };
+
+            default:
+                return new float[] {
+                        0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F
+                };
+        }
     }
 }

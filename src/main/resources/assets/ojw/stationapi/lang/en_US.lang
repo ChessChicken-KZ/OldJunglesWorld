@@ -32,10 +32,12 @@ tile.stairs_wool4.name=Orange Wool Stairs
 tile.melon.name=Watermelon
 tile.melon_seeds.name=Watermelon Seeds
 
-tile.hangman0.name=Hangman Stick
-tile.hangman1.name=Hangman Stick
-tile.hangman2.name=Hangman Stick
-tile.hangman3.name=...
+tile.candle.name=Candle
+
+tile.gallows0.name=Gallows Base
+tile.gallows1.name=Gallows Stick
+tile.gallows2.name=Gallows Top
+tile.gallows3.name=Player
 
 
 #Items

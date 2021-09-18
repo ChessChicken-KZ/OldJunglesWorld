@@ -8,7 +8,7 @@
   },
   "mixins": [
     "AccessorBiome",
-    "MixinBlockBase",
+    "MixinBlockBaseMetaBB",
     "MixinDye",
     "MixinGlass",
     "dimensionapi.MixinDimension",
@@ -18,7 +18,8 @@
     "hunger.MixinPlayer",
     "jewelryapi.AccessorSlot",
     "jewelryapi.MixinPlayerContainer",
-    "jewelryapi.MixinPlayerInventory"
+    "jewelryapi.MixinPlayerInventory",
+    "metalight.MixinBlockBaseMetaL"
   ],
   "client": [
     "customtextures.MixinGameRenderer",

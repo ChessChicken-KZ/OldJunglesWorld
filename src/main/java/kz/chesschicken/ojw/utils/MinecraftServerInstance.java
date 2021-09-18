@@ -12,6 +12,7 @@ import net.minecraft.server.MinecraftServer;
  */
 @Environment(EnvType.SERVER)
 public class MinecraftServerInstance {
+    @SuppressWarnings("deprecation")
     public static MinecraftServer get() {
         return (MinecraftServer) FabricLoader.getInstance().getGameInstance();
     }
