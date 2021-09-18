@@ -62,9 +62,9 @@ public abstract class MixinBlockBase {
     }
 
     @Unique
-    private Vec3f resulting(BiFunction<Vec3f, Integer, Boolean> func, BiFunction<Vec3f, Float, Vec3f> func1, Vec3f v, float f, int meta) {
-        Vec3f r = func1.apply(v, f);
-        return func.apply(r, meta) ? r : null;
+    private Vec3f resulting(BiFunction<Vec3f, float[], Boolean> func, BiFunction<Vec3f, Float, Vec3f> func1, Vec3f v, float[] f, int d) {
+        Vec3f r = func1.apply(v, f[d]);
+        return func.apply(r, f) ? r : null;
     }
 
     @Unique
@@ -74,21 +74,18 @@ public abstract class MixinBlockBase {
         return resulting;
     }
 
-    @Unique private boolean isInsideYZ(Vec3f vec3f, int meta) {
+    @Unique private boolean isInsideYZ(Vec3f vec3f, float[] floats) {
         if (vec3f == null) return false;
-        float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
         return vec3f.y >= floats[1] && vec3f.y <= floats[4] && vec3f.z >= floats[2] && vec3f.z <= floats[5];
     }
 
-    @Unique private boolean isInsideXZ(Vec3f vec3f, int meta) {
+    @Unique private boolean isInsideXZ(Vec3f vec3f, float[] floats) {
         if (vec3f == null) return false;
-        float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
         return vec3f.x >= floats[0] && vec3f.x <= floats[3] && vec3f.z >= floats[2] && vec3f.z <= floats[5];
     }
 
-    @Unique private boolean isInsideXY(Vec3f vec3f, int meta) {
+    @Unique private boolean isInsideXY(Vec3f vec3f, float[] floats) {
         if (vec3f == null) return false;
-        float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(meta);
         return vec3f.x >= floats[0] && vec3f.x <= floats[3] && vec3f.y >= floats[1] && vec3f.y <= floats[4];
     }
 
@@ -103,12 +100,12 @@ public abstract class MixinBlockBase {
             float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(arg.getTileMeta(x, y, z));
 
             BiValue<Vec3f, Byte> resulting = new BiValue<>(null, (byte) -1);
-            resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats[0], m), first::method_1294, (byte) 4);
-            resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats[3], m), first::method_1294, (byte) 5);
-            resulting = replaceIfRequires(resulting, resulting(this::isInsideXZ, first::method_1299, second, floats[1], m), first::method_1294, (byte) 0);
-            resulting = replaceIfRequires(resulting, resulting(this::isInsideXZ, first::method_1299, second, floats[4], m), first::method_1294, (byte) 1);
-            resulting = replaceIfRequires(resulting, resulting(this::isInsideXY, first::method_1302, second, floats[2], m), first::method_1294, (byte) 2);
-            resulting = replaceIfRequires(resulting, resulting(this::isInsideXY, first::method_1302, second, floats[5], m), first::method_1294, (byte) 3);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats, 0), first::method_1294, (byte) 4);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats, 3), first::method_1294, (byte) 5);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXZ, first::method_1299, second, floats, 1), first::method_1294, (byte) 0);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXZ, first::method_1299, second, floats, 4), first::method_1294, (byte) 1);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXY, first::method_1302, second, floats, 2), first::method_1294, (byte) 2);
+            resulting = replaceIfRequires(resulting, resulting(this::isInsideXY, first::method_1302, second, floats, 5), first::method_1294, (byte) 3);
 
             cir.setReturnValue(resulting.get_first() == null ? null : new HitResult(x, y, z, resulting.get_second(), resulting.get_first().method_1301(x, y, z)));
             cir.cancel();
