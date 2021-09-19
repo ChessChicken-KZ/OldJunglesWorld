@@ -24,9 +24,7 @@ public class OJWClientListener {
         OJWContainer.textureMelonTop = TextureHelper.getInstance().registerBlockTexture("melonTop");
 
         for(int i = 0; i < OJWContainer.textureMelonCrop.length; i++)
-        {
             OJWContainer.textureMelonCrop[i] = TextureHelper.getInstance().registerBlockTexture("melonTile_" + (i + 1));
-        }
 
         itemMelon.setTexture("/assets/ojw/textures/item/melon.png");
         itemMelonSeeds.setTexture("/assets/ojw/textures/item/melonSeeds.png");
