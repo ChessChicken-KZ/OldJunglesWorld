@@ -38,5 +38,9 @@
     "metalight.MixinBlockBaseMetaL"
   ],
   "server": [
+    "AccessorServerPlayerConnectionManager",
+    "dimensionapi.MixinMinecraftServer",
+    "dimensionapi.MixinServerPlayer",
+    "dimensionapi.MixinServerPlayerConnectionManager"
   ]
 }

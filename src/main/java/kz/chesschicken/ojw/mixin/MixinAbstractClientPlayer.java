@@ -24,34 +24,23 @@ public abstract class MixinAbstractClientPlayer extends PlayerBase implements IP
             target = "Lnet/minecraft/client/Minecraft;switchDimension()V"
     ))
     private void call1(Minecraft minecraft) {
-        teleport(-1, new class_467());
+        teleport(this.dimensionId == 0 ? -1 : 0, new class_467());
     }
 
     @Override
     public void teleport(int id, class_467 teleport) {
         this.dimensionId = id;
-
         this.level.removeEntity(this);
         this.removed = false;
 
-        Dimension newQ = Dimension.getByID(id);
+        double calc = ((id == -1) ? 8.0D : 1.0D);
+        double plX = this.x * calc;
+        double plZ = this.z * calc;
 
-        double plX = this.x;
-        double plZ = this.z;
-        double var7 = ((id == -1) ? 8.0D : 1.0D);
-        plX *= var7;
-        plZ *= var7;
-
-        Level l = new Level(level, newQ);
-
-        if(this.isAlive()) {
+        if(this.isAlive())
             this.level.method_193(this, false);
-        }
 
-        if(this.dimensionId == 0)
-            MinecraftInstance.get().showLevelProgress(l, "Leaving " + DimensionAPI.getDimensionByInt(id).getDimensionName(), MinecraftInstance.get().player);
-        else
-            MinecraftInstance.get().showLevelProgress(l, "Entering " + DimensionAPI.getDimensionByInt(id).getDimensionName(), MinecraftInstance.get().player);
+        MinecraftInstance.get().showLevelProgress(new Level(level, Dimension.getByID(id)), (this.dimensionId == 0 ? "Leaving " : "Entering ") + DimensionAPI.getDimensionByInt(id).getDimensionName(), MinecraftInstance.get().player);
 
         this.level = MinecraftInstance.get().level;
         if(this.isAlive()) {
