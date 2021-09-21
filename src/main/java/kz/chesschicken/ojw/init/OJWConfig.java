@@ -29,7 +29,7 @@ public class OJWConfig {
     @EventListener
     public void config(InitEvent event)
     {
-        OJWLogger.INSTANCE.INIT.info("Current version: " + modID.getVersion().getFriendlyString());
+        OJWLogger.INIT.info("Current version: " + modID.getVersion().getFriendlyString());
         modCONFIG.load();
         Category commonCategory = modCONFIG.getCategory("common");
 

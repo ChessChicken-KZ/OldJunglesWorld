@@ -92,7 +92,7 @@ public class OJWContentListener {
     @EventListener
     public void registerBlocks(BlockRegistryEvent event)
     {
-        OJWLogger.INSTANCE.INIT.info("Registering blocks...");
+        OJWLogger.INIT.info("Registering blocks...");
         blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "melon");
         blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "melon_seeds");
 
@@ -132,7 +132,7 @@ public class OJWContentListener {
     @EventListener
     public void registerItems(ItemRegistryEvent event)
     {
-        OJWLogger.INSTANCE.INIT.info("Registering items...");
+        OJWLogger.INIT.info("Registering items...");
         itemMelon = new TemplateFoodBase(Identifier.of(modID, "melon_item"), 2, false).setMaxStackSize(8).setTranslationKey(modID, "melon_item");
         itemMelonSeeds = new TemplateSeeds(Identifier.of(modID, "melon_seeds_item"), OJWContentListener.blockMelonSeedsTile.id).setTranslationKey(modID, "melon_seeds_item");
         infoPaper = new ItemInfoPaper(Identifier.of(modID, "infopaper")).setTranslationKey(modID, "infopaper");
@@ -150,7 +150,7 @@ public class OJWContentListener {
     @EventListener
     public void registerRecipe(RecipeRegisterEvent event)
     {
-        OJWLogger.INSTANCE.INIT.info("Registering recipes (" + event.recipeId.toString() + ")...");
+        OJWLogger.INIT.info("Registering recipes (" + event.recipeId.toString() + ")...");
         Identifier type = event.recipeId;
 
         if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type())

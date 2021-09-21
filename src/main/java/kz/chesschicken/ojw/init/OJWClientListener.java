@@ -18,18 +18,17 @@ public class OJWClientListener {
     @EventListener
     public void registerTextures(TextureRegisterEvent event)
     {
-        OJWLogger.INSTANCE.INIT.info("Registering textures...");
+        OJWLogger.INIT.info("Registering textures...");
 
         OJWContainer.textureMelonSide = TextureHelper.getInstance().registerBlockTexture("melonSide");
         OJWContainer.textureMelonTop = TextureHelper.getInstance().registerBlockTexture("melonTop");
 
         for(int i = 0; i < OJWContainer.textureMelonCrop.length; i++)
             OJWContainer.textureMelonCrop[i] = TextureHelper.getInstance().registerBlockTexture("melonTile_" + (i + 1));
+        blockMelonSeedsTile.texture = OJWContainer.textureMelonCrop[6];
 
         itemMelon.setTexture("/assets/ojw/textures/item/melon.png");
         itemMelonSeeds.setTexture("/assets/ojw/textures/item/melonSeeds.png");
-
-        blockMelonSeedsTile.texture = OJWContainer.textureMelonCrop[6];
 
         goldenEgg.setTexture("/assets/ojw/textures/item/goldenEgg.png");
         nuggetGold.setTexture("/assets/ojw/textures/item/nuggetGold.png");

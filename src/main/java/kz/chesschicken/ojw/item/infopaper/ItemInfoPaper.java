@@ -33,7 +33,7 @@ public class ItemInfoPaper extends TemplateItemBase {
         packet.ints = new int[] { item.getDamage() };
         PacketHelper.send(packet);
 
-        OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Sent packet of InfoPaper with id: " + item.getDamage());
+        OJWLogger.RUNTIME.info("CLIENT SIDE! Sent packet of InfoPaper with id: " + item.getDamage());
         return item;
     }
 

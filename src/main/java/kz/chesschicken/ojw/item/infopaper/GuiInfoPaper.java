@@ -22,8 +22,8 @@ public class GuiInfoPaper extends ScreenBase {
         }
         catch (NullPointerException e)
         {
-            OJWLogger.INSTANCE.RUNTIME.error("InfoPaper with id " + i + " throws NullPointerException!");
-            OJWLogger.INSTANCE.RUNTIME.throwing(e);
+            OJWLogger.RUNTIME.error("InfoPaper with id " + i + " throws NullPointerException!");
+            OJWLogger.RUNTIME.throwing(e);
         }
     }
 

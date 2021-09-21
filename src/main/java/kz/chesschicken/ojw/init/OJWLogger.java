@@ -7,18 +7,7 @@ import org.apache.logging.log4j.Logger;
  * Logger
  */
 public class OJWLogger {
-    public static OJWLogger INSTANCE;
 
-    public Logger RUNTIME;
-    public Logger INIT;
-
-    public OJWLogger()
-    {
-        RUNTIME = LogManager.getLogger("OldJunglesWorld|RUNTIME");
-        INIT = LogManager.getLogger("OldJunglesWorld|INIT");
-    }
-
-    static {
-        INSTANCE = new OJWLogger();
-    }
+    public static Logger RUNTIME = LogManager.getLogger("OldJunglesWorld|RUNTIME");
+    public static Logger INIT = LogManager.getLogger("OldJunglesWorld|INIT");
 }

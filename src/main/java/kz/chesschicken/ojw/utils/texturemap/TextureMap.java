@@ -44,7 +44,7 @@ public class TextureMap {
             this.textureMap.put(id, this.currentAtlas.addTexture(texture).index);
             return;
         }
-        OJWLogger.INSTANCE.INIT.error("Texture with same identifier is already present in the map list.");
+        OJWLogger.INIT.error("Texture with same identifier is already present in the map list.");
     }
 
     /**
@@ -57,7 +57,7 @@ public class TextureMap {
         if(!doesExist(id)) {
             return this.textureMap.get(id);
         }
-        OJWLogger.INSTANCE.INIT.error("Texture with identifier " + id.toString() + " was not found!");
+        OJWLogger.INIT.error("Texture with identifier " + id.toString() + " was not found!");
         return this.getDebugTexture();
     }
 

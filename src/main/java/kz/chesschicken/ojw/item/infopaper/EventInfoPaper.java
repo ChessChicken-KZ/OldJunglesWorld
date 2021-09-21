@@ -56,7 +56,7 @@ public class EventInfoPaper {
             return toSend.toArray(new String[0]);
         }catch (IOException e)
         {
-            OJWLogger.INSTANCE.INIT.error("Could not normally parse text for InfoPaper with id: " + i);
+            OJWLogger.INIT.error("Could not normally parse text for InfoPaper with id: " + i);
             e.printStackTrace();
         }
         return null;
@@ -111,7 +111,7 @@ public class EventInfoPaper {
                     Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:resultoip");
                     packet.ints = customData.ints;
                     PacketHelper.send(packet);
-                    OJWLogger.INSTANCE.RUNTIME.info("SERVER SIDE! Sent a packet of InfoPaper with id: " + customData.ints[0]);
+                    OJWLogger.RUNTIME.info("SERVER SIDE! Sent a packet of InfoPaper with id: " + customData.ints[0]);
                 }
             }
         }
@@ -123,7 +123,7 @@ public class EventInfoPaper {
         {
             Minecraft mc = (Minecraft) FabricLoader.getInstance().getGameInstance();
             mc.openScreen(new GuiInfoPaper(customData.ints[0]));
-            OJWLogger.INSTANCE.RUNTIME.info("CLIENT SIDE! Got a message to open InfoPaper with id: " + customData.ints[0]);
+            OJWLogger.RUNTIME.info("CLIENT SIDE! Got a message to open InfoPaper with id: " + customData.ints[0]);
         }
     }
 
@@ -153,8 +153,8 @@ public class EventInfoPaper {
                         reader.close();
                     }
                 } catch (IOException e) {
-                    OJWLogger.INSTANCE.INIT.error("Could not normally parse InfoPaper: " + path);
-                    OJWLogger.INSTANCE.INIT.error("Error: " + e.getMessage());
+                    OJWLogger.INIT.error("Could not normally parse InfoPaper: " + path);
+                    OJWLogger.INIT.error("Error: " + e.getMessage());
                 }
 
             });
@@ -162,7 +162,7 @@ public class EventInfoPaper {
             e.printStackTrace();
         }
 
-        OJWLogger.INSTANCE.INIT.info("Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
+        OJWLogger.INIT.info("Totally parsed " + infopaperIDS.size() + " InfoPaper pages...");
 
     }
 
