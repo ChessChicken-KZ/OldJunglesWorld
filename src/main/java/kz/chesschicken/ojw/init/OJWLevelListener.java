@@ -9,10 +9,9 @@ import kz.chesschicken.ojw.utils.structure.StructurePlants;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.mine_diver.unsafeevents.listener.ListenerPriority;
 import net.modificationstation.stationapi.api.event.level.gen.LevelGenEvent;
-import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.registry.ModID;
-import net.modificationstation.stationapi.api.util.Null;
+
+import static kz.chesschicken.ojw.init.OJWContentListener.modID;
 
 /**
  * Biomes, Generation, Dimensions
@@ -24,9 +23,6 @@ public class OJWLevelListener {
     public static ExtendedBiome shrubland;
     public static ExtendedBiome savanna;
     public static ExtendedBiome swampland;
-
-    @Entrypoint.ModID
-    public static ModID modID = Null.get();
 
     @SuppressWarnings("unused")
     @EventListener(priority = ListenerPriority.LOW)

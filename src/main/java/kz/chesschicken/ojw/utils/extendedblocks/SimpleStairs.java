@@ -9,8 +9,8 @@ import net.minecraft.level.BlockView;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.Box;
 import net.minecraft.util.maths.MathHelper;
-import net.modificationstation.stationapi.api.client.model.BlockWithInventoryRenderer;
-import net.modificationstation.stationapi.api.client.model.BlockWithWorldRenderer;
+import net.modificationstation.stationapi.api.client.model.block.BlockWithInventoryRenderer;
+import net.modificationstation.stationapi.api.client.model.block.BlockWithWorldRenderer;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 import org.lwjgl.opengl.GL11;
@@ -98,7 +98,7 @@ public class SimpleStairs extends TemplateBlockBase implements BlockWithWorldRen
     @Override
     public void renderInventory(BlockRenderer tileRenderer, int meta) {
         meta %= 4;
-        Tessellator var4 = Tessellator.INSTANCE;
+        Tessellator instance = Tessellator.INSTANCE;
         for(int q = 0; q < 2; ++q) {
             if (q == 0)
                 this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
@@ -107,30 +107,30 @@ public class SimpleStairs extends TemplateBlockBase implements BlockWithWorldRen
                 this.setBoundingBox(0.0F, 0.0F, 0.5F, 1.0F, 0.5F, 1.0F);
 
             GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
-            var4.start();
-            var4.setNormal(0.0F, -1.0F, 0.0F);
+            instance.start();
+            instance.setNormal(0.0F, -1.0F, 0.0F);
             tileRenderer.renderBottomFace(this, 0.0D, 0.0D, 0.0D, this.getTextureForSide(0, meta));
-            var4.draw();
-            var4.start();
-            var4.setNormal(0.0F, 1.0F, 0.0F);
+            instance.draw();
+            instance.start();
+            instance.setNormal(0.0F, 1.0F, 0.0F);
             tileRenderer.renderTopFace(this, 0.0D, 0.0D, 0.0D, this.getTextureForSide(1, meta));
-            var4.draw();
-            var4.start();
-            var4.setNormal(0.0F, 0.0F, -1.0F);
+            instance.draw();
+            instance.start();
+            instance.setNormal(0.0F, 0.0F, -1.0F);
             tileRenderer.renderEastFace(this, 0.0D, 0.0D, 0.0D, this.getTextureForSide(2, meta));
-            var4.draw();
-            var4.start();
-            var4.setNormal(0.0F, 0.0F, 1.0F);
+            instance.draw();
+            instance.start();
+            instance.setNormal(0.0F, 0.0F, 1.0F);
             tileRenderer.renderWestFace(this, 0.0D, 0.0D, 0.0D, this.getTextureForSide(3, meta));
-            var4.draw();
-            var4.start();
-            var4.setNormal(-1.0F, 0.0F, 0.0F);
+            instance.draw();
+            instance.start();
+            instance.setNormal(-1.0F, 0.0F, 0.0F);
             tileRenderer.renderNorthFace(this, 0.0D, 0.0D, 0.0D, this.getTextureForSide(4, meta));
-            var4.draw();
-            var4.start();
-            var4.setNormal(1.0F, 0.0F, 0.0F);
+            instance.draw();
+            instance.start();
+            instance.setNormal(1.0F, 0.0F, 0.0F);
             tileRenderer.renderSouthFace(this, 0.0D, 0.0D, 0.0D, this.getTextureForSide(5));
-            var4.draw();
+            instance.draw();
             GL11.glTranslatef(0.5F, 0.5F, 0.5F);
         }
     }

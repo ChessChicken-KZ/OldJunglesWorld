@@ -150,7 +150,7 @@ public class OJWContentListener {
     @EventListener
     public void registerRecipe(RecipeRegisterEvent event)
     {
-        OJWLogger.INIT.info("Registering recipes (" + event.recipeId.toString() + ")...");
+        OJWLogger.INIT.info("Registering recipes of (" + event.recipeId.toString() + ")...");
         Identifier type = event.recipeId;
 
         if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type())

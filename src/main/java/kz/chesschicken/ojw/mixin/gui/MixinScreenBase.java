@@ -18,7 +18,7 @@ public class MixinScreenBase extends DrawableHelper
     ), index = 0)
     private String getBackground(String s)
     {
-        return "/assets/ojw/textures/block/melonSide.png";
+        return "/assets/ojw/stationapi/textures/blocks/melon_side.png";
     }
 
 }

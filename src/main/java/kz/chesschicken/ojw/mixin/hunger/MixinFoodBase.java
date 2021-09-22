@@ -15,12 +15,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinFoodBase {
     @Shadow private int healAmount;
 
-    @Inject(method = "use", at = @At("TAIL"), cancellable = true)
+    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void getHungerValue(ItemInstance item, Level level, PlayerBase player, CallbackInfoReturnable<ItemInstance> cir)
     {
         --item.count;
         ((IPlayerHunger)player).addHunger(this.healAmount);
         ((IPlayerHunger)player).addAbsorption(this.healAmount / 5);
         cir.setReturnValue(item);
+        cir.cancel();
     }
 }

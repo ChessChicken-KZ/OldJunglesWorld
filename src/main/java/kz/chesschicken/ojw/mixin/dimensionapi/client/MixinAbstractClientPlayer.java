@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin;
+package kz.chesschicken.ojw.mixin.dimensionapi.client;
 
 import kz.chesschicken.ojw.utils.MinecraftInstance;
 import kz.chesschicken.ojw.utils.dimensionapi.DimensionAPI;
@@ -23,7 +23,7 @@ public abstract class MixinAbstractClientPlayer extends PlayerBase implements IP
             value = "INVOKE",
             target = "Lnet/minecraft/client/Minecraft;switchDimension()V"
     ))
-    private void call1(Minecraft minecraft) {
+    private void redirectUseDimAPI(Minecraft minecraft) {
         teleport(this.dimensionId == 0 ? -1 : 0, new class_467());
     }
 

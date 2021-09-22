@@ -7,8 +7,9 @@ import net.modificationstation.stationapi.api.config.Configuration;
 import net.modificationstation.stationapi.api.config.Property;
 import net.modificationstation.stationapi.api.event.mod.InitEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.registry.ModID;
 import net.modificationstation.stationapi.api.util.Null;
+
+import static kz.chesschicken.ojw.init.OJWContentListener.modID;
 
 /**
  * Config of OldJunglesWorld
@@ -22,8 +23,6 @@ public class OJWConfig {
     @Entrypoint.Config
     public static Configuration modCONFIG = Null.get();
 
-    @Entrypoint.ModID
-    public static ModID modID = Null.get();
 
     @SuppressWarnings("unused")
     @EventListener

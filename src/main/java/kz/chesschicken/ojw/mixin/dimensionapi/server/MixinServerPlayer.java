@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin.dimensionapi;
+package kz.chesschicken.ojw.mixin.dimensionapi.server;
 
 import kz.chesschicken.ojw.mixin.AccessorServerPlayerConnectionManager;
 import kz.chesschicken.ojw.utils.MinecraftServerInstance;

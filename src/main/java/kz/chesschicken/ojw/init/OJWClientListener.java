@@ -7,21 +7,28 @@ import net.minecraft.client.render.entity.ChickenRenderer;
 import net.minecraft.client.render.entity.model.Chicken;
 import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
-import net.modificationstation.stationapi.api.client.model.JsonModel;
+import net.modificationstation.stationapi.api.client.model.json.JsonModel;
+import net.modificationstation.stationapi.api.client.texture.atlas.ExpandableAtlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
 
 import static kz.chesschicken.ojw.init.OJWContentListener.*;
 
 public class OJWClientListener {
 
+    public static int generate(String s) {
+        return OJWContainer.ATLAS_TERRAIN.addTexture(Identifier.of(modID, s)).index;
+    }
+
     @SuppressWarnings("unused")
     @EventListener
     public void registerTextures(TextureRegisterEvent event)
     {
+        OJWContainer.ATLAS_TERRAIN = new ExpandableAtlas(Identifier.of(modID, "atlas_terrain")).initTessellator();
         OJWLogger.INIT.info("Registering textures...");
 
-        OJWContainer.textureMelonSide = TextureHelper.getInstance().registerBlockTexture("melonSide");
-        OJWContainer.textureMelonTop = TextureHelper.getInstance().registerBlockTexture("melonTop");
+
+        OJWContainer.textureMelonSide = generate("blocks/melon_side");
+        OJWContainer.textureMelonTop = generate("blocks/melon_top");
 
         for(int i = 0; i < OJWContainer.textureMelonCrop.length; i++)
             OJWContainer.textureMelonCrop[i] = TextureHelper.getInstance().registerBlockTexture("melonTile_" + (i + 1));
@@ -35,51 +42,51 @@ public class OJWClientListener {
         goldenNecklace.setTexture("/assets/ojw/textures/item/goldenNecklace.png");
         shard_glass.setTexture("/assets/ojw/textures/item/shard_glass.png");
 
-        OJWContainer.textureDirtFrozen = TextureHelper.getInstance().registerBlockTexture("dirtFrozen");
-        OJWContainer.textureSnowFrozen = TextureHelper.getInstance().registerBlockTexture("snowFrozen");
-        OJWContainer.textureGrassFrozenSide = TextureHelper.getInstance().registerBlockTexture("grassFrozen");
+        OJWContainer.textureDirtFrozen = generate("blocks/dirtFrozen");
+        OJWContainer.textureSnowFrozen = generate("blocks/snowFrozen");
+        OJWContainer.textureGrassFrozenSide = generate("blocks/grassFrozen");
 
-        OJWContainer.textureDirtGlitch = TextureHelper.getInstance().registerBlockTexture("dirtGlitch");
-        OJWContainer.textureGrassGlitchTop = TextureHelper.getInstance().registerBlockTexture("grassGlitchTop");
-        OJWContainer.textureGrassGlitchSide = TextureHelper.getInstance().registerBlockTexture("grassGlitch");
+        OJWContainer.textureDirtGlitch = generate("blocks/dirtGlitch");
+        OJWContainer.textureGrassGlitchTop = generate("blocks/grassGlitchTop");
+        OJWContainer.textureGrassGlitchSide = generate("blocks/grassGlitch");
 
-        OJWContainer.textureDirtDark = TextureHelper.getInstance().registerBlockTexture("dirtDark");
-        OJWContainer.textureGrassDarkTop = TextureHelper.getInstance().registerBlockTexture("grassDarkTop");
-        OJWContainer.textureGrassDarkSide = TextureHelper.getInstance().registerBlockTexture("grassDark");
+        OJWContainer.textureDirtDark = generate("blocks/dirtDark");
+        OJWContainer.textureGrassDarkTop = generate("blocks/grassDarkTop");
+        OJWContainer.textureGrassDarkSide = generate("blocks/grassDark");
 
-        OJWContainer.textureDirtCrystal = TextureHelper.getInstance().registerBlockTexture("dirtCrystal");
-        OJWContainer.textureGrassCrystalTop = TextureHelper.getInstance().registerBlockTexture("grassCrystalTop");
-        OJWContainer.textureGrassCrystalSide = TextureHelper.getInstance().registerBlockTexture("grassCrystal");
+        OJWContainer.textureDirtCrystal = generate("blocks/dirtCrystal");
+        OJWContainer.textureGrassCrystalTop = generate("blocks/grassCrystalTop");
+        OJWContainer.textureGrassCrystalSide = generate("blocks/grassCrystal");
 
-        OJWContainer.textureStoneFrozen = TextureHelper.getInstance().registerBlockTexture("stoneFrozen");
-        OJWContainer.textureCobblestoneFrozen = TextureHelper.getInstance().registerBlockTexture("cobblestoneFrozen");
-        OJWContainer.textureGravelFrozen = TextureHelper.getInstance().registerBlockTexture("gravelFrozen");
+        OJWContainer.textureStoneFrozen = generate("blocks/stoneFrozen");
+        OJWContainer.textureCobblestoneFrozen = generate("blocks/cobblestoneFrozen");
+        OJWContainer.textureGravelFrozen = generate("blocks/gravelFrozen");
 
-        OJWContainer.textureStonePurple = TextureHelper.getInstance().registerBlockTexture("stonePurple");
-        OJWContainer.textureCobblestonePurple = TextureHelper.getInstance().registerBlockTexture("cobblestonePurple");
-        OJWContainer.textureGravelPurple = TextureHelper.getInstance().registerBlockTexture("gravelPurple");
+        OJWContainer.textureStonePurple = generate("blocks/stonePurple");
+        OJWContainer.textureCobblestonePurple = generate("blocks/cobblestonePurple");
+        OJWContainer.textureGravelPurple = generate("blocks/gravelPurple");
 
-        OJWContainer.textureLogGlitchTop = TextureHelper.getInstance().registerBlockTexture("logGlitchTop");
-        OJWContainer.textureLogGlitchSide = TextureHelper.getInstance().registerBlockTexture("logGlitch");
-        OJWContainer.texturePlanksGlitch = TextureHelper.getInstance().registerBlockTexture("planksGlitch");
-        OJWContainer.textureLeavesGlitch = TextureHelper.getInstance().registerBlockTexture("leavesGlitch");
+        OJWContainer.textureLogGlitchTop = generate("blocks/logGlitchTop");
+        OJWContainer.textureLogGlitchSide = generate("blocks/logGlitch");
+        OJWContainer.texturePlanksGlitch = generate("blocks/planksGlitch");
+        OJWContainer.textureLeavesGlitch = generate("blocks/leavesGlitch");
 
-        OJWContainer.textureLogSoulTop = TextureHelper.getInstance().registerBlockTexture("logSoulTop");
-        OJWContainer.textureLogSoulSide = TextureHelper.getInstance().registerBlockTexture("logSoul");
-        OJWContainer.texturePlanksSoul = TextureHelper.getInstance().registerBlockTexture("planksSoul");
-        OJWContainer.textureLeavesSoul = TextureHelper.getInstance().registerBlockTexture("leavesSoul");
+        OJWContainer.textureLogSoulTop = generate("blocks/logSoulTop");
+        OJWContainer.textureLogSoulSide = generate("blocks/logSoul");
+        OJWContainer.texturePlanksSoul = generate("blocks/planksSoul");
+        OJWContainer.textureLeavesSoul = generate("blocks/leavesSoul");
 
-        OJWContainer.textureDebug = TextureHelper.getInstance().registerBlockTexture("debug");
+        OJWContainer.textureDebug = generate("blocks/debug");
         OJWContainer.textureCandleItem = TextureHelper.getInstance().registerItemTexture("candle");
 
-        OJWContainer.spawnerExtended = new JsonModel(Identifier.of(modID, "spawner_extended"));
+        OJWContainer.spawnerExtended = JsonModel.get(Identifier.of(modID, "spawner_extended"));
 
-        OJWContainer.gallowsFirst = new JsonModel(Identifier.of(modID, "gallows_first"));
-        OJWContainer.gallowsCenter = new JsonModel(Identifier.of(modID, "gallows_center"));
-        OJWContainer.gallowsTop = new JsonModel(Identifier.of(modID, "gallows_top"));
-        OJWContainer.gallowsEYE = new JsonModel(Identifier.of(modID, "gallows_eye"));
+        OJWContainer.gallowsFirst = JsonModel.get(Identifier.of(modID, "gallows_first"));
+        OJWContainer.gallowsCenter = JsonModel.get(Identifier.of(modID, "gallows_center"));
+        OJWContainer.gallowsTop = JsonModel.get(Identifier.of(modID, "gallows_top"));
+        OJWContainer.gallowsEYE = JsonModel.get(Identifier.of(modID, "gallows_eye"));
 
-        OJWContainer.candleSINGLE = new JsonModel(Identifier.of(modID, "candle_single"));
+        OJWContainer.candleSINGLE = JsonModel.get(Identifier.of(modID, "candle_single"));
     }
 
     @SuppressWarnings("unused")

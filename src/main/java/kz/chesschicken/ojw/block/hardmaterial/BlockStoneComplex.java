@@ -1,9 +1,11 @@
 package kz.chesschicken.ojw.block.hardmaterial;
 
+import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.init.OJWContentListener;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.block.BlockHardnessPerMeta;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
+import net.modificationstation.stationapi.api.client.texture.atlas.Atlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
@@ -34,5 +36,10 @@ public class BlockStoneComplex extends TemplateBlockBase implements BlockHardnes
     @Override
     public int getTextureForSide(int side, int i) {
         return MetaRock.metadataCollection[i].getStoneTexture();
+    }
+
+    @Override
+    public Atlas getAtlas() {
+        return OJWContainer.ATLAS_TERRAIN;
     }
 }

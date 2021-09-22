@@ -22,12 +22,12 @@
     "jewelryapi.MixinPlayerInventory"
   ],
   "client": [
-    "MixinAbstractClientPlayer",
     "MixinBlockBaseClient",
     "customtextures.MixinGameRenderer",
     "customtextures.MixinOverworld",
     "customtextures.MixinWorldRenderer",
-    "dimensionapi.MixinMinecraft",
+    "dimensionapi.client.MixinAbstractClientPlayer",
+    "dimensionapi.client.MixinMinecraft",
     "gui.MixinInGame",
     "gui.MixinMainMenu",
     "gui.MixinScreenBase",
@@ -39,8 +39,8 @@
   ],
   "server": [
     "AccessorServerPlayerConnectionManager",
-    "dimensionapi.MixinMinecraftServer",
-    "dimensionapi.MixinServerPlayer",
-    "dimensionapi.MixinServerPlayerConnectionManager"
+    "dimensionapi.server.MixinMinecraftServer",
+    "dimensionapi.server.MixinServerPlayer",
+    "dimensionapi.server.MixinServerPlayerConnectionManager"
   ]
 }

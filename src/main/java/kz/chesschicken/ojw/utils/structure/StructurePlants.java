@@ -30,16 +30,12 @@ public class StructurePlants extends Structure {
 
     public boolean generate(Level level, Random rand, int x, int y, int z) {
         for(int i = 0; i < 32; ++i) {
-
             int ix = x + rand.nextInt(8) - rand.nextInt(8);
             int iy = y + rand.nextInt(4) - rand.nextInt(4);
             int iz = z + rand.nextInt(8) - rand.nextInt(8);
 
-            if(BlockBase.BY_ID[this.id] instanceof ISpecificGenRequest && ((ISpecificGenRequest)BlockBase.BY_ID[this.id]).canBePlantedHere(level, x, y, z))
+            if((BlockBase.BY_ID[this.id] instanceof ISpecificGenRequest && ((ISpecificGenRequest)BlockBase.BY_ID[this.id]).canBePlantedHere(level, ix, iy, iz)) || (level.isAir(ix, iy, iz) && level.getTileId(ix, iy - 1, iz) == BlockBase.GRASS.id && BlockBase.BY_ID[this.id].canPlaceAt(level, ix, iy, iz)))
                 level.setTileWithMetadata(ix, iy, iz, id, meta);
-            else if (level.isAir(ix, iy, iz) && level.getTileId(ix, iy - 1, iz) == BlockBase.GRASS.id && BlockBase.BY_ID[this.id].canPlaceAt(level, ix, iy, iz))
-                level.setTileWithMetadata(ix, iy, iz, id, meta);
-
         }
 
         return true;

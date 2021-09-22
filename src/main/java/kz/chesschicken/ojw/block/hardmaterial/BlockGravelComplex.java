@@ -1,9 +1,11 @@
 package kz.chesschicken.ojw.block.hardmaterial;
 
+import kz.chesschicken.ojw.init.OJWContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityBase;
 import net.modificationstation.stationapi.api.block.BlockHardnessPerMeta;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
+import net.modificationstation.stationapi.api.client.texture.atlas.Atlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
@@ -39,5 +41,10 @@ public class BlockGravelComplex extends TemplateBlockBase implements BlockHardne
     @Override
     public float getBlastResistance(EntityBase entityBase) {
         return this.resistance / 5.0F;
+    }
+
+    @Override
+    public Atlas getAtlas() {
+        return OJWContainer.ATLAS_TERRAIN;
     }
 }

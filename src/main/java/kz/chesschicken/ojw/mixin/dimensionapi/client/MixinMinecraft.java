@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin.dimensionapi;
+package kz.chesschicken.ojw.mixin.dimensionapi.client;
 
 import kz.chesschicken.ojw.utils.dimensionapi.event.EventRegisterExtendedDimension;
 import net.minecraft.client.Minecraft;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Minecraft.class)
 public class MixinMinecraft {
     @Inject(method = "init", at = @At("TAIL"))
-    private void call1(CallbackInfo ci) {
+    private void injectRegisterDimensionsClient(CallbackInfo ci) {
         StationAPI.EVENT_BUS.post(new EventRegisterExtendedDimension());
     }
 }

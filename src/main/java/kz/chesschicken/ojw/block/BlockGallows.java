@@ -5,9 +5,9 @@ import kz.chesschicken.ojw.utils.extendedblocks.CustomBoundingBoxPerMeta;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.BlockView;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
-import net.modificationstation.stationapi.api.client.model.BlockInventoryModelProvider;
-import net.modificationstation.stationapi.api.client.model.BlockWorldModelProvider;
-import net.modificationstation.stationapi.api.client.model.JsonModel;
+import net.modificationstation.stationapi.api.client.model.block.BlockInventoryModelProvider;
+import net.modificationstation.stationapi.api.client.model.block.BlockWorldModelProvider;
+import net.modificationstation.stationapi.api.client.model.json.JsonModel;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 

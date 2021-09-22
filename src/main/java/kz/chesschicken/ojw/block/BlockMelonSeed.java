@@ -10,6 +10,7 @@ import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
+import net.modificationstation.stationapi.api.client.texture.atlas.Atlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplatePlant;
 
@@ -148,5 +149,10 @@ public class BlockMelonSeed extends TemplatePlant implements IBlockBoneMeal {
             arg.setTileWithMetadata(x, y, z, OJWContentListener.blockMelon.id, 0);
             arg.method_243(x, y, z);
         }
+    }
+
+    @Override
+    public Atlas getAtlas() {
+        return OJWContainer.ATLAS_TERRAIN;
     }
 }

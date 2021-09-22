@@ -3,6 +3,7 @@ package kz.chesschicken.ojw.block;
 import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.init.OJWContentListener;
 import net.minecraft.block.material.Material;
+import net.modificationstation.stationapi.api.client.texture.atlas.Atlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
@@ -34,5 +35,10 @@ public class BlockMelon extends TemplateBlockBase {
             return OJWContainer.textureMelonTop;
         else
             return OJWContainer.textureMelonSide;
+    }
+
+    @Override
+    public Atlas getAtlas() {
+        return OJWContainer.ATLAS_TERRAIN;
     }
 }

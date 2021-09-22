@@ -1,9 +1,11 @@
 package kz.chesschicken.ojw.block.grass;
 
+import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.init.OJWContentListener;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.block.BlockHardnessPerMeta;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
+import net.modificationstation.stationapi.api.client.texture.atlas.Atlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
@@ -39,5 +41,10 @@ public class BlockGrassComplex extends TemplateBlockBase implements BlockHardnes
             return MetaGrass.metadataCollection[i].getDirtTexture();
 
         return MetaGrass.metadataCollection[i].getGrassSideTexture();
+    }
+
+    @Override
+    public Atlas getAtlas() {
+        return OJWContainer.ATLAS_TERRAIN;
     }
 }

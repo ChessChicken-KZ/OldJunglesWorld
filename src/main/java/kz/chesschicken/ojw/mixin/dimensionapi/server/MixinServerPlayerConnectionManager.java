@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin.dimensionapi;
+package kz.chesschicken.ojw.mixin.dimensionapi.server;
 
 import kz.chesschicken.ojw.utils.dimensionapi.DimensionAPI;
 import kz.chesschicken.ojw.utils.dimensionapi.ExtendedDimension;

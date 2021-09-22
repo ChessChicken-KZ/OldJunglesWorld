@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.mixin.dimensionapi;
+package kz.chesschicken.ojw.mixin.dimensionapi.server;
 
 import kz.chesschicken.ojw.utils.dimensionapi.event.EventRegisterExtendedDimension;
 import net.minecraft.server.MinecraftServer;
@@ -15,7 +15,7 @@ public class MixinMinecraftServer {
             target = "Lnet/minecraft/server/ServerProperties;getInteger(Ljava/lang/String;I)I",
             shift = At.Shift.AFTER
     ))
-    private void postEventRegisterDimensions(CallbackInfoReturnable<Boolean> cir) {
+    private void injectRegisterDimensionsServer(CallbackInfoReturnable<Boolean> cir) {
         StationAPI.EVENT_BUS.post(new EventRegisterExtendedDimension());
     }
 }

@@ -23,5 +23,4 @@ public class BlockStairsWool extends SimpleStairs {
     public int getTextureForSide(int side, int meta) {
         return WOOL.getTextureForSide(side, 0);
     }
-
 }

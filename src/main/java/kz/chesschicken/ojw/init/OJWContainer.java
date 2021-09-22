@@ -1,6 +1,8 @@
 package kz.chesschicken.ojw.init;
 
-import net.modificationstation.stationapi.api.client.model.JsonModel;
+
+import net.modificationstation.stationapi.api.client.model.json.JsonModel;
+import net.modificationstation.stationapi.api.client.texture.atlas.ExpandableAtlas;
 
 public class OJWContainer {
 
@@ -42,4 +44,5 @@ public class OJWContainer {
     public static JsonModel gallowsTop;
     public static JsonModel gallowsEYE;
     public static JsonModel candleSINGLE;
+    public static ExpandableAtlas ATLAS_TERRAIN;
 }
