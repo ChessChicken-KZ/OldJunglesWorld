@@ -24,16 +24,16 @@ public abstract class MixinAbstractClientPlayer extends PlayerBase implements IP
             target = "Lnet/minecraft/client/Minecraft;switchDimension()V"
     ))
     private void redirectUseDimAPI(Minecraft minecraft) {
-        teleport(this.dimensionId == 0 ? -1 : 0, new class_467());
+        teleport(this.dimensionId == 0 ? -1 : 0, new class_467(), true);
     }
 
     @Override
-    public void teleport(int id, class_467 teleport) {
+    public void teleport(int id, class_467 teleport, boolean nether_travel) {
         this.dimensionId = id;
         this.level.removeEntity(this);
         this.removed = false;
 
-        double calc = ((id == -1) ? 8.0D : 1.0D);
+        double calc = nether_travel ? ((id == -1) ? 8.0D : 1.0D) : 1;
         double plX = this.x * calc;
         double plZ = this.z * calc;
 

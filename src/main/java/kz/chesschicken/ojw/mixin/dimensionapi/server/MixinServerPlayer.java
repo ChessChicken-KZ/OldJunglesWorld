@@ -25,7 +25,7 @@ public abstract class MixinServerPlayer extends PlayerBase implements IPlayerTel
     }
 
     @Override
-    public void teleport(int id, class_467 teleport) {
+    public void teleport(int id, class_467 teleport, boolean nether_travel) {
         ServerLevel currentWorld = MinecraftServerInstance.get().getLevel(this.dimensionId);
         ServerLevel newWorld = MinecraftServerInstance.get().getLevel(id);
         this.dimensionId = id;
@@ -34,7 +34,7 @@ public abstract class MixinServerPlayer extends PlayerBase implements IPlayerTel
         currentWorld.removeEntityServer(this);
         this.removed = false;
 
-        double calc = ((id == -1) ? 8.0D : 1.0D);
+        double calc = nether_travel ? ((id == -1) ? 8.0D : 1.0D) : 1;
         double plX = this.x * calc;
         double plZ = this.z * calc;
 
