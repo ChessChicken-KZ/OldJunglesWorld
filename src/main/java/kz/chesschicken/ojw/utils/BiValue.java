@@ -15,6 +15,22 @@ public class BiValue<T, K> {
     public BiValue() {
     }
 
+    /**
+     * Currently bad to use.
+     * 0 - for value_t.
+     * others for value_k.
+     * @param b ID of value.
+     * @param o Value.
+     */
+    @Deprecated
+    @SuppressWarnings("all")
+    public BiValue(byte b, Object o) {
+        if(b == 0)
+            this.value_t = (T) o;
+        else
+            this.value_k = (K) o;
+    }
+
     public void set_first(T t) {
         this.value_t = t;
     }

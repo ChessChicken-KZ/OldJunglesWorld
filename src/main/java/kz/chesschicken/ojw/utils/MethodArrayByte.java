@@ -66,4 +66,9 @@ public class MethodArrayByte {
     public static Object INVOKE(int i, Object... objects) {
         return INVOKE((byte) i, objects);
     }
+
+
+    public static byte fromBool(boolean b) {
+        return b ? (byte) 1 : (byte) 0;
+    }
 }

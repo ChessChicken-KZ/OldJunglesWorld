@@ -69,7 +69,7 @@ public class SimpleStairs extends TemplateBlockBase implements BlockWithWorldRen
     }
 
     @Override
-    public void renderWorld(BlockRenderer tileRenderer, BlockView tileView, int x, int y, int z) {
+    public boolean renderWorld(BlockRenderer tileRenderer, BlockView tileView, int x, int y, int z) {
         int meta = tileView.getTileMeta(x, y, z) % 4;
 
         if (meta == 0) {
@@ -93,6 +93,7 @@ public class SimpleStairs extends TemplateBlockBase implements BlockWithWorldRen
             this.setBoundingBox(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             tileRenderer.renderStandardBlock(this, x, y, z);
         }
+        return true;
     }
 
     @Override

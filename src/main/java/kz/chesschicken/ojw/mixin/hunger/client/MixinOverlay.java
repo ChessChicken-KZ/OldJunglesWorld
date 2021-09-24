@@ -1,10 +1,10 @@
 package kz.chesschicken.ojw.mixin.hunger.client;
 
+import kz.chesschicken.ojw.utils.GlobalScreenScaler;
 import kz.chesschicken.ojw.utils.playerhunger.IPlayerHunger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.InGame;
-import net.minecraft.client.util.ScreenScaler;
 import net.minecraft.entity.player.PlayerBase;
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,8 +20,6 @@ public abstract class MixinOverlay extends DrawableHelper {
     @Inject(method = "renderHud", at = @At("TAIL"), cancellable = true)
     private void renderHunger(float f, boolean flag, int i, int j, CallbackInfo ci)
     {
-        ScreenScaler ss = new ScreenScaler(this.minecraft.options, this.minecraft.actualWidth, this.minecraft.actualHeight);
-
         GL11.glBindTexture(3553, this.minecraft.textureManager.getTextureId("/assets/ojw/textures/gui/playericon.png"));
 
         int a = ((IPlayerHunger)minecraft.player).getHunger();
@@ -31,12 +29,12 @@ public abstract class MixinOverlay extends DrawableHelper {
 
         for(int t = 0; t < 10; t++)
         {
-            blit(ss.getScaledWidth() / 2 + (8 * t) + 9, ss.getScaledHeight() - 32 + (armorExists(minecraft.player) ? -9 : 0 ), ((IPlayerHunger) minecraft.player).isPoisoned() ? 9 : 0, 0, 9, 9);
+            blit(GlobalScreenScaler.getWidth() / 2 + (8 * t) + 9, GlobalScreenScaler.getHeight() - 32 + (armorExists(minecraft.player) ? -9 : 0 ), ((IPlayerHunger) minecraft.player).isPoisoned() ? 9 : 0, 0, 9, 9);
         }
 
         for(int t = 0; t < a + q; t++)
         {
-            blit(ss.getScaledWidth() / 2 + (8 * t) + 9, ss.getScaledHeight() - 32 + (armorExists(minecraft.player) ? -9 : 0 ), ((t + 1 == a + q && q == 1) ? 27 : 18) + (((IPlayerHunger) minecraft.player).isPoisoned() ? 18 : 0), 0, 9, 9);
+            blit(GlobalScreenScaler.getWidth() / 2 + (8 * t) + 9, GlobalScreenScaler.getHeight() - 32 + (armorExists(minecraft.player) ? -9 : 0 ), ((t + 1 == a + q && q == 1) ? 27 : 18) + (((IPlayerHunger) minecraft.player).isPoisoned() ? 18 : 0), 0, 9, 9);
         }
     }
 
