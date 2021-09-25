@@ -6,7 +6,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.factory.GeneralFactory;
 import net.modificationstation.stationapi.api.packet.Message;
 import net.modificationstation.stationapi.api.packet.PacketHelper;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -29,7 +28,7 @@ public class ItemInfoPaper extends TemplateItemBase {
     @Override
     public ItemInstance use(ItemInstance item, Level level, PlayerBase player)
     {
-        Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:openinfopaper");
+        Message packet = new Message(Identifier.of("ojw:eldritch_openinfopaper"));
         packet.ints = new int[] { item.getDamage() };
         PacketHelper.send(packet);
 

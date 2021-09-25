@@ -10,7 +10,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerBase;
 import net.modificationstation.stationapi.api.event.mod.InitEvent;
 import net.modificationstation.stationapi.api.event.registry.MessageListenerRegistryEvent;
-import net.modificationstation.stationapi.api.factory.GeneralFactory;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.packet.Message;
 import net.modificationstation.stationapi.api.packet.PacketHelper;
@@ -96,8 +95,8 @@ public class EventInfoPaper {
     @EventListener
     public void registerInfoPaper_PACKET(MessageListenerRegistryEvent messageListenerRegister)
     {
-        messageListenerRegister.registry.register(Identifier.of(modid, "openinfopaper"), this::handlePaper);
-        messageListenerRegister.registry.register(Identifier.of(modid, "resultoip"), this::handleClientPaper);
+        messageListenerRegister.registry.register(Identifier.of(modid, "eldritch_openinfopaper"), this::handlePaper);
+        messageListenerRegister.registry.register(Identifier.of(modid, "eldritch_resultoip"), this::handleClientPaper);
     }
 
     public void handlePaper(PlayerBase playerBase, Message customData) {
@@ -108,7 +107,7 @@ public class EventInfoPaper {
             {
                 if(doesExist(playerBase.inventory.getHeldItem().getDamage()))
                 {
-                    Message packet = GeneralFactory.INSTANCE.newInst(Message.class, "eldritch:resultoip");
+                    Message packet = new Message(Identifier.of("ojw:eldritch_resultoip"));
                     packet.ints = customData.ints;
                     PacketHelper.send(packet);
                     OJWLogger.RUNTIME.info("SERVER SIDE! Sent a packet of InfoPaper with id: " + customData.ints[0]);
