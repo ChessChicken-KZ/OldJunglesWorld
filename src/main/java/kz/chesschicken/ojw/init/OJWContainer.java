@@ -45,4 +45,6 @@ public class OJWContainer {
     public static JsonModel gallowsEYE;
     public static JsonModel candleSINGLE;
     public static ExpandableAtlas ATLAS_TERRAIN;
+
+    public static int textureFlowerLight;
 }

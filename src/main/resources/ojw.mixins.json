@@ -22,7 +22,10 @@
     "jewelryapi.MixinPlayerInventory"
   ],
   "client": [
+    "AccessorBlockRenderer",
     "MixinBlockBaseClient",
+    "MixinBlockBaseGB",
+    "MixinBlockRenderer",
     "customtextures.MixinGameRenderer",
     "customtextures.MixinOverworld",
     "customtextures.MixinWorldRenderer",
@@ -34,8 +37,7 @@
     "hunger.client.MixinOverlay",
     "itemhelper.MixinItemBase",
     "jewelryapi.client.MixinGuiPlayerInventory",
-    "jewelryapi.client.MixinPlayerRenderer",
-    "metalight.MixinBlockBaseMetaL"
+    "jewelryapi.client.MixinPlayerRenderer"
   ],
   "server": [
     "AccessorServerPlayerConnectionManager",

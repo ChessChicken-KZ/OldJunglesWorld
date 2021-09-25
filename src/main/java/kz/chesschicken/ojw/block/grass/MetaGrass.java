@@ -18,9 +18,9 @@ public abstract class MetaGrass {
         return 0.6F;
     }
 
-    public static MetaGrass[] metadataCollection = new MetaGrass[4];
-    public static void registerMeta(MetaGrass object)
+    public static MetaGrass[] metadataCollection;
+    public static void setMetadataCollection(MetaGrass... object)
     {
-        metadataCollection[object.metadata] = object;
+        metadataCollection = object;
     }
 }

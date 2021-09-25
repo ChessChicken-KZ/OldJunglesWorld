@@ -31,9 +31,8 @@ public abstract class MetaRock {
     public abstract int getCobblestoneTexture();
     public abstract int getGravelTexture();
 
-    public static MetaRock[] metadataCollection = new MetaRock[4];
-    public static void registerRock(MetaRock object)
-    {
-        metadataCollection[object.metadata] = object;
+    public static MetaRock[] metadataCollection;
+    public static void setMetadataCollection(MetaRock... object) {
+        metadataCollection = object;
     }
 }

@@ -23,9 +23,8 @@ public abstract class MetaWood {
     public abstract int getLogSideTexture();
     public abstract int getLeavesTexture();
 
-    public static MetaWood[] metadataCollection = new MetaWood[4];
-    public static void registerWood(MetaWood metaWood)
-    {
-        metadataCollection[metaWood.metadata] = metaWood;
+    public static MetaWood[] metadataCollection;
+    public static void setMetadataCollection(MetaWood... metaWood) {
+        metadataCollection = metaWood;
     }
 }

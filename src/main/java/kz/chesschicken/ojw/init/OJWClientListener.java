@@ -9,6 +9,7 @@ import net.modificationstation.stationapi.api.client.event.option.KeyBindingRegi
 import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.model.json.JsonModel;
+import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
 import net.modificationstation.stationapi.api.client.texture.atlas.ExpandableAtlas;
 import net.modificationstation.stationapi.api.registry.Identifier;
 
@@ -79,6 +80,8 @@ public class OJWClientListener {
 
         OJWContainer.textureDebug = generate("blocks/debug");
         OJWContainer.textureCandleItem = TextureHelper.getInstance().registerItemTexture("candle");
+
+        flower_light.texture = Atlases.getStationTerrain().addTexture(Identifier.of(modID, "blocks/flower/light_top")).index;
 
         OJWContainer.spawnerExtended = JsonModel.get(Identifier.of(modID, "spawner_extended"));
 

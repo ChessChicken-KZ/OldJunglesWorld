@@ -87,6 +87,7 @@ public class OJWContentListener {
     public static TemplateBlockBase candleBlock;
 
     public static TemplateItemBase shard_glass;
+    public static TemplateBlockBase flower_light;
 
     @Entrypoint.ModID public static ModID modID = Null.get();
 
@@ -100,34 +101,27 @@ public class OJWContentListener {
 
         blockDirtComplex = new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
         blockGrassComplex = new BlockGrassComplex(Identifier.of(modID, "grass_complex")).setTranslationKey(modID, "grass_complex");
-
-        MetaGrass.registerMeta(new FrozenGrass(0));
-        MetaGrass.registerMeta(new GlitchGrass(1));
-        MetaGrass.registerMeta(new DarkGrass(2));
-        MetaGrass.registerMeta(new CrystalGrass(3));
+        MetaGrass.setMetadataCollection(new FrozenGrass(0), new GlitchGrass(1), new DarkGrass(2), new CrystalGrass(3));
 
         blockStoneComplex = new BlockStoneComplex(Identifier.of(modID, "stone_complex")).setTranslationKey(modID, "stone_complex");
         blockCobblestoneComplex = new BlockCobblestoneComplex(Identifier.of(modID, "cobblestone_complex")).setTranslationKey(modID, "cobblestone_complex");
         blockGravelComplex = new BlockGravelComplex(Identifier.of(modID, "gravel_complex")).setTranslationKey(modID, "gravel_complex");
-
-        MetaRock.registerRock(new FrozenRock(0));
-        MetaRock.registerRock(new PurpleRock(1));
-
-        MetaRock.registerRock(new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(2));
-        MetaRock.registerRock(new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(3));
+        MetaRock.setMetadataCollection(new FrozenRock(0), new PurpleRock(1),
+                new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(2),
+                new kz.chesschicken.ojw.block.hardmaterial.instances.Empty(3));
 
         blockLogComplex = new BlockLogComplex(Identifier.of(modID, "log_complex")).setTranslationKey(modID, "log_complex");
         blockPlanksComplex = new BlockPlanksComplex(Identifier.of(modID, "planks_complex")).setTranslationKey(modID, "planks_complex");
         blockLeavesComplex = new BlockLeavesComplex(Identifier.of(modID, "leaves_complex")).setTranslationKey(modID, "leaves_complex");
-
-        MetaWood.registerWood(new GlitchWood(0));
-        MetaWood.registerWood(new SoulWood(1));
-        MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(2));
-        MetaWood.registerWood(new kz.chesschicken.ojw.block.wood.instances.Empty(3));
+        MetaWood.setMetadataCollection(new GlitchWood(0), new SoulWood(1),
+                new kz.chesschicken.ojw.block.wood.instances.Empty(2),
+                new kz.chesschicken.ojw.block.wood.instances.Empty(3));
 
         stairs_wool = new BlockStairsWool(Identifier.of(modID, "stairs_wool")).setTranslationKey(modID, "stairs_wool");
         gallowsBlock = new BlockGallows(Identifier.of(modID, "gallows")).setTranslationKey(modID, "gallows");
         candleBlock = new BlockCandle(Identifier.of(modID, "candle")).setTranslationKey(modID, "candle");
+
+        flower_light = new BlockLightFlower(Identifier.of(modID, "flower_light")).setTranslationKey(modID, "flower_light");
     }
 
     @SuppressWarnings("unused")

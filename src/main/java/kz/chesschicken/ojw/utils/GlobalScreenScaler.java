@@ -11,6 +11,9 @@ public class GlobalScreenScaler {
     private static int SIZED_WIDTH;
     private static int SIZED_HEIGHT;
 
+    private static int WIDTH;
+    private static int HEIGHT;
+
     public static int getWidth() {
         return SIZED_WIDTH;
     }
@@ -20,16 +23,18 @@ public class GlobalScreenScaler {
     }
 
     public static void updateSizedDimensions() {
-        if(MinecraftInstance.get().options.guiScale != SCALE) {
+        if(MinecraftInstance.get().options.guiScale != SCALE || WIDTH != MinecraftInstance.get().actualWidth || HEIGHT != MinecraftInstance.get().actualHeight) {
+            WIDTH = MinecraftInstance.get().actualWidth;
+            HEIGHT = MinecraftInstance.get().actualHeight;
             SCALE = (short) MinecraftInstance.get().options.guiScale;
             if(SCALE == 0) SCALE = 1000;
 
-            while(SCALE_INT < SCALE && MinecraftInstance.get().actualWidth / (SCALE_INT + 1) >= 320 && MinecraftInstance.get().actualHeight / (SCALE_INT + 1) >= 240) {
+            while(SCALE_INT < SCALE && WIDTH / (SCALE_INT + 1) >= 320 && HEIGHT / (SCALE_INT + 1) >= 240) {
                 ++SCALE_INT;
             }
 
-            SIZED_WIDTH = MinecraftInstance.get().actualWidth / SCALE_INT;
-            SIZED_HEIGHT = MinecraftInstance.get().actualHeight / SCALE_INT;
+            SIZED_WIDTH = WIDTH / SCALE_INT;
+            SIZED_HEIGHT = HEIGHT / SCALE_INT;
         }
     }
 }
