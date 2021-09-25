@@ -32,6 +32,7 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.modificationstation.stationapi.api.event.entity.EntityRegister;
+import net.modificationstation.stationapi.api.event.mod.InitEvent;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.EntityHandlerRegistryEvent;
@@ -51,6 +52,7 @@ import net.modificationstation.stationapi.api.util.Null;
  * Blocks, Items, Recipe, Entity
  */
 public class OJWContentListener {
+    public static OJWConfig config;
 
     public static TemplateFoodBase itemMelon;
     public static TemplateSeeds itemMelonSeeds;
@@ -188,6 +190,13 @@ public class OJWContentListener {
     {
         event.register(EntityGoldenChicken.class, "ojw:golden_chicken", 20);
         event.register(EntityGoldenChicken.class, "ojw:golden_egg", 21);
+    }
+
+    @SuppressWarnings("unused")
+    @EventListener
+    public void loadConfig(InitEvent event) {
+        config = new OJWConfig();
+        config.start();
     }
 
     @SuppressWarnings("unused")

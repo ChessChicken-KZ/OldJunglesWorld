@@ -20,7 +20,6 @@
     "stationapi:event_bus": [
       "kz.chesschicken.ojw.init.OJWContentListener",
       "kz.chesschicken.ojw.init.OJWLevelListener",
-      "kz.chesschicken.ojw.init.OJWConfig",
       "kz.chesschicken.ojw.utils.dimensionapi.DimensionAPI"
     ],
     "stationapi:event_bus_client":

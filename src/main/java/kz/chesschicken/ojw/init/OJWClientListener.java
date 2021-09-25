@@ -5,6 +5,7 @@ import kz.chesschicken.ojw.utils.TextureHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.render.entity.ChickenRenderer;
 import net.minecraft.client.render.entity.model.Chicken;
+import net.modificationstation.stationapi.api.client.event.option.KeyBindingRegisterEvent;
 import net.modificationstation.stationapi.api.client.event.render.entity.EntityRendererRegisterEvent;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.model.json.JsonModel;
@@ -94,5 +95,11 @@ public class OJWClientListener {
     public void registerEntityRenderers(EntityRendererRegisterEvent event)
     {
         event.renderers.put(EntityGoldenChicken.class, new ChickenRenderer(new Chicken(), 1.0f));
+    }
+
+    @SuppressWarnings("unused")
+    @EventListener
+    public void registerKeyBinding(KeyBindingRegisterEvent event) {
+        int q = event.hashCode();
     }
 }

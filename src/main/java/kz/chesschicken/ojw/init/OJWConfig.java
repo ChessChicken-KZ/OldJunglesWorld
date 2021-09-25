@@ -1,58 +1,40 @@
 package kz.chesschicken.ojw.init;
 
 
-import net.mine_diver.unsafeevents.listener.EventListener;
-import net.modificationstation.stationapi.api.config.Category;
-import net.modificationstation.stationapi.api.config.Configuration;
-import net.modificationstation.stationapi.api.config.Property;
-import net.modificationstation.stationapi.api.event.mod.InitEvent;
-import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.util.Null;
+import kz.chesschicken.ojw.utils.configapi.ConfigInstance;
+import kz.chesschicken.ojw.utils.configapi.instance.Group;
+import kz.chesschicken.ojw.utils.configapi.instance.Property;
 
 import static kz.chesschicken.ojw.init.OJWContentListener.modID;
 
 /**
  * Config of OldJunglesWorld
  */
-public class OJWConfig {
+public class OJWConfig extends ConfigInstance {
 
     public boolean customMainMenu;
     public boolean extendF3;
     public boolean debugItems;
 
-    @Entrypoint.Config
-    public static Configuration modCONFIG = Null.get();
-
-
-    @SuppressWarnings("unused")
-    @EventListener
-    public void config(InitEvent event)
-    {
+    public OJWConfig() {
+        super("ojw");
         OJWLogger.INIT.info("Current version: " + modID.getVersion().getFriendlyString());
-        modCONFIG.load();
-        Category commonCategory = modCONFIG.getCategory("common");
-
-        Property a = commonCategory.getProperty("customMainMenu", false);
-        a.setComment("Enables custom Main Menu, with some cool stuff.");
-        customMainMenu = a.getBooleanValue();
-
-        Category debugCategory = modCONFIG.getCategory("debug");
-
-        Property b = debugCategory.getProperty("extendF3", false);
-        b.setComment("Show some debug info while pressing F3.");
-        extendF3 = b.getBooleanValue();
-
-        b = debugCategory.getProperty("debugItems", false);
-        b.setComment("Load up debug blocks/items.");
-        debugItems = b.getBooleanValue();
-
-        modCONFIG.save();
-        INSTANCE = this;
     }
 
-    private static OJWConfig INSTANCE;
-    public static OJWConfig getInstance()
-    {
-        return INSTANCE;
+    @Override
+    public void saveConfig() {
+        Group commonCategory = Group.createGroup("common");
+        commonCategory.add(Property.createProperty("customMainMenu", false), "Enables custom Main Menu, with some cool stuff.");
+
+        Group debugCategory = Group.createGroup("debug");
+        debugCategory.add(Property.createProperty("extendF3", false), "Show some debug info while pressing F3.");
+        debugCategory.add(Property.createProperty("debugItems", false), "Load up debug blocks/items.");
+    }
+
+    @Override
+    public void applyConfig() {
+        customMainMenu = (boolean) getValue("common","customMainMenu");
+        extendF3 = (boolean) getValue("debug","extendF3");
+        debugItems = (boolean) getValue("debug","debugItems");
     }
 }

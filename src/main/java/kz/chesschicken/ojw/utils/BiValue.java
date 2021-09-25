@@ -7,28 +7,12 @@ public class BiValue<T, K> {
     private T value_t;
     private K value_k;
 
-    public BiValue(T t, K k) {
+    private BiValue(T t, K k) {
         this.value_t = t;
         this.value_k = k;
     }
 
-    public BiValue() {
-    }
-
-    /**
-     * Currently bad to use.
-     * 0 - for value_t.
-     * others for value_k.
-     * @param b ID of value.
-     * @param o Value.
-     */
-    @Deprecated
-    @SuppressWarnings("all")
-    public BiValue(byte b, Object o) {
-        if(b == 0)
-            this.value_t = (T) o;
-        else
-            this.value_k = (K) o;
+    private BiValue() {
     }
 
     public void set_first(T t) {
@@ -58,5 +42,13 @@ public class BiValue<T, K> {
     @Override
     public int hashCode() {
         return Objects.hash(value_t, value_k);
+    }
+
+    public static <T, K> BiValue<T, K> of(T t, K k) {
+        return new BiValue<>(t, k);
+    }
+
+    public static <T, K> BiValue<T, K> empty() {
+        return new BiValue<>();
     }
 }

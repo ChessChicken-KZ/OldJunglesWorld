@@ -70,7 +70,7 @@ public abstract class MixinBlockBaseMetaBB {
 
             float[] floats = ((CustomBoundingBoxPerMeta) this).getBoundingBoxes(arg.getTileMeta(x, y, z));
 
-            BiValue<Vec3f, Byte> resulting = new BiValue<>(null, (byte) -1);
+            BiValue<Vec3f, Byte> resulting = BiValue.of(null, (byte) -1);
             resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats, 0), first::method_1294, (byte) 4);
             resulting = replaceIfRequires(resulting, resulting(this::isInsideYZ, first::method_1295, second, floats, 3), first::method_1294, (byte) 5);
             resulting = replaceIfRequires(resulting, resulting(this::isInsideXZ, first::method_1299, second, floats, 1), first::method_1294, (byte) 0);
