@@ -36,8 +36,4 @@ public class ItemInfoPaper extends TemplateItemBase {
         return item;
     }
 
-
-
-
-
 }

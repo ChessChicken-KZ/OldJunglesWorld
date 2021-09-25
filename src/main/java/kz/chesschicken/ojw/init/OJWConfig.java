@@ -29,6 +29,9 @@ public class OJWConfig extends ConfigInstance {
         Group debugCategory = Group.createGroup("debug");
         debugCategory.add(Property.createProperty("extendF3", false), "Show some debug info while pressing F3.");
         debugCategory.add(Property.createProperty("debugItems", false), "Load up debug blocks/items.");
+
+        instance.add(commonCategory);
+        instance.add(debugCategory);
     }
 
     @Override
