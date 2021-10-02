@@ -1,7 +1,6 @@
 package kz.chesschicken.ojw.block;
 
 import kz.chesschicken.ojw.init.OJWContainer;
-import kz.chesschicken.ojw.utils.extendedblocks.CustomBoundingBoxPerMeta;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.BlockView;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;
@@ -12,7 +11,7 @@ import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 @HasMetaNamedBlockItem
-public class BlockGallows extends TemplateBlockBase implements BlockInventoryModelProvider, BlockWorldModelProvider, CustomBoundingBoxPerMeta {
+public class BlockGallows extends TemplateBlockBase implements BlockInventoryModelProvider, BlockWorldModelProvider {
     public BlockGallows(Identifier identifier) {
         super(identifier, Material.WOOD);
         this.disableNotifyOnMetaDataChange();
@@ -61,24 +60,4 @@ public class BlockGallows extends TemplateBlockBase implements BlockInventoryMod
         return false;
     }
 
-    @Override
-    public float[] getBoundingBoxes(int meta) {
-        switch (meta) {
-
-            case 3:
-                return new float[] {
-                        0.0F, -1.0F, 0.0F, 1.0F, 1.0F, 1.0F
-                };
-
-            case 2:
-                return new float[] {
-                        -1.0F, 0.0F, 0.0F, 2.0F, 1.0F, 1.0F
-                };
-
-            default:
-                return new float[] {
-                        0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F
-                };
-        }
-    }
 }

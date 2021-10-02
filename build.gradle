@@ -107,6 +107,9 @@ dependencies {
 	modImplementation('com.github.calmilamsy:HowManyItems-Fabric-Unofficial:6af40ed18d') {
 		exclude group: 'com.github.ModificationStation', module: 'StationAPI'
 	}
+
+	/* SmartyGUI (mod core only) */
+	modImplementation 'com.github.ChessChicken-KZ.SmartyGui:SmartyGui:a388f5d470'
 }
 
 processResources {

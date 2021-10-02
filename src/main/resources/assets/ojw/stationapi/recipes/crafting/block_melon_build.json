@@ -10,12 +10,12 @@
   {
     "X":
     {
-      "item": "ojw:nugget_gold"
+      "item": "ojw:melon_item"
     }
   },
   "result":
   {
-    "item": "minecraft:gold_ingot",
+    "item": "ojw:melon_block",
     "count": 1
   }
 }

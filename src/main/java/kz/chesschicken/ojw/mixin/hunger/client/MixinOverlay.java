@@ -21,7 +21,7 @@ public abstract class MixinOverlay extends DrawableHelper {
     private void renderHunger(float f, boolean flag, int i, int j, CallbackInfo ci)
     {
         GL11.glBindTexture(3553, this.minecraft.textureManager.getTextureId("/assets/ojw/textures/gui/playericon.png"));
-
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         int a = ((IPlayerHunger)minecraft.player).getHunger();
         byte q = (byte) ((a % 2 != 0) ? 1 : 0);
 

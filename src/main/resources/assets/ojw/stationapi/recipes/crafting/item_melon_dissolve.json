@@ -3,11 +3,11 @@
   "ingredients":
   [
     {
-      "item": "minecraft:gold_ingot"
+      "item": "ojw:melon_item"
     }
   ],
   "result": {
-    "item": "ojw:nugget_gold",
-    "count": 9
+    "item": "ojw:melon_seeds_item",
+    "count": 1
   }
 }

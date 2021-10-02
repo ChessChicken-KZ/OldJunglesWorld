@@ -8,7 +8,6 @@
   },
   "mixins": [
     "AccessorBiome",
-    "MixinBlockBaseMetaBB",
     "MixinDye",
     "MixinGlass",
     "MixinNetherLevelSource",
@@ -23,7 +22,6 @@
   ],
   "client": [
     "AccessorBlockRenderer",
-    "MixinBlockBaseClient",
     "MixinBlockBaseGB",
     "MixinBlockRenderer",
     "customtextures.MixinGameRenderer",
@@ -35,7 +33,6 @@
     "gui.MixinMainMenu",
     "gui.MixinScreenBase",
     "hunger.client.MixinOverlay",
-    "itemhelper.MixinItemBase",
     "jewelryapi.client.MixinGuiPlayerInventory",
     "jewelryapi.client.MixinPlayerRenderer"
   ],

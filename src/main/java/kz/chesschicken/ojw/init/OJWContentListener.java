@@ -20,7 +20,6 @@ import kz.chesschicken.ojw.block.wood.BlockPlanksComplex;
 import kz.chesschicken.ojw.block.wood.MetaWood;
 import kz.chesschicken.ojw.block.wood.instances.GlitchWood;
 import kz.chesschicken.ojw.block.wood.instances.SoulWood;
-import kz.chesschicken.ojw.item.ItemDebugA;
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
 import kz.chesschicken.ojw.item.goldenegg.ItemGoldenEgg;
 import kz.chesschicken.ojw.item.infopaper.ItemInfoPaper;
@@ -35,8 +34,8 @@ import net.modificationstation.stationapi.api.event.entity.EntityRegister;
 import net.modificationstation.stationapi.api.event.mod.InitEvent;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
-import net.modificationstation.stationapi.api.event.registry.EntityHandlerRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
+import net.modificationstation.stationapi.api.event.tileentity.TileEntityRegisterEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -67,7 +66,6 @@ public class OJWContentListener {
     public static TemplateItemBase goldenNecklace;
 
     public static TemplateItemBase catcher;
-    public static TemplateItemBase debug_1;
 
     //Usually for blocks with same params, but different textures.
     public static TemplateBlockBase blockDirtComplex;
@@ -87,7 +85,6 @@ public class OJWContentListener {
     public static TemplateBlockBase candleBlock;
 
     public static TemplateItemBase shard_glass;
-    public static TemplateBlockBase flower_light;
 
     @Entrypoint.ModID public static ModID modID = Null.get();
 
@@ -96,7 +93,7 @@ public class OJWContentListener {
     public void registerBlocks(BlockRegistryEvent event)
     {
         OJWLogger.INIT.info("Registering blocks...");
-        blockMelon = new BlockMelon(Identifier.of(modID, "melon")).setTranslationKey(modID, "melon");
+        blockMelon = new BlockMelon(Identifier.of(modID, "melon_block")).setTranslationKey(modID, "melon_block");
         blockMelonSeedsTile = new BlockMelonSeed(Identifier.of(modID, "melon_seeds"), blockMelon.id).setTranslationKey(modID, "melon_seeds");
 
         blockDirtComplex = new BlockDirtComplex(Identifier.of(modID, "dirt_complex")).setTranslationKey(modID, "dirt_complex");
@@ -120,8 +117,6 @@ public class OJWContentListener {
         stairs_wool = new BlockStairsWool(Identifier.of(modID, "stairs_wool")).setTranslationKey(modID, "stairs_wool");
         gallowsBlock = new BlockGallows(Identifier.of(modID, "gallows")).setTranslationKey(modID, "gallows");
         candleBlock = new BlockCandle(Identifier.of(modID, "candle")).setTranslationKey(modID, "candle");
-
-        flower_light = new BlockLightFlower(Identifier.of(modID, "flower_light")).setTranslationKey(modID, "flower_light");
     }
 
     @SuppressWarnings("unused")
@@ -138,8 +133,6 @@ public class OJWContentListener {
         catcher = new ItemCatcher(Identifier.of(modID, "catcher")).setTranslationKey(modID, "catcher");
         shard_glass = new TemplateItemBase(Identifier.of(modID, "shard_glass")).setTranslationKey(modID, "shard_glass");
 
-        //Debug
-        debug_1 = new ItemDebugA(Identifier.of(modID, "debug_a")).setTranslationKey(modID, "debug_a");
     }
 
     @SuppressWarnings({"unused", "UnnecessaryBoxing"})
@@ -149,27 +142,14 @@ public class OJWContentListener {
         OJWLogger.INIT.info("Registering recipes of (" + event.recipeId.toString() + ")...");
         Identifier type = event.recipeId;
 
-        if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type())
+        if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type() && FabricLoader.getInstance().isDevelopmentEnvironment())
         {
-            CraftingRegistry.addShapedRecipe(new ItemInstance(blockMelon),
-                    "XXX", "XXX", "XXX", Character.valueOf('X'), itemMelon);
-
-
             //FIXME: Delete after releasing
-            if(FabricLoader.getInstance().isDevelopmentEnvironment())
-            {
-                CraftingRegistry.addShapedRecipe(new ItemInstance(goldenNecklace),
-                        "XX", Character.valueOf('X'), BlockBase.SAND);
-                CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.leatherChestplate),
-                        "X", "X", Character.valueOf('X'), BlockBase.SAND);
-            }
-
+            CraftingRegistry.addShapedRecipe(new ItemInstance(goldenNecklace), "XX", Character.valueOf('X'), BlockBase.SAND);
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.leatherChestplate), "X", "X", Character.valueOf('X'), BlockBase.SAND);
         }
         if(type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type())
         {
-            CraftingRegistry.addShapelessRecipe(new ItemInstance(itemMelonSeeds),
-                    itemMelon);
-
             for(int i = 0; i < MetaWood.metadataCollection.length; i++)
             {
                 CraftingRegistry.addShapelessRecipe(new ItemInstance(blockPlanksComplex, 4, i),
@@ -195,8 +175,7 @@ public class OJWContentListener {
 
     @SuppressWarnings("unused")
     @EventListener
-    public void registerEntityHandlers(EntityHandlerRegistryEvent event)
-    {
+    public void registerTileEntity(TileEntityRegisterEvent event) {
 
     }
 }
