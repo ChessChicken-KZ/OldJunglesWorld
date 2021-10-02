@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.item.infopaper;
 
 import kz.chesschicken.ojw.init.OJWLogger;
-import kz.chesschicken.ojw.utils.GlobalScreenScaler;
+import kz.chesschicken.ojw.utils.client.GlobalScreenScaler;
 import lombok.SneakyThrows;
 import net.minecraft.client.gui.screen.ScreenBase;
 import org.lwjgl.opengl.GL11;

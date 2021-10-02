@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils.customtextures;
+package kz.chesschicken.ojw.utils.client;
 
 public interface ICustomSkyRender {
     String getMoonTexture();

@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.mixin;
 
-import kz.chesschicken.ojw.utils.BlockLightRequest;
-import kz.chesschicken.ojw.utils.IHighGamma;
+import kz.chesschicken.ojw.utils.client.BlockLightRequest;
+import kz.chesschicken.ojw.utils.client.IHighGamma;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.render.block.BlockRenderer;
 import org.spongepowered.asm.mixin.Mixin;

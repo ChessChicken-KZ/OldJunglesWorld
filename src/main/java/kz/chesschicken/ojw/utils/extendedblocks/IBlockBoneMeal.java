@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils;
+package kz.chesschicken.ojw.utils.extendedblocks;
 
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;

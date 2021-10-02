@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.block;
 
-import kz.chesschicken.ojw.utils.IHighGamma;
+import kz.chesschicken.ojw.utils.client.IHighGamma;
 import kz.chesschicken.ojw.utils.extendedblocks.SimpleStairs;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.block.HasMetaNamedBlockItem;

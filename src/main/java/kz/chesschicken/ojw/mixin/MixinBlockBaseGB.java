@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.mixin;
 
-import kz.chesschicken.ojw.utils.BlockLightRequest;
-import kz.chesschicken.ojw.utils.IHighGamma;
+import kz.chesschicken.ojw.utils.client.BlockLightRequest;
+import kz.chesschicken.ojw.utils.client.IHighGamma;
 import kz.chesschicken.ojw.utils.extendedblocks.CustomLightEmittancePerMeta;
 import net.minecraft.block.BlockBase;
 import net.minecraft.level.BlockView;

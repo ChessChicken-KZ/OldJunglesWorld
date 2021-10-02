@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils;
+package kz.chesschicken.ojw.utils.client;
 
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
 

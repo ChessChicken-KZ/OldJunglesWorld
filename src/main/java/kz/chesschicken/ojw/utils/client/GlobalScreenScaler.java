@@ -1,5 +1,6 @@
-package kz.chesschicken.ojw.utils;
+package kz.chesschicken.ojw.utils.client;
 
+import kz.chesschicken.ojw.utils.MinecraftInstance;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 

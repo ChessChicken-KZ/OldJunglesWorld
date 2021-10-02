@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin.gui;
 
-import kz.chesschicken.ojw.utils.GlobalScreenScaler;
+import kz.chesschicken.ojw.utils.client.GlobalScreenScaler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.InGame;
 import net.minecraft.util.hit.HitType;

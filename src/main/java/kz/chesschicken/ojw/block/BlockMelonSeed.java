@@ -2,7 +2,7 @@ package kz.chesschicken.ojw.block;
 
 import kz.chesschicken.ojw.init.OJWContainer;
 import kz.chesschicken.ojw.init.OJWContentListener;
-import kz.chesschicken.ojw.utils.IBlockBoneMeal;
+import kz.chesschicken.ojw.utils.extendedblocks.IBlockBoneMeal;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;

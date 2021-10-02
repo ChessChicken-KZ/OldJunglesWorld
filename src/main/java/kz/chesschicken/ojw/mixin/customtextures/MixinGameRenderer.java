@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin.customtextures;
 
-import kz.chesschicken.ojw.utils.customtextures.ICustomWeatherRender;
+import kz.chesschicken.ojw.utils.client.ICustomWeatherRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sortme.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;

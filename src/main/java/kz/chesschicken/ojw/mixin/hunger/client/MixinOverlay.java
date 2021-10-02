@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin.hunger.client;
 
-import kz.chesschicken.ojw.utils.GlobalScreenScaler;
+import kz.chesschicken.ojw.utils.client.GlobalScreenScaler;
 import kz.chesschicken.ojw.utils.playerhunger.IPlayerHunger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.DrawableHelper;

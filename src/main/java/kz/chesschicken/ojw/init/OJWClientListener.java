@@ -1,7 +1,7 @@
 package kz.chesschicken.ojw.init;
 
 import kz.chesschicken.ojw.item.goldenegg.EntityGoldenChicken;
-import kz.chesschicken.ojw.utils.TextureHelper;
+import kz.chesschicken.ojw.utils.client.TextureHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.render.entity.ChickenRenderer;
 import net.minecraft.client.render.entity.model.Chicken;

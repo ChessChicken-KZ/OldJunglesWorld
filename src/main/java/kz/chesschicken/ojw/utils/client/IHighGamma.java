@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils;
+package kz.chesschicken.ojw.utils.client;
 
 public interface IHighGamma {
     default float getGammaValue() {

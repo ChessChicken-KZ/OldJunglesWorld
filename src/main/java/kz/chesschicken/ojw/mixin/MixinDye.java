@@ -1,6 +1,6 @@
 package kz.chesschicken.ojw.mixin;
 
-import kz.chesschicken.ojw.utils.IBlockBoneMeal;
+import kz.chesschicken.ojw.utils.extendedblocks.IBlockBoneMeal;
 import net.minecraft.block.BlockBase;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.Dye;

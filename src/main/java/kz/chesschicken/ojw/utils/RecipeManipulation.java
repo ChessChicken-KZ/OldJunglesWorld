@@ -1,4 +1,4 @@
-package kz.chesschicken.ojw.utils.recipe;
+package kz.chesschicken.ojw.utils;
 
 import net.minecraft.block.BlockBase;
 import net.minecraft.item.ItemBase;
