@@ -61,7 +61,7 @@ public class WorldUtils {
         chunk.tiles[i << 11 | k << 7 | j] = (byte)((byte)id & MAX_ID_VALUE);
         if (prevID != 0 && any)
             BlockBase.BY_ID[prevID].onBlockRemoved(level, ic_x, j, ic_z);
-        chunk.field_957.method_1704(i, j, k, 0);
+        setMeta(level, i, j, k, 0);
         if (id != 0 && any)
             BlockBase.BY_ID[id].onBlockPlaced(chunk.level, ic_x, j, ic_z);
         chunk.field_967 = true;
@@ -76,11 +76,9 @@ public class WorldUtils {
     public static void dangerousSetID(Level level, int x, int y, int z, int id)
     {
         Chunk chunk = level.getChunkFromCache(x >> 4, z >> 4);
-        int prevID = chunk.tiles[x << 11 | z << 7 | y] & MAX_ID_VALUE;
-        if (prevID == id) return;
+        if ((chunk.tiles[x << 11 | z << 7 | y] & MAX_ID_VALUE) == id) return;
         chunk.tiles[x << 11 | z << 7 | y] = (byte)((byte)id & MAX_ID_VALUE);
-        chunk.field_957.method_1704(x, y, z, 0);
-        chunk.field_967 = true;
+        setMeta(level, x, y, z, 0);
     }
 
 }

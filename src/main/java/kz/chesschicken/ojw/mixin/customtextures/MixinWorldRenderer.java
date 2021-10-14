@@ -59,30 +59,35 @@ public class MixinWorldRenderer {
     private void renderGalaxies(float f, CallbackInfo ci)
     {
         Tessellator tessellator = Tessellator.INSTANCE;
-
         GL11.glEnable(3553);
 
-        GL11.glRotatef(this.level.method_198(f) * 360.0F, 2.2F, 0.0F, 3.5F);
-        GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_NGC-4414.png"));
-
+        //GL11.glRotatef(this.level.method_198(f) * 360.0F, 2.2F, 0.0F, 3.5F);
+        //GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_NGC-4414.png"));
+        bindCelestialBody(f, 2.2F, 0.0F, 3.5F, "/assets/ojw/textures/gui/environment/galaxy_NGC-4414.png");
         vertexCelestialBody(tessellator, 85.0F);
 
-        GL11.glRotatef(this.level.method_198(f) * 360.0F, 0.5F, 0.0F, -0.3F);
-        GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_Antennae-Galaxies.png"));
-
+        //GL11.glRotatef(this.level.method_198(f) * 360.0F, 0.5F, 0.0F, -0.3F);
+        //GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_Antennae-Galaxies.png"));
+        bindCelestialBody(f, 0.5F, 0.0F, -0.3F, "/assets/ojw/textures/gui/environment/galaxy_Antennae-Galaxies.png");
         vertexCelestialBody(tessellator, 72.0F);
 
-        GL11.glRotatef(this.level.method_198(f) * 360.0F, -1.0F, 0.0F, -1.8F);
-        GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_NGC-1427А.png"));
-
+        //GL11.glRotatef(this.level.method_198(f) * 360.0F, -1.0F, 0.0F, -1.8F);
+        //GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_NGC-1427А.png"));
+        bindCelestialBody(f, -1.0F, 0.0F, -1.8F, "/assets/ojw/textures/gui/environment/galaxy_NGC-1427А.png");
         vertexCelestialBody(tessellator, 32.0F);
 
-        GL11.glRotatef(this.level.method_198(f) * 360.0F, 1.3F, 0.0F, -1.2F);
-        GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_M60-UCD1.png"));
-
+        //GL11.glRotatef(this.level.method_198(f) * 360.0F, 1.3F, 0.0F, -1.2F);
+        //GL11.glBindTexture(3553, this.textureManager.getTextureId("/assets/ojw/textures/gui/environment/galaxy_M60-UCD1.png"));
+        bindCelestialBody(f, 1.3F, 0.0F, -1.2F, "/assets/ojw/textures/gui/environment/galaxy_M60-UCD1.png");
         vertexCelestialBody(tessellator, 48.0F);
 
         GL11.glDisable(3553);
+    }
+
+    @Unique
+    private void bindCelestialBody(float f, float x, float y, float z, String texture) {
+        GL11.glRotatef(this.level.method_198(f) * 360.0F, x, y, z);
+        GL11.glBindTexture(3553, this.textureManager.getTextureId(texture));
     }
 
     @Unique
